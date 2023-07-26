@@ -1,0 +1,79 @@
+.contact-card {
+    margin: 0 1%;
+
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .card {
+            margin: 10px;
+            width: 280px;
+
+            .card-body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                margin: auto;
+
+                .profile-icon {
+                    height: 100px;
+
+                    .icon {
+                        top: -85px;
+                        left: 5px;
+                        position: relative;
+
+                        img {
+                            width: 80px;
+                            height: 80px;
+                            border: 2px solid #fff;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+
+                .name {
+                    color: #000000ad;
+                    font-weight: 600;
+                }
+
+                .social-links {
+                    list-style: none;
+                    padding: 0;
+                    display: flex;
+                    align-items: center;
+
+                    li {
+                        padding: 0px 6px;
+                    }
+                }
+
+                small {
+                    text-align: center;
+                }
+
+                .new-card {
+                    color: rgba(0, 0, 0, 0.6784313725);
+                    font-weight: 600;
+                }
+
+                .add-card {
+                    padding: 0px 8px;
+                    background: transparent;
+                    border-radius: 8px;
+                    border: 1px dashed blue;
+
+                    i {
+                        font-size: 28px;
+                        color: blue;
+                    }
+                }
+            }
+            &:hover{
+                box-shadow: 0px 10px 20px 0px rgba(179,179,179,1);
+                cursor: pointer;
+            }
+        }
+    }
+}

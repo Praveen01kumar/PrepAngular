@@ -1,0 +1,497 @@
+.user-profile {
+  margin: 0 1%;
+  display: flex;
+  gap: 16px;
+
+  .profile-info {
+    width: 30%;
+    text-align: center;
+
+    .profile {
+      padding: 16px;
+
+      .profile-image {
+        width: 8.75rem;
+        height: 8.75rem;
+        margin: auto;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+
+      .profile-name {
+        h4 {
+          margin-top: 12px;
+          margin-bottom: 0px;
+          font-size: 1.5rem;
+
+          strong {
+            font-weight: bolder;
+          }
+        }
+      }
+
+      .profile-btn {
+        margin-top: 12px;
+
+        .btn-follow {
+          @extend .update-btn;
+        }
+
+        .btn-message {
+          @extend .cancel-btn;
+        }
+      }
+    }
+
+    .info {
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+
+        h2 {
+          font-size: 16px;
+          font-weight: 600;
+          margin: 0px;
+        }
+      }
+
+      .body {
+        text-align: left;
+        padding: 0px 12px 2px 12px;
+      }
+    }
+
+    .follow {
+      text-align: left;
+      padding: 10px;
+
+      .header {
+        h2 {
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .body {
+      ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        height: 200px;
+        overflow-y: auto;
+
+        li {
+          a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 90%;
+
+            .media {
+              display: flex;
+              margin: 8px 0px;
+              padding: 6px 4px;
+              border-radius: 4px;
+              transition: all ease 0.5s;
+
+              .media-object {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                margin-right: 4px;
+              }
+
+              .media-body {
+                .name {
+                  display: block;
+                  font-weight: 600;
+                }
+
+                .message {
+                  color: #80808085;
+                }
+
+              }
+
+              &:hover {
+                background: #e4e4e4;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.profile-overview {
+  width: 50%;
+
+  .overview-btn {
+    ul {
+      list-style: none;
+      padding: 16px;
+      margin: 0px;
+      display: flex;
+      align-items: center;
+
+      li {
+        padding: 8px 16px;
+        margin: 0px 6px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all ease 0.5s;
+        border: 1px solid #000000ac;
+
+        &:hover {
+          background: #00fffb;
+          color: #fff;
+          border: 1px solid #fff;
+        }
+      }
+
+      .is-act {
+        background: #00fffb;
+        color: #fff;
+        border: 1px solid #fff;
+      }
+    }
+  }
+
+  .overview {
+    .new-post {
+      padding: 16px;
+
+      .post-input {
+        textarea {
+          width: 100%;
+          border: 1px solid #949494;
+          border-radius: 4px;
+          padding: 4px;
+          font-size: 12px;
+          outline: none;
+        }
+      }
+
+      .post-btn {
+        button {
+          @extend .update-btn;
+        }
+      }
+    }
+
+    .single_post {
+      padding: 16px;
+
+      .img-post {
+        width: 100%;
+        height: 250px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: fill;
+        }
+      }
+
+      h3 {
+        a {
+          text-decoration: none;
+          font-size: 20px;
+          text-transform: uppercase;
+          font-weight: 600;
+          margin-top: 8px;
+          color: #515a59;
+        }
+      }
+
+      p {
+        font-size: 12px;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        p {
+          margin: 0px;
+
+          a {
+            text-decoration: none;
+            border: 1px solid grey;
+            border-radius: 4px;
+            padding: 6px 12px;
+            color: inherit;
+            transition: all ease 0.5s;
+
+            &:hover {
+              background: #f3f3f3;
+            }
+          }
+        }
+
+        .stats {
+          list-style: none;
+          margin: 0px;
+          padding: 0px;
+          display: flex;
+          align-items: center;
+
+          li {
+            a {
+              text-decoration: none;
+              color: inherit;
+              font-size: 79%;
+              font-weight: 500;
+              padding: 4px 10px;
+              border-radius: 4px;
+              border: 1px solid;
+              margin: 0px 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .settings {
+    .basic-information {
+      padding: 16px;
+
+      h6 {
+        font-weight: 600;
+      }
+
+      .form-group {
+        margin-bottom: 10px;
+
+        .form-control {
+          font-size: 13px;
+        }
+
+        .gender {
+          display: flex;
+
+          label {
+            margin-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            input {
+              margin-right: 3px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .btn-update {
+        @extend .update-btn;
+      }
+
+      .btn-cancel {
+        @extend .cancel-btn;
+      }
+    }
+
+    .account-password {
+      padding: 16px;
+
+      .account-form {
+        h6 {
+          font-weight: 600;
+        }
+
+        .form-group {
+          margin-bottom: 10px;
+
+          .form-control {
+            font-size: 13px;
+          }
+        }
+      }
+
+      .btn-update {
+        @extend .update-btn;
+      }
+
+      .btn-cancel {
+        @extend .cancel-btn;
+      }
+    }
+
+    .general-information {
+      padding: 16px;
+
+      h6 {
+        font-weight: 600;
+      }
+
+      .general-form {
+        .form-group {
+          margin-bottom: 10px;
+
+          .form-control {
+            font-size: 13px;
+          }
+
+          .date-format {
+            font-weight: 600;
+          }
+
+          .date-radio {
+            display: flex;
+            flex-wrap: wrap;
+
+            label {
+              display: flex;
+              align-items: center;
+              padding: 2px 10px;
+
+              input {
+                margin-right: 4px;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .list-email {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+          }
+        }
+
+      }
+
+      .btn-update {
+        @extend .update-btn;
+      }
+
+      .btn-cancel {
+        @extend .cancel-btn;
+      }
+    }
+  }
+}
+
+.profile-action {
+  width: 20%;
+
+  .profile-report {
+    padding: 16px;
+
+    ul {
+      list-style: none;
+      padding: 0px;
+      margin: 0px;
+      gap: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      li {
+        width: 100px;
+        border: 1px solid #c2c2c2;
+        border-radius: 4px;
+
+        .body {
+          text-align: center;
+
+          i {
+            font-size: 24px;
+            font-weight: 800;
+          }
+
+          h5 {
+            font-size: 20px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  .businuss {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 50.0000%;
+    padding-bottom: 0;
+    box-shadow: 0 2px 8px 0 rgba(63, 69, 81, 0.16);
+    margin-top: 1.6em;
+    margin-bottom: 0.9em;
+    overflow: hidden;
+    border-radius: 8px;
+    will-change: transform;
+
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .rate {
+    .cards {
+      padding: 10px;
+      text-align: center;
+
+      .progress_val {
+        margin: auto;
+      }
+
+      h2 {
+        font-size: 16px;
+        margin-top: 4px;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0px;
+      }
+    }
+  }
+}
+
+
+.update-btn {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px;
+  background: #00fffb;
+  color: #fff;
+  font-weight: 700;
+  margin: 5px;
+  transition: all ease 0.5s;
+
+  &:hover {
+    background: #01adab;
+  }
+}
+
+.cancel-btn {
+  background: #8c9b99;
+  border: 1px solid #8c9b99;
+
+  &:hover {
+    background: #515a59;
+  }
+
+  @extend .update-btn;
+}

@@ -1,0 +1,256 @@
+<div class="cryptocurrency">
+    <div class="cryptocurrency-card">
+        <div class="card box-stl" *ngFor="let card of uCardArr;">
+            <div class="card-head">
+                <div class="icon">
+                    <i [ngClass]="card?.icon" [ngStyle]="{'color':card?.iconcolor}"></i>
+                </div>
+                <div class="content">
+                    <div class="text">{{card?.text}}</div>
+                    <h5 class="number">{{card?.num}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popular-statistics">
+        <div class="popular box-stl">
+            <div class="header dcb">
+                <div class="heading">
+                    <h2>Popular Cryptocurrency</h2>
+                    <p>15% High then last month</p>
+                </div>
+                <div class="info-menu">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="productMenu"></i>
+                    <mat-menu #productMenu="matMenu" xPosition="before" class="revenue-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="body text-center">
+                <div class="t-value-chart">
+                    <canvas #tValueChart width="250" height="200"></canvas>
+                </div>
+                <div class="income">
+                    <p>Tranding Cryptocurrency</p>
+                    <p>Overall<span> 7,000</span></p>
+                </div>
+                <div class="m-e-chart">
+                    <canvas #mValueChart width="100" height="80"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="statistics box-stl">
+            <div class="header dcb">
+                <div class="heading">
+                    <h2>User Statistics</h2>
+                </div>
+                <div class="info-menu">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="realestateMenu"></i>
+                    <mat-menu #realestateMenu="matMenu" xPosition="before" class="realestate-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="projects-chart">
+                <canvas #projectsChart width="700" height="350"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="selling-country">
+        <div class="statistics">
+            <div class="map box-stl">
+                <div class="header dcb">
+                    <div class="name">
+                        <h2>Top Selling Country</h2>
+                    </div>
+                    <div class="info">
+                        <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="mapMenu"></i>
+                        <mat-menu #mapMenu="matMenu" xPosition="before" class="visitors-info-menu">
+                            <ul class="menu-items">
+                                <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="map-item">
+                    <iframe title="map-item"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30696112.08126717!2d64.43848300685325!3d20.088775406435456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1679386029046!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="new-orders box-stl">
+            <div class="header dcb">
+                <div class="name">
+                    <h2>New Orders</h2>
+                </div>
+                <div class="info">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="patientsMenu"></i>
+                    <mat-menu #patientsMenu="matMenu" xPosition="before" class="patients-info-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="body">
+                <div class="report-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th *ngFor="let hd of customersArr[0]?.head;let i = index;">{{hd}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cus of customersArr;let i = index;">
+                                <td>{{i+1}}</td>
+                                <td>{{cus?.product}}</td>
+                                <td><img class="img" [src]="img?.img" *ngFor="let img of cus?.customer" alt="img"></td>
+                                <td>{{cus?.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="active-order box-stl">
+        <div class="header dcb">
+            <div class="name">
+                <h2>Active Order</h2>
+            </div>
+            <div class="info">
+                <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="aorderMenu"></i>
+                <mat-menu #aorderMenu="matMenu" xPosition="before" class="active-order-info-menu">
+                    <ul class="menu-items">
+                        <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                    </ul>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="item-search">
+            <div class="search d-flex">
+                <label>Search:<input type="search" class="form-control shadow-none" placeholder="Search..."
+                        (keyup)="searchAiByName($event)"></label>
+                <button mat-stroked-button [matMenuTriggerFor]="Column_menu">
+                    <mat-icon>view_column</mat-icon>
+                </button>
+                <mat-menu #Column_menu="matMenu">
+                    <div (click)="$event.stopPropagation()" cdkDropList [cdkDropListData]="RowToDisplay"
+                        (cdkDropListDropped)="drop($event)">
+                        <p *ngFor="let cell of ColumnDisplay;let i =index;" class="mx-3 mb-2 example-box" cdkDrag>
+                            <mat-icon cdkDragHandle>drag_indicator</mat-icon>
+                            <mat-checkbox color="warn" (change)="getColumn($event, cell)" [checked]="cell">{{cell |
+                                uppercase}}</mat-checkbox>
+                        </p>
+                    </div>
+                </mat-menu>
+            </div>
+        </div>
+
+        <div class="body">
+            <div class="report-table">
+                <section>
+                    <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows
+                        (matSortChange)="SortChange($event)">
+                        <ng-container matColumnDef="{{column?.key}}" *ngFor="let column of columnsToDisplay;">
+                            <ng-container *ngIf="column?.sort;">
+                                <th mat-header-cell *matHeaderCellDef="let element;" mat-sort-header class="table-head">
+                                    <span>{{column?.name | uppercase}}</span>
+                                </th>
+                            </ng-container>
+                            <ng-container *ngIf="!column?.sort">
+                                <ng-container *ngIf="column?.key==='select'">
+                                    <th mat-header-cell *matHeaderCellDef="let element;" class="table-head">
+                                        <mat-checkbox (change)="$event ? masterToggle() : null" color="warn"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+                                        </mat-checkbox>
+                                    </th>
+                                </ng-container>
+                                <th mat-header-cell *matHeaderCellDef="let element;" class="table-head">
+                                    <span>{{column?.name | uppercase}}</span>
+                                </th>
+                            </ng-container>
+                            <ng-container *ngIf="column?.key==='select'">
+                                <td mat-cell *matCellDef="let row;">
+                                    <mat-checkbox (click)="$event.stopPropagation()" color="warn"
+                                        (change)="$event ? selection.toggle(row) : null"
+                                        [checked]="selection.isSelected(row)" (change)="getSelected($event, row)">
+                                    </mat-checkbox>
+                                </td>
+                            </ng-container>
+                            <ng-container>
+                                <td mat-cell *matCellDef="let element;">
+                                    <ng-container [ngSwitch]="column?.key">
+                                        <ng-container *ngSwitchCase="'date'">
+                                            {{ element?.date }}
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'type'">
+                                            {{element?.type}}
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'amount'">
+                                            {{element?.amount}}
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'remaining'">
+                                            {{ element?.remaining }}
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'price'">
+                                            {{element?.price}}
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'usd'">
+                                            {{element?.usd}}
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'fee'">
+                                            {{element?.fee}}
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'status'">
+                                            <span
+                                                [ngClass]="[element[column.key]?.type?element[column.key]?.type:'badges']">{{element[column.key]?.name}}</span>
+                                        </ng-container>
+                                    </ng-container>
+                                </td>
+                            </ng-container>
+                        </ng-container>
+                        <ng-container matColumnDef="expandedDetail">
+                            <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                                <div class="example-element-detail"
+                                    [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                                    <div class="example-element-diagram">
+                                        <div>{{element.date}}</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="RowToDisplay;sticky: true"></tr>
+                        <tr mat-row *matRowDef="let element; columns: RowToDisplay;" class="example-element-row"
+                            [class.example-expanded-row]="expandedElement === element"
+                            (click)="expandedElement = expandedElement === element ? null : element">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                    </table>
+                </section>
+                <mat-paginator #paginator (page)="handlePageEvent($event)" [length]="pageLength"
+                    [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+                    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
+                    [pageIndex]="pageIndex">
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

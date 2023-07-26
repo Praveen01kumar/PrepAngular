@@ -1,0 +1,23 @@
+<div class="mx-5 my-3">
+	<div cdkDropListGroup class="d-flex justify-content-between">
+		<div class="example-container" *ngFor="let outer of outerArr">
+			<div class="text-center">{{ outer?.title }}</div>
+			<div cdkDropList class="example-list" [cdkDropListData]="outer?.innerArr"
+				[cdkDropListConnectedTo]="btmdrArr" (cdkDropListDropped)="arrDrop($event)" [id]="outer?.id">
+				<div class="example-box dcb" *ngFor="let inner of outer?.innerArr" [cdkDragData]="inner" cdkDrag>
+					<div class="card-box">
+						<span>{{ inner?.title }}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div cdkDropListGroup class="d-flex justify-content-between mt-4">
+		<div class="example-container" *ngFor="let btm of btmdrArr">
+			<div cdkDropList class="example-list" [cdkDropListData]="btmdrArr" [cdkDropListConnectedTo]="btmdrArr"
+				(cdkDropListDropped)="listDrop($event)" [id]="btm">
+				<div class="text-center">{{ btm }}</div>
+			</div>
+		</div>
+	</div>
+</div>

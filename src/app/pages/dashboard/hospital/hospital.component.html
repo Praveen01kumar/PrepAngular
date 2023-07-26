@@ -1,0 +1,259 @@
+<div class="hospital">
+    <div class="hospital-survey">
+        <div class="repot">
+            <div class="patient box-stl">
+                <div class="body">
+                    <div class="icon"><i class="bi bi-person"></i></div>
+                    <div class="content">
+                        <div class="text">New Patient</div>
+                        <h5 class="number">58</h5>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="icon"><i class="bi bi-person-check"></i></div>
+                    <div class="content">
+                        <div class="text">Operations</div>
+                        <h5 class="number">14</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="visitors box-stl">
+                <div class="body">
+                    <div class="icon"><i class="bi bi-eye"></i></div>
+                    <div class="content">
+                        <div class="text">Visitors</div>
+                        <h5 class="number">528</h5>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="icon"><i class="bi bi-wallet2"></i></div>
+                    <div class="content">
+                        <div class="text">Revenue</div>
+                        <h5 class="number">$18,925</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="clients box-stl">
+                <div class="body">
+                    <div class="icon"><i class="bi bi-emoji-smile"></i></div>
+                    <div class="content">
+                        <div class="text">Happy Clients</div>
+                        <h5 class="number">528</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chart box-stl">
+            <div class="header">
+                <h2>Hospital Survey</h2>
+                <div class="info-menu">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="hptlSurveyMenu"></i>
+                    <mat-menu #hptlSurveyMenu="matMenu" xPosition="before" class="hospital-survey-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="body">
+                <div class="chart-body">
+                    <canvas #genderChart width="125" height="380"></canvas>
+                </div>
+                <div class="chart-record">
+                    <div>
+                        <h4 class="revanue">$106</h4>
+                        <p class="time"> Today's</p>
+                    </div>
+                    <div>
+                        <h4 class="revanue">$907</h4>
+                        <p class="time">This Week's</p>
+                    </div>
+                    <div>
+                        <h4 class="revanue">$4210</h4>
+                        <p class="time">This Month's</p>
+                    </div>
+                    <div>
+                        <h4 class="revanue">$7,000</h4>
+                        <p class="time">This Year's</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="treatment-chart">
+        <div class="heart box-stl">
+            <h1>Heart Surgeries</h1>
+            <div> <canvas #line1blogChart width="300" height="90"></canvas></div>
+        </div>
+        <div class="medical box-stl">
+            <h1>Medical Treatment</h1>
+            <div><canvas #line2blogChart width="300" height="90"></canvas></div>
+        </div>
+        <div class="opd box-stl">
+            <h1>OPD Treatment</h1>
+            <div><canvas #line3blogChart width="300" height="90"></canvas></div>
+        </div>
+    </div>
+    <div class="visitors-statistics">
+        <div class="statistics">
+            <div class="map box-stl">
+                <div class="header dcb">
+                    <div class="name">
+                        <h2>Visitors Statistics</h2>
+                    </div>
+                    <div class="info">
+                        <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="mapMenu"></i>
+                        <mat-menu #mapMenu="matMenu" xPosition="before" class="visitors-info-menu">
+                            <ul class="menu-items">
+                                <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="map-item">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30696112.08126717!2d64.43848300685325!3d20.088775406435456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1679386029046!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="map-progress">
+                    <div class="progress-item" *ngFor="let visitor of visitorMArr;let i = index;">
+                        <p>{{visitor?.name}}</p>
+                        <div class="progressbar">
+                            <mat-progress-bar mode="determinate" [value]="visitor?.progress?.value" [color]="visitor?.progress?.color"></mat-progress-bar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="satisfaction box-stl">
+                    <div class="pbody">
+                        <div class="progress-item" data-percent="98">
+                            <svg class="progress" width="150" height="150" viewport="0 0 100 100" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle r="50" cx="89" cy="89" fill="transparent" stroke-dasharray="316.5"
+                                    stroke-dashoffset="0">
+                                </circle>
+                                <circle [ngStyle]="{'stroke-dashoffset': stroksValue1 }" class="bar" r="50" cx="89"
+                                    cy="89" fill="transparent" stroke-dasharray="316.5" stroke-dashoffset="0"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pfoot">
+                        <h2>Satisfaction Rate</h2>
+                    </div>
+                </div>
+                <div class="operation box-stl">
+                    <div class="pbody">
+                        <div class="progress-item" data-percent="40">
+                            <svg class="progress" width="150" height="150" viewport="0 0 100 100" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle r="50" cx="89" cy="89" fill="transparent" stroke-dasharray="316.5"
+                                    stroke-dashoffset="0">
+                                </circle>
+                                <circle [ngStyle]="{'stroke-dashoffset': stroksValue2 }" class="bar" r="50" cx="89"
+                                    cy="89" fill="transparent" stroke-dasharray="316.5" stroke-dashoffset="0"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pfoot">
+                        <h2>Operation Panding</h2>
+                    </div>
+                </div>
+                <div class="productivity box-stl">
+                    <div class="pbody">
+                        <div class="progress-item" data-percent="71">
+                            <svg class="progress" width="150" height="150" viewport="0 0 100 100" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle r="50" cx="89" cy="89" fill="transparent" stroke-dasharray="316.5"
+                                    stroke-dashoffset="0">
+                                </circle>
+                                <circle [ngStyle]="{'stroke-dashoffset': stroksValue3 }" class="bar" r="50" cx="89"
+                                    cy="89" fill="transparent" stroke-dasharray="316.5" stroke-dashoffset="0"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pfoot">
+                        <h2>Productivity Goal</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="browser-usage box-stl">
+            <div class="browser">
+                <div class="header dcb">
+                    <div class="name">
+                        <h2>Browser Usage</h2>
+                    </div>
+                    <div class="info">
+                        <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="browserMenu"></i>
+                        <mat-menu #browserMenu="matMenu" xPosition="before" class="visitors-info-menu">
+                            <ul class="menu-items">
+                                <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="chart">
+                    <canvas #browserChart width="125" height="200"></canvas>
+                </div>
+                <div class="report">
+                    <ul>
+                        <li *ngFor="let bgr of bReposrArr;let i = index;">
+                            <h6>{{bgr?.name}}</h6>
+                            <p>{{bgr?.value}}<sup>%</sup></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="patients box-stl">
+        <div class="header dcb">
+            <div class="name">
+                <h2>Patients Status</h2>
+            </div>
+            <div class="info">
+                <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="patientsMenu"></i>
+                <mat-menu #patientsMenu="matMenu" xPosition="before" class="patients-info-menu">
+                    <ul class="menu-items">
+                        <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                    </ul>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="body">
+            <p class="report-count">
+                <span class="admit bdg-success">3 Admit</span>
+                <span class="discharge badges">2 Discharge</span>
+            </p>
+            <div class="report-table">
+                <table>
+                    <thead class="thead-dark">
+                        <tr><th *ngFor="let hd of patientsArr[0]?.head;let i = index;">{{hd}}</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let patient of patientsArr;let i = index;">
+                            <td>{{i+1}}</td>
+                            <td><img *ngIf="patient?.img" class="profile" [src]="patient?.img"><span>{{patient?.name}}</span></td>
+                            <td><span class="text-info">{{patient?.adress}}</span></td>
+                            <td>{{patient?.start_date}}</td>
+                            <td>{{patient?.end_date}}</td>
+                            <td><span [ngClass]="[patient?.priority?.badge==='warning'?'bdg-warning':patient?.priority?.badge==='success'?'bdg-success':patient?.priority?.badge==='danger'?'bdg-danger':'badges']">{{patient?.priority?.name}}</span></td>
+                            <td><mat-progress-bar mode="determinate" [value]="patient?.progress?.value" [color]="patient?.progress?.color"></mat-progress-bar></td>
+                            <td><span [ngClass]="[patient?.status?.badge==='warning'?'bdg-warning':patient?.status?.badge==='success'?'bdg-success':patient?.status?.badge==='danger'?'bdg-danger':'badges']">{{patient?.status?.name}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

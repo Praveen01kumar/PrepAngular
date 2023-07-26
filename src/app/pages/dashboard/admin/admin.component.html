@@ -1,0 +1,331 @@
+<div class="admain-container">
+    <div class="rchart-container dcb">
+        <div class="report-chart">
+            <div class="chart-body">
+                <div class="number">
+                    <h6>EARNINGS</h6>
+                    <span>$22,500</span>
+                </div>
+                <small class="text-muted">19% compared to last week</small>
+            </div>
+            <div class="chart-line">
+                <canvas #line1Chart width="300" height="90"></canvas>
+            </div>
+        </div>
+        <div class="report-chart">
+            <div class="chart-body">
+                <div class="number">
+                    <h6>SALES</h6>
+                    <span>$500</span>
+                </div>
+                <small class="text-muted">19% compared to last week</small>
+            </div>
+            <div class="chart-line">
+                <canvas #line2Chart width="300" height="90"></canvas>
+            </div>
+        </div>
+        <div class="report-chart">
+            <div class="chart-body">
+                <div class="number">
+                    <h6>VISITS</h6>
+                    <span>$21,215</span>
+                </div>
+                <small class="text-muted">19% compared to last week</small>
+            </div>
+            <div class="chart-line">
+                <canvas #line3Chart width="300" height="90"></canvas>
+            </div>
+        </div>
+        <div class="report-chart">
+            <div class="chart-body">
+                <div class="number">
+                    <h6>LIKES</h6>
+                    <span>$421,215</span>
+                </div>
+                <small class="text-muted">19% compared to last week</small>
+            </div>
+            <div class="chart-line">
+                <canvas #line4Chart width="300" height="90"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="product-report-container dsb">
+        <div class="top-products-chart">
+            <div class="header dcb">
+                <div class="heading">
+                    <h2>Top Products</h2>
+                </div>
+                <div class="info-menu">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="productMenu"></i>
+                    <mat-menu #productMenu="matMenu" xPosition="before" class="product-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="products-chart-body">
+                <div class="prd-bar">
+                    <canvas #productChart width="700" height="350"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="ref-rev-chart dcb">
+            <div class="referrals-body">
+                <div class="header dcb">
+                    <div class="heading">
+                        <h2>Referrals</h2>
+                    </div>
+                    <div class="info-menu">
+                        <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="productMenu"></i>
+                        <mat-menu #productMenu="matMenu" xPosition="before" class="referral-menu">
+                            <ul class="menu-items">
+                                <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="body">
+                    <ul class="unstyled">
+                        <li *ngFor="let feedb of refrralArr;">
+                            <p>
+                                <span class="value">{{feedb?.value}}</span>
+                                <span class="from-feedback">{{feedb?.feedback}}</span>
+                            </p>
+                            <div class="progress-feedback">
+                                <mat-progress-bar [mode]="feedb?.progress?.mode" [color]="feedb?.progress?.color"
+                                    [value]="feedb?.progress?.value"></mat-progress-bar>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="revenue-body">
+                <div class="header dcb">
+                    <div class="heading">
+                        <h2>Total Revenue</h2>
+                    </div>
+                    <div class="info-menu">
+                        <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="productMenu"></i>
+                        <mat-menu #productMenu="matMenu" xPosition="before" class="revenue-menu">
+                            <ul class="menu-items">
+                                <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="body text-center">
+                    <h4 class="sale">Total Sale</h4>
+                    <h6 class="sale-value">2,45,124</h6>
+                    <div class="t-value-chart">
+                        <canvas #tValueChart width="150" height="100"></canvas>
+                    </div>
+                    <div class="w-e-chart">
+                        <canvas #wValueChart width="100" height="50"></canvas>
+                    </div>
+                    <h6 class="w-e-text">Weekly Earnings</h6>
+                    <div class="m-e-chart">
+                        <canvas #mValueChart width="100" height="50"></canvas>
+                    </div>
+                    <h6 class="m-e-text">Monthly Earnings</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chat-manages-container dsb">
+        <div class="chat">
+            <div class="chat-card">
+                <div class="chat-header dcb">
+                    <h2>Resent Chat</h2>
+                    <div class="info-menu">
+                        <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="chatMenu"></i>
+                        <mat-menu #chatMenu="matMenu" xPosition="before" class="chat-menu">
+                            <ul class="menu-items">
+                                <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="chat-body">
+                    <div class="chat-media">
+                        <ul>
+                            <li *ngFor="let chat of chatDataArr;" [ngClass]="chat?.sender?'sender':'reciver'">
+                                <img *ngIf="chat?.sender" [src]="chat?.img?chat?.img:'assets/avatar/user.png'">
+                                <div class="chat-info">
+                                    <span class="message">{{chat?.message}}</span>
+                                </div>
+                                <img *ngIf="!chat?.sender" [src]="chat?.img?chat?.img:'assets/avatar/user.png'">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="chat-input">
+                        <i class="bi bi-chat"></i>
+                        <input type="text" class="chat-input-field" placeholder="Enter text here...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="manages">
+            <div class="card-manages">
+                <div class="manages-header dcb">
+                    <h2>Data Managed</h2>
+                    <div class="info-menu">
+                        <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="managesMenu"></i>
+                        <mat-menu #managesMenu="matMenu" xPosition="before" class="manages-menu">
+                            <ul class="menu-items">
+                                <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="manages-body">
+                    <div class="manages-body-header dcb">
+                        <div class="header-record">
+                            <h2>1,523</h2>
+                            <p>External Records</p>
+                        </div>
+                        <div class="header-chart">
+                            <canvas #recordChart width="300" height="90"></canvas>
+                        </div>
+                    </div>
+                    <div class="table-manages">
+                        <table class="table table-hover m-0">
+                            <tbody>
+                                <tr *ngFor="let record of recordTabaleArr;">
+                                    <th><span [ngClass]="record?.status?record?.status:'status'"></span></th>
+                                    <td>{{record?.name}}</td>
+                                    <td><span>{{record?.records}} Records</span></td>
+                                    <td><span [ngClass]="record?.rateType ==='na'?'text-danger':''">{{record?.rate}}%
+                                            <i class="bi"
+                                                [ngClass]="record?.rateType ==='na'?'bi-caret-down-fill':'bi-caret-up-fill'"></i></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="feed-container dsb">
+        <div class="feed-lucid">
+            <div class="lucid-header">
+                <h2>Lucid Feeds</h2>
+            </div>
+            <div class="lucid-body">
+                <ul>
+                    <li *ngFor="let feed of lucidFeedArr;">
+                        <div class="feed-icon"><i [ngClass]="feed?.icon?feed?.icon:''"></i></div>
+                        <div class="feed-body">
+                            <h4 [ngClass]="feed?.type" class="dcb">{{feed?.title}}<small>{{feed?.time}}</small></h4>
+                            <small>{{feed?.message}}</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="feed-twitter">
+            <div class="twitter-header">
+                <h2>Twitter Feed</h2>
+            </div>
+            <div class="twitter-body">
+                <div class="msg-box">
+                    <div class="text-area">
+                        <textarea placeholder="Enter here for tweet..."></textarea>
+                    </div>
+                    <div class="btn-area"> <button class="btn btn-primary">Tweet</button>
+                        <a href="javascript:void(0);">13K users active</a>
+                    </div>
+                </div>
+                <hr>
+                <ul class="twitter-chat">
+                    <li class="offline" *ngFor="let twits of twitterMembArr;">
+                        <a href="javascript:void(0);">
+                            <div class="media">
+                                <img class="media-img" [src]="twits?.img?twits?.img:'assets/avatar/user.png'">
+                                <div class="media-body">
+                                    <span class="name dcb">
+                                        <span>@{{twits?.name}}</span>
+                                        <small class="float-right">{{twits?.time}}</small>
+                                    </span>
+                                    <span class="message">{{twits?.message}}</span>
+                                    <span [ngClass]="twits?.status?'badge-active':'badge-inactive'"></span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="feed-team">
+            <div class="team-header">
+                <img src="assets/avatar/user.png" class="team-lead-img">
+                <div class="content-text">
+                    <div class="user-type">Team Leader</div>
+                    <h6 class="user-name">Maryam Amiri</h6>
+                </div>
+            </div>
+            <div class="team-body">
+                <div class="team-list">
+                    <a href="javascript:void(0);" class="list-group-item dcb" *ngFor="let team of teamMsgArr;">
+                        <span>
+                            <i [ngClass]="team?.icon?team?.icon:''"></i>
+                            <span class="team-message">{{team?.message}}</span>
+                        </span>
+                        <span *ngIf="team?.badge?.status"
+                            [ngClass]="team?.badge?.type?team?.badge?.type:''">{{team?.badge?.msg}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lucid-activities-container">
+        <div class="activities">
+            <div class="activities-header">
+                <h2>Lucid Activities</h2>
+            </div>
+            <div class="activities-body">
+                <div class="timeline-item" *ngFor="let timeline of timelineArr;"
+                    [ngClass]="timeline?.status?timeline?.status:''">
+                    <p class="time">{{timeline?.time}}</p>
+                    <h5 class="timeline-msg">{{timeline?.tmsg}}</h5>
+                    <span class="timeline-user">
+                        <a href="javascript:void(0);" class="me-1">{{timeline?.user}}</a>
+                        <span>{{timeline?.userStatus}}</span>
+                    </span>
+                    <div class="msg">
+                        <p class="msg-discription">{{timeline?.discription}}</p>
+                        <div class="timeline_img" *ngIf="timeline?.timeline_img?.length">
+                            <img [src]="image?.img?image?.img:''" *ngFor="let image of timeline?.timeline_img"
+                                alt="Awesome Image">
+                        </div>
+                        <a href="javascript:void(0);" class="msg-like">
+                            <i class="bi bi-suit-heart"></i>
+                            <span>Like</span>
+                        </a>
+                        <a role="button" class="msg-comment" (click)="commentBtn(timeline?.id)">
+                            <i class="bi bi-chat-left"></i>
+                            <span>Comment</span>
+                        </a>
+                        <div class="msg-comment-box" *ngIf="msgBox==timeline?.id">
+                            <div class="well">
+                                <textarea placeholder="Enter here for tweet..."></textarea>
+                                <button>Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

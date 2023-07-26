@@ -1,0 +1,26 @@
+<div class="file-documents">
+    <div class="search">
+        <input type="text" placeholder="Search Docs..." (keyup)="searchDoc($event)">
+    </div>
+    <div class="file-list">
+        <div class="card box-stl" *ngFor="let doc of documentList;">
+            <a href="javascript:void(0);">
+                <div class="trash-btn">
+                    <button type="button">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+                <div class="icon">
+                    <i [ngClass]="doc?.docicon?doc?.docicon:''" [ngStyle]="{'color':doc?.doccolor }"></i>
+                </div>
+                <div class="file-name">
+                    <p class="name">{{doc?.docname}}</p>
+                    <small>
+                        <span class="size">{{doc?.docsize}}</span>
+                        <span class="date">{{doc?.docdate}}</span>
+                    </small>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

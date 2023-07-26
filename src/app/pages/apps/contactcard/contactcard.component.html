@@ -1,0 +1,25 @@
+<div class="contact-card">
+    <div class="card-list">
+        <div class="card box-stl" *ngFor="let card of cardItem;">
+            <div class="card-body">
+                <div class="profile-icon">
+                    <mat-spinner color="primary" mode="determinate" [value]="card?.value" strokeWidth="3" [diameter]="90"></mat-spinner>
+                    <div class="icon" *ngIf="card?.img"><img [src]="card?.img"></div>
+                </div>
+                <h6 class="name">{{card?.name}}</h6>
+                <ul class="social-links">
+                    <li *ngFor="let link of card?.social"><a href="javascript:void(0);"><i [ngClass]="link?.icon?link?.icon:''"></i></a></li>
+                </ul>
+                <small>{{card?.designation}}</small>
+            </div>
+        </div>
+        <div class="card box-stl">
+            <div class="card-body">
+                <h6 class="new-card">Add New Contact</h6>
+                <button type="button" class="add-card">
+                    <i class="bi bi-plus-square-dotted"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

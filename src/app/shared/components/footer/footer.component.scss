@@ -1,0 +1,127 @@
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-text {
+    display: block;
+    margin-top: 0.25rem;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+.ftco-footer-social li {
+    list-style: none;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+
+.ftco-footer-social li a {
+    height: 40px;
+    width: 40px;
+    display: block;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    position: relative;
+}
+
+.footer-08 {
+    padding: 0;
+    overflow: hidden;
+    background: #f1f6f5;
+}
+
+.footer-08 a {
+    color: #12cc94;
+}
+
+.footer-08 p {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.footer-08 .footer-heading {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    .footer-08 .footer-heading.footer-heading-white {
+        color: #fff;
+    }
+}
+
+.footer-08 ul.list-unstyled li a {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.contact-form .form-control {
+    height: 50px;
+    background: #fff;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    border-radius: 5px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
+.contact-form .form-control::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.contact-form .form-control::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.contact-form .form-control:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.contact-form .form-control:-moz-placeholder {
+    color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.contact-form .form-control:focus {
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+.contact-form .submit {
+    background: #2f89fc !important;
+    color: #fff;
+}
+
+.contact-form textarea.form-control {
+    height: inherit !important;
+}
+
+.message-box {
+    background: #12cc94;
+}
+

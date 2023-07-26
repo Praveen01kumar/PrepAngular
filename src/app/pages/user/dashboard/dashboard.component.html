@@ -1,0 +1,17 @@
+<div class="rd-map">
+    <div class="rd-header">
+        <h1>Angular Learning Roadmap</h1>
+    </div>
+    <div class="rd-body">
+        <div class="topics">
+            <div class="topic-content" *ngFor="let topic of topicsArr;let i = index;">
+                <div class="left"><span *ngFor="let left of topic?.left;"
+                        (click)="getTopic({topic:topic?.title, sub:left})">{{left?.name}}</span></div>
+                <button class="topic-btn" [ngClass]="'arrow-'+i" (click)="getCategory({topic:topic?.title})">{{topic?.title}}</button>
+                <div class="right"> <span *ngFor="let right of topic?.right;"
+                        (click)="getTopic({topic:topic?.title, sub:right})">{{right?.name}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<drag-drop></drag-drop>

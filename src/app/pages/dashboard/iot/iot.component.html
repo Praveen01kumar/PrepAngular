@@ -1,0 +1,277 @@
+<div class="iot">
+    <div class="weekly-day-night-use">
+        <div class="weekly-use box-stl">
+            <div class="header dcb">
+                <div class="heading">
+                    <h2>Property Stats</h2>
+                </div>
+                <div class="info-menu">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="realestateMenu"></i>
+                    <mat-menu #realestateMenu="matMenu" xPosition="before" class="realestate-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="realestate-chart">
+                <canvas #realestateChart width="700" height="350"></canvas>
+            </div>
+        </div>
+        <div class="day-night-use box-stl">
+            <div class="income box-stl">
+                <h1>Income Analysis</h1>
+                <p>8% High then last month</p>
+                <div> <canvas #line1blogChart width="300" height="260"></canvas></div>
+            </div>
+        </div>
+    </div>
+    <div class="energy-lights-temprature">
+        <div class="energy box-stl">
+            <div class="chart-body">
+                <div class="number">
+                    <h6>EARNINGS</h6>
+                    <span>$22,500</span>
+                </div>
+                <small class="text-muted">19% compared to last week</small>
+            </div>
+            <div class="chart-line">
+                <canvas #line1Chart width="300" height="90"></canvas>
+            </div>
+        </div>
+        <div class="lights box-stl">
+            <div class="chart-body">
+                <div class="number">
+                    <h6>SALES</h6>
+                    <span>$500</span>
+                </div>
+                <small class="text-muted">19% compared to last week</small>
+            </div>
+            <div class="chart-line">
+                <canvas #line2Chart width="300" height="90"></canvas>
+            </div>
+        </div>
+        <div class="temprature box-stl">
+            <div class="chart-body">
+                <div class="number">
+                    <h6>VISITS</h6>
+                    <span>$21,215</span>
+                </div>
+                <small class="text-muted">19% compared to last week</small>
+            </div>
+            <div class="chart-line">
+                <canvas #line3Chart width="300" height="90"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="security-main">
+        <div class="security box-stl">
+            <div class="head-left">
+                <h6>Security System</h6>
+                <small>Triggered</small>
+            </div>
+            <div class="head-right">
+                <button type="button">Loose</button>
+            </div>
+        </div>
+        <div class="main box-stl">
+            <div class="head-left">
+                <h6>Main Gate</h6>
+                <small>Opened</small>
+            </div>
+            <div class="head-right">
+                <button type="button">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="equpments">
+        <div class="air-conditioner box-stl">
+            <div class="card appliances-grp ng-star-inserted">
+                <div class="body clearfix">
+                    <div class="icon"><img alt="" src="../assets/images/air-conditioner.png"></div>
+                    <div class="content">
+                        <h6>Air Conditioner <span class="text-success">On</span></h6>
+                        <p class="ng-star-inserted">Temprature <span class="text-warning">25° C</span></p>
+                        <p class="ng-star-inserted">Status <span class="text-warning">Cooling On</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fridge box-stl">
+            <div class="card appliances-grp ng-star-inserted">
+                <div class="body clearfix">
+                    <div class="icon"><img alt="" src="../assets/images/fridge.png"></div>
+                    <div class="content">
+                        <h6 _ngcontent-c23="">Fridge <span class="text-success">On</span></h6>
+                        <p class="ng-star-inserted">Temprature <span class="text-primary">10° C</span></p>
+                        <p class="ng-star-inserted">Status <span class="text-success">Stand By</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="washing-machine box-stl">
+            <div class="card appliances-grp ng-star-inserted">
+                <div class="body clearfix">
+                    <div class="icon"><img alt="" src="../assets/images/washing-machine.png"></div>
+                    <div class="content">
+                        <h6 _ngcontent-c23="">Washing Machine <span class="text-success">On</span></h6>
+                        <p class="ng-star-inserted">Remaining Time <span class="text-primary">01:23:21</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="indoor-outdoor-appliences">
+        <div class="indoor box-stl">
+            <div class="header">
+                <h2>Lights Indoor</h2>
+                 <div class="info-menu">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="realestateMenu"></i>
+                    <mat-menu #realestateMenu="matMenu" xPosition="before" class="realestate-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="body">
+                <ul class="list-unstyled basic-list">
+                    <li>
+                        Kitchen
+                        <span class="badge d-none">Off</span>
+                        <span class="badge">On</span>
+                    </li>
+                    <li>
+                        Dining Room
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li>
+                        Living Room
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li class="text-danger">
+                        Bed Room
+                        <span>Not Connected</span>
+                        <span class="badge d-none">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li>
+                        Bath Room
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li>
+                        Store Room
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="outdoor box-stl">
+            <div class="header">
+                <h2>Lights Outdoor</h2>
+                 <div class="info-menu">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="realestateMenu"></i>
+                    <mat-menu #realestateMenu="matMenu" xPosition="before" class="realestate-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="body">
+                <ul class="list-unstyled basic-list">
+                    <li class="text-warning">
+                        Front Door
+                        <span class="badge d-none">Off</span>
+                        <span class="badge">On</span>
+                    </li>
+                    <li>
+                        Back Door
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li class="text-warning">
+                        Pool
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li>
+                        Garage
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li class="text-danger">
+                        Garden
+                        <span class="">Fused</span>
+                        <span class="badge d-none">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li class="text-warning">
+                        Main Door
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="appliences box-stl">
+            <div class="header">
+                <h2>Other Appliences</h2>
+                 <div class="info-menu">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="realestateMenu"></i>
+                    <mat-menu #realestateMenu="matMenu" xPosition="before" class="realestate-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="body">
+                <ul class="list-unstyled basic-list">
+                    <li class="text-warning">
+                        TV
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li>
+                        Apple Tv
+                        <span class="badge d-none">Off</span>
+                        <span class="badge">On</span>
+                    </li>
+                    <li>
+                        Sound Ststem
+                        <span class="badge d-none">Off</span>
+                        <span class="badge">On</span>
+                    </li>
+                    <li class="text-warning">
+                        Air Conditioner
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li class="text-warning">
+                        Fridge
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                    <li class="text-warning">
+                        Washing Machine
+                        <span class="badge">Off</span>
+                        <span class="badge d-none">On</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

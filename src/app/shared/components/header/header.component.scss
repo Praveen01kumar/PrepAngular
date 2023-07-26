@@ -1,0 +1,187 @@
+
+.navbar {
+    width: 100%;
+    padding: 8px 15px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 60px;
+
+    .nav-container-left {
+        .logo {
+            text-decoration: none;
+            background-color: transparent;
+            font-size: 16px;
+            line-height: inherit;
+            white-space: nowrap;
+            color: #5A5A5A;
+            font-weight: 400;
+        }
+    }
+
+    .nav-container-right {
+        display: flex;
+        align-items: center;
+
+        .global-search {
+            margin-right: 20px;
+            margin-bottom: 6px;
+            .search-btn {
+                position: relative;
+
+                .search-input {
+                    width: 246px;
+                    padding: 0.375rem 0.75rem;
+                    border: 1px solid rgb(0 185 183 / 44%);
+                    border-radius: 0.25rem;
+                    padding-left: 20px;
+                    height: 40px;
+                    outline: none;
+                    background: rgb(255 255 255 / 44%);
+                }
+
+                .btn-default {
+                    box-shadow: none;
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                    border: none;
+                    color: #999;
+                    background-color: transparent;
+                    padding: 0px;
+                }
+            }
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+
+            .btn-action {
+                padding: 15px;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all ease 0.5s;
+
+                mat-icon {
+                    color: #909090;
+                }
+
+                &:hover {
+                    background-color: #0000000d;
+
+                    mat-icon {
+                        color: #737373;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+::ng-deep {
+    .notify-menu {
+        max-width: 25vw !important;
+        max-height: 75vh !important;
+        background-color: #000000;
+
+        .notifications {
+            list-style: none;
+            padding: 20px 20px 10px 20px;
+            margin: 0px;
+
+            .header {
+                padding-bottom: 20px;
+                color: #999;
+                border-bottom: 1px solid #1f2125;
+                font-size: 1rem;
+            }
+
+            .message-info {
+                border-bottom: 1px solid #1f2125;
+
+                a {
+                    padding: 15px 0;
+                    color: #777;
+                    display: block;
+                    text-decoration: none;
+                    background-color: transparent;
+                    list-style: none;
+
+                    .media {
+                        margin-bottom: 0px;
+                        display: flex;
+                        align-items: flex-start;
+
+                        .media-left {
+                            margin-right: 20px;
+                        }
+
+                        .media-body {
+                            .text {
+                                margin: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .footer {
+                border-bottom: none;
+
+                a {
+                    padding-top: 20px;
+                    padding-bottom: 0px;
+                    color: #5c8ed4;
+                    display: block;
+                    text-decoration: none;
+                    background-color: transparent;
+                    font-size: 1rem;
+                    list-style: none;
+                }
+            }
+        }
+    }
+
+    .account-menu{
+        background-color: #49c5b6;
+        border-radius: 8px;
+        .user-account{
+            list-style: none;
+            padding: 0px 20px 10px 20px;
+            margin: 0px;
+            .heading{
+                padding-top: 0px;
+                padding: 25px 20px 5px 0px;
+                font-weight: 700;
+                color: #fff;
+                font-size: 1rem;
+                list-style: none;
+                display: list-item;
+            }
+            .heading-info{
+                display: list-item;
+                font-size: 1rem;
+                list-style: none;
+                a{
+                    padding-bottom: 5px;
+                    padding-top: 5px;
+                    color: #fff;
+                    display: block;
+                    text-decoration: none;
+                     background-color: transparent;
+                     span{
+                        margin-left: 10px;
+                     }
+                }
+            }
+        }
+    }
+    
+}
+

@@ -1,0 +1,26 @@
+<div class="file-images">
+    <div class="search">
+        <input type="text" placeholder="Search Images..." (keyup)="searchImage($event)">
+    </div>
+    <div class="file-list">
+        <div class="card box-stl" *ngFor="let image of imageList;">
+            <a href="javascript:void(0);">
+                <div class="trash-btn">
+                    <button type="button">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+                <div class="icon">
+                    <img [src]="image?.img?image?.img:'assets/images/images1.jpg'" alt="image">
+                </div>
+                <div class="file-name">
+                    <p class="name">{{image?.imgname}}</p>
+                    <small>
+                        <span class="size">{{image?.imgsize}}</span>
+                        <span class="date">{{image?.imgdate}}</span>
+                    </small>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

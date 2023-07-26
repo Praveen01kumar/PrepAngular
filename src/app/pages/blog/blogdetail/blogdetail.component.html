@@ -1,0 +1,112 @@
+<div class="blogdetail">
+    <div class="blogdetail-item">
+        <div class="card box-stl">
+            <div class="body">
+                <div class="img-post">
+                    <img src="assets/post/blog_page_1.jpg">
+                </div>
+                <h3 class="title"><a href="javascript:void(0);">Apple Introduces Search Ads Basic</a></h3>
+                <p class="discrips">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+                    a galley of type and scrambled it to make a type specimen book. It has survived not only five
+                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+                    more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                    Ipsum.</p>
+            </div>
+        </div>
+
+        <div class="comments box-stl">
+            <div class="header">
+                <h2>Comments 3</h2>
+            </div>
+            <div class="body">
+                <ul class="comment-reply">
+                    <li *ngFor="let comment of commentsList;">
+                        <div class="img-icon" *ngIf="comment?.img">
+                            <img [src]="comment?.img">
+                        </div>
+                        <div class="details">
+                            <h5 class="name">{{comment?.name}}</h5>
+                            <p class="msg">{{comment?.msg}}</p>
+                            <ul class="action">
+                                <li><a href="javascript:void(0);" class="time">{{comment?.time}}</a></li>
+                                <li><a href="javascript:void(0);" class="reply-btn">Reply</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reply-field box-stl">
+            <div class="header">
+                <h2>Leave a reply</h2>
+                <small>Your email address will not be published. Required fields are marked*</small>
+            </div>
+            <div class="body">
+                <form class="comment-form">
+                    <div class="name-email">
+                        <div class="name">
+                            <input type="text" placeholder="Your Name...">
+                        </div>
+                        <div class="email">
+                            <input type="email" placeholder="Email Address...">
+                        </div>
+                    </div>
+                    <div class="textarea">
+                        <textarea rows="4" placeholder="Please type what you want..."></textarea>
+                    </div>
+                    <button type="button">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="categories">
+        <div class="box-stl">
+            <div class="search">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
+        <div class="box-stl">
+            <div class="header">
+                <h2>Categories Clouds</h2>
+            </div>
+            <div class="categories-list">
+                <ul class="categories-clouds">
+                    <li *ngFor="let ctg of ctgClouds;">
+                        <a href="javascript:void(0);">{{ctg?.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="box-stl">
+            <div class="header">
+                <h2>Popular Posts</h2>
+            </div>
+            <div class="popular-post">
+                <div class="post" *ngFor="let popst of popularPost;">
+                    <p class="title">{{popst?.title}}</p>
+                    <span class="time">{{popst?.time}}</span>
+                    <div class="post-img" *ngIf="popst?.img">
+                        <img [src]="popst?.img">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-stl">
+            <div class="header">
+                <h2>Instagram Post</h2>
+            </div>
+            <ul class="instagram-post">
+                <li *ngFor="let insta of instaPost;">
+                    <div *ngIf="insta?.img" class="insta-img">
+                        <img [src]="insta?.img">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

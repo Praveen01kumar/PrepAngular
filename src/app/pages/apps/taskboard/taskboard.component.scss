@@ -1,0 +1,163 @@
+.taskboard {
+    display: flex;
+
+    .planned {
+        margin: 10px;
+
+        .header {
+            @extend .headers;
+        }
+
+        .taskboard-item {
+            @extend .taskboard-items;
+        }
+    }
+
+    .in-progress {
+        margin: 10px;
+
+        .header {
+            @extend .headers;
+        }
+
+        .taskboard-item {
+            @extend .taskboard-items;
+            .list {
+                .item {
+                    .head {
+                        background: #ffce4b !important;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    .completed {
+        margin: 10px;
+
+        .header {
+            @extend .headers;
+        }
+
+        .taskboard-item {
+            @extend .taskboard-items;
+            .list {
+                .item {
+                    .head {
+                        background: #86c541 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.headers {
+    margin-bottom: 0px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+        color: black;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    button {
+        border: none;
+        background: transparent;
+
+        i {
+            font-size: 20px;
+            color: #0000008c;
+        }
+    }
+}
+
+.taskboard-items {
+    padding: 20px;
+
+    .list {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+        border: 1px solid #00000026;
+        border-radius: 4px;
+
+        .item {
+            .head {
+                height: 40px;
+                padding: 10px;
+                background: #0000000f;
+            }
+
+            .content {
+                padding: 16px;
+
+                h5 {
+                    color: black;
+                }
+
+                p {
+                    font-size: 13px;
+                }
+
+                .list-team {
+                    list-style: none;
+                    display: flex;
+                    align-items: center;
+                    padding: 0;
+
+                    .text {
+                        margin-right: 5px;
+                    }
+
+                    .img {
+                        img {
+                            width: 32px;
+                            height: 32px;
+                            border-radius: 50%;
+                            border: 2px solid #fff;
+                            cursor: pointer;
+                        }
+                    }
+
+                }
+
+                .action {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    button {
+                        border: none;
+                        background: transparent;
+                    }
+
+                    .action-btn {
+                        button {
+                            i {
+                                color: rgb(0, 0, 0);
+                            }
+
+                        }
+
+                    }
+
+                    .trash-btn {
+                        button {
+
+                            i {
+                                color: red;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

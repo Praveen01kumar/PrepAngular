@@ -1,0 +1,221 @@
+<div class="file-container">
+    <div class="folder-report dsb">
+        <div class="folder-report-record">
+            <div class="folder-storage">
+                <div class="storage-body">
+                    <h4 class="dcb"><span>1TB</span><span><i class="bi bi-folder"></i></span></h4>
+                    <p class="dcb"><span>Storage</span><small class="text-muted">of 1Tb</small></p>
+                    <div class="progress-storage">
+                        <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
+                        <p [ngStyle]="{'margin-left':60+'%', 'color':'#8359d0'}">60%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="folder-uses">
+                <div class="uses-body">
+                    <h6>2GB</h6>
+                    <p class="dcb pb-0 mb-0">Documents <small class="text-muted">of 1Tb</small></p>
+                </div>
+                <div class="progress-uses">
+                    <mat-progress-bar color="accent" mode="determinate" value="60"></mat-progress-bar>
+                </div>
+            </div>
+            <div class="folder-uses">
+                <div class="uses-body">
+                    <h6>10GB</h6>
+                    <p class="dcb pb-0 mb-0">Media <small class="text-muted">of 1Tb</small></p>
+                </div>
+                <div class="progress-uses">
+                    <mat-progress-bar color="primary" mode="determinate" value="30"></mat-progress-bar>
+                </div>
+            </div>
+            <div class="folder-uses">
+                <div class="uses-body">
+                    <h6>20GB</h6>
+                    <p class="dcb pb-0 mb-0">Images <small class="text-muted">of 1Tb</small></p>
+                </div>
+                <div class="progress-uses">
+                    <mat-progress-bar color="warn" mode="determinate" value="90"></mat-progress-bar>
+                </div>
+            </div>
+        </div>
+
+        <div class="folder-report-chart">
+            <div class="chart-header">
+                <h2>File Reports</h2>
+            </div>
+
+            <div class="chart-body">
+                <!-- <div id="area_chart" style="position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg
+                        height="354" version="1.1" width="1103.75" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        style="overflow: hidden; position: relative; left: -0.25px; top: -0.125px;">
+                        <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0
+                        </desc>
+                        <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="26.173828125"
+                            y="321" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none"
+                            fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan>
+                        </text>
+                        <path fill="none" stroke="#d6d6d6" d="M38.673828125,321H1078.75" stroke-width="0.5"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="26.173828125" y="247"
+                            text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">15</tspan>
+                        </text>
+                        <path fill="none" stroke="#d6d6d6" d="M38.673828125,247H1078.75" stroke-width="0.5"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="26.173828125" y="173"
+                            text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30</tspan>
+                        </text>
+                        <path fill="none" stroke="#d6d6d6" d="M38.673828125,173H1078.75" stroke-width="0.5"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="26.173828125" y="99"
+                            text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">45</tspan>
+                        </text>
+                        <path fill="none" stroke="#d6d6d6" d="M38.673828125,99H1078.75" stroke-width="0.5"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="26.173828125" y="25"
+                            text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">60</tspan>
+                        </text>
+                        <path fill="none" stroke="#d6d6d6" d="M38.673828125,25H1078.75" stroke-width="0.5"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="1078.75" y="333.5"
+                            text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2017</tspan>
+                        </text><text x="905.087646484375" y="333.5" text-anchor="middle" font-family="sans-serif"
+                            font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2016</tspan>
+                        </text><text x="731.8997802734375" y="333.5" text-anchor="middle" font-family="sans-serif"
+                            font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2015</tspan>
+                        </text><text x="558.7119140625" y="333.5" text-anchor="middle" font-family="sans-serif"
+                            font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2014</tspan>
+                        </text><text x="385.5240478515625" y="333.5" text-anchor="middle" font-family="sans-serif"
+                            font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2013</tspan>
+                        </text><text x="211.8616943359375" y="333.5" text-anchor="middle" font-family="sans-serif"
+                            font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012</tspan>
+                        </text><text x="38.673828125" y="333.5" text-anchor="middle" font-family="sans-serif"
+                            font-size="12px" stroke="none" fill="#888888"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                            font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                            <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2011</tspan>
+                        </text>
+                        <path fill="#38ade8" stroke="none"
+                            d="M38.673828125,321C81.97079467773438,293.8666666666667,168.56472778320312,218.6248974008208,211.8616943359375,212.46666666666667C255.27728271484375,206.29156406748746,342.10845947265625,274.7542179662563,385.5240478515625,271.6666666666667C428.8210144042969,268.5875512995896,515.4149475097656,192.11666666666665,558.7119140625,187.79999999999998C602.0088806152344,183.48333333333332,688.6028137207031,244.53333333333333,731.8997802734375,237.13333333333333C775.1967468261719,229.73333333333332,861.7906799316406,130.44746922024623,905.087646484375,128.6C948.5032348632812,126.74746922024623,1035.3344116210938,198.89999999999998,1078.75,222.33333333333331L1078.75,321L38.673828125,321Z"
+                            fill-opacity="0.2"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0.2;"></path>
+                        <path fill="none" stroke="#0e9be2"
+                            d="M38.673828125,321C81.97079467773438,293.8666666666667,168.56472778320312,218.6248974008208,211.8616943359375,212.46666666666667C255.27728271484375,206.29156406748746,342.10845947265625,274.7542179662563,385.5240478515625,271.6666666666667C428.8210144042969,268.5875512995896,515.4149475097656,192.11666666666665,558.7119140625,187.79999999999998C602.0088806152344,183.48333333333332,688.6028137207031,244.53333333333333,731.8997802734375,237.13333333333333C775.1967468261719,229.73333333333332,861.7906799316406,130.44746922024623,905.087646484375,128.6C948.5032348632812,126.74746922024623,1035.3344116210938,198.89999999999998,1078.75,222.33333333333331"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <circle cx="38.673828125" cy="321" r="2" fill="#0e9be2" stroke="#ffffff" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="211.8616943359375" cy="212.46666666666667" r="2" fill="#0e9be2" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="385.5240478515625" cy="271.6666666666667" r="2" fill="#0e9be2" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="558.7119140625" cy="187.79999999999998" r="2" fill="#0e9be2" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="731.8997802734375" cy="237.13333333333333" r="2" fill="#0e9be2" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="905.087646484375" cy="128.6" r="2" fill="#0e9be2" stroke="#ffffff" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="1078.75" cy="222.33333333333331" r="2" fill="#0e9be2" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <path fill="#d9c5f8" stroke="none"
+                            d="M38.673828125,321C81.97079467773438,306.2,168.56472778320312,262.4158230734154,211.8616943359375,261.8C255.27728271484375,261.1824897400821,342.10845947265625,316.06666666666666,385.5240478515625,316.06666666666666C428.8210144042969,316.06666666666666,515.4149475097656,266.73333333333335,558.7119140625,261.8C602.0088806152344,256.8666666666667,688.6028137207031,300.65000000000003,731.8997802734375,276.6C775.1967468261719,252.55,861.7906799316406,69.39999999999998,905.087646484375,69.39999999999998C948.5032348632812,69.39999999999998,1035.3344116210938,224.8,1078.75,276.6L1078.75,321L38.673828125,321Z"
+                            fill-opacity="0.2"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0.2;"></path>
+                        <path fill="none" stroke="#ab7df6"
+                            d="M38.673828125,321C81.97079467773438,306.2,168.56472778320312,262.4158230734154,211.8616943359375,261.8C255.27728271484375,261.1824897400821,342.10845947265625,316.06666666666666,385.5240478515625,316.06666666666666C428.8210144042969,316.06666666666666,515.4149475097656,266.73333333333335,558.7119140625,261.8C602.0088806152344,256.8666666666667,688.6028137207031,300.65000000000003,731.8997802734375,276.6C775.1967468261719,252.55,861.7906799316406,69.39999999999998,905.087646484375,69.39999999999998C948.5032348632812,69.39999999999998,1035.3344116210938,224.8,1078.75,276.6"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <circle cx="38.673828125" cy="321" r="2" fill="#ab7df6" stroke="#ffffff" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="211.8616943359375" cy="261.8" r="2" fill="#ab7df6" stroke="#ffffff" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="385.5240478515625" cy="316.06666666666666" r="2" fill="#ab7df6" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="558.7119140625" cy="261.8" r="2" fill="#ab7df6" stroke="#ffffff" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="731.8997802734375" cy="276.6" r="2" fill="#ab7df6" stroke="#ffffff" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="905.087646484375" cy="69.39999999999998" r="2" fill="#ab7df6" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="1078.75" cy="276.6" r="2" fill="#ab7df6" stroke="#ffffff" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <path fill="#92c635" stroke="none"
+                            d="M38.673828125,286.4666666666667C81.97079467773438,288.93333333333334,168.56472778320312,306.1865025079799,211.8616943359375,296.3333333333333C255.27728271484375,286.4531691746466,342.10845947265625,205.68080255357958,385.5240478515625,207.53333333333333C428.8210144042969,209.38080255357957,515.4149475097656,312.98333333333335,558.7119140625,311.1333333333333C602.0088806152344,309.2833333333333,688.6028137207031,197.04999999999998,731.8997802734375,192.73333333333332C775.1967468261719,188.41666666666666,861.7906799316406,273.52088463292296,905.087646484375,276.6C948.5032348632812,279.68755129958964,1035.3344116210938,232.2,1078.75,217.39999999999998L1078.75,321L38.673828125,321Z"
+                            fill-opacity="0.2"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0.2;"></path>
+                        <path fill="none" stroke="#7cac25"
+                            d="M38.673828125,286.4666666666667C81.97079467773438,288.93333333333334,168.56472778320312,306.1865025079799,211.8616943359375,296.3333333333333C255.27728271484375,286.4531691746466,342.10845947265625,205.68080255357958,385.5240478515625,207.53333333333333C428.8210144042969,209.38080255357957,515.4149475097656,312.98333333333335,558.7119140625,311.1333333333333C602.0088806152344,309.2833333333333,688.6028137207031,197.04999999999998,731.8997802734375,192.73333333333332C775.1967468261719,188.41666666666666,861.7906799316406,273.52088463292296,905.087646484375,276.6C948.5032348632812,279.68755129958964,1035.3344116210938,232.2,1078.75,217.39999999999998"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <circle cx="38.673828125" cy="286.4666666666667" r="2" fill="#7cac25" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="211.8616943359375" cy="296.3333333333333" r="2" fill="#7cac25" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="385.5240478515625" cy="207.53333333333333" r="2" fill="#7cac25" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="558.7119140625" cy="311.1333333333333" r="2" fill="#7cac25" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="731.8997802734375" cy="192.73333333333332" r="2" fill="#7cac25" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="905.087646484375" cy="276.6" r="2" fill="#7cac25" stroke="#ffffff" stroke-width="1"
+                            style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="1078.75" cy="217.39999999999998" r="2" fill="#7cac25" stroke="#ffffff"
+                            stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                    </svg>
+                    <div class="morris-hover morris-default-style" style="left: 0px; top: 195px; display: none;">
+                        <div class="morris-hover-row-label">2011</div>
+                        <div class="morris-hover-point" style="color: #0E9BE2">
+                            Documents:
+                            0
+                        </div>
+                        <div class="morris-hover-point" style="color: #AB7DF6">
+                            Media:
+                            0
+                        </div>
+                        <div class="morris-hover-point" style="color: #7CAC25">
+                            Images:
+                            7
+                        </div>
+                    </div>
+                </div> -->
+                <canvas #tValueChart width="450" height="385"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="files-folder">
+        <div class="card" *ngFor="let card of folderArr;">
+            <a href="javascript:void(0);" class="folder">
+                <h6>
+                    <i [ngClass]="card?.icon?card?.icon:''"></i>
+                    <span>{{card?.name}}</span>
+                </h6>
+            </a>
+        </div>
+    </div>
+</div>

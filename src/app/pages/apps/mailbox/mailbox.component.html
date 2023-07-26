@@ -1,0 +1,154 @@
+<div class="mail-box">
+    <div class="mail-left">
+        <div class="compose">
+            <a href="javascript:void(0);">Compose</a>
+        </div>
+        <div class="mail-nav">
+            <ul class="nav-main">
+                <li *ngFor="let nav of mailNavArr;let i = index;" [ngClass]="nav?.selected?'active':''"
+                    (click)="mailSelect(i, nav)">
+                    <a href="javascript:void(0);">
+                        <i [ngClass]="nav?.icon ? nav?.icon:''"></i>
+                        <span>{{nav?.name}}</span>
+                        <span *ngIf="nav?.badgeType"
+                            [ngClass]="nav?.badgeType ? nav?.badgeType:''">{{nav?.badgeValue}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="label">
+            <h3 class="dsb">
+                <span>Labels</span>
+                <a href="javascript:void(0);"> <i class="icon-plus">+</i></a>
+            </h3>
+        </div>
+        <div class="nav-label">
+            <ul class="nav">
+                <li *ngFor="let label of mailLabelArr;" [ngClass]="label?.selected?'active':''">
+                    <a href="javascript:void(0);">
+                        <span class="status" [ngClass]="label?.status?label?.status:'status'"></span>
+                        <span class="name">{{label?.name}}</span>
+                        <span *ngIf="label?.badgeType" [ngClass]="label?.badgeType?label?.badgeType:''">5</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mail-right">
+        <div class="header">
+            <h2>{{mailHead}}</h2>
+            <div class="search" *ngIf="!detailView">
+                <form class="search-form">
+                    <input type="text" placeholder="Search Mail..." (keyup)="searchInfo($event)">
+                    <i class="bi bi-search"></i>
+                </form>
+            </div>
+            <div class="close-btn" *ngIf="detailView">
+                <button (click)="closeDetail()">X</button>
+            </div>
+        </div>
+        <div class="mail-action dcb">
+            <div class="action-check">
+                <div class="check-boxs" *ngIf="!detailView">
+                    <mat-checkbox value="select-all" [checked]="allSelected" [color]="'primary'"
+                        [indeterminate]="someSelected()" (change)="setAll($event.checked)"></mat-checkbox>
+                </div>
+                <div class="action-btn">
+                    <button mat-stroked-button (click)="mailTab('refresh')">Refresh</button>
+                    <button mat-stroked-button (click)="mailTab('archive')">Archive</button>
+                    <button mat-stroked-button (click)="mailTab('trash')">Trash</button>
+                    <button mat-stroked-button [matMenuTriggerFor]="tagsMenu">Tags</button>
+                    <mat-menu #tagsMenu="matMenu" class="tags-menu">
+                        <button mat-menu-item>Tag 1</button>
+                        <button mat-menu-item>Tag 2</button>
+                        <button mat-menu-item>Tag 3</button>
+                    </mat-menu>
+                    <button mat-stroked-button [matMenuTriggerFor]="moreMenu">More</button>
+                    <mat-menu #moreMenu="matMenu" class="more-menu">
+                        <button mat-menu-item>Mark as read</button>
+                        <button mat-menu-item>Mark as unread</button>
+                        <button mat-menu-item>Spam</button>
+                        <mat-divider></mat-divider>
+                        <button mat-menu-item>Delete</button>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="email-pagination" *ngIf="!detailView">
+                <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
+                    [hidePageSize]="hidePageSize"></mat-paginator>
+            </div>
+        </div>
+        <div class="mail-list" *ngIf="!detailView">
+            <ul class="list">
+                <li class="list-item dcb" *ngFor="let mail of mailListArr; let i = index;">
+                    <div class="mail-detail dcb">
+                        <div>
+                            <div class="dc">
+                                <mat-checkbox value="select" [color]="'primary'" [(ngModel)]="mail.selected"
+                                    (ngModelChange)="updateAllSelected()"></mat-checkbox>
+                                <a href="javascript:void(0);" class="mail-star" (click)="starMark(mailHead, i)">
+                                    <i *ngIf="!mail?.sactive" class="bi bi-star"></i>
+                                    <i *ngIf="mail?.sactive" class="bi bi-star-fill"></i>
+                                </a>
+                                <h6>
+                                    <span class="name" (click)="showDetail(mail)">{{mail?.name}}</span>
+                                    <span *ngIf="mail?.badge"
+                                        [ngClass]="mail?.badge?mail?.badge:''">{{mail?.badgeName}}</span>
+                                </h6>
+                            </div>
+                            <p class="mail-msg">
+                                <span class="mail-type" *ngIf="mail?.mail_type">{{mail?.mail_type}}</span>
+                                <span *ngIf="mail?.mail_msg">{{mail?.mail_msg}}</span>
+                            </p>
+                        </div>
+                        <div><span class="time" *ngIf="mail?.time">{{mail?.time | date:'dd MMM'}}</span></div>
+                    </div>
+                    <div class="action-btn">
+                        <button type="button" class="archive" (click)="mailAction(mail, i, 'archive')"><i
+                                class="bi bi-archive"></i></button>
+                        <button type="button" class="trash" (click)="mailAction(mail, i, 'trash')"><i
+                                class="bi bi-trash"></i></button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="mail-detail-full" *ngIf="detailView">
+            <div class="detail-header">
+                <div class="media-profile">
+                    <img [src]="mailDatail?.img ? mailDatail?.img:'assets/avatar/user.png'" alt="user">
+                </div>
+                <div class="media-body">
+                    <p>
+                        <strong class="from">Name:</strong>
+                        <span class="name">{{mailDatail?.name}}</span>
+                    </p>
+                    <p>
+                        <strong class="from">From:</strong>
+                        <a class="mail" href="javascript:void(0);">{{mailDatail?.from}}</a>
+                        <span class="time">{{mailDatail?.time| date:'hh:mm a, dd.MM.YYYY'}}</span>
+                    </p>
+                    <p>
+                        <strong class="to">To:</strong>
+                        <span class="me">{{mailDatail?.to}}</span>
+                        <small class="size">{{mailDatail?.file_size}}</small>
+                    </p>
+                    <p>
+                        <strong class="cc">CC:</strong>
+                        <span class="cc-mail">
+                            <a class="mail" href="javascript:void(0);"
+                                *ngFor="let c of mailDatail?.cc; let i = index;">{{i+1}}. {{c?.ml}}</a>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="mail-cnt">
+                <p>{{mailDatail?.mail_detail}}</p>
+            </div>
+            <div class="mail-cnt-action">
+                <strong>Click here to</strong>
+                <a href="javascript:void(0);">Reply</a> or
+                <a href="javascript:void(0);">Forward</a>
+            </div>
+        </div>
+    </div>
+</div>

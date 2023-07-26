@@ -1,0 +1,316 @@
+<div class="blog-dashboard">
+    <div class="rchart-container dcb">
+        <div class="report-chart box-stl">
+            <div class="chart-body">
+                <div class="number">
+                    <p>
+                        <i class="bi bi-hand-thumbs-up"></i>
+                        <span>Likes</span>
+                    </p>
+                    <span>22,500</span>
+                </div>
+            </div>
+            <div class="chart-line">
+                <canvas #line1blogChart width="300" height="90"></canvas>
+            </div>
+        </div>
+        <div class="report-chart box-stl">
+            <div class="chart-body">
+                <div class="number">
+                    <p>
+                        <i class="bi bi-chat-left"></i>
+                        <span>Comments</span>
+                    </p>
+                    <span>500</span>
+                </div>
+            </div>
+            <div class="chart-line">
+                <canvas #line2blogChart width="300" height="90"></canvas>
+            </div>
+        </div>
+        <div class="report-chart box-stl">
+            <div class="chart-body">
+                <div class="number">
+                    <p>
+                        <i class="bi bi-share"></i>
+                        <span>Share</span>
+                    </p>
+                    <span>21,215</span>
+                </div>
+            </div>
+            <div class="chart-line">
+                <canvas #line3blogChart width="300" height="90"></canvas>
+            </div>
+        </div>
+        <div class="report-chart box-stl">
+            <div class="chart-body">
+                <div class="number">
+                    <p>
+                        <i class="bi bi-eye"></i>
+                        <span>View</span>
+                    </p>
+                    <span>421,215</span>
+                </div>
+            </div>
+            <div class="chart-line">
+                <canvas #line4blogChart width="300" height="90"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="categories box-stl">
+        <div class="header">
+            <h2>Categories Statistics</h2>
+        </div>
+        <div class="statistics">
+            <div class="report">
+                <h5>2,048</h5>
+                <span>Total Leads</span>
+            </div>
+            <div class="report">
+                <h5>521</h5>
+                <span>Connections</span>
+            </div>
+            <div class="report">
+                <h5>73</h5>
+                <span>Articles</span>
+            </div>
+            <div class="report">
+                <h5>23</h5>
+                <span>Categories</span>
+            </div>
+        </div>
+        <div class="chart">
+            <canvas #categoriesChart width="125" height="250"></canvas>
+        </div>
+    </div>
+    <div class="visitor-stats">
+        <div class="statistics box-stl">
+            <div class="header">
+                <h2>Visitors Statistics</h2>
+            </div>
+            <div class="map">
+                <div class="w-60">
+                    <div class="views-visitors">
+                        <div class="visitors">
+                            <small>Page Views</small>
+                            <h5>32,211,536</h5>
+                        </div>
+                        <div class="visitors">
+                            <small>Site Visitors</small>
+                            <h5>23,516</h5>
+                        </div>
+                    </div>
+                    <div class="map-item">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30696112.08126717!2d64.43848300685325!3d20.088775406435456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1679659573529!5m2!1sen!2sin"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="chart w-40">
+                    <canvas #visitDeviceChart width="125" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="campaign box-stl">
+            <div class="header">
+                <h2>Marketing Campaign</h2>
+                <span>This Month </span>
+            </div>
+            <div class="campaign-list">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <div class="icon">
+                                        <i class="bi bi-facebook"></i>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h6 class="ads">Facebook Ads</h6>
+                                    <span class="report">1.2k Likes, 418 Shares</span>
+                                </td>
+                                <td>
+                                    <h6 class="revanue">$ 402</h6>
+                                    <span class="type">Spent</span>
+                                </td>
+                                <td>
+                                    <div class="up">23
+                                        <i class="bi bi-arrow-up"></i>
+                                    </div>
+                                    <div class="text-muted">up</div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="icon">
+                                        <i class="bi bi-twitter"></i>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h6 class="ads">Twitter Ads</h6>
+                                    <span class="report">1k Likes, 128 Shares</span>
+                                </td>
+                                <td>
+                                    <h6 class="revanue">$ 489</h6>
+                                    <span class="type">Spent</span>
+                                </td>
+                                <td>
+                                    <div class="down">-9
+                                        <i class="bi bi-arrow-down"></i>
+                                    </div>
+                                    <div class="text-muted">down</div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="icon">
+                                        <i class="bi bi-instagram"></i>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h6 class="ads">Instagram Post</h6>
+                                    <span class="report">1k Follows, 228 Likes</span>
+                                </td>
+                                <td>
+                                    <h6 class="revanue">$ 718</h6>
+                                    <span class="type">Spent</span>
+                                </td>
+                                <td>
+                                    <div class="up">23
+                                        <i class="bi bi-arrow-up"></i>
+                                    </div>
+                                    <div class="text-muted">up</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="icon">
+                                        <i class="bi bi-linkedin"></i>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h6 class="ads">LinkedIn Post</h6>
+                                    <span class="report">1k Follows, 228 Likes</span>
+                                </td>
+                                <td>
+                                    <h6 class="revanue">$ 768</h6>
+                                    <span class="type">Spent</span>
+                                </td>
+                                <td>
+                                    <div class="up">23
+                                        <i class="bi bi-arrow-up"></i>
+                                    </div>
+                                    <div class="text-muted">up</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="icon">
+                                        <i class="bi bi-google"></i>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h6 class="ads">Google +</h6>
+                                    <span class="report">1k Follows, 228 Likes</span>
+                                </td>
+                                <td>
+                                    <h6 class="revanue">$ 1768</h6>
+                                    <span class="type">Spent</span>
+                                </td>
+                                <td>
+                                    <div class="up">23
+                                        <i class="bi bi-arrow-up"></i>
+                                    </div>
+                                    <div class="text-muted">up</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="progress-list">
+        <div class="twitter-progress box-stl">
+            <div class="pheader">
+                <h5>Twitter</h5>
+                <small>56% Increase</small>
+            </div>
+            <hr>
+            <div class="pbody">
+                <div class="progress-item" data-percent="98">
+                    <svg class="progress" width="150" height="150" viewport="0 0 100 100" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle r="50" cx="89" cy="89" fill="transparent" stroke-dasharray="316.5"
+                            stroke-dashoffset="0">
+                        </circle>
+                        <circle [ngStyle]="{'stroke-dashoffset': stroksValue1 }" class="bar" r="50" cx="89" cy="89"
+                            fill="transparent" stroke-dasharray="316.5" stroke-dashoffset="0"></circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="facebook-progress box-stl">
+            <div class="pheader">
+                <h5>Facebook</h5>
+                <small>87% Increase</small>
+            </div>
+            <hr>
+            <div class="pbody">
+                <div class="progress-item" data-percent="40">
+                    <svg class="progress" width="150" height="150" viewport="0 0 100 100" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle r="50" cx="89" cy="89" fill="transparent" stroke-dasharray="316.5"
+                            stroke-dashoffset="0">
+                        </circle>
+                        <circle [ngStyle]="{'stroke-dashoffset': stroksValue2 }" class="bar" r="50" cx="89" cy="89"
+                            fill="transparent" stroke-dasharray="316.5" stroke-dashoffset="0"></circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="instagram-progress box-stl">
+            <div class="pheader">
+                <h5>Instagram</h5>
+                <small>16% Increase</small>
+            </div>
+            <hr>
+            <div class="pbody">
+                <div class="progress-item" data-percent="71">
+                    <svg class="progress" width="150" height="150" viewport="0 0 100 100" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle r="50" cx="89" cy="89" fill="transparent" stroke-dasharray="316.5"
+                            stroke-dashoffset="0">
+                        </circle>
+                        <circle [ngStyle]="{'stroke-dashoffset': stroksValue3 }" class="bar" r="50" cx="89" cy="89"
+                            fill="transparent" stroke-dasharray="316.5" stroke-dashoffset="0"></circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="google-progress box-stl">
+            <div class="pheader">
+                <h5>Google +</h5>
+                <small>37% Increase</small>
+            </div>
+            <hr>
+            <div class="pbody">
+                <div class="progress-item" data-percent="83">
+                    <svg class="progress" width="150" height="150" viewport="0 0 100 100" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle r="50" cx="89" cy="89" fill="transparent" stroke-dasharray="316.5"
+                            stroke-dashoffset="0">
+                        </circle>
+                        <circle [ngStyle]="{'stroke-dashoffset': stroksValue4 }" class="bar" r="50" cx="89" cy="89"
+                            fill="transparent" stroke-dasharray="316.5" stroke-dashoffset="0"></circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,344 @@
+<div class="demographic">
+    <div class="reportbar">
+        <div class="population">
+            <div class="chart">
+                <canvas #populationChart width="125" height="60"></canvas>
+            </div>
+            <div class="contant">
+                <p class="name">Population</p>
+                <p class="value">4,254</p>
+            </div>
+        </div>
+        <div class="usage">
+            <div class="chart">
+                <canvas #usageChart width="125" height="60"></canvas>
+            </div>
+            <div class="contant">
+                <p class="name">Usage</p>
+                <p class="value">98%</p>
+            </div>
+        </div>
+        <div class="pageviews">
+            <div class="chart">
+                <canvas #pageviewsChart width="125" height="60"></canvas>
+            </div>
+            <div class="contant">
+                <p class="name">Page Views</p>
+                <p class="value">1,195</p>
+            </div>
+        </div>
+        <div class="growth">
+            <div class="chart">
+                <canvas #growthChart width="125" height="60"></canvas>
+            </div>
+            <div class="contant">
+                <p class="name">Growth</p>
+                <p class="value">$1,243</p>
+            </div>
+        </div>
+    </div>
+    <div class="visitors-map">
+        <div class="header dcb">
+            <div class="name">
+                <h2>Site Visitors</h2>
+            </div>
+            <div class="info">
+                <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="vinfoMenu"></i>
+                <mat-menu #vinfoMenu="matMenu" xPosition="before" class="visitors-info-menu">
+                    <ul class="menu-items">
+                        <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                    </ul>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="contant">
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30696112.08126717!2d64.43848300685325!3d20.088775406435456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1679386029046!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="visitor-value">
+                <div class="progress">
+                    <p>Visitors From USA</p>
+                    <div>
+                        <mat-progress-bar color="accent" mode="determinate" value="80"></mat-progress-bar>
+                        <p class="percentage" [ngStyle]="{'margin-left':(80-5)+'%', 'color':'#ffd740'}">80%</p>
+                    </div>
+                </div>
+                <div class="progress">
+                    <p>Visitors From India</p>
+                    <div>
+                        <mat-progress-bar color="warn" mode="determinate" value="50"></mat-progress-bar>
+                        <p class="percentage" [ngStyle]="{'margin-left':(50-5)+'%', 'color':'#f44336'}">50%</p>
+                    </div>
+                </div>
+                <div class="progress">
+                    <p>Visitors From Europe</p>
+                    <div>
+                        <mat-progress-bar color="primary" mode="determinate" value="10"></mat-progress-bar>
+                        <p class="percentage" [ngStyle]="{'margin-left':(10-5)+'%', 'color':'#673ab7'}">10%</p>
+                    </div>
+                </div>
+                <div class="progress">
+                    <p>Visitors From Australia</p>
+                    <div>
+                        <mat-progress-bar color="accent" mode="determinate" value="65"></mat-progress-bar>
+                        <p class="percentage" [ngStyle]="{'margin-left':(65-5)+'%', 'color':'#ffd740'}">65%</p>
+                    </div>
+                </div>
+                <div class="progress">
+                    <p>Visitors From UAE</p>
+                    <div>
+                        <mat-progress-bar color="primary" mode="determinate" value="96"></mat-progress-bar>
+                        <p class="percentage" [ngStyle]="{'margin-left':(96-5)+'%', 'color':'#673ab7'}">96%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gender-overview">
+        <div class="header dcb">
+            <div class="name">
+                <h2>Gender Overview</h2>
+            </div>
+            <div class="info">
+                <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="overviewMenu"></i>
+                <mat-menu #overviewMenu="matMenu" xPosition="before" class="visitors-info-menu">
+                    <ul class="menu-items">
+                        <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                    </ul>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="gender-count">
+            <p class="male">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00bdfb" class="bi bi-gender-male"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
+                </svg>
+                <span>2,21,598</span>
+            </p>
+            <p class="female">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ff68b3"
+                    class="bi bi-gender-female" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5z" />
+                </svg>
+                <span>1,00,215</span>
+            </p>
+        </div>
+        <div class="gender-chart">
+            <canvas #genderChart width="125" height="250"></canvas>
+        </div>
+    </div>
+    <div class="browser-whether">
+        <div class="whether">
+            <div class="header dcb">
+                <div class="name">
+                    <h2>Whether</h2>
+                </div>
+                <div class="info">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="whetherMenu"></i>
+                    <mat-menu #whetherMenu="matMenu" xPosition="before" class="visitors-info-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="city">
+                <span class="title">city:</span>
+                <span class="name">San Francisco</span>
+                <p class="day">DAY - 12:07 PM</p>
+            </div>
+            <div class="whether-value">
+                <div class="value">
+                    <p>34°</p>
+                </div>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                        class="bi bi-cloud-sun" viewBox="0 0 16 16">
+                        <path
+                            d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .624.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .51-.375A3.502 3.502 0 0 1 7 8zm4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5h-.027z" />
+                        <path
+                            d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0v-1zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708l.707-.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708l-.708-.707zm1.734 3.374a2 2 0 1 1 3.296 2.198c.199.281.372.582.516.898a3 3 0 1 0-4.84-3.225c.352.011.696.055 1.028.129zm4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377zM14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="whether-table">
+                <table class="table table-striped m-b-0">
+                    <tbody>
+                        <tr>
+                            <td>Land area</td>
+                            <td class="font-medium">121.4 km²</td>
+                        </tr>
+                        <tr>
+                            <td>Humidity</td>
+                            <td class="font-medium">73%</td>
+                        </tr>
+                        <tr>
+                            <td>Pressure</td>
+                            <td class="font-medium">25.56 in</td>
+                        </tr>
+                        <tr>
+                            <td>Population</td>
+                            <td class="font-medium">8.65 lakhs</td>
+                        </tr>
+                        <tr>
+                            <td>Ceiling</td>
+                            <td class="font-medium">25280 ft</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="slider">
+                <div class="slide-track">
+                    <div class="slide">
+                        <div>
+                            <h1>Monday</h1>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                    class="bi bi-cloud-hail" viewBox="0 0 16 16">
+                                    <path
+                                        d="M13.405 4.527a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 10.5H13a3 3 0 0 0 .405-5.973zM8.5 1.5a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1-.001 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 1.5zM3.75 15.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm.408-3.724a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zM7.75 15.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm.408-3.724a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm3.592 3.724a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm.408-3.724a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div>
+                            <h1>Tuesday</h1>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                    class="bi bi-cloud-lightning-rain" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.658 11.026a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm9.5 0a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm-7.5 1.5a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm9.5 0a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm-.753-8.499a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 10H13a3 3 0 0 0 .405-5.973zM8.5 1a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 1zM7.053 11.276A.5.5 0 0 1 7.5 11h1a.5.5 0 0 1 .474.658l-.28.842H9.5a.5.5 0 0 1 .39.812l-2 2.5a.5.5 0 0 1-.875-.433L7.36 14H6.5a.5.5 0 0 1-.447-.724l1-2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div>
+                            <h1>Wednesday</h1>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                    class="bi bi-cloud-lightning-rain" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.658 11.026a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm9.5 0a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm-7.5 1.5a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm9.5 0a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm-.753-8.499a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 10H13a3 3 0 0 0 .405-5.973zM8.5 1a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 1zM7.053 11.276A.5.5 0 0 1 7.5 11h1a.5.5 0 0 1 .474.658l-.28.842H9.5a.5.5 0 0 1 .39.812l-2 2.5a.5.5 0 0 1-.875-.433L7.36 14H6.5a.5.5 0 0 1-.447-.724l1-2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div>
+                            <h1>Thursday</h1>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                    class="bi bi-cloud-sun" viewBox="0 0 16 16">
+                                    <path
+                                        d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .624.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .51-.375A3.502 3.502 0 0 1 7 8zm4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5h-.027z" />
+                                    <path
+                                        d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0v-1zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708l.707-.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708l-.708-.707zm1.734 3.374a2 2 0 1 1 3.296 2.198c.199.281.372.582.516.898a3 3 0 1 0-4.84-3.225c.352.011.696.055 1.028.129zm4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377zM14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div>
+                            <h1>Friday</h1>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                    class="bi bi-brightness-high" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div>
+                            <h1>Saturday</h1>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                    class="bi bi-brightness-alt-high" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3zm8 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zm-13.5.5a.5.5 0 0 0 0-1h-2a.5.5 0 0 0 0 1h2zm11.157-6.157a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm-9.9 2.121a.5.5 0 0 0 .707-.707L3.05 5.343a.5.5 0 1 0-.707.707l1.414 1.414zM8 7a4 4 0 0 0-4 4 .5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5 4 4 0 0 0-4-4zm0 1a3 3 0 0 1 2.959 2.5H5.04A3 3 0 0 1 8 8z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div>
+                            <h1>Sunday</h1>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                    class="bi bi-thermometer-sun" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585A1.5 1.5 0 0 1 5 12.5z" />
+                                    <path
+                                        d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1zm5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5zm4.243 1.757a.5.5 0 0 1 0 .707l-.707.708a.5.5 0 1 1-.708-.708l.708-.707a.5.5 0 0 1 .707 0zM8 5.5a.5.5 0 0 1 .5-.5 3 3 0 1 1 0 6 .5.5 0 0 1 0-1 2 2 0 0 0 0-4 .5.5 0 0 1-.5-.5zM12.5 8a.5.5 0 0 1 .5-.5h1a.5.5 0 1 1 0 1h-1a.5.5 0 0 1-.5-.5zm-1.172 2.828a.5.5 0 0 1 .708 0l.707.708a.5.5 0 0 1-.707.707l-.708-.707a.5.5 0 0 1 0-.708zM8.5 12a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="browser">
+            <div class="header dcb">
+                <div class="name">
+                    <h2>Browser Usage</h2>
+                </div>
+                <div class="info">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="browserMenu"></i>
+                    <mat-menu #browserMenu="matMenu" xPosition="before" class="visitors-info-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="chart">
+                <canvas #browserChart width="125" height="200"></canvas>
+            </div>
+            <div class="report">
+                <ul>
+                    <li>
+                        <h6>Crome</h6>
+                        <p>35<sup>%</sup></p>
+                    </li>
+                    <li>
+                        <h6>Safari</h6>
+                        <p>25<sup>%</sup></p>
+                    </li>
+                    <li>
+                        <h6>Mozila</h6>
+                        <p>25<sup>%</sup></p>
+                    </li>
+                    <li>
+                        <h6>Opera</h6>
+                        <p>3<sup>%</sup></p>
+                    </li>
+                    <li>
+                        <h6>IE</h6>
+                        <p>7<sup>%</sup></p>
+                    </li>
+                    <li>
+                        <h6>Others</h6>
+                        <p>5<sup>%</sup></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

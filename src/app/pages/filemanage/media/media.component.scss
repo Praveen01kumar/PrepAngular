@@ -1,0 +1,95 @@
+.file-medias {
+    margin: 0 1%;
+
+    .search {
+        display: flex;
+        justify-content: flex-end;
+
+        input {
+            padding: 2px 4px;
+            outline: none;
+            border-radius: 4px;
+            font-size: 14px;
+            border: 1px solid #00000061;
+        }
+    }
+
+    .file-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+            width: 285px;
+            margin: 12px;
+
+            a {
+                text-decoration: none;
+
+                .trash-btn {
+                    display: none;
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+
+                    button {
+                        background: rgba(255, 0, 0, 0.385);
+                        border: none;
+                        color: #fff;
+                        border-radius: 5px;
+                        padding: 6px 12px;
+                    }
+                }
+
+                .icon {
+                    padding: 40px 10px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-bottom: 1px solid #00000030;
+
+                    i {
+                        font-size: 40px;
+                    }
+                }
+
+                .file-name {
+                    margin-bottom: 10px;
+
+                    .name {
+                        margin: 0;
+                        padding: 10px 10px 0px;
+                        color: #00000099;
+                    }
+
+                    small {
+                        padding: 0px 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: 80%;
+                        font-weight: 400;
+
+                        .size {
+                            color: blue;
+                        }
+
+                        .date {
+                            color: #00000080;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                box-shadow: 0px 10px 20px 0px rgba(179, 179, 179, 1);
+
+                a {
+                    .trash-btn {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

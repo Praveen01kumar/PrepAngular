@@ -1,0 +1,108 @@
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // .loader1 {
+    //     border: 4px solid #f3f3f3;
+    //     border-top: 4px solid #3498db;
+    //     border-radius: 50%;
+    //     width: 30px;
+    //     height: 30px;
+    //     animation: spin1 2s linear infinite;
+    //   }
+
+    .loader2 {
+        --r1: 154%;
+        --r2: 68.5%;
+        width: 67.2px;
+        height: 67.2px;
+        border-radius: 50%;
+        background: radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#38d39f 80%) center left,
+             radial-gradient(var(--r1) var(--r2) at bottom,#38d39f 79.5%,#0000 80%) center center,
+             radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#38d39f 80%) center right,
+             #dbdcef;
+        background-size: 50.5% 220%;
+        background-position: -100% 0%,0% 0%,100% 0%;
+        background-repeat: no-repeat;
+        animation: spin2 2s infinite linear;
+     }
+
+    // .loader3 {
+    //     width: 44.8px;
+    //     height: 44.8px;
+    //     color: #38d39f;
+    //     display: grid;
+    //     &:before{
+    //        @extend .l3-cont;
+    //     }
+    //     &:after{
+    //         --s: -1,-1;
+    //         @extend .l3-cont;
+    //     }
+    //  }
+
+
+  }
+  
+//   @keyframes spin1 {
+//     0% {
+//       transform: rotate(0deg);
+//     }
+//     100% {
+//       transform: rotate(360deg);
+//     }
+//   }
+
+@keyframes spin2 {
+    33% {
+       background-position: 0% 33% ,100% 33% ,200% 33%;
+    }
+ 
+    66% {
+       background-position: -100%  66%,0%   66% ,100% 66%;
+    }
+ 
+    100% {
+       background-position: 0% 100%,100% 100%,200% 100%;
+    }
+ }
+
+ 
+//  .l3-cont{
+//     content: "";
+//     grid-area: 1/1;
+//     background: currentColor;
+//     clip-path: polygon(0 0,101% 0, 0 100%);
+//     animation: spin3 2s infinite;
+//  }
+
+
+//  @keyframes spin3 {
+//     0%, 10% {
+//        transform: scale(var(--s,1)) translate(0,0) rotate(0deg);
+//     }
+ 
+//     33% {
+//        transform: scale(var(--s,1)) translate(22.4px,-22.4px) rotate(0deg);
+//     }
+ 
+//     66% {
+//        transform: scale(var(--s,1)) translate(22.4px,-22.4px) rotate(180deg);
+//     }
+ 
+//     90%, 100% {
+//        transform: scale(var(--s,1)) translate(0px,0px) rotate(180deg);
+//     }
+//  }
+ 
+
+
+
+

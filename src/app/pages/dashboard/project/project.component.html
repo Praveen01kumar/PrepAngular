@@ -1,0 +1,153 @@
+<div class="projects">
+    <div class="projects-card">
+        <div class="card box-stl" *ngFor="let card of projcardList;">
+            <div class="heading">
+                <h3 class="number">{{card?.number}}</h3>
+                <p class="title">{{card?.title}}</p>
+            </div>
+            <div class="progress-estate">
+                <mat-progress-bar mode="determinate" [color]="card?.color" [value]="card?.value"></mat-progress-bar>
+            </div>
+        </div>
+    </div>
+    <div class="projects-survey box-stl">
+        <div class="header dcb">
+            <div class="heading">
+                <h2>Wrok Report</h2>
+            </div>
+            <div class="info-menu">
+                <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="realestateMenu"></i>
+                <mat-menu #realestateMenu="matMenu" xPosition="before" class="realestate-menu">
+                    <ul class="menu-items">
+                        <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                    </ul>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="projects-chart">
+            <canvas #projectsChart width="700" height="350"></canvas>
+        </div>
+    </div>
+    <div class="mail-todo">
+        <div class="mail box-stl">
+            <a href="javascript:void(0);" class="mail-item" *ngFor="let mail of mailList;">
+                <div>
+                    <i [ngClass]="mail?.icon"></i>
+                    <span class="name">{{mail?.name}}</span>
+                </div>
+                <div>
+                    <span [ngClass]="[mail?.badge?.type?mail?.badge?.type:'badges']">{{mail?.badge?.name}}</span>
+                </div>
+            </a>
+        </div>
+        <div class="team box-stl">
+            <div class="body" *ngFor="let team of teamList;">
+                <div class="icon">
+                    <img [src]="team?.img">
+                </div>
+                <div class="content">
+                    <div class="desig">{{team?.desig}}</div>
+                    <h6 class="name">{{team?.name}}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="todo box-stl">
+            <div class="header">
+                <h2>ToDo List <small>This Month task list</small></h2>
+            </div>
+            <div class="todo-list">
+                <div class="example-container">
+                    <h2>To do</h2>
+                    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo"
+                        [cdkDropListConnectedTo]="[doneList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+                    </div>
+                </div>
+                <br>
+                <div class="example-container">
+                    <h2>Done</h2>
+                    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+                        [cdkDropListConnectedTo]="[todoList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="project-list">
+        <div class="patients box-stl">
+            <div class="header dcb">
+                <div class="name">
+                    <h2>Patients Status</h2>
+                </div>
+                <div class="info">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="patientsMenu"></i>
+                    <mat-menu #patientsMenu="matMenu" xPosition="before" class="patients-info-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="body">
+                <div class="report-table">
+                    <table>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th *ngFor="let hd of patientsArr[0]?.head;let i = index;">{{hd}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let patient of patientsArr;let i = index;">
+                                <td>
+                                    <p class="appn">{{patient?.app?.appn}}</p>
+                                    <p class="appd">{{patient?.app?.appd}}</p>
+                                </td>
+                                <td><img class="img" [src]="img?.img" *ngFor="let img of patient?.team"></td>
+                                <td>{{patient?.sales}}</td>
+                                <td>{{patient?.price}}</td>
+                                <td>{{patient?.total}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="income">
+            <div class="revenue-body">
+                <div class="header dcb">
+                    <div class="heading">
+                        <h2>Total Revenue</h2>
+                        <p>8% High then last month</p>
+                    </div>
+                    <div class="info-menu">
+                        <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="productMenu"></i>
+                        <mat-menu #productMenu="matMenu" xPosition="before" class="revenue-menu">
+                            <ul class="menu-items">
+                                <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="body text-center">
+                    <div class="t-value-chart">
+                        <canvas #tValueChart width="250" height="200"></canvas>
+                    </div>
+                    <div class="income">
+                        <p>Sales Income</p>
+                        <p>Overall<span> 7,000</span></p>
+                    </div>
+                    <div class="m-e-chart">
+                        <canvas #mValueChart width="100" height="80"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

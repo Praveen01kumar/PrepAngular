@@ -1,0 +1,92 @@
+<div mat-dialog-content>
+    <ng-container *ngIf="toggaleReg">
+        <p class="text-center">Registor</p>
+        <form [formGroup]="registerForm">
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="name">User Name</label>
+                    <input type="text" class="form-control" formControlName="userName">
+                    <div *ngIf="submitted && fcr?.userName?.errors" class="text-danger">
+                        <div *ngIf="fcr?.userName?.errors?.required">User Name is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="name">User Email</label>
+                    <input type="text" class="form-control" formControlName="userEmail">
+                    <div *ngIf="submitted && fcr?.userEmail?.errors" class="text-danger">
+                        <div *ngIf="fcr?.userEmail?.errors?.required">User Email is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Password</label>
+                <input type="password" class="form-control" formControlName="password">
+                <div *ngIf="submitted && fcr?.password?.errors" class="text-danger">
+                    <div *ngIf="fcr?.password?.errors?.required">Password is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Confirm Password</label>
+                <input type="password" class="form-control" formControlName="confirmPassword">
+                <div *ngIf="submitted && fcr?.confirmPassword?.errors" class="text-danger">
+                    <div *ngIf="fcr?.confirmPassword?.errors?.required">Confirm Password is required</div>
+                    <div *ngIf="fcr?.confirmPassword?.errors?.mustMatch">Must match</div>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center my-4">
+                <button type="button" class="btn btn-secondary me-2" (click)="onReset()">Cancel</button>
+                <button type="button" class="btn btn-success" (click)="registerUser()">Registor</button>
+            </div>
+        </form>
+    </ng-container>
+
+    <ng-container *ngIf="toggaleLog">
+        <p class="text-center">Log In </p>
+        <form [formGroup]="loginForm">
+
+            <div>
+                <div class="form-group">
+                    <label for="name">User Email</label>
+                    <input type="text" class="form-control" formControlName="userEmail">
+                    <div *ngIf="submitted && fcl?.userEmail?.errors" class="text-danger">
+                        <div *ngIf="fcl?.userEmail?.errors?.required">User Email is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Password</label>
+                <input type="password" class="form-control" formControlName="password">
+                <div *ngIf="submitted && fcl?.password?.errors" class="text-danger">
+                    <div *ngIf="fcl?.password?.errors?.required">Password is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Confirm Password</label>
+                <input type="password" class="form-control" formControlName="confirmPassword">
+                <div *ngIf="submitted && fcl?.confirmPassword?.errors" class="text-danger">
+                    <div *ngIf="fcl?.confirmPassword?.errors?.required">Confirm Password is required</div>
+                    <div *ngIf="fcl?.confirmPassword?.errors?.mustMatch">Must match</div>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center my-4">
+                <button type="button" class="btn btn-secondary me-2" (click)="onReset()">Cancel</button>
+                <button type="button" class="btn btn-success" (click)="loginUser()">Login</button>
+            </div>
+        </form>
+    </ng-container>
+
+    <div class="action-btn">
+        <p *ngIf="toggaleReg">Don't Have An Account? <button type="button" (click)="changeForm()">Registor</button></p>
+        <p *ngIf="toggaleLog">Already Have An Account? <button type="button" (click)="changeForm()">Log In</button></p>
+    </div>
+
+
+</div>

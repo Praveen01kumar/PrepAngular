@@ -1,0 +1,126 @@
+<div class="realestate">
+    <div class="realestate-card">
+        <div class="card box-stl" *ngFor="let card of relscardList;">
+            <h3 class="number">{{card?.number}}</h3>
+            <p class="title">{{card?.title}}</p>
+            <div class="progress-estate">
+                <mat-progress-bar mode="determinate" [color]="card?.color" [value]="card?.value"></mat-progress-bar>
+            </div>
+            <small>Change {{card?.value}} %</small>
+        </div>
+    </div>
+    <div class="realestate-survey box-stl">
+        <div class="header dcb">
+            <div class="heading">
+                <h2>Property Stats</h2>
+            </div>
+            <div class="info-menu">
+                <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="realestateMenu"></i>
+                <mat-menu #realestateMenu="matMenu" xPosition="before" class="realestate-menu">
+                    <ul class="menu-items">
+                        <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                    </ul>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="realestate-chart">
+            <canvas #realestateChart width="700" height="350"></canvas>
+        </div>
+    </div>
+    <div class="properties-card">
+        <div class="card box-stl" *ngFor="let prop of properList;">
+            <h3 class="icon">
+                <i [ngClass]="prop?.icon?prop?.icon:''" [ngStyle]="{'color':prop?.color}"></i>
+            </h3>
+            <div class="prop">
+                <p class="title">{{prop?.title}}</p>
+                <h3 class="number">{{prop?.number}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="realestate-chart">
+        <div class="income box-stl">
+            <h1>Income Analysis</h1>
+            <p>8% High then last month</p>
+            <div> <canvas #line1blogChart width="300" height="140"></canvas></div>
+        </div>
+        <div class="sales box-stl">
+            <h1>Sales Income</h1>
+            <p>All Earnings are in million $</p>
+            <div><canvas #line2blogChart width="300" height="90"></canvas></div>
+            <div class="stats-report">
+                <div class="stat-item">
+                    <h5>Overall</h5>
+                    <h2>7,000</h2>
+                </div>
+                <div class="stat-item">
+                    <h5>2016</h5>
+                    <h2>2,000</h2>
+                </div>
+                <div class="stat-item">
+                    <h5>2017</h5>
+                    <h2>5,000</h2>
+                </div>
+            </div>
+        </div>
+        <div class="rent box-stl">
+            <h1>Rent Income</h1>
+            <p>All Earnings are in million $</p>
+            <div><canvas #line3blogChart width="300" height="90"></canvas></div>
+            <div class="stats-report">
+                <div class="stat-item">
+                    <h5>Overall</h5>
+                    <h2>7,000</h2>
+                </div>
+                <div class="stat-item">
+                    <h5>2016</h5>
+                    <h2>2,000</h2>
+                </div>
+                <div class="stat-item">
+                    <h5>2017</h5>
+                    <h2>5,000</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="analysis box-stl">
+        <div class="header dcb">
+            <div class="name">
+                <h2>Property List</h2>
+            </div>
+            <div class="info">
+                <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="analysisMenu"></i>
+                <mat-menu #analysisMenu="matMenu" xPosition="before" class="analysis-info-menu">
+                    <ul class="menu-items">
+                        <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                    </ul>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="body">
+            <div class="report-table">
+                <table>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th *ngFor="let hd of propertyArr[0]?.head;let i = index;">{{hd}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let property of propertyArr;let i = index;">
+                            <td>{{property?.bhk}}</td>
+                            <td>{{property?.priority}}</td>
+                            <td><span class="text-info">{{property?.adress}}</span></td>
+                            <td>{{property?.status}}</td>
+                            <td>{{property?.area}}</td>
+                            <td>{{property?.price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

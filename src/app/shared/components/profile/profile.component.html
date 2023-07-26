@@ -1,0 +1,408 @@
+<div class="user-profile">
+  <div class="profile-info">
+
+    <div class="profile box-stl">
+      <div class="profile-image">
+        <img src="assets/avatar/avatar2.jpg" alt="" />
+      </div>
+      <div class="profile-name">
+        <h4><strong>Alizee</strong> Thomas</h4>
+        <span>Washington, d.c.</span>
+      </div>
+      <div class="profile-btn">
+        <button class="btn-follow">Follow</button>
+        <button class="btn-message">Message</button>
+      </div>
+    </div>
+    <div class="info box-stl">
+      <div class="header">
+        <h2>Info</h2>
+        <div class="menu">
+          <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="vinfoMenu"></i>
+          <mat-menu #vinfoMenu="matMenu" xPosition="before" class="info-menus">
+            <ul class="menu-items">
+              <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+              <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+              <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+            </ul>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="body">
+        <small class="text-muted">Address: </small>
+        <p>795 Folsom Ave, Suite 600 San Francisco, 94107</p>
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30773564.17938236!2d61.01663758588814!3d19.689680859759182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1684319894686!5m2!1sen!2sin"
+            width="100%" height="150" title="user location map" style="border:0" allowfullscreen=""></iframe>
+        </div>
+        <hr>
+        <small class="text-muted">Email address: </small>
+        <p>michael@gmail.com</p>
+        <hr>
+        <small class="text-muted">Mobile: </small>
+        <p>+ 202-555-2828</p>
+        <hr>
+        <small class="text-muted">Birth Date: </small>
+        <p class="m-b-0">October 22th, 1990</p>
+        <hr>
+        <small class="text-muted">Social: </small>
+        <p><i class="bi bi-twitter"></i> twitter.com/example</p>
+        <p><i class="bi bi-facebook"></i> facebook.com/example</p>
+        <p><i class="bi bi-github"></i> github.com/example</p>
+        <p><i class="bi bi-instagram"></i> instagram.com/example</p>
+      </div>
+    </div>
+
+    <div class="follow box-stl">
+      <div class="header">
+        <h2>Who to follow</h2>
+      </div>
+      <div class="body">
+        <ul>
+          <li>
+            <a href="javascript:void(0);">
+              <div class="media">
+                <img class="media-object" src="assets/avatar/avatar1.jpg" alt="">
+                <div class="media-body">
+                  <span class="name">Chris Fox</span>
+                  <span class="message">Designer, Blogger</span>
+                  <span class="badge"></span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);">
+              <div class="media">
+                <img class="media-object" src="assets/avatar/avatar2.jpg" alt="">
+                <div class="media-body">
+                  <span class="name">Joge Lucky</span>
+                  <span class="message">Java Developer</span>
+                  <span class="badge"></span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);">
+              <div class="media">
+                <img class="media-object" src="assets/avatar/avatar3.jpg" alt="">
+                <div class="media-body">
+                  <span class="name">Isabella</span>
+                  <span class="message">CEO, Thememakker</span>
+                  <span class="badge"></span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);">
+              <div class="media">
+                <img class="media-object" src="assets/avatar/avatar4.jpg" alt="">
+                <div class="media-body">
+                  <span class="name">Folisise Chosielie</span>
+                  <span class="message">Art director, Movie Cut</span>
+                  <span class="badge"></span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);">
+              <div class="media">
+                <img class="media-object" src="assets/avatar/avatar5.jpg" alt="">
+                <div class="media-body">
+                  <span class="name">Alexander</span>
+                  <span class="message">Writter, Mag Editor</span>
+                  <span class="badge"></span>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <div class="profile-overview">
+    <div class="overview-btn box-stl">
+      <ul>
+        <li (click)="acTab('overview')" [ngClass]="overview ? 'is-act' : ''">
+          <a>Overview</a>
+        </li>
+        <li (click)="acTab('settings')" [ngClass]="settings ? 'is-act' : ''">
+          <a>Settings</a>
+        </li>
+      </ul>
+    </div>
+    <div class="overview" *ngIf="overview">
+      <div class="new-post box-stl">
+        <div class="post-input">
+          <textarea rows="4" placeholder="Please type what you want..."></textarea>
+        </div>
+        <div class="post-btn">
+          <button>Post</button>
+        </div>
+      </div>
+      <div class="single_post box-stl">
+        <div class="img-post">
+          <img src="assets/blog-page-1.jpg" alt="First slide">
+        </div>
+        <h3><a href="javascript:void(0);">All photographs are accurate</a></h3>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
+          at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
+        <div class="actions">
+          <p><a href="javascript:void(0);">Continue Reading</a></p>
+          <ul class="stats">
+            <li><a href="javascript:void(0);">General</a></li>
+            <li><a href="javascript:void(0);">28</a></li>
+            <li><a href="javascript:void(0);">128</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="single_post box-stl">
+        <div class="img-post">
+          <img src="assets/blog-page-2.jpg" alt="First slide">
+        </div>
+        <h3><a href="javascript:void(0);">All photographs are accurate</a></h3>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
+          at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
+        <div class="actions">
+          <p><a href="javascript:void(0);">Continue Reading</a></p>
+          <ul class="stats">
+            <li><a href="javascript:void(0);">General</a></li>
+            <li><a href="javascript:void(0);" class="icon-heart">28</a></li>
+            <li><a href="javascript:void(0);" class="icon-bubbles">128</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings" *ngIf="settings">
+      <div class="basic-information box-stl">
+        <h6>Basic Information</h6>
+        <div class="information-form">
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none" placeholder="First Name" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none" placeholder="Last Name" />
+          </div>
+          <div class="form-group">
+            <div class="gender">
+              <label>
+                <input name="gender" value="male" type="radio" checked />
+                <span>Male</span>
+              </label>
+              <label>
+                <input name="gender" value="female" type="radio" />
+                <span>Female</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="date" class="form-control shadow-none" placeholder="Birthdate" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none" placeholder="http://" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none" placeholder="Address Line 1" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none" placeholder="Address Line 2" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none" placeholder="City" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none" placeholder="State/Province" />
+          </div>
+          <div class="form-group">
+            <select class="form-control shadow-none">
+              <option [value]="contry?.value" *ngFor="let contry of contryArr">
+                {{ contry?.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-update">Update</button>
+        <button class="btn-cancel">Cancel</button>
+      </div>
+      <div class="account-password box-stl">
+        <div class="account-form">
+          <h6>Account Data</h6>
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none" value="praveen kumar" disabled placeholder="Username" />
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control shadow-none" value="example@gmail.com" placeholder="Email" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none" placeholder="Phone Number" />
+          </div>
+          <h6>Change Password</h6>
+          <div class="form-group">
+            <input type="password" class="form-control shadow-none" placeholder="Current Password" />
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control shadow-none" placeholder="New Password" />
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control shadow-none" placeholder="Confirm New Password" />
+          </div>
+        </div>
+        <button class="btn-update">Update</button>
+        <button class="btn-cancel">Cancel</button>
+      </div>
+
+      <div class="general-information box-stl">
+        <h6>General Information</h6>
+        <div class="general-form">
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none" placeholder="Phone Number" />
+          </div>
+          <div class="form-group">
+            <select class="form-control shadow-none">
+              <option [value]="lang?.value" [lang]="lang?.lang" *ngFor="let lang of languageArr">
+                {{ lang?.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select class="form-control shadow-none">
+              <option>--TimeZone--</option>
+              <optgroup label="Africa" *ngFor="let utc of utcArr">
+                <option [value]="ut?.value" *ngFor="let ut of utc?.option">
+                  {{ ut?.name }}
+                </option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="date-format">Date Format</label>
+            <div class="date-radio">
+              <label><input name="dateFormat" value="" type="radio" /><span>
+                  May 18, 2018</span></label>
+              <label><input name="dateFormat" value="" type="radio" /><span>
+                  2018, May, 18</span></label>
+              <label><input name="dateFormat" value="" type="radio" checked="" /><span> 2018-03-10</span></label>
+              <label><input name="dateFormat" value="" type="radio" /><span>
+                  02/09/2018</span></label>
+              <label><input name="dateFormat" value="" type="radio" /><span>
+                  10/05/2018</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <h6>Email from Lucid</h6>
+            <p>I'd like to receive the following emails:</p>
+            <ul class="list-email">
+              <li class="check-box">
+                <label class="fancy-checkbox">
+                  <input type="checkbox" checked="" /><span>Weekly account summary</span></label>
+              </li>
+              <li class="check-box">
+                <label class="fancy-checkbox">
+                  <input type="checkbox" /><span>Campaign reports</span></label>
+              </li>
+              <li class="check-box">
+                <label class="fancy-checkbox">
+                  <input type="checkbox" checked="" /><span>Promotional news such as offers or discounts</span></label>
+              </li>
+              <li class="check-box">
+                <label class="fancy-checkbox">
+                  <input type="checkbox" checked="" /><span>Tips for campaign setup, growth and client success
+                    stories</span></label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="btn-update">Update</button>
+        <button class="btn-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div class="profile-action">
+    <div class="profile-report box-stl">
+      <ul>
+        <li>
+          <div class="body">
+            <i class="bi bi-camera"></i>
+            <h5>2365</h5>
+            <small>Shots View</small>
+          </div>
+        </li>
+        <li>
+          <div class="body">
+            <i class="bi bi-hand-thumbs-up"></i>
+            <h5>1203</h5>
+            <small>Likes</small>
+          </div>
+        </li>
+        <li>
+          <div class="body">
+            <i class="bi bi-chat-left"></i>
+            <h5>324</h5>
+            <small>Comments</small>
+          </div>
+        </li>
+        <li>
+          <div class="body">
+            <i class="bi bi-person"></i>
+            <h5>1980</h5>
+            <small>Profile Views</small>
+          </div>
+        </li>
+        <li>
+          <div class="body">
+            <i class="bi bi-laptop"></i>
+            <h5>251</h5>
+            <small>Website View</small>
+          </div>
+        </li>
+        <li>
+          <div class="body">
+            <i class="bi bi-file-earmark-check"></i>
+            <h5>52</h5>
+            <small>Attachment</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="businuss box-stl">
+     <iframe loading="lazy" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFjPD2W-5U&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen" title="businuss card"></iframe>
+   </div>
+    <div class="rate">
+      <div class="cards box-stl">
+          <div data_progress="10%" class="progress_val"
+              [ngStyle]="{'--progress': 10+'%', 'background':'conic-gradient(blue var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+          </div>
+          <h2>Events</h2>
+          <p>12 of this month</p>
+      </div>
+      <div class="cards box-stl">
+          <div data_progress="80%" class="progress_val"
+              [ngStyle]="{'--progress': 80+'%', 'background':'conic-gradient(red var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+          </div>
+          <h2>Birthday</h2>
+          <p>4 of this month</p>
+      </div>
+      <div class="cards box-stl">
+          <div data_progress="45%" class="progress_val"
+              [ngStyle]="{'--progress': 45+'%', 'background':'conic-gradient(green var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+          </div>
+          <h2>Conferences</h2>
+          <p>8 of this month</p>
+      </div>
+      <div class="cards box-stl">
+        <div data_progress="45%" class="progress_val"
+            [ngStyle]="{'--progress': 45+'%', 'background':'conic-gradient(green var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+        </div>
+        <h2>Seminars</h2>
+        <p>2 of this month</p>
+    </div>
+  </div>
+
+  </div>
+</div>

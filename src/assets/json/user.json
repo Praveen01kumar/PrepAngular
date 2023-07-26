@@ -1,0 +1,1174 @@
+{
+    "topicsArr": [
+        {
+            "date": "1-July-2023 06:49:51",
+            "type": "Buy",
+            "amount": "0.45879",
+            "remaining": "0.45879",
+            "price": "11901.85",
+            "usd": "$ 3165.44",
+            "fee": "0.013",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "2-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "3-July-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "4-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "5-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "6-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "7-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "8-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "9-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.45879",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "10-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.38647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "11-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "12-July-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "13-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "14-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "15-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "16-July-2023 06:49:51",
+            "type": "Buy",
+            "amount": "0.45879",
+            "remaining": "0.45879",
+            "price": "11901.85",
+            "usd": "$ 3165.44",
+            "fee": "0.013",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "17-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "18-July-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "19-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "20-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "21-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "22-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "23-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "24-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.45879",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "25-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.38647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "26-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "27-July-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "28-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "29-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "30-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "31-July-2023 06:49:51",
+            "type": "Buy",
+            "amount": "0.45879",
+            "remaining": "0.45879",
+            "price": "11901.85",
+            "usd": "$ 3165.44",
+            "fee": "0.013",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "1-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "2-August-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "3-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "4-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "5-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "6-August-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "7-August-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "8-August-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.45879",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "9-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.38647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "10-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "11-August-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "12-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "13-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "14-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "15-August-2023 06:49:51",
+            "type": "Buy",
+            "amount": "0.45879",
+            "remaining": "0.45879",
+            "price": "11901.85",
+            "usd": "$ 3165.44",
+            "fee": "0.013",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "16-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "17-August-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "18-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "19-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "20-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "21-August-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "22-August-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "23-August-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.45879",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "24-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.38647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "25-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "26-August-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "27-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "28-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "29-August-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "30-August-2023 06:49:51",
+            "type": "Buy",
+            "amount": "0.45879",
+            "remaining": "0.45879",
+            "price": "11901.85",
+            "usd": "$ 3165.44",
+            "fee": "0.013",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "2-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "3-July-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "4-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "5-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "6-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "7-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "8-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "9-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.45879",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "10-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.38647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "11-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "12-July-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "13-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "14-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "15-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "1-July-2023 06:49:51",
+            "type": "Buy",
+            "amount": "0.45879",
+            "remaining": "0.45879",
+            "price": "11901.85",
+            "usd": "$ 3165.44",
+            "fee": "0.013",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "2-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "3-July-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "4-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "5-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "6-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "7-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "8-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.38647",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "9-July-2023 06:50:50",
+            "type": "Sell",
+            "amount": "1.38647",
+            "remaining": "0.45879",
+            "price": "11905.09",
+            "usd": "$ 2496.36",
+            "fee": "0.017",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "10-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.38647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "11-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.58647",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "12-July-2023 06:51:51",
+            "type": "Sell",
+            "amount": "0.45712",
+            "remaining": "0.45712",
+            "price": "11908.19",
+            "usd": "$ 2586.34",
+            "fee": "0.024",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "13-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.12",
+            "usd": "$ 1597.78",
+            "fee": "0.023",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        },
+        {
+            "date": "14-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.58647",
+            "remaining": "0.58647",
+            "price": "11900.62",
+            "usd": "$ 5623.59",
+            "fee": "0.019",
+            "status": {
+                "name": "cancel",
+                "type": "bdg-danger"
+            }
+        },
+        {
+            "date": "15-July-2023 06:51:51",
+            "type": "Buy",
+            "amount": "0.89877",
+            "remaining": "0.89877",
+            "price": "11899.28",
+            "usd": "$ 25830.6",
+            "fee": "0.011",
+            "status": {
+                "name": "accept",
+                "type": "bdg-success"
+            }
+        }
+    ]
+}

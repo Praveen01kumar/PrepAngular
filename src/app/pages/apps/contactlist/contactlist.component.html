@@ -1,0 +1,58 @@
+<div class="contact-list">
+    <div class="box-stl">
+        <div class="header dcb">
+            <h2>User List</h2>
+            <button class="add-list">
+                <i class="bi bi-plus-circle"></i>
+            </button>
+        </div>
+        <div class="contact-body table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            <mat-checkbox value="select-all" [checked]="allSelected" [color]="'warn'"
+                                [indeterminate]="someSelected()" (change)="setAll($event.checked)"></mat-checkbox>
+                        </th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let list of contactList;">
+                        <td>
+                            <mat-checkbox value="select" [color]="'primary'" [(ngModel)]="list.selected"
+                                (ngModelChange)="updateAllSelected()"></mat-checkbox>
+                        </td>
+                        <td>
+                            <div class="profile">
+                                <img *ngIf="list?.img" class="profile-img" [src]="list?.img" alt="image">
+                                <p>
+                                    <span *ngIf="list?.name" class="name">{{list?.name}}</span>
+                                    <span *ngIf="list?.badge"
+                                        [ngClass]="list?.badge?list?.badge?.type:''">{{list?.badge?.name}}</span>
+                                </p>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="phone" *ngIf="list?.phone">{{list?.phone}}</span>
+                        </td>
+                        <td>
+                            <address *ngIf="list?.address">{{list?.address}}</address>
+                        </td>
+                        <td>
+                            <button type="button" class="btn edit">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <button type="button" class="btn delete">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

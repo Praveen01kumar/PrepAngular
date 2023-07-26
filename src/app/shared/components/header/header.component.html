@@ -1,0 +1,114 @@
+
+<nav class="navbar dcb" [ngStyle]="{'background-color':sColor, 'border-bottom':'2px solid {{sColor}}'}">
+    <div class="nav-container-left">
+        <a (click)="goToPage('')" type="button" class="logo"><img src="assets/logo/logo.svg" alt=""style="width: 100%; height: 60px; margin-top: -10px;"></a>
+    </div>
+
+    <div class="nav-container-right">
+        <div class="global-search">
+            <div class="search-btn">
+                <input class="search-input" [formControl]="gsearchCtr" placeholder="Search here..." type="text">
+                <button type="button" class="btn btn-default">
+                    <mat-icon>search</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="actions">
+            <button type="button" class="btn-action" (click)="goToPage('')">
+                <mat-icon>home</mat-icon>
+            </button>
+            <button type="button" class="btn-action" (click)="goToPage('file')">
+                <mat-icon>folder_open</mat-icon>
+            </button>
+            <button type="button" class="btn-action" (click)="goToPage('app/calender')">
+                <mat-icon>calendar_today</mat-icon>
+            </button>
+            <button type="button" class="btn-action" (click)="goToPage('app/chat')">
+                <mat-icon>question_answer</mat-icon>
+            </button>
+            <button type="button" class="btn-action" (click)="goToPage('app/mail')">
+                <mat-icon> mail_outline</mat-icon>
+            </button>
+            <button type="button" class="btn-action" (click)="goToPage('more/about')">
+                <mat-icon>info</mat-icon>
+            </button>
+            <button type="button" class="btn-action" [matMenuTriggerFor]="acsettingMenu">
+                <mat-icon> insert_chart_outlined</mat-icon>
+                <mat-menu #acsettingMenu="matMenu" xPosition="before" class="account-menu">
+                    <ul class="user-account">
+                        <li class="heading">ACCOUNT SETTINGS</li>
+                        <li class="heading-info" ><a href="javascript:void(0);"><i class="bi bi-pencil-square"></i><span>Basic</span></a></li>
+                        <li class="heading-info" ><a href="javascript:void(0);"><i class="bi bi-sliders"></i><span>Preferences</span></a></li>
+                        <li class="heading-info" ><a href="javascript:void(0);"><i class="bi bi-lock"></i><span>Privacy</span></a></li>
+                        <li class="heading-info" ><a href="javascript:void(0);"><i class="bi bi-bell"></i><span>Notifications</span></a></li>
+                        <li class="heading">BILLING</li>
+                        <li class="heading-info" ><a href="javascript:void(0);"><i class="bi bi-credit-card"></i><span>Payments</span></a></li>
+                        <li class="heading-info" ><a href="javascript:void(0);"><i class="bi bi-printer"></i><span>Invoices</span></a></li>                                
+                        <li class="heading-info" ><a href="javascript:void(0);"><i class="bi bi-arrow-clockwise"></i><span>Renewals</span></a></li>
+                    </ul>
+                </mat-menu>
+            </button>
+            <button type="button" class="btn-action" [matMenuTriggerFor]="notftMenu">
+                <mat-icon>notification_important</mat-icon>
+                <mat-menu #notftMenu="matMenu" xPosition="before" class="notify-menu">
+                    <ul class="notifications">
+                        <li class="header"><strong>You have 4 new Notifications</strong></li>
+                        <li class="message-info">
+                            <a href="javascript:void(0);">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <mat-icon style="color: #ffc107;">error_outline</mat-icon>
+                                    </div>
+                                    <div class="media-body">
+                                        <p class="text">Campaign <strong>Holiday Sale</strong> is nearly reach budget limit.</p>
+                                        <span class="timestamp">10:00 AM Today</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>                               
+                        <li class="message-info">
+                            <a href="javascript:void(0);">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <mat-icon style="color: #28a745;">thumb_up_alt</mat-icon>
+                                    </div>
+                                    <div class="media-body">
+                                        <p class="text">Your New Campaign <strong>Holiday Sale</strong> is approved.</p>
+                                        <span class="timestamp">11:30 AM Today</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                         <li class="message-info">
+                            <a href="javascript:void(0);">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <mat-icon style="color: #17a2b8;"> pie_chart</mat-icon>
+                                    </div>
+                                    <div class="media-body">
+                                        <p class="text">Website visits from Twitter is 27% higher than last week.</p>
+                                        <span class="timestamp">04:00 PM Today</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-info">
+                            <a href="javascript:void(0);">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <mat-icon style="color: #dc3545;">error_outline</mat-icon>
+                                    </div>
+                                    <div class="media-body">
+                                        <p class="text">Error on website analytics configurations</p>
+                                        <span class="timestamp">Yesterday</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="footer"><a href="javascript:void(0);" class="more">See all notifications</a></li>
+                    </ul>
+                </mat-menu>
+            </button>
+        </div>
+    </div>
+</nav>

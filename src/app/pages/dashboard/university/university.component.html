@@ -1,0 +1,316 @@
+<div class="univercity">
+    <div class="university-card">
+        <div class="card box-stl" *ngFor="let card of uCardArr;">
+            <div class="card-head">
+                <div class="icon">
+                    <i [ngClass]="card?.icon1" [ngStyle]="{'color':card?.icon1color}"></i>
+                </div>
+                <div class="content">
+                    <div class="text">{{card?.text1}}</div>
+                    <h5 class="number">{{card?.num1}}</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="card-foot">
+                <div class="icon">
+                    <i [ngClass]="card?.icon2" [ngStyle]="{'color':card?.icon2color}"></i>
+                </div>
+                <div class="content">
+                    <div class="text">{{card?.text2}}</div>
+                    <h5 class="number">{{card?.num2}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="university-survey box-stl">
+        <div class="header dcb">
+            <div class="heading">
+                <h2>University Survey</h2>
+            </div>
+            <div class="info-menu">
+                <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="universityMenu"></i>
+                <mat-menu #universityMenu="matMenu" xPosition="before" class="university-menu">
+                    <ul class="menu-items">
+                        <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                    </ul>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="typanimate">
+            <div class="typing-slider">
+                <p><span class="number">$231</span><span class="title">Today's</span></p>
+                <p><span class="number">$1,254</span><span class="title">This Week's</span></p>
+                <p><span class="number">$3,298</span><span class="title">This Month's</span></p>
+            </div>
+        </div>
+        <div class="university-chart">
+            <canvas #productChart width="700" height="350"></canvas>
+        </div>
+    </div>
+    <div class="income-analysis">
+        <div class="card box-stl">
+            <div class="header">
+                <h2>Income Analysis<small>8% High then last month</small></h2>
+            </div>
+            <div class="body">
+                <div class="chart">
+                    <canvas #line1Chart width="300" height="90"></canvas>
+                </div>
+                <div class="report">
+                    <div class="item">
+                        <h5>Science</h5>
+                        <p>84.60%</p>
+                    </div>
+                    <div class="item">
+                        <h5>Commerce</h5>
+                        <p>15.40%</p>
+                    </div>
+                    <div class="item">
+                        <h5>Atrs</h5>
+                        <p>5.10%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card box-stl">
+            <div class="header">
+                <h2>Science Department<small>All Earnings are in million $</small></h2>
+            </div>
+            <div class="body">
+                <div class="chart">
+                    <canvas #line2Chart width="300" height="90"></canvas>
+                </div>
+                <div class="report">
+                    <div class="item">
+                        <h5>Overall</h5>
+                        <p>7,000</p>
+                    </div>
+                    <div class="item">
+                        <h5>2016</h5>
+                        <p>2,000</p>
+                    </div>
+                    <div class="item">
+                        <h5>2017</h5>
+                        <p>5,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card box-stl">
+            <div class="header">
+                <h2>Commerce Department<small>All Earnings are in million $</small></h2>
+            </div>
+            <div class="body">
+                <div class="chart">
+                    <canvas #line3Chart width="300" height="90"></canvas>
+                </div>
+                <div class="report">
+                    <div class="item">
+                        <h5>Overall</h5>
+                        <p>3,200</p>
+                    </div>
+                    <div class="item">
+                        <h5>2016</h5>
+                        <p>1,200</p>
+                    </div>
+                    <div class="item">
+                        <h5>2017</h5>
+                        <p>2,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="patients box-stl">
+        <div class="header dcb">
+            <div class="name">
+                <h2>Patients Status</h2>
+            </div>
+            <div class="info">
+                <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="patientsMenu"></i>
+                <mat-menu #patientsMenu="matMenu" xPosition="before" class="patients-info-menu">
+                    <ul class="menu-items">
+                        <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                    </ul>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="body">
+            <div class="report-table">
+                <table>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th *ngFor="let hd of patientsArr[0]?.head;let i = index;">{{hd}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let patient of patientsArr;let i = index;">
+                            <td>{{patient?.id}}</td>
+                            <td>{{patient?.name}}</td>
+                            <td>{{patient?.age}}</td>
+                            <td><span class="text-info">{{patient?.adress}}</span></td>
+                            <td>{{patient?.number| phoneFormat}}</td>
+                            <td><span
+                                    [ngClass]="[patient?.department?.badge==='warning'?'bdg-warning':patient?.department?.badge==='success'?'bdg-success':patient?.department?.badge==='danger'?'bdg-danger':'badges']">{{patient?.department?.name}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="our-location">
+        <div class="rate">
+            <div class="cards box-stl">
+                <div data_progress="10%" class="progress_val"
+                    [ngStyle]="{'--progress': 10+'%', 'background':'conic-gradient(blue var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+                </div>
+                <h2>Satisfaction Rate</h2>
+            </div>
+            <div class="cards box-stl">
+                <div data_progress="80%" class="progress_val"
+                    [ngStyle]="{'--progress': 80+'%', 'background':'conic-gradient(red var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+                </div>
+                <h2>Admission in Commerce</h2>
+            </div>
+            <div class="cards box-stl">
+                <div data_progress="45%" class="progress_val"
+                    [ngStyle]="{'--progress': 45+'%', 'background':'conic-gradient(green var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+                </div>
+                <h2>Admission in Science</h2>
+            </div>
+        </div>
+        <div class="map box-stl">
+            <div class="header">
+                <h2>Our Location</h2>
+                <div class="info-menu">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="mapMenu"></i>
+                    <mat-menu #mapMenu="matMenu" xPosition="before" class="mapMenu-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="body">
+                <div class="record">
+                    <div class="country">
+                        <span><i class="bi bi-geo-alt"></i>America</span>
+                        <h4>53</h4>
+                    </div>
+                    <div class="country">
+                        <span><i class="bi bi-geo-alt"></i>Canada</span>
+                        <h4>23</h4>
+                    </div>
+                    <div class="country">
+                        <span><i class="bi bi-geo-alt"></i>UK</span>
+                        <h4>17</h4>
+                    </div>
+                    <div class="country">
+                        <span><i class="bi bi-geo-alt"></i>India</span>
+                        <h4>102</h4>
+                    </div>
+                    <div class="country">
+                        <span><i class="bi bi-geo-alt"></i>Australia</span>
+                        <h4>27</h4>
+                    </div>
+                    <div class="country">
+                        <span><i class="bi bi-geo-alt"></i>Other</span>
+                        <h4>13</h4>
+                    </div>
+                </div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3431.758701886132!2d76.72432611544443!3d30.668922595755486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390feeab5174825f%3A0x58a120fdbfab7e0c!2sIndian%20School%20Of%20Business%E2%80%93Mohali%20(ISB%E2%80%93Mohali)!5e0!3m2!1sen!2sin!4v1680584402353!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="timeline-attendance">
+        <div class="timeline box-stl">
+            <div class="header">
+                <h2>Timeline</h2>
+            </div>
+            <div class="body">
+                <div class="img">
+                    <img src="assets/images/images1.jpg">
+                    <div class="calender">
+                        <div class="number">8</div>
+                        <div class="date">
+                            <div class="name">Monday</div>
+                            <div class="month">February 2018</div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="work">
+                    <li>
+                        <div class="pinkb"></div>
+                        <div class="time">11am</div>
+                        <div class="desc">
+                            <h3>Attendance</h3>
+                            <h4>Computer Class</h4>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="greenb"></div>
+                        <div class="time">12pm</div>
+                        <div class="desc">
+                            <h3>Design Team</h3>
+                            <h4>Hangouts</h4>
+                            <ul class="d-flex">
+                                <li><img src="assets/avatar/avatar1.jpg" alt="Avatar"></li>
+                                <li><img src="assets/avatar/avatar2.jpg" alt="Avatar"></li>
+                                <li><img src="assets/avatar/avatar3.jpg" alt="Avatar"></li>
+                                <li><img src="assets/avatar/avatar4.jpg" alt="Avatar"></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="orangeb"></div>
+                        <div class="time">1:30pm</div>
+                        <div class="desc">
+                            <h3>Lunch Break</h3>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="greenb"></div>
+                        <div class="time">2pm</div>
+                        <div class="desc">
+                            <h3>Finish</h3>
+                            <h4>Go to Home</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="attendance box-stl">
+            <div class="header">
+                <h2>Attendance</h2>
+            </div>
+            <div class="body">
+                <ul class="st-list">
+                    <!-- <li *ngFor="let user of userList;">
+                        <div class="name">name: {{user?.name}}</div>
+                        <div class="age">age: {{user?.age}}</div>
+                        <div class="status">status: {{user?.status}}</div>
+                        <div class="wl">Wl: {{user?.wl}}</div>
+                        <div class="action">
+                            <button class="cencel" (click)="cencelTicket(user)">cencel</button>
+                        </div>
+                    </li> -->
+                    <li *ngFor="let st of stList;">
+                        <div class="name">{{st?.name}}</div>
+                        <div class="percent"><span [ngClass]="[st?.percentage?.badge==='warning'?'bdg-warning':st?.percentage?.badge==='success'?'bdg-success':st?.percentage?.badge==='danger'?'bdg-danger':'badges']">{{st?.percentage?.name}} %</span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

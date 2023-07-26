@@ -1,0 +1,230 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div class="login">
+    <div class="login-container">
+        <div class="loginpage">
+            <img *ngIf="lrRouter==='/login'" src="assets/images/loginpage.svg" alt="">
+            <img *ngIf="lrRouter==='/register'" src="assets/images/registerpage.svg" alt="">
+
+        </div>
+        <div class="login-form-filed" *ngIf="lrRouter==='/login'">
+            <div class="header">
+                <h3>Sign In to <strong>PrepAngular</strong></h3>
+                <p>Lorem ipsum dolor sit amet elit. Sapiente sit aut</p>
+            </div>
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <div class="username">
+                    <label for="username">Username or Email<span class="text-danger" >*</span></label>
+                    <input formControlName="user_name" [ngClass]="{ 'input-valid': (sub1 || f1?.user_name?.touched) && f1?.user_name?.valid, 
+                    'input-invalid': (sub1 || f1?.user_name?.touched || f1?.user_name?.dirty) && f1?.user_name?.errors }" autocomplete="off" type="text" id="username">
+                    <span *ngIf="(sub1 && f1?.user_name?.errors) || ((f1?.user_name?.touched || f1?.user_name?.dirty) && f1?.user_name?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f1?.user_name?.errors?.space">{{ermsg?.spacenota}}</p>
+                            <p class="mp-zero" *ngIf="f1?.user_name?.errors?.required">{{ermsg?.unir}}</p>
+                    </span>
+                    <span *ngIf="(sub1 && f1?.user_name?.errors===null) || ((f1?.user_name?.touched || f1?.user_name?.dirty) && f1?.user_name?.errors===null)" class="text-success">
+                        <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                    </span>
+                </div>
+                <div class="password">
+                    <label for="password">Password<span class="text-danger" >*</span></label>
+                    <input formControlName="password" [ngClass]="{ 'input-valid': (sub1 || f1?.password?.touched) && f1?.password?.valid, 
+                    'input-invalid': (sub1 || f1?.password?.touched || f1?.password?.dirty) && f1?.password?.errors }" type="password" id="password">
+                    <span *ngIf="(sub1 && f1?.password?.errors) || ((f1?.password?.touched || f1?.password?.dirty) && f1?.password?.errors)" class="text-danger">
+                        <p class="mp-zero" *ngIf="f1?.password?.errors?.required">{{ermsg?.passir}}</p>
+                    </span>
+                    <span *ngIf="(sub1 && f1?.password?.errors===null) || ((f1?.password?.touched || f1?.password?.dirty) && f1?.password?.errors===null)" class="text-success">
+                        <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                    </span>
+                </div>
+                <div class="checkbox check-box">
+                    <label>
+                        <input formControlName="remember_me" type="checkbox" checked="checked">
+                        <span class="caption">Remember me</span>
+                    </label>
+                    <span class="forgot-password"><a href="javascript:void(0);">Forgot Password</a></span>
+                </div>
+                <input type="submit" value="Log In" class="submit-btn">
+                <div class="social-login">
+                    <span><span class="orsign"> or sign in with</span>
+                        <span class="icon"><a href="javascript:void(0);" class="facebook"><i
+                                    class="bi bi-facebook"></i><span>Facebook</span></a>
+                            <a href="javascript:void(0);" class="google"><i class="bi bi-google"></i><span>Google</span></a></span></span>
+                    <span><a routerLink="/register" class="dhaccount">Don't Have an Account?</a></span>
+                </div>
+            </form>
+        </div>
+        <div class="register-form-filed" *ngIf="lrRouter==='/register'">
+            <div class="header">
+                <h3>Register to <strong>PrepAngular</strong></h3>
+                <p>Lorem ipsum dolor sit amet elit. Sapiente sit aut</p>
+            </div>
+            <form class="register-form" [formGroup]="RegisterForm" (ngSubmit)="onRegister()">
+                <div class="name-email">
+                    <div class="firstname">
+                        <label for="firstname">First Name<span class="text-danger" >*</span></label>
+                        <input formControlName="first_name" [ngClass]="{ 'input-valid': (sub || f?.first_name?.touched) && f?.first_name?.valid, 
+                        'input-invalid': (sub || f?.first_name?.touched || f?.first_name?.dirty) && f?.first_name?.errors }" 
+                        (focusout)="trigger($event, RegisterForm)" autocomplete="off" appInputvalue="16" type="text" id="firstname">
+                        <span *ngIf="(sub && f?.first_name?.errors) || ((f?.first_name?.touched || f?.first_name?.dirty) && f?.first_name?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.first_name?.errors?.required">{{ermsg?.fnameir}}</p>
+                            <p class="mp-zero" *ngIf="f?.first_name?.errors?.minlength">{{ermsg?.m3cir}}</p>
+                            <p class="mp-zero" *ngIf="f?.first_name?.errors?.maxlength">{{ermsg?.m16cia}}</p>
+                            <p class="mp-zero" *ngIf="f?.first_name?.errors?.numb">{{ermsg?.numna}}</p>
+                            <p class="mp-zero" *ngIf="f?.first_name?.errors?.speChar">{{ermsg?.spcina}}</p>
+                            <p class="mp-zero" *ngIf="f?.first_name?.errors?.space">{{ermsg?.spacenota}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.first_name?.errors===null) || ((f?.first_name?.touched || f?.first_name?.dirty) && f?.first_name?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
+                    <div class="lastname">
+                        <label for="lastname">Last Name<span class="text-danger" >*</span></label>
+                        <input formControlName="last_name" [ngClass]="{ 'input-valid': (sub || f?.last_name?.touched) && f?.last_name?.valid, 
+                        'input-invalid': (sub || f?.last_name?.touched || f?.last_name?.dirty) && f?.last_name?.errors }"
+                        (focusout)="trigger($event, RegisterForm)" autocomplete="off" type="text" id="lastname">
+                        <span *ngIf="(sub && f?.last_name?.errors) || ((f?.last_name?.touched || f?.last_name?.dirty) && f?.last_name?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.last_name?.errors?.required">{{ermsg?.lnameir}}</p>
+                            <p class="mp-zero" *ngIf="f?.last_name?.errors?.maxlength">{{ermsg?.m16cia}}</p>
+                            <p class="mp-zero" *ngIf="f?.last_name?.errors?.numb">{{ermsg?.numna}}</p>
+                            <p class="mp-zero" *ngIf="f?.last_name?.errors?.speChar">{{ermsg?.spcina}}</p>
+                            <p class="mp-zero" *ngIf="f?.last_name?.errors?.space">{{ermsg?.spacenota}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.last_name?.errors===null) || ((f?.last_name?.touched || f?.last_name?.dirty) && f?.last_name?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
+                    <div class="email">
+                        <label for="email">Email Address<span class="text-danger" >*</span></label>
+                        <input formControlName="email" [ngClass]="{ 'input-valid': (sub || f?.email?.touched) && f?.email?.valid, 
+                        'input-invalid': (sub || f?.email?.touched || f?.email?.dirty) && f?.email?.errors }" autocomplete="off" type="email" id="email">
+                        <span *ngIf="(sub && f?.email?.errors) || ((f?.email?.touched || f?.email?.dirty) && f?.email?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.email?.errors?.required">{{ermsg?.emailir}}</p>
+                            <p class="mp-zero" *ngIf="f?.email?.errors?.email ||f?.email?.errors?.invalidEmail">{{ermsg?.invemail}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.email?.errors===null) || ((f?.email?.touched || f?.email?.dirty) && f?.email?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="phone-password">
+                    <div class="phone">
+                        <label for="phone">Phone Number<span class="text-danger" >*</span></label>
+                        <input formControlName="phone" [ngClass]="{ 'input-valid': (sub || f?.phone?.touched) && f?.phone?.valid, 
+                        'input-invalid': (sub || f?.phone?.touched || f?.phone?.dirty) && f?.phone?.errors }" autocomplete="off" type="text" id="phone">
+                        <span *ngIf="(sub && f?.phone?.errors) || ((f?.phone?.touched || f?.phone?.dirty) && f?.phone?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.phone?.errors?.required">{{ermsg?.phoneir}}</p>
+                            <p class="mp-zero" *ngIf="f?.phone?.errors?.minlength">{{ermsg?.min8dsr}}</p>
+                            <p class="mp-zero" *ngIf="f?.phone?.errors?.maxlength">{{ermsg?.max14dsa}}</p>
+                            <p class="mp-zero" *ngIf="f?.phone?.errors?.notNum">{{ermsg?.inphonen}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.phone?.errors===null) || ((f?.phone?.touched || f?.phone?.dirty) && f?.phone?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
+                    <div class="password">
+                        <label for="password">Password<span class="text-danger" >*</span></label>
+                        <input formControlName="password" [ngClass]="{ 'input-valid': (sub || f?.password?.touched) && f?.password?.valid, 
+                        'input-invalid': (sub || f?.password?.touched || f?.password?.dirty) && f?.password?.errors }" type="password" id="password">
+                        <span *ngIf="(sub && f?.password?.errors) || ((f?.password?.touched || f?.password?.dirty) && f?.password?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.password?.errors?.required">{{ermsg?.passir}}</p>
+                            <p class="mp-zero" *ngIf="f?.password?.errors?.minlength">{{ermsg?.minl8ir}}</p>
+                            <p class="mp-zero" *ngIf="f?.password?.errors?.maxlength">{{ermsg?.maxl16ir}}</p>
+                            <p class="mp-zero" *ngIf="f?.password?.errors?.upp">{{ermsg?.atloupcir}}</p>
+                            <p class="mp-zero" *ngIf="f?.password?.errors?.lowe">{{ermsg?.atlolowcir}}</p>
+                            <p class="mp-zero" *ngIf="f?.password?.errors?.numb">{{ermsg?.atlonumcir}}</p>
+                            <p class="mp-zero" *ngIf="f?.password?.errors?.speci">{{ermsg?.atlospecir}}</p>
+                            <p class="mp-zero" *ngIf="f?.password?.errors?.space">{{ermsg?.spacenota}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.password?.errors===null) || ((f?.password?.touched || f?.password?.dirty) && f?.password?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
+                    <div class="cfpassword">
+                        <label for="cfpassword">Confirm Password<span class="text-danger" >*</span></label>
+                        <input formControlName="confirm_password" [ngClass]="{ 'input-valid': (sub || f?.confirm_password?.touched) && f?.confirm_password?.valid, 
+                        'input-invalid': (sub || f?.confirm_password?.touched || f?.confirm_password?.dirty) && f?.confirm_password?.errors }" type="password" id="cfpassword">
+                        <span *ngIf="(sub && f?.confirm_password?.errors) || ((f?.confirm_password?.touched || f?.confirm_password?.dirty) && f?.confirm_password?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.confirm_password?.errors?.required">{{ermsg?.cpassir}}</p>
+                            <p class="mp-zero" *ngIf="f?.confirm_password?.errors?.mustMatch">{{ermsg?.cpassanpins}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.confirm_password?.errors===null) || ((f?.confirm_password?.touched || f?.confirm_password?.dirty) && f?.confirm_password?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="address">
+                    <label for="address">Enter Full Address<span class="text-danger" >*</span></label>
+                    <input formControlName="address" [ngClass]="{ 'input-valid': (sub || f?.address?.touched) && f?.address?.valid, 
+                    'input-invalid': (sub || f?.address?.touched || f?.address?.dirty) && f?.address?.errors }" type="text" id="address">
+                    <span *ngIf="(sub && f?.address?.errors) || ((f?.address?.touched || f?.address?.dirty) && f?.address?.errors)" class="text-danger">
+                        <p class="mp-zero" *ngIf="f?.address?.errors?.required">{{ermsg?.addir}}</p>
+                        <p class="mp-zero" *ngIf="f?.address?.errors?.minlength">{{ermsg?.m3cir}}</p>
+                    </span>
+                    <span *ngIf="(sub && f?.address?.errors===null) || ((f?.address?.touched || f?.address?.dirty) && f?.address?.errors===null)" class="text-success">
+                        <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                    </span>
+                </div>
+                <div class="city-state">
+                    <div class="city">
+                        <label for="city">City<span class="text-danger" >*</span></label>
+                        <input formControlName="city" [ngClass]="{ 'input-valid': (sub || f?.city?.touched) && f?.city?.valid, 
+                        'input-invalid': (sub || f?.city?.touched || f?.city?.dirty) && f?.city?.errors }" type="text" id="city">
+                        <span *ngIf="(sub && f?.city?.errors) || ((f?.city?.touched || f?.city?.dirty) && f?.city?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.city?.errors?.required">{{ermsg?.cityir}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.city?.errors===null) || ((f?.city?.touched || f?.city?.dirty) && f?.city?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
+                    <div class="state">
+                        <label for="state">State<span class="text-danger" >*</span></label>
+                        <input formControlName="state" [ngClass]="{ 'input-valid': (sub || f?.state?.touched) && f?.state?.valid, 
+                        'input-invalid': (sub || f?.state?.touched || f?.state?.dirty) && f?.state?.errors }" type="text" id="state">
+                        <span *ngIf="(sub && f?.state?.errors) || ((f?.state?.touched || f?.state?.dirty) && f?.state?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.state?.errors?.required">{{ermsg?.stateir}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.state?.errors===null) || ((f?.state?.touched || f?.state?.dirty) && f?.state?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="country-zipcode">
+                    <div class="zipcode">
+                        <label for="zipcode">Zip Code<span class="text-danger" >*</span></label>
+                        <input formControlName="zip_code" [ngClass]="{ 'input-valid': (sub || f?.zip_code?.touched) && f?.zip_code?.valid, 
+                        'input-invalid': (sub || f?.zip_code?.touched || f?.zip_code?.dirty) && f?.zip_code?.errors }" type="text" id="zipcode">
+                        <span *ngIf="(sub && f?.zip_code?.errors) || ((f?.zip_code?.touched || f?.zip_code?.dirty) && f?.zip_code?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.zip_code?.errors?.required">{{ermsg?.zipcir}}</p>
+                            <p class="mp-zero" *ngIf="f?.zip_code?.errors?.minlength">{{ermsg?.min6dir}}</p>
+                            <p class="mp-zero" *ngIf="f?.zip_code?.errors?.maxlength">{{ermsg?.max6dir}}</p>
+                            <p class="mp-zero" *ngIf="f?.zip_code?.errors?.notNum">{{ermsg?.inzipcn}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.zip_code?.errors===null) || ((f?.zip_code?.touched || f?.zip_code?.dirty) && f?.zip_code?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
+                    <div class="country">
+                        <label for="country">Country<span class="text-danger" >*</span></label>
+                        <input formControlName="country" [ngClass]="{ 'input-valid': (sub || f?.country?.touched) && f?.country?.valid, 
+                        'input-invalid': (sub || f?.country?.touched || f?.country?.dirty) && f?.country?.errors }" type="text" id="country">
+                        <span *ngIf="(sub && f?.country?.errors) || ((f?.country?.touched || f?.country?.dirty) && f?.country?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.country?.errors?.required">{{ermsg?.countryir}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.country?.errors===null) || ((f?.country?.touched || f?.country?.dirty) && f?.country?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
+                </div>
+                <input type="submit" value="register" class="submit-btn">
+                <div class="social-login">
+                    <span><span class="orsign">or Register with</span>
+                        <span class="icon"><a href="javascript:void(0);" class="facebook"><i
+                                    class="bi bi-facebook"></i><span>Facebook</span></a>
+                            <a href="javascript:void(0);" class="google"><i class="bi bi-google"></i><span>Google</span></a></span></span>
+                    <span><a [routerLink]="(lrRouter==='/register')?'/login':(lrRouter==='/login')?'/register':null"
+                            class="dhaccount">Already Have an Account?</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

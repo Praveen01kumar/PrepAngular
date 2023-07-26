@@ -1,0 +1,121 @@
+<div class="chat-container">
+    <div class="chat-box">
+        <div class="member-list">
+            <div class="search">
+                <div class="search-input">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search..." (keyup)="searchMember($event)">
+                </div>
+            </div>
+            <div class="list">
+                <ul class="chat-list">
+                    <li class="member" *ngFor="let list of memberList; let i = index;"
+                        [ngStyle]="{'background':list?.active?'#efefef':'#fff'}" (click)="mailSelect(i, list)">
+                        <img [src]="list?.img?list?.img:'assets/avatar/avatar1.jpg'">
+                        <div class="about">
+                            <div class="name">{{list?.name}}</div>
+                            <div class="status">
+                                <span [ngClass]="list?.status?list?.status:''"></span>
+                                <span class="time">{{list?.time}}</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="member-chat">
+            <div class="chat-header dcb">
+                <div class="profile" (click)="detailedView = true">
+                    <a href="javascript:void(0);"><img
+                            [src]="selectedMember?.img?selectedMember?.img:'assets/avatar/avatar2.jpg'"></a>
+                    <div class="chat-about">
+                        <h6 class="name">{{selectedMember?.name}}</h6>
+                        <small class="time">{{selectedMember?.time}}</small>
+                    </div>
+                </div>
+                <div class="action-icon">
+                    <a href="javascript:void(0);" class="camera"><i class="bi bi-camera"></i></a>
+                    <a href="javascript:void(0);" class="camcorder"><i class="bi bi-camera-video"></i></a>
+                    <a href="javascript:void(0);" class="settings"><i class="bi bi-gear"></i></a>
+                    <a href="javascript:void(0);" class="question"><i class="bi bi-question-circle"></i></a>
+                </div>
+            </div>
+            <div class="chat-body">
+                    <ul class="chat" #scrollMe [scrollTop]="scrolChat">
+                    <li class="message" *ngFor="let msg of memberChat; let i=index;">
+                        <div class="own-chat" *ngIf="msg?.own">
+                            <span class="own-chat-msg">{{msg?.own}}</span>
+                            <span class="own-time">10:11 AM, Today</span>
+                        </div>
+                        <div class="sender-chat" *ngIf="msg?.sender">
+                            <span class="sender-chat-msg">{{msg?.sender}}</span>
+                            <span class="sender-time">10:12 AM, Today</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="chat-footer">
+                <div class="input-box">
+                    <span class="input-icon">
+                        <i class="bi bi-chat"></i>
+                    </span>
+                    <input type="text" (keydown.enter)="sendMessage(selectedMember)" class="input-field"
+                        [formControl]="send_Msg" placeholder="Enter text here...">
+                    <span class="send-btn" [ngStyle]="{'display':send_Msg.value?'block':'none'}" type="submit"
+                        (click)="sendMessage(selectedMember)"><i class="bi bi-cursor"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="member-detail" *ngIf="detailedView">
+            <div class="header"><i class="bi bi-x-square" (click)="detailedView=false"></i></div>
+            <div class="img">
+                <img [src]="selectedMember?.img?selectedMember?.img:'assets/avatar/avatar2.jpg'">
+                <h6 class="name">{{selectedMember?.name}}</h6>
+                <p class="designation">{{selectedMember?.designation}}</p>
+            </div>
+            <div class="ac-option">
+                <div class="call-audio">
+                    <i class="bi bi-telephone"></i>
+                    <span>Audio call</span>
+                </div>
+                <div class="call-video">
+                    <i class="bi bi-camera-video"></i>
+                    <span>Video call</span>
+                </div>
+            </div>
+            <div class="ac-more">
+                <p class="ac-more-op">
+                    <i class="bi bi-person"></i>
+                    <span>View Friends</span>
+                </p>
+                <p class="ac-more-op">
+                    <i class="bi bi-heart"></i>
+                    <span>Add to Favorite</span>
+                </p>
+            </div>
+            <div class="attachments">
+                <p class="title">Attachments</p>
+                <div class="attachment-btn">
+                    <a href="javascript:void(0);" class="pdf"><span>PDF</span> </a>
+                    <a href="javascript:void(0);" class="video"><span>Video</span> </a>
+                    <a href="javascript:void(0);" class="audio"><span>Audio</span> </a>
+                    <a href="javascript:void(0);" class="image"><span>Image</span> </a>
+                    <span *ngIf="moreAction">
+                        <a href="javascript:void(0);" class="pdf"><span>PDF</span> </a>
+                        <a href="javascript:void(0);" class="video"><span>Video</span> </a>
+                        <a href="javascript:void(0);" class="audio"><span>Audio</span> </a>
+                        <a href="javascript:void(0);" class="image"><span>Image</span> </a>
+                        <a href="javascript:void(0);" class="pdf"><span>PDF</span> </a>
+                        <a href="javascript:void(0);" class="video"><span>Video</span> </a>
+                        <a href="javascript:void(0);" class="audio"><span>Audio</span> </a>
+                        <a href="javascript:void(0);" class="image"><span>Image</span> </a>
+                    </span>
+                </div>
+                <p>
+                    <span class="show-more" *ngIf="!moreAction" (click)="moreAction = true">Show All</span>
+                    <span class="show-more" *ngIf="moreAction" (click)="moreAction = false">Show Less</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,367 @@
+.demographic {
+    .reportbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .population {
+            width: 20%;
+            display: flex;
+            background: #fff;
+            transition: .5s;
+            border: 0;
+            margin-bottom: 30px;
+            border-radius: 0.55rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+
+            .chart {
+                width: 50%;
+            }
+
+            .contant {
+                width: 50%;
+                text-align: center;
+
+                .name {
+                    margin-top: 11px;
+                    color: #999;
+                    font-weight: 400;
+                    font-size: 14px;
+                    font-family: "Ubuntu", sans-serif;
+                    margin-bottom: 0px;
+                }
+
+                .value {
+                    font-size: 26px;
+                    color: #666;
+                    font-family: "Ubuntu", sans-serif;
+                    font-weight: normal;
+                    margin-bottom: 0px;
+                }
+            }
+        }
+
+        .usage {
+            @extend .population;
+        }
+
+        .pageviews {
+            @extend .population;
+        }
+
+        .growth {
+            @extend .population;
+        }
+
+    }
+
+    .visitors-map {
+        @extend .h-stl;
+
+        .contant {
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            .map {
+                width: 60%;
+
+                iframe {
+                    width: 100%;
+                    border: 1px solid #00000038 !important;
+                    height: 320px;
+                    padding: 2px;
+                    border-radius: 4px;
+                }
+            }
+
+            .visitor-value {
+                width: 40%;
+                padding-left: 1%;
+
+                .progress {
+                    display: flex;
+                    flex-direction: column;
+                    background: #fff;
+                    padding-bottom: 4rem;
+
+                    p {
+                        color: #444;
+                        font-weight: 400;
+                        font-size: 14px;
+                        margin-bottom: 4px;
+                    }
+
+                    .mat-progress-bar {
+                        height: 16px;
+                        width: 95%;
+                        border-radius: 4px;
+                    }
+
+                    .percentage {
+                        font-size: 10px;
+                    }
+                }
+
+            }
+        }
+
+    }
+
+    .gender-overview {
+        @extend .h-stl;
+
+        .gender-count {
+            display: flex;
+
+            .male {
+                margin: 0px 20px 0px 0px;
+                @extend .svg-stl;
+
+            }
+
+            .female {
+                margin: 0;
+                @extend .svg-stl;
+
+            }
+        }
+    }
+
+    .browser-whether {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+
+        .whether {
+            width: 50%;
+            @extend .h-stl;
+
+            .city {
+                .title {
+                    font-size: 13px;
+                    text-transform: lowercase;
+                    color: #444;
+                    font-weight: 400;
+                }
+
+                .name {
+                    font-size: 24px;
+                    color: #444;
+                    font-weight: 400;
+                }
+
+                .day {
+                    font-size: 15px;
+                    text-transform: uppercase;
+                    color: #444;
+                    font-weight: 400;
+                }
+            }
+
+            .whether-value {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+
+                .value {
+                    p {
+                        font-size: 73px;
+                        margin: 0px;
+                        font-family: inherit;
+                        font-weight: 500;
+                        line-height: 1.2;
+                        color: inherit;
+                    }
+                }
+
+                .icon {
+                    padding-right: 8%;
+                }
+            }
+
+            .whether-table {
+                .table {
+                    tr {
+                        td {
+                            padding: 14px 20px;
+                            font-family: "Ubuntu", sans-serif;
+                            font-size: 14px;
+                            color: #5A5A5A;
+                        }
+                    }
+                }
+            }
+        }
+
+        .browser {
+            width: 50%;
+            @extend .h-stl;
+
+            .report {
+                margin-top: 10px;
+                ul {
+                    list-style: none;
+                    padding: 0px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    li {
+                        text-align: center;
+                        h6{
+                            font-weight: 600;
+                        }
+                        p{
+                            margin: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.svg-stl {
+    svg {
+        margin-right: 4px;
+    }
+
+    span {
+        font-family: inherit;
+        font-weight: 600;
+        line-height: 1.2;
+        color: inherit;
+        font-size: 1rem;
+    }
+}
+
+.h-stl {
+    background: #fff;
+    padding: 16px;
+    margin: 0px 1%;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    transition: 0.5s;
+    border: 0;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+
+    .header {
+        padding-bottom: 16px;
+
+        .name {
+            h2 {
+                font-size: 16px;
+                color: #444;
+                margin: 0px;
+                font-weight: 600;
+            }
+
+        }
+
+    }
+}
+
+::ng-deep {
+    .visitors-info-menu {
+        width: 150px;
+        background-color: #17191c;
+        border-radius: 0.55rem;
+        padding: 10px;
+        box-shadow: 0px 2px 20px 0px rgb(0 0 0 / 50%);
+        border: 0;
+
+        .menu-items {
+            padding: 0px;
+            margin: 0px;
+
+            .menu-option {
+                display: block !important;
+                font-size: 1rem;
+                list-style: none;
+                word-wrap: break-word;
+
+                a {
+                    padding: 10px;
+                    color: #999;
+                    white-space: nowrap;
+                    font-size: 14px;
+                    text-decoration: none;
+                    background-color: transparent;
+                    transition: all ease 0.5s;
+
+                    &:hover {
+                        color: #cecece;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin white-gradient {
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+$animationSpeed: 40s;
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 3))
+    }
+}
+
+.slider {
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &::before,
+    &::after {
+        @include white-gradient;
+        content: "";
+        height: 100px;
+        position: absolute;
+        width: 200px;
+        z-index: 2;
+    }
+
+    &::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+    }
+
+    &::before {
+        left: 0;
+        top: 0;
+    }
+
+    .slide-track {
+        animation: scroll $animationSpeed linear infinite;
+        display: flex;
+        width: calc(250px * 7);
+    }
+
+    .slide {
+        height: 100px;
+        width: 200px;
+        text-align: center;
+
+        h1 {
+            font-size: 18px;
+        }
+    }
+}

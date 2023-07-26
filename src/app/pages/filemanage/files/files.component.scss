@@ -1,0 +1,127 @@
+.file-container {
+    margin: 0px 10px;
+
+    .files-folder {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .card {
+            margin-right: 24px;
+            transition: .5s;
+            margin-bottom: 30px;
+            border-radius: 0.55rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+            width: 350px;
+
+            .folder {
+                padding: 20px;
+                display: block;
+                color: #777;
+                text-decoration: none;
+                background-color: transparent;
+                transition: all ease 0.5s;
+
+                h6 {
+                    margin: 0px;
+
+                    i {
+                        margin-right: 6px;
+                        font-size: 20px;
+                    }
+                }
+
+                &:hover {
+                    color: #002144;
+                }
+            }
+        }
+    }
+
+    .folder-report {
+
+        .folder-report-record {
+            width: 30%;
+            padding-right: 15px;
+
+            .folder-storage {
+                background: #fff;
+                transition: .5s;
+                border: 0;
+                margin-bottom: 30px;
+                border-radius: 0.55rem;
+                position: relative;
+                width: 100%;
+                box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+                display: inline-block;
+
+                .storage-body {
+                    padding: 20px;
+
+                    .progress-storage {
+                        .mat-progress-bar {
+                            height: 16px;
+                            border-radius: 10px;
+                        }
+
+                        p {
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+            }
+
+            .folder-uses {
+                @extend .folder-storage;
+                margin-bottom: 10px;
+
+                .uses-body {
+                    padding: 20px;
+                }
+
+                .progress-uses {
+                    .mat-progress-bar {
+                        height: 6px;
+                        border-bottom-right-radius: 10px;
+                        border-bottom-left-radius: 10px;
+                    }
+                }
+            }
+        }
+
+        .folder-report-chart {
+            width: 70%;
+            background: #fff;
+            border-radius: 0.55rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+            margin-bottom: 30px;
+            
+            .chart-header {
+                margin-bottom: 0px;
+                padding: 20px;
+
+                h2 {
+                    margin: 0 !important;
+                    font-size: 16px;
+                    color: #444;
+                    font-weight: 500;
+                }
+            }
+
+            .chart-body {
+                padding: 20px;
+            }
+
+        }
+    }
+}
+
+::ng-deep {
+    .progress-storage {
+        .mat-progress-bar-fill::after {
+            background-color: #8359d0;
+        }
+    }
+}

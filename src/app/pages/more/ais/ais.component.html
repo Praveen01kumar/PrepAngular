@@ -1,0 +1,296 @@
+<div class="ai-tools">
+  <h1 class="header"><span>ai</span> & tools kit</h1>
+  <h2 class="descrip">the largest ai tools directory, make me easy</h2>
+  <div class="search-category-name">
+    <div class="search-category">
+      <input placeholder="Search 1796 AI tools by categories" type="text" (keyup)="searchAiByCategory($event)" />
+      <i class="bi bi-search"></i>
+    </div>
+    <div class="search-name">
+      <input placeholder="Search 1796 AI tools by name" type="text" (keyup)="searchAiByName($event)" />
+      <i class="bi bi-search"></i>
+    </div>
+  </div>
+  <div class="filter-chip-selects">
+    <div class="filter">
+      <button [matMenuTriggerFor]="filterMenu" xPosition="after">
+        <span>Filter</span>
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" color="#616161"
+          style="color: #616161" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+      <mat-menu #filterMenu="matMenu">
+        <div class="p-3" (click)="$event.stopPropagation()">
+          <div>
+            <section class="example-section mb-3">
+              <span class="example-list-section">
+                <mat-checkbox class="example-margin" color="primary" [checked]="allpricingComplete"
+                  [indeterminate]="somePricing()" (change)="setAllPricing($event.checked)">
+                  {{pricing.name}}
+                </mat-checkbox>
+              </span>
+              <span class="example-list-section">
+                <ul>
+                  <li *ngFor="let type of pricing.pricingType">
+                    <mat-checkbox color="primary" [(ngModel)]="type.completed" (ngModelChange)="updateAllPricing()">
+                      {{type.name}}
+                    </mat-checkbox>
+                  </li>
+                </ul>
+              </span>
+            </section>
+            <section class="example-section">
+              <span class="example-list-section">
+                <mat-checkbox class="example-margin" color="primary" [checked]="allfeaturesComplete"
+                  [indeterminate]="someFeatures()" (change)="setAllFeatures($event.checked)">
+                  {{features.name}}
+                </mat-checkbox>
+              </span>
+              <span class="example-list-section">
+                <ul>
+                  <li *ngFor="let type of features.featuresType">
+                    <mat-checkbox color="primary" [(ngModel)]="type.completed" (ngModelChange)="updateAllFeatures()">
+                      {{type.name}}
+                    </mat-checkbox>
+                  </li>
+                </ul>
+              </span>
+            </section>
+          </div>
+          <div class="d-flex justify-content-evenly mt-2">
+            <button class="clear-btn" (click)="clearFilter()">Clear</button>
+            <button class="aplly-btn" (click)="applyFilter()">Aplly</button>
+          </div>
+        </div>
+      </mat-menu>
+    </div>
+    <div class="chips">
+      <span class="left-arw" (click)="previous()"><i class="bi bi-arrow-left-square"></i></span>
+      <span class="chip-name">
+        <span *ngFor="let ch of chipArr" [ngClass]="ch?.active?'active-chip':''" (click)="chipFilter(ch?.name)">{{
+          ch?.name }}</span>
+      </span>
+      <span class="right-arw" (click)="next()"><i class="bi bi-arrow-right-square"></i></span>
+    </div>
+    <div class="selects">
+      <mat-form-field appearance="outline">
+        <mat-select (selectionChange)="searchAiByvnpai($event)" [value]="selectArr[0]">
+          <mat-select-trigger>
+            <span>
+              <svg *ngIf="selectedValue=='verified'" stroke="currentColor" fill="currentColor" stroke-width="0"
+                viewBox="0 0 24 24" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                style="color: rgb(3, 105, 161); margin-right: 2px">
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z">
+                </path>
+              </svg>
+              <svg *ngIf="selectedValue=='new'" stroke="currentColor" fill="currentColor" stroke-width="0"
+                viewBox="0 0 24 24" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                style="color: rgb(3, 105, 161); margin-right: 2px">
+                <g>
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path
+                    d="M6.382 5.968A8.962 8.962 0 0 1 12 4c2.125 0 4.078.736 5.618 1.968l1.453-1.453 1.414 1.414-1.453 1.453a9 9 0 1 1-14.064 0L3.515 5.93l1.414-1.414 1.453 1.453zM13 12V7.495L8 14h3v4.5l5-6.5h-3zM8 1h8v2H8V1z">
+                  </path>
+                </g>
+              </svg>
+              <svg *ngIf="selectedValue=='popular'" stroke="currentColor" fill="currentColor" stroke-width="0"
+                viewBox="0 0 16 16" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                style="color: rgb(3, 105, 161); margin-right: 2px">
+                <path fill-rule="evenodd"
+                  d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z">
+                </path>
+              </svg>
+            </span>
+            <span *ngIf="selectedValue==='All'">All</span>
+            <span *ngIf="selectedValue==='verified'">verified</span>
+            <span *ngIf="selectedValue==='new'">new</span>
+            <span *ngIf="selectedValue==='popular'">popular</span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let op of selectArr" [value]="op">
+            <span>
+              <svg *ngIf="op=='verified'" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                style="color: rgb(3, 105, 161); margin-right: 2px">
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z">
+                </path>
+              </svg>
+              <svg *ngIf="op=='new'" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                style="color: rgb(3, 105, 161); margin-right: 2px">
+                <g>
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path
+                    d="M6.382 5.968A8.962 8.962 0 0 1 12 4c2.125 0 4.078.736 5.618 1.968l1.453-1.453 1.414 1.414-1.453 1.453a9 9 0 1 1-14.064 0L3.515 5.93l1.414-1.414 1.453 1.453zM13 12V7.495L8 14h3v4.5l5-6.5h-3zM8 1h8v2H8V1z">
+                  </path>
+                </g>
+              </svg>
+              <svg *ngIf="op=='popular'" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
+                height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                style="color: rgb(3, 105, 161); margin-right: 2px">
+                <path fill-rule="evenodd"
+                  d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z">
+                </path>
+              </svg>
+            </span>
+            <span>{{ op }}</span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <hr />
+  <div class="tool-list">
+    <div *ngIf="!cardsArr.length">
+      <h4>No, any tools found!</h4>
+    </div>
+    <div class="tool-card" *ngFor="let cards of cardsArr">
+      <div class="site-img">
+        <div class="img">
+          <img [src]="cards?.img ? cards?.img : 'assets/images/aipic/aitoolpic.webp'" alt="logo" />
+        </div>
+        <div class="subscription-badges" *ngIf="cards?.plan_badge">
+          <p>{{ cards?.plan_badge }}</p>
+        </div>
+      </div>
+      <div class="name-likes">
+        <div class="name-verfied">
+          <span class="name">{{ cards?.name }}</span>
+          <span *ngIf="cards?.verified" class="verfied"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+              viewBox="0 0 24 24" color="#0ea5e9" height="20" width="20" xmlns="http://www.w3.org/2000/svg"
+              style="color: rgb(14, 165, 233)">
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path
+                d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z">
+              </path>
+            </svg></span>
+        </div>
+        <div class="likes-count" *ngIf="cards?.likes">
+          <span class="likes"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
+              color="gray" height="20" width="20" xmlns="http://www.w3.org/2000/svg"
+              style="color: gray; margin-right: 5px">
+              <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z">
+              </path>
+              <path
+                d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z">
+              </path>
+            </svg></span>
+          <span class="count">{{ cards?.likes }}</span>
+        </div>
+      </div>
+      <div class="descrip" *ngIf="cards?.descrip">
+        <p>{{ cards?.descrip }}</p>
+      </div>
+      <div class="fees-type-api">
+        <div class="fees-type" *ngIf="cards?.feetype">
+          <div class="free" *ngIf="cards?.feetype?.free">
+            <span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" color="#6b7280"
+                height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(107, 114, 128)">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                <path
+                  d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z">
+                </path>
+              </svg></span><span>{{ cards?.feetype?.free }}</span>
+          </div>
+          <div class="free-trial" *ngIf="cards?.feetype?.freetr">
+            <span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
+                color="#6b7280" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"
+                style="color: rgb(107, 114, 128)">
+                <path
+                  d="M832 464H332V240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v68c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-68c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM540 701v53c0 4.4-3.6 8-8 8h-40c-4.4 0-8-3.6-8-8v-53a48.01 48.01 0 1 1 56 0z">
+                </path>
+              </svg></span><span>{{ cards?.feetype?.freetr }}</span>
+          </div>
+          <div class="premium" *ngIf="cards?.feetype?.premium">
+            <span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
+                color="#6b7280" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"
+                style="color: rgb(107, 114, 128)">
+                <path
+                  d="M832 464H332V240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v68c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-68c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM540 701v53c0 4.4-3.6 8-8 8h-40c-4.4 0-8-3.6-8-8v-53a48.01 48.01 0 1 1 56 0z">
+                </path>
+              </svg></span><span>{{ cards?.feetype?.premium }}</span>
+          </div>
+          <div class="contact-for-pricing" *ngIf="cards?.feetype?.co_f_price">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" color="#6b7280"
+              style="color: #6b7280" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm22.3 665.2l.2 31.7c0 4.4-3.6 8.1-8 8.1h-28.4c-4.4 0-8-3.6-8-8v-31.4C401.3 723 359.5 672.4 355 617.4c-.4-4.7 3.3-8.7 8-8.7h46.2c3.9 0 7.3 2.8 7.9 6.6 5.1 31.7 29.8 55.4 74.1 61.3V533.9l-24.7-6.3c-52.3-12.5-102.1-45.1-102.1-112.7 0-72.9 55.4-112.1 126.2-119v-33c0-4.4 3.6-8 8-8h28.1c4.4 0 8 3.6 8 8v32.7c68.5 6.9 119.9 46.9 125.9 109.2.5 4.7-3.2 8.8-8 8.8h-44.9c-4 0-7.4-3-7.9-6.9-4-29.2-27.4-53-65.5-58.2v134.3l25.4 5.9c64.8 16 108.9 47 108.9 116.4 0 75.3-56 117.3-134.3 124.1zM426.6 410.3c0 25.4 15.7 45.1 49.5 57.3 4.7 1.9 9.4 3.4 15 5v-124c-36.9 4.7-64.5 25.4-64.5 61.7zm116.5 135.2c-2.8-.6-5.6-1.3-8.8-2.2V677c42.6-3.8 72-27.2 72-66.4 0-30.7-15.9-50.7-63.2-65.1z">
+              </path>
+            </svg><span>{{ cards?.feetype?.co_f_price }}</span>
+          </div>
+          <div class="deals" *ngIf="cards?.feetype?.deals">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" viewBox="0 0 16 16"
+              color="#6b7280" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"
+              style="color: rgb(107, 114, 128)">
+              <path
+                d="M15.25 0h-6c-0.412 0-0.989 0.239-1.28 0.53l-7.439 7.439c-0.292 0.292-0.292 0.769 0 1.061l6.439 6.439c0.292 0.292 0.769 0.292 1.061 0l7.439-7.439c0.292-0.292 0.53-0.868 0.53-1.28v-6c0-0.412-0.338-0.75-0.75-0.75zM11.5 6c-0.828 0-1.5-0.672-1.5-1.5s0.672-1.5 1.5-1.5 1.5 0.672 1.5 1.5-0.672 1.5-1.5 1.5z">
+              </path>
+            </svg><span>{{ cards?.feetype?.deals }}</span>
+          </div>
+          <div class="paid" *ngIf="cards?.feetype?.paid">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" color="#6b7280"
+              height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(107, 114, 128)">
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm22.3 665.2l.2 31.7c0 4.4-3.6 8.1-8 8.1h-28.4c-4.4 0-8-3.6-8-8v-31.4C401.3 723 359.5 672.4 355 617.4c-.4-4.7 3.3-8.7 8-8.7h46.2c3.9 0 7.3 2.8 7.9 6.6 5.1 31.7 29.8 55.4 74.1 61.3V533.9l-24.7-6.3c-52.3-12.5-102.1-45.1-102.1-112.7 0-72.9 55.4-112.1 126.2-119v-33c0-4.4 3.6-8 8-8h28.1c4.4 0 8 3.6 8 8v32.7c68.5 6.9 119.9 46.9 125.9 109.2.5 4.7-3.2 8.8-8 8.8h-44.9c-4 0-7.4-3-7.9-6.9-4-29.2-27.4-53-65.5-58.2v134.3l25.4 5.9c64.8 16 108.9 47 108.9 116.4 0 75.3-56 117.3-134.3 124.1zM426.6 410.3c0 25.4 15.7 45.1 49.5 57.3 4.7 1.9 9.4 3.4 15 5v-124c-36.9 4.7-64.5 25.4-64.5 61.7zm116.5 135.2c-2.8-.6-5.6-1.3-8.8-2.2V677c42.6-3.8 72-27.2 72-66.4 0-30.7-15.9-50.7-63.2-65.1z">
+              </path>
+            </svg><span>{{ cards?.feetype?.paid }}</span>
+          </div>
+        </div>
+        <div class="api" *ngIf="cards?.api">
+          <span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" color="#0369a1"
+              height="20" width="20" xmlns="http://www.w3.org/2000/svg"
+              style="color: rgb(3, 105, 161); margin-right: 5px">
+              <path fill-rule="evenodd"
+                d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z"
+                clip-rule="evenodd"></path>
+            </svg></span>
+          <span>{{ cards?.api }}</span>
+        </div>
+      </div>
+      <div class="hashtag" *ngIf="cards?.hashtag">
+        <p *ngFor="let tag of cards?.hashtag">#{{ tag }}</p>
+      </div>
+      <div class="actions">
+        <button class="goto-site" (click)="gotIaPage(cards?.url)">
+          <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+            stroke-linejoin="round" height="22" width="22" xmlns="http://www.w3.org/2000/svg">
+            <desc></desc>
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path>
+            <line x1="10" y1="14" x2="20" y2="4"></line>
+            <polyline points="15 4 20 4 20 9"></polyline>
+          </svg>
+        </button>
+        <button class="bookmark">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="22" width="22"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"></path>
+            <path
+              d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z">
+            </path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="pagination-btn">
+    <button class="previous-btn" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <ng-container *ngIf="currentPage>4">
+      <button (click)="fistPage(1)">1</button>
+      <button>...</button>
+    </ng-container>
+    <ng-container *ngFor="let page of visiblePages"><button (click)="goToPage(page)"
+        [class.active]="page === currentPage">{{ page }}</button></ng-container>
+    <ng-container *ngIf="totalPages>3 && (totalPages !== currentPage)">
+      <button>...</button>
+      <button (click)="lastPage(totalPages)" [class.active]="totalPages === currentPage">{{totalPages}}</button>
+    </ng-container>
+    <button class="next-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>

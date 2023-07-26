@@ -1,0 +1,184 @@
+<div class="products">
+    <div class="products-card">
+        <div class="card box-stl" *ngFor="let card of productsList;">
+            <div class="heading">
+                <h3 class="number">
+                    <span>{{card?.number}}</span> 
+                    <span><i [ngClass]="card?.icon?card?.icon:''"></i></span>
+                </h3>
+                <p class="title">{{card?.title}}</p>
+            </div>
+            <div class="progress-estate">
+                <mat-progress-bar mode="determinate" [color]="card?.color" [value]="card?.value"></mat-progress-bar>
+            </div>
+        </div>
+    </div>
+    <div class="annual-report">
+        <div class="chart box-stl">
+            <div class="header">
+                <h2><p>Annual Report</p> <span>Description text here...</span></h2>
+                <div class="info-menu">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="hptlSurveyMenu"></i>
+                    <mat-menu #hptlSurveyMenu="matMenu" xPosition="before" class="annual-report-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="body">
+                <div class="chart-record">
+                    <div>
+                        <p class="time">Sales Report</p>
+                        <h4 class="revanue">$4,516</h4>
+                    </div>
+                    <div>
+                        <p class="time">Annual Revenue</p>
+                        <h4 class="revanue">$6,481</h4>
+                    </div>
+                    <div>
+                        <p class="time">Total Profit</p>
+                        <h4 class="revanue">$3,915</h4>
+                    </div>
+                </div>
+                <div class="chart-body">
+                    <canvas #genderChart width="125" height="380"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="income box-stl">
+            <div class="revenue-body">
+                <div class="header dcb">
+                    <div class="heading">
+                        <h2>Total Revenue</h2>
+                        <p>8% High then last month</p>
+                    </div>
+                    <div class="info-menu">
+                        <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="productMenu"></i>
+                        <mat-menu #productMenu="matMenu" xPosition="before" class="revenue-menu">
+                            <ul class="menu-items">
+                                <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="body text-center">
+                    <div class="t-value-chart">
+                        <canvas #tValueChart width="250" height="200"></canvas>
+                    </div>
+                    <div class="income">
+                        <p>Sales Income</p>
+                        <p>Overall<span> 7,000</span></p>
+                    </div>
+                    <div class="m-e-chart">
+                        <canvas #mValueChart width="160" height="170"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="transactions box-stl">
+        <div class="header dcb">
+            <div class="name">
+                <h2>Recent Transactions</h2>
+            </div>
+            <div class="info">
+                <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="transactionsMenu"></i>
+                <mat-menu #transactionsMenu="matMenu" xPosition="before" class="transactions-info-menu">
+                    <ul class="menu-items">
+                        <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                        <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                    </ul>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="body">
+            <div class="report-table">
+                <table>
+                    <thead class="thead-dark">
+                        <tr><th *ngFor="let hd of transactionsArr[0]?.head;let i = index;">{{hd}}</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let transaction of transactionsArr;let i = index;">
+                            <td>{{i+1}}</td>
+                            <td><img *ngIf="transaction?.name?.img" class="profile" [src]="transaction?.name?.img"><span>{{transaction?.name?.name}}</span></td>
+                            <td>{{transaction?.item}}</td>
+                            <td><span class="text-info">{{transaction?.adress}}</span></td>
+                            <td>{{transaction?.quantity}}</td>
+                            <td><span [ngClass]="[transaction?.status?.badge?transaction?.status?.badge:'badges']">{{transaction?.status?.name}}</span></td>
+                            <td>{{transaction?.amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="selling-country">
+        <div class="new-orders box-stl">
+            <div class="header dcb">
+                <div class="name">
+                    <h2>New Orders</h2>
+                </div>
+                <div class="info">
+                    <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="newordersMenu"></i>
+                    <mat-menu #newordersMenu="matMenu" xPosition="before" class="new-orders-menu">
+                        <ul class="menu-items">
+                            <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                            <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="body">
+                <div class="report-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th *ngFor="let hd of customersArr[0]?.head;let i = index;">{{hd}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cus of customersArr;let i = index;">
+                                <td>{{i+1}}</td>
+                                <td>{{cus?.product}}</td>
+                                <td><img class="img" [src]="img?.img" *ngFor="let img of cus?.customer"></td>
+                                <td>{{cus?.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="statistics">
+            <div class="map box-stl">
+                <div class="header dcb">
+                    <div class="name">
+                        <h2>Top Selling Country</h2>
+                    </div>
+                    <div class="info">
+                        <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="mapMenu"></i>
+                        <mat-menu #mapMenu="matMenu" xPosition="before" class="visitors-info-menu">
+                            <ul class="menu-items">
+                                <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                                <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="map-item">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30696112.08126717!2d64.43848300685325!3d20.088775406435456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1679386029046!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

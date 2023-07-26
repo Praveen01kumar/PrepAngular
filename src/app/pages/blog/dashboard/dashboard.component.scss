@@ -1,0 +1,278 @@
+.blog-dashboard {
+    margin: 0 1%;
+
+    .rchart-container {
+        width: 100%;
+        margin-bottom: 20px;
+
+        .report-chart {
+            padding: 5px;
+            margin: 8px;
+            width: 290px;
+
+            .chart-line {
+                width: 100%;
+                height: 80px;
+            }
+
+            .chart-body {
+                .number {
+                    font-weight: 600;
+                    word-wrap: break-word;
+                    font-family: "Ubuntu", sans-serif;
+                    font-size: 14px;
+                    padding: 6px;
+
+                    p {
+                        margin: 0px;
+
+                        span {
+                            font-size: 14px;
+                            font-weight: 600;
+                            margin-left: 6px;
+                            line-height: 1.4;
+                            color: #444;
+                            font-family: "Ubuntu", sans-serif;
+                        }
+                    }
+
+                    span {
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: 1.4;
+                        color: #444;
+                        font-family: "Ubuntu", sans-serif;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .categories {
+        padding: 10px;
+
+        .header {
+            padding: 6px;
+
+            h2 {
+                font-size: 16px;
+                margin: 0px;
+                font-weight: 600;
+            }
+        }
+
+        .statistics {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            .report {
+                h5 {
+                    margin: 0px;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                span {
+                    font-size: 12px;
+                }
+            }
+        }
+
+    }
+
+    .visitor-stats {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+
+        .statistics {
+            width: 60%;
+            margin-right: 10px;
+
+            .header {
+                padding: 10px;
+
+                h2 {
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: 0px;
+                }
+            }
+
+            .map {
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                .views-visitors {
+                    display: flex;
+                    padding: 10px;
+
+                    .visitors {
+                        margin-right: 4%;
+
+                        h5 {
+                            font-size: 16px;
+                            font-weight: 600;
+                            margin: 0px;
+                        }
+                    }
+                }
+
+                .map-item {
+                    padding: 10px;
+
+                    iframe {
+                        border: 1px solid #0000004a !important;
+                        width: 100%;
+                        height: 300px;
+                        border-radius: 4px;
+                        padding: 2px;
+                    }
+                }
+            }
+        }
+
+        .campaign {
+            margin-left: 10px;
+            width: 40%;
+
+            .header {
+                padding: 10px;
+
+                h2 {
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: 0px;
+                }
+
+                span {
+                    font-size: 12px;
+                }
+            }
+
+            .campaign-list {
+                padding: 10px;
+
+                table {
+                    tbody {
+                        tr {
+                            td {
+                                .icon {
+                                    i {
+                                        font-size: 20px;
+                                    }
+                                }
+
+                                .ads {
+                                    margin: 0px;
+                                    font-size: 14px;
+                                    font-weight: 600;
+                                }
+
+                                .report {
+                                    font-size: 12px;
+                                }
+
+                                .revanue {
+                                    margin: 0px;
+                                    font-size: 14px;
+                                    font-weight: 600;
+                                }
+
+                                .type {
+
+                                    font-size: 10px;
+
+                                }
+
+                                .up {
+                                    color: green;
+                                    font-size: 12px;
+                                }
+
+                                .down {
+                                    color: red;
+                                    font-size: 12px;
+                                }
+
+                                .text-muted {
+                                    font-size: 11px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .progress-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .box-stl {
+            margin: 10px;
+            padding: 10px;
+
+            &:hover {
+                box-shadow: 0px 10px 20px 0px rgba(179, 179, 179, 1);
+                cursor: pointer;
+            }
+        }
+
+        .pheader {
+            text-align: center;
+
+            h5 {
+                font-size: 16px;
+                font-weight: 600;
+                margin: 0px;
+            }
+
+            small {
+                font-size: 10px;
+                font-weight: 600;
+            }
+        }
+
+        .pbody {
+            .progress-item {
+                position: relative;
+
+                .progress {
+                    display: block;
+                    margin: 0 auto;
+                    overflow: hidden;
+                    height: 178px;
+                    background: transparent;
+                    transform: rotate(-90deg) rotateX(180deg);
+
+                    .bar {
+                        stroke: #ffe0e0;
+                    }
+                }
+
+                circle {
+                    stroke-dashoffset: 0;
+                    transition: stroke-dashoffset 1s ease;
+                    stroke: #a02e2ead;
+                    stroke-width: 14px;
+                }
+
+                &::after {
+                    position: absolute;
+                    top: 42%;
+                    left: 50%;
+                    font-size: 24px;
+                    font-weight: 600;
+                    transform: translate(-50%, -50%);
+                    content: attr(data-percent);
+                }
+            }
+        }
+    }
+}

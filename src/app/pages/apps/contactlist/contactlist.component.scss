@@ -1,0 +1,123 @@
+.contact-list {
+    margin: 0px 1%;
+    .header {
+        margin-bottom: 0px;
+        padding: 20px;
+
+        h2 {
+            margin: 0;
+            font-size: 16px;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .add-list {
+            border: none;
+            background: none;
+
+            i {
+                color: #4444448c;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .contact-body {
+        table {
+            thead {
+                background: #000000bf;
+                color: #fff;
+
+                th {
+                    text-align: center;
+                }
+            }
+
+            tbody {
+                td {
+                    text-align: center;
+
+                    .profile {
+                        display: flex;
+                        margin: 0 20%;
+                        align-items: center;
+
+                        p {
+                            margin: 0;
+
+                            .default {
+                                @extend .badge;
+                                color: #9A9A9A;
+                            }
+
+                            .success {
+                                @extend .badge;
+                                color: green;
+                            }
+
+                            .name {
+                                font-weight: 600;
+                                font-size: 14px;
+                            }
+                        }
+
+                        .profile-img {
+                            width: 40px;
+                            height: 40px;
+                            border: 2px solid #fff;
+                            border-radius: 50%;
+                            margin-right: 8px;
+                        }
+
+                    }
+                    .edit{
+                        padding: 1px 6px;
+                        border: 1px solid green;
+                        color: green;
+                        background: transparent;
+                        &:hover{
+                            background: rgba(0, 128, 0, 0.079);
+                        }
+                    }
+                    .delete{
+                        padding: 1px 6px;
+                        margin-left: 4px;
+                        border: 1px solid red;
+                        color: red;
+                        background: transparent;
+                        &:hover{
+                            background: rgba(255, 0, 0, 0.079);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.badge {
+    padding: 4px 8px;
+    text-transform: uppercase;
+    line-height: 12px;
+    border: 1px solid;
+    font-weight: 400;
+    font-size: 75%;
+    margin-left: 10px;
+    border-radius: 0.25rem;
+    text-align: center;
+    white-space: nowrap;
+    background: transparent;
+}
+
+::ng-deep {
+    .contact-body {
+        table {
+            thead {
+                .mat-checkbox-frame {
+                    border-color: #ff4081;
+                }
+            }
+
+        }
+    }
+}

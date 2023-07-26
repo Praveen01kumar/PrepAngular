@@ -1,0 +1,404 @@
+{
+    "aisArr": [
+        {
+            "url": "https://app.pictory.ai",
+            "img": "assets/images/aipic/pictory.png",
+            "name": "Pictory",
+            "plan_badge": "$ 19/mo",
+            "vnpai": "verified",
+            "verified": true,
+            "likes": 576,
+            "descrip": "Pictory uses AI to help repurpose video and text content into short branded videos for marketing. Save time in video creation. Boost social visibility of your brand.",
+            "feetype": {
+                "freetr": "Free Trial",
+                "premium": "Premium"
+            },
+            "api": 1,
+            "hashtag": [
+                "low-code/no-code",
+                "sales",
+                "video maker"
+            ]
+        },
+        {
+            "url": "https://beecut.com/online-video-editor",
+            "img": "assets/images/aipic/Beecut.png",
+            "name": "Beecut",
+            "vnpai": "verified",
+            "verified": true,
+            "likes": 254,
+            "descrip": "BeeCut is the best video editor which offers you a very intuitive interface and robust functions. With it, you can make a high quality movie in no time!",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "video editor",
+                "water mark remover"
+            ]
+        },
+        {
+            "url": "https://temp-mail.org/en",
+            "img": "assets/images/aipic/TempMail.png",
+            "name": "Temp Mail",
+            "vnpai": " ",
+            "verified": false,
+            "likes": 117,
+            "descrip": "It is also known by names like : tempmail, 10minutemail, 10minmail, throwaway email, fake-mail , fake email generator, burner mail or trash-mail.",
+            "feetype": {
+                "freetr": "Free Trial",
+                "co_f_price": "Contact for Pricing"
+            },
+            "hashtag": [
+                "fake email generator",
+                "fake-mail"
+            ]
+        },
+        {
+            "url": "https://coolors.co/contrast-checker/112a46-acc8e5",
+            "img": "assets/images/aipic/Coolors.png",
+            "name": "Coolors.co",
+            "vnpai": "verified",
+            "verified": true,
+            "likes": 64,
+            "descrip": "Generate or browse beautiful color combinations for your designs.",
+            "feetype": {
+                "free": "Free",
+                "premium": "Premium"
+            },
+            "api": 1,
+            "hashtag": [
+                "Contrast Checker"
+            ]
+        },
+        {
+            "url": "https://accessibleweb.com/color-contrast-checker",
+            "img": "assets/images/aipic/Accessibleweb.png",
+            "name": "Accessibleweb",
+            "vnpai": "verified",
+            "verified": true,
+            "likes": 584,
+            "descrip": "We provide software, services, and education to help organizations of all sizes confidently and efficiently implement web accessibility across websites",
+            "feetype": {
+                "free": "Free"
+            },
+            "api": 1,
+            "hashtag": [
+                "Contrast Checker"
+            ]
+        },
+        {
+            "url": "https://chat.openai.com",
+            "img": "assets/images/aipic/ChatGPT.png",
+            "name": "ChatGPT",
+            "vnpai": "new",
+            "verified": false,
+            "likes": 8137,
+            "descrip": "ChatGPT is an artificial intelligence chatbot developed by OpenAI",
+            "feetype": {
+                "free": "Free",
+                "premium": "Premium"
+            },
+            "api": 1,
+            "hashtag": [
+                "life assistant",
+                "search engine"
+            ]
+        },
+        {
+            "url": "https://www.convertsimple.com",
+            "img": "assets/images/aipic/convertsimple.png",
+            "name": "Convert simple",
+            "vnpai": "new",
+            "verified": true,
+            "likes": 241,
+            "descrip": "Simple and free online tools to convert, format, validate, and minify. Tools for JSON, YAML, XML, CSV, INI, JavaScript, and more",
+            "feetype": {
+                "free": "Free",
+                "premium": "Premium"
+            },
+            "hashtag": [
+                "Tools for JSON",
+                "JavaScript minify",
+                "format & validate"
+            ]
+        },
+        {
+            "url": "wwwgoogle.com",
+            "img": "assets/images/aipic/Cody.webp",
+            "name": "Cody",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 1248,
+            "descrip": "The magic of ChatGPT but trained on your business. ",
+            "feetype": {
+                "premium": "Premium"
+            },
+            "api": 1,
+            "hashtag": [
+                "startup tools",
+                "productivity"
+            ]
+        },
+        {
+            "url": "http:google.com",
+            "img": "assets/images/aipic/MarketingBlocksAI.webp",
+            "name": "MarketingBlocks AI",
+            "plan_badge": "$ 57/mo",
+            "vnpai": "verified",
+            "verified": true,
+            "likes": 243,
+            "descrip": "AI powered marketing assistant",
+            "feetype": {
+                "premium": "Premium"
+            },
+            "api": 1,
+            "hashtag": [
+                "design assistant",
+                "copywriting"
+            ]
+        },
+        {
+            "url": "https:google.com",
+            "img": "assets/images/aipic/Quizgecko.webp",
+            "name": "Quizgecko",
+            "plan_badge": "$ 11/mo",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 229,
+            "descrip": "AI-powered quiz generator to make unique trivia questions & answers.",
+            "feetype": {
+                "premium": "Premium"
+            },
+            "api": 1,
+            "hashtag": [
+                "education assistant"
+            ]
+        },
+        {
+            "url": "https://www.google.com",
+            "img": "assets/images/aipic/Durable.webp",
+            "name": "Durable",
+            "plan_badge": "$ 15/mo",
+            "vnpai": "new",
+            "verified": true,
+            "likes": 1705,
+            "descrip": "Create a website, automate marketing & manage finances in 30 secs",
+            "feetype": {
+                "premium": "Premium",
+                "deals": "Deals"
+            },
+            "hashtag": [
+                "finance",
+                "low-code/no-code",
+                "startup tools"
+            ]
+        },
+        {
+            "url": "https://www.google.com",
+            "img": "assets/images/aipic/Upword.webp",
+            "name": "Upword",
+            "vnpai": "verified",
+            "verified": true,
+            "likes": 379,
+            "descrip": "Create summaries faster with Upword's AI tools.",
+            "feetype": {
+                "freetr": "Free Trial",
+                "premium": "Premium"
+            },
+            "api": 1,
+            "hashtag": [
+                "summarizer"
+            ]
+        },
+        {
+            "url": "https://www.google.com",
+            "img": "assets/images/aipic/VoxwaveAI.webp",
+            "name": "Voxwave AI",
+            "vnpai": "new",
+            "verified": true,
+            "likes": 175,
+            "descrip": "AI-personalized lead gen. Puts your voice into your emails. Works with any mailer.",
+            "feetype": {
+                "co_f_price": "Contact for Pricing"
+            },
+            "api": 1,
+            "hashtag": [
+                "text to speech",
+                "email assistant"
+            ]
+        },
+        {
+            "url": "https://www.google.com",
+            "img": "assets/images/aipic/AIStudios.webp",
+            "name": "AI Studios",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 380,
+            "descrip": "Create AI-generated videos using basic text instantly",
+            "feetype": {
+                "paid": "Paid"
+            },
+            "hashtag": [
+                "video generator"
+            ]
+        }
+    ],
+    "chipArr": [
+        {
+            "name": "3D",
+            "active": false
+        },
+        {
+            "name": "color",
+            "active": false
+        },
+        {
+            "name": "Contrast Checker",
+            "active": false
+        },
+        {
+            "name": "art",
+            "active": false
+        },
+        {
+            "name": "audio editing",
+            "active": false
+        },
+        {
+            "name": "avatars",
+            "active": false
+        },
+        {
+            "name": "code assistant",
+            "active": false
+        },
+        {
+            "name": "copywriting",
+            "active": false
+        },
+        {
+            "name": "customer support",
+            "active": false
+        },
+        {
+            "name": "dating",
+            "active": false
+        },
+        {
+            "name": "gaming",
+            "active": false
+        },
+        {
+            "name": "developer tools",
+            "active": false
+        },
+        {
+            "name": "e-commerce",
+            "active": false
+        },
+        {
+            "name": "education assistant",
+            "active": false
+        },
+        {
+            "name": "email assistant",
+            "active": false
+        },
+        {
+            "name": "experiments",
+            "active": false
+        },
+        {
+            "name": "fashion",
+            "active": false
+        },
+        {
+            "name": "finance",
+            "active": false
+        },
+        {
+            "name": "fitness",
+            "active": false
+        },
+        {
+            "name": "fun tools",
+            "active": false
+        },
+        {
+            "name": "design assistant",
+            "active": false
+        },
+        {
+            "name": "general writing",
+            "active": false
+        },
+        {
+            "name": "gift ideas",
+            "active": false
+        }
+    ],
+    "pricing": {
+        "name": "Pricing",
+        "completed": false,
+        "pricingType": [
+            {
+                "name": "Free",
+                "completed": false
+            },
+            {
+                "name": "Premium",
+                "completed": false
+            },
+            {
+                "name": "Free Trial",
+                "completed": false
+            },
+            {
+                "name": "Paid",
+                "completed": false
+            },
+            {
+                "name": "Deals",
+                "completed": false
+            },
+            {
+                "name": "Contact for Pricing",
+                "completed": false
+            }
+        ]
+    },
+    "features": {
+        "name": "Features",
+        "completed": false,
+        "featuresType": [
+            {
+                "name": "Waitlist",
+                "completed": false
+            },
+            {
+                "name": "Open Source",
+                "completed": false
+            },
+            {
+                "name": "Mobile App",
+                "completed": false
+            },
+            {
+                "name": "Discord Community",
+                "completed": false
+            },
+            {
+                "name": "API",
+                "completed": false
+            },
+            {
+                "name": "No Signup Required",
+                "completed": false
+            },
+            {
+                "name": "Browser Extension",
+                "completed": false
+            }
+        ]
+    }
+}

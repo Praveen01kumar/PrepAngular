@@ -1,0 +1,130 @@
+<div class="calendar-containor">
+    <div class="calendar">
+        <full-calendar #calendar [options]="calendarOptions"></full-calendar>
+    </div>
+    <div class="profile">
+        <div class="add-event-btn">
+            <button type="button" class="event-btn" (click)="addEventField = !addEventField">Add New Event</button>
+        </div>
+        <div class="add-event-form" *ngIf="addEventField">
+            <form [formGroup]="addEventForm">
+                <div class="dcb">
+                    <div class="event-title w-50 me-1">
+                        <mat-form-field appearance="outline"class="w-100">
+                            <input matInput placeholder="Event title..." formControlName="title">
+                            <mat-error
+                                *ngIf="(adfc['title']?.touched || submitted) && (adfc['title']?.errors && adfc['title']?.errors?.['required'])">
+                                Event title is required...
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="event-background w-50 ms-1">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <div class="dcb">
+                                <span class="w-70">
+                                    <input matInput type="text" formControlName="bgColor"
+                                        placeholder="Event bg color..." [value]="colorPicked"
+                                        (change)="changeColor1($event)">
+                                </span>
+                                <span class="color-input">
+                                    <input matInput formControlName="bgColor" [value]="colorPicked"
+                                        (input)="changeColor($event)" type="color" />
+                                </span>
+                            </div>
+                            <mat-error
+                                *ngIf="(adfc['bgColor']?.touched || submitted) && (adfc['bgColor']?.errors && adfc['bgColor']?.errors?.['required'])">
+                                Event background color is required...
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="dcb w-100">
+                    <div class="event-date w-50 me-1">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <div class="dcb">
+                                <span>
+                                    <input matInput [matDatepicker]="datepicker" placeholder="Event date..."
+                                        formControlName="singaleDate" [min]="minDate" (dateChange)="onChange($event, 'singaleDate')">
+                                </span>
+                                <span>
+                                    <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                                </span>
+                            </div>
+                            <mat-datepicker #datepicker> </mat-datepicker>
+                            <mat-error
+                                *ngIf="(adfc['singaleDate']?.touched || submitted) && (adfc['singaleDate']?.errors && adfc['singaleDate']?.errors?.['required'])">
+                                Event date is required...
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="event-date-range w-50 ms-1">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <div class="dcb">
+                                <span>
+                                    <mat-date-range-input [rangePicker]="rangePicker">
+                                        <input matStartDate placeholder="S date" formControlName="start_date" (dateChange)="onChange($event, 'start_date')">
+                                        <input matEndDate placeholder="E date..." formControlName="end_date" (dateChange)="onChange($event, 'end_date')">
+                                    </mat-date-range-input>
+                                </span>
+                                <span>
+                                    <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+                                </span>
+                            </div>
+                            <mat-date-range-picker #rangePicker></mat-date-range-picker>
+                            <mat-error
+                                *ngIf="((adfc['start_date']?.touched || submitted) && (adfc['start_date']?.errors && adfc['start_date']?.errors?.['required'])) && 
+                                ((adfc['end_date']?.touched || submitted) && (adfc['end_date']?.errors && adfc['end_date']?.errors?.['required']))">
+                                Event start and end date are required...
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="submit-form-btn">
+                    <button mat-raised-button class="cancel" (click)="onReset()">Cancel</button>
+                    <button mat-raised-button class="submit" (click)="submitForm()">Add</button>
+                </div>
+            </form>
+        </div>
+        <div class="profile-header">
+            <div class="body">
+                <div class="profile">
+                    <img src="assets/avatar/user.png" class="profile-img" alt="">
+                    <div class="name">
+                        <h4><strong>Alizee</strong> Thomas</h4>
+                        <span>Washington, d.c.</span>
+                    </div>
+                    <div class="profile-progress">
+                        <mat-progress-bar mode="determinate" value="89"></mat-progress-bar>
+                    </div>
+                    <div class="task-count dcb">
+                        <div class="completed">
+                            <h6>17</h6>
+                            <span>Completed</span>
+                        </div>
+                        <div class="todo">
+                            <h6>34</h6>
+                            <span>ToDo</span>
+                        </div>
+                        <div class="all">
+                            <h6>78</h6>
+                            <span>All Tasks</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="task-report">
+                    <span class="badges" *ngFor="let badge of badgeArr;"
+                        [ngStyle]="{'border-color':badge?.color?badge?.color:'#9A9A9A', 'color':badge?.color?badge?.color:'#9A9A9A'}">{{badge?.name}}</span>
+                </div>
+                <hr>
+                <div class="members">
+                    <h6>Team</h6>
+                    <ul class="member-list">
+                        <li *ngFor="let member of memberList;">
+                            <img [src]="member?.img?member?.img:'assets/avatar/user.png'" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

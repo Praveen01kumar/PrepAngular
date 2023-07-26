@@ -1,0 +1,794 @@
+{
+  "topicsArr": [
+    {
+      "title": "Introduction to Angular",
+      "left": [
+        {
+          "name": "What is Angular?",
+          "discription": "<p>Angular is an open-source web application framework primarily maintained by Google and a community of developers. It is used for building dynamic, single-page web applications (SPAs) and progressive web applications (PWAs). Angular is based on TypeScript, a superset of JavaScript, which adds static typing and other advanced features to the language.</p><p>Angular provides a robust set of tools and features to simplify the development of complex web applications. Some key components and concepts of Angular include:</p><ol><li><b>Components: </b>Angular applications are built using components, which are self-contained units responsible for handling a specific part of the user interface (UI). Each component combines HTML templates, TypeScript code, and CSS styles to create a reusable, isolated piece of functionality.</li><li><b>Templates: </b>Angular's templates are written in HTML and define the structure of the user interface. Templates can include data bindings, event handlers, and other directives to interact with the component's logic.</li><li><b>Directives: </b>Directives are markers on elements in the template that instruct Angular to attach specific behaviors to those elements. Angular has built-in directives like ngIf, ngFor, and ngModel, which provide conditional rendering, iteration, and two-way data binding, respectively.</li><li><b>Services: </b>Services in Angular are used to share data and business logic between components. They provide a way to keep components lean and maintain separation of concerns in the application.</li><li><b>Dependency Injection (DI): </b>Angular's DI system helps manage the dependencies of different components and services. It promotes the idea of injecting required dependencies into a component instead of creating them within the component itself.</li><li><b>Routing: </b>Angular provides a powerful routing module that allows developers to implement client-side navigation. This enables users to move between different views or pages within the application without triggering a full-page reload.</li><li><b>Modules: </b>Angular applications are organized into modules. Each module encapsulates related components, services, and other pieces of functionality, making the application more modular and maintainable.</li><li><b>Forms: </b>Angular offers form handling capabilities, including form validation, to manage user input and interaction with the application.</li></ol><p>Angular has gone through multiple versions, and at the time of my last update in September 2021, the latest stable version was Angular 12. However, new versions may have been released since then. It's essential to check the official Angular website or repository for the most up-to-date information.</p>"
+        }
+      ],
+      "right": [
+        {
+          "name": "Advantages and key features of Angular",
+          "discription": "<p>Angular is a <strong>popular front-end JavaScript framework</strong> maintained by Google. It offers many advantages such as <em>two-way data binding</em>, dependency injection, and a modular architecture, making it suitable for building large-scale applications.</p>"
+        }
+      ]
+    },
+    {
+      "title": "JavaScript Basic",
+      "left": [
+        {
+          "name": "Variables and Data Types"
+        },
+        {
+          "name": "Operators"
+        },
+        {
+          "name": "Functions"
+        },
+        {
+          "name": "Arrays Mathod"
+        },
+        {
+          "name": "Objects Mathod"
+        },
+        {
+          "name": "Strings Mathod"
+        }
+      ],
+      "right": [
+        {
+          "name": "Control Flow"
+        },
+        {
+          "name": "Error Handling"
+        },
+        {
+          "name": "DOM Manipulation"
+        },
+        {
+          "name": "Asynchronous Programming"
+        },
+        {
+          "name": "JSON"
+        },
+        {
+          "name": "Modules"
+        }
+      ]
+    },
+    {
+      "title": "JavaScript",
+      "left": [
+        {
+          "name": "Variables"
+        },
+        {
+          "name": "Operators"
+        },
+        {
+          "name": "Functions"
+        },
+        {
+          "name": "Arrays"
+        },
+        {
+          "name": "Objects"
+        },
+        {
+          "name": "Strings"
+        }
+      ],
+      "right": [
+        {
+          "name": "Control Flow"
+        },
+        {
+          "name": "Error Handling"
+        },
+        {
+          "name": "DOM Manipulation"
+        },
+        {
+          "name": "Asynchronous Programming"
+        },
+        {
+          "name": "JSON"
+        },
+        {
+          "name": "Modules"
+        }
+      ]
+    },
+    {
+      "title": "TypeScript Basic",
+      "left": [
+        {
+          "name": "Type Annotations and Type Inference"
+        },
+        {
+          "name": "Interfaces"
+        },
+        {
+          "name": "Classes and Objects"
+        },
+        {
+          "name": "Arrays and Tuples"
+        },
+        {
+          "name": "Union and Intersection Types"
+        }
+      ],
+      "right": [
+        {
+          "name": "Enums"
+        },
+        {
+          "name": "Type Assertion"
+        },
+        {
+          "name": "Generics"
+        },
+        {
+          "name": "Modules"
+        },
+        {
+          "name": "Type Inference and Type Compatibility"
+        },
+        {
+          "name": "TypeScript Compiler"
+        },
+        {
+          "name": "Data Types"
+        }
+      ]
+    },
+    {
+      "title": "Angular CLI",
+      "left": [
+        {
+          "name": "Creating a new Angular project"
+        },
+        {
+          "name": "Generating Components, services, modules, pipes, etc."
+        }
+      ],
+      "right": [
+        {
+          "name": "Development server and live reloading"
+        },
+        {
+          "name": "Production builds and optimizations"
+        }
+      ]
+    },
+    {
+      "title": "Module",
+      "left": [
+        {
+          "name": "NgModule Decorator"
+        },
+        {
+          "name": "Imports"
+        },
+        {
+          "name": "Declarations"
+        },
+        {
+          "name": "Exports"
+        }
+      ],
+      "right": [
+        {
+          "name": "Providers"
+        },
+        {
+          "name": "Bootstrap"
+        },
+        {
+          "name": "Lazy Loading"
+        }
+      ]
+    },
+    {
+      "title": "Components",
+      "left": [
+        {
+          "name": "Component Class"
+        },
+        {
+          "name": "Template"
+        },
+        {
+          "name": "Component Metadata"
+        },
+        {
+          "name": "Lifecycle Hooks"
+        }
+      ],
+      "right": [
+        {
+          "name": "Component Communication"
+        },
+        {
+          "name": "Component Styling"
+        },
+        {
+          "name": "Component Interaction"
+        },
+        {
+          "name": "Component Routing"
+        }
+      ]
+    },
+    {
+      "title": "Directives",
+      "left": [
+        {
+          "name": "Component Directives"
+        },
+        {
+          "name": "Attribute Directives"
+        }
+      ],
+      "right": [
+        {
+          "name": "Structural Directives"
+        }
+      ]
+    },
+    {
+      "title": "Data Binding",
+      "left": [
+        {
+          "name": "Interpolation"
+        },
+        {
+          "name": "Property Binding"
+        }
+      ],
+      "right": [
+        {
+          "name": "Event Binding"
+        },
+        {
+          "name": "Two-Way Binding"
+        }
+      ]
+    },
+    {
+      "title": "Forms",
+      "left": [
+        {
+          "name": "Template-driven Forms"
+        },
+        {
+          "name": "Reactive Forms"
+        },
+        {
+          "name": "FormControl"
+        },
+        {
+          "name": "FormGroup"
+        },
+        {
+          "name": "FormArray"
+        }
+      ],
+      "right": [
+        {
+          "name": "Form Submission"
+        },
+        {
+          "name": "Dynamic Form Control Manipulation"
+        },
+        {
+          "name": "Form Validation"
+        },
+        {
+          "name": "Form Builder"
+        }
+      ]
+    },
+    {
+      "title": "Dependency Injection",
+      "left": [
+        {
+          "name": "Service Registration"
+        },
+        {
+          "name": "Injector"
+        },
+        {
+          "name": "Dependency Injection in Components"
+        }
+      ],
+      "right": [
+        {
+          "name": "Injecting Dependencies into Services"
+        },
+        {
+          "name": "Provider Configuration"
+        },
+        {
+          "name": "Injection Tokens"
+        }
+      ]
+    },
+    {
+      "title": "Services",
+      "left": [
+        {
+          "name": "Creating a Service"
+        },
+        {
+          "name": "Injecting a Service"
+        },
+        {
+          "name": "Singleton Scope"
+        }
+      ],
+      "right": [
+        {
+          "name": "Providing Services"
+        },
+        {
+          "name": "Service Dependencies"
+        }
+      ]
+    },
+    {
+      "title": "Routing",
+      "left": [
+        {
+          "name": "Router Module Setup"
+        },
+        {
+          "name": "Router Outlet"
+        },
+        {
+          "name": "Route Configuration"
+        },
+        {
+          "name": "Traditional Routing"
+        },
+        {
+          "name": "Path-based Routing"
+        }
+      ],
+      "right": [
+        {
+          "name": "Lazy Loading"
+        },
+        {
+          "name": "Navigation"
+        },
+        {
+          "name": "Route Parameters"
+        },
+        {
+          "name": "Nested Routes"
+        },
+        {
+          "name": "Route Guards"
+        }
+      ]
+    },
+    {
+      "title": "State Management",
+      "left": [
+        {
+          "name": "Component Input/Output"
+        },
+        {
+          "name": "Services"
+        },
+        {
+          "name": "RxJS and Observables"
+        }
+      ],
+      "right": [
+        {
+          "name": "NgRx"
+        },
+        {
+          "name": "Other State Management Libraries"
+        }
+      ]
+    },
+    {
+      "title": "RxJs",
+      "left": [
+        {
+          "name": "Observables"
+        },
+        {
+          "name": "Interval"
+        },
+        {
+          "name": "Timer"
+        },
+        {
+          "name": "From"
+        },
+        {
+          "name": "Of"
+        },
+        {
+          "name": "FromEvent"
+        },
+        {
+          "name": "Ajax"
+        },
+        {
+          "name": "Empty"
+        },
+        {
+          "name": "Never"
+        },
+        {
+          "name": "Throw"
+        },
+        {
+          "name": "Operators"
+        },
+        {
+          "name": "Subscription Management"
+        },
+        {
+          "name": "Subjects"
+        },
+        {
+          "name": "BehaviorSubject"
+        },
+        {
+          "name": "ReplaySubject"
+        },
+        {
+          "name": "AsyncSubject"
+        },
+        {
+          "name": "Schedulers"
+        },
+        {
+          "name": "Error Handling"
+        }
+      ],
+      "right": [
+        {
+          "name": "Hot vs Cold Observables"
+        },
+        {
+          "name": "Higher-Order Observables"
+        },
+        {
+          "name": "Async Pipe"
+        },
+        {
+          "name": "Handling Multiple Streams"
+        },
+        {
+          "name": "Caching and Memoization"
+        },
+        {
+          "name": "Testing"
+        },
+        {
+          "name": "Backpressure"
+        },
+        {
+          "name": "Custom Operators"
+        },
+        {
+          "name": "Time-based Operators"
+        },
+        {
+          "name": "Multicasting and Connectable Observables"
+        },
+        {
+          "name": "Customizing Observable Creation"
+        },
+        {
+          "name": "Immutable Data Handling"
+        },
+        {
+          "name": "Advanced Error Handling Techniques"
+        }
+      ]
+    },
+    {
+      "title": "HTTP and APIs",
+      "left": [
+        {
+          "name": "Importing HttpClient"
+        },
+        {
+          "name": "HTTP Methods"
+        },
+        {
+          "name": "Making HTTP Requests"
+        },
+        {
+          "name": "Handling Responses"
+        },
+        {
+          "name": "Response Types"
+        }
+      ],
+      "right": [
+        {
+          "name": "Headers and Query Parameters"
+        },
+        {
+          "name": "Error Handling"
+        },
+        {
+          "name": "Authentication"
+        },
+        {
+          "name": "Interceptors"
+        },
+        {
+          "name": "Mocking HTTP Requests"
+        }
+      ]
+    },
+    {
+      "title": "(i18n) and Localization",
+      "left": [
+        {
+          "name": "Internationalization (i18n)"
+        },
+        {
+          "name": "Translation Files"
+        },
+        {
+          "name": "Markup Translation"
+        },
+        {
+          "name": "Translation Process"
+        }
+      ],
+      "right": [
+        {
+          "name": "Localization Configuration"
+        },
+        {
+          "name": "Dynamic Localization"
+        },
+        {
+          "name": "TranslateService"
+        },
+        {
+          "name": "Language Switching"
+        },
+        {
+          "name": "Pluralization and Selectors"
+        }
+      ]
+    },
+    {
+      "title": "SSR (Angular Universal)",
+      "left": [
+        {
+          "name": "Server-Side Rendering (SSR)"
+        },
+        {
+          "name": "Angular Universal"
+        },
+        {
+          "name": "Prerequisites"
+        },
+        {
+          "name": "Setup and Configuration"
+        },
+        {
+          "name": "Rendering Process"
+        }
+      ],
+      "right": [
+        {
+          "name": "Data Transfer"
+        },
+        {
+          "name": "Lifecycle Hooks"
+        },
+        {
+          "name": "Deployment"
+        },
+        {
+          "name": "Angular Universal with Angular CLI"
+        }
+      ]
+    },
+    {
+      "title": "Testing",
+      "left": [
+        {
+          "name": "Testing Frameworks"
+        },
+        {
+          "name": "Test Bed"
+        },
+        {
+          "name": "Unit Testing"
+        },
+        {
+          "name": "Component Testing"
+        },
+        {
+          "name": "Mocking Dependencies"
+        }
+      ],
+      "right": [
+        {
+          "name": "Integration Testing"
+        },
+        {
+          "name": "Mocking HTTP Requests"
+        },
+        {
+          "name": "E2E Testing"
+        },
+        {
+          "name": "Test Coverage"
+        },
+        {
+          "name": "Continuous Integration"
+        }
+      ]
+    },
+    {
+      "title": "Performance Optimization",
+      "left": [
+        {
+          "name": "Change Detection Optimization"
+        },
+        {
+          "name": "Lazy Loading"
+        },
+        {
+          "name": "AOT Compilation"
+        },
+        {
+          "name": "Code Minification and Bundling"
+        },
+        {
+          "name": "Optimizing Images"
+        }
+      ],
+      "right": [
+        {
+          "name": "Caching and HTTP Optimization"
+        },
+        {
+          "name": "Performance Profiling"
+        },
+        {
+          "name": "Optimizing Angular Router"
+        },
+        {
+          "name": "Memory Management"
+        },
+        {
+          "name": "Third-Party Libraries"
+        }
+      ]
+    },
+    {
+      "title": "Deployment",
+      "left": [
+        {
+          "name": "Build the Application"
+        },
+        {
+          "name": "Choose a Hosting Environment"
+        },
+        {
+          "name": "Server Configuration"
+        },
+        {
+          "name": "Static File Deployment"
+        }
+      ],
+      "right": [
+        {
+          "name": "Domain and DNS Configuration"
+        },
+        {
+          "name": "HTTPS and SSL Certificates"
+        },
+        {
+          "name": "Continuous Integration and Deployment (CI/CD)"
+        },
+        {
+          "name": "Testing and Verification"
+        },
+        {
+          "name": "Monitoring and Maintenance"
+        }
+      ]
+    },
+    {
+      "title": "Angular Material",
+      "left": [
+        {
+          "name": "Installation"
+        },
+        {
+          "name": "Component Library"
+        },
+        {
+          "name": "Theming"
+        },
+        {
+          "name": "Responsive Design"
+        },
+        {
+          "name": "Accessibility"
+        },
+        {
+          "name": "Form Controls"
+        }
+      ],
+      "right": [
+        {
+          "name": "Data Tables"
+        },
+        {
+          "name": "Dialogs and Modals"
+        },
+        {
+          "name": "Snackbar and Toast"
+        },
+        {
+          "name": "Iconography"
+        },
+        {
+          "name": "Internationalization (i18n)"
+        },
+        {
+          "name": "Integration with Angular CDK"
+        }
+      ]
+    },
+    {
+      "title": "Angular Animation",
+      "left": [
+        {
+          "name": "Animation Module"
+        },
+        {
+          "name": "Animation Trigger"
+        },
+        {
+          "name": "States and Transitions"
+        },
+        {
+          "name": "Keyframes and Styles"
+        },
+        {
+          "name": "Animation Functions"
+        }
+      ],
+      "right": [
+        {
+          "name": "Triggering Animations"
+        },
+        {
+          "name": "Animation Metadata"
+        },
+        {
+          "name": "Grouping and Sequencing"
+        },
+        {
+          "name": "Dynamic Animations"
+        },
+        {
+          "name": "Integration with Angular Directives"
+        }
+      ]
+    }
+  ]
+}

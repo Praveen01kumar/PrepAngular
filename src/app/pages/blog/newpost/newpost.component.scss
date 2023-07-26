@@ -1,0 +1,45 @@
+.blog-post {
+    margin: 0 1%;
+
+    .post {
+        padding: 16px;
+
+        .heading-field {
+            .title {
+                @extend .fields-stl;
+            }
+
+            .ctagory {
+                @extend .fields-stl;
+            }
+
+            .image {
+                margin: 0px 8px 2% 8px !important;
+                @extend .fields-stl;
+
+                .file-name {
+                    margin-left: 10px;
+                }
+
+            }
+        }
+
+        .textfield {
+            margin-bottom: 10px;
+
+            mat-form-field {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.fields-stl {
+    width: 100%;
+    text-align: center;
+    margin: 0px 8px;
+
+    mat-form-field {
+        width: 100%;
+    }
+}

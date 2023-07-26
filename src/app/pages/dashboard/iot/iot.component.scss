@@ -1,0 +1,238 @@
+.iot {
+    margin: 0 1%;
+
+    .weekly-day-night-use {
+        display: flex;
+        gap: 20px;
+
+        .weekly-use {
+            width: 70%;
+            padding: 20px;
+
+            .header {
+                .heading {
+                    h2 {
+                        font-weight: 600;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+        }
+
+        .day-night-use {
+            width: 30%;
+
+            .box-stl {
+                padding: 10px;
+
+                h1 {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+
+            .income {
+                h1 {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                p {
+                    margin: 0px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .energy-lights-temprature {
+        display: flex;
+        gap: 20px;
+
+        .energy {
+            padding: 20px;
+
+            .chart-body {
+                .number {
+                    font-weight: 600;
+                    word-wrap: break-word;
+                    font-family: "Ubuntu", sans-serif;
+                    font-size: 14px;
+
+                    h6 {
+                        margin-bottom: 0.5rem;
+                        font-family: inherit;
+                        font-weight: 500;
+                        line-height: 1.2;
+                        color: inherit;
+                        font-size: 1rem;
+                    }
+
+                    span {
+                        font-size: 22px;
+                        line-height: 1.4;
+                        font-weight: 600;
+                        color: #444;
+                        font-family: "Ubuntu", sans-serif;
+                    }
+                }
+
+                small {
+                    color: #6c757d !important;
+                    font-size: 80%;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                }
+            }
+        }
+
+        .lights {
+            @extend .energy;
+        }
+
+        .temprature {
+            @extend .energy;
+        }
+    }
+
+    .security-main {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        .security {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .head-left {
+                h6 {
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: 0px;
+                }
+
+                small {
+                    color: green;
+                }
+            }
+
+            .head-right {
+                button {
+                    padding: 4px 14px;
+                    border: 1px solid red;
+                    color: red;
+                    border-radius: 4px;
+                    transition: all ease 0.5s;
+
+                    &:hover {
+                        background-color: rgba(255, 0, 0, 0.278);
+                    }
+                }
+            }
+        }
+
+        .main {
+            .head-left {
+                small {
+                    color: red;
+                }
+            }
+
+            .head-right {
+                button {
+                    border: 1px solid green;
+                    color: green;
+
+                    &:hover {
+                        background-color: rgba(0, 128, 0, 0.273);
+                    }
+                }
+            }
+
+            @extend.security;
+        }
+    }
+
+    .equpments {
+        display: flex;
+        gap: 20px;
+
+        .air-conditioner {
+            padding: 20px;
+        }
+
+        .fridge {
+            padding: 20px;
+        }
+
+        .washing-machine {
+            padding: 20px;
+        }
+    }
+
+    .indoor-outdoor-appliences {
+        display: flex;
+        gap: 20px;
+
+        .indoor {
+            padding: 20px;
+            .header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                h2{
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .outdoor {
+           @extend .indoor;
+        }
+
+        .appliences {
+            @extend .indoor;
+        }
+    }
+}
+
+::ng-deep {
+    .realestate-menu {
+        width: 150px;
+        background-color: #17191c;
+        border-radius: 0.55rem;
+        padding: 10px;
+        box-shadow: 0px 2px 20px 0px rgb(0 0 0 / 50%);
+        border: 0;
+
+        .menu-items {
+            padding: 0px;
+            margin: 0px;
+
+            .menu-option {
+                display: block !important;
+                font-size: 1rem;
+                list-style: none;
+                word-wrap: break-word;
+
+                a {
+                    padding: 10px;
+                    color: #999;
+                    white-space: nowrap;
+                    font-size: 14px;
+                    text-decoration: none;
+                    background-color: transparent;
+                    transition: all ease 0.5s;
+
+                    &:hover {
+                        color: #cecece;
+                    }
+                }
+            }
+        }
+    }
+}

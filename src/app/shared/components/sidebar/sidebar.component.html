@@ -1,0 +1,189 @@
+<div class="sidebar-container">
+    <div class="user-info" *ngIf="logedIn">
+        <div class="dc">
+            <img src="assets/avatar/avatar2.jpg" class="user-profile-img" alt="User Profile Picture">
+            <div class="info-menu-dropdown">
+                <span>Welcome,</span>
+                <div class="info-menu">
+                    <a href="javascript:void(0);" class="profile-name" [matMenuTriggerFor]="userInfoMenu">
+                        <strong>Praveen Kumar</strong>
+                        <i class="bi bi-caret-down-fill ms-1" type="button"></i>
+                    </a>
+                    <mat-menu #userInfoMenu="matMenu" xPosition="before" class="menu-settings">
+                        <ul class="menu-items">
+                            <li class="menu-option" routerLink="profile"><a href="javascript:void(0);"><i class="bi bi-person"></i><span
+                                        class="ms-2">My Profile</span></a></li>
+                            <li class="menu-option" routerLink="chat"><a href="javascript:void(0);"><i
+                                        class="bi bi-envelope-open"></i><span class="ms-2">Messages</span></a></li>
+                            <li class="menu-option"><a href="javascript:void(0);"><i class="bi bi-gear"></i><span
+                                        class="ms-2">Settings</span></a></li>
+                            <li class="divider menu-option"></li>
+                            <li class="menu-option"><a href="javascript:void(0);" (click)="logOutUser()"><i class="bi bi-power"></i><span
+                                        class="ms-2">Logout</span></a></li>
+                        </ul>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <ul class="user-revan dcb">
+            <li> <small>Sales</small>
+                <h6>456</h6>
+            </li>
+            <li> <small>Order</small>
+                <h6>1350</h6>
+            </li>
+            <li><small>Revenue</small>
+                <h6>$2.13B</h6>
+            </li>
+        </ul>
+    </div>
+    <div class="menu-bar ps-2">
+        <div class="tabs">
+            <mat-tab-group class="side-tab-group" [ngStyle]="{'height':logedIn?'calc(100vh - 14rem)':'calc(100vh - 4rem)'}">
+                <mat-tab class="menu-tab">
+                    <ng-template mat-tab-label> Menu </ng-template>
+                    <div class="menu-tab-content">
+                        <div class="search">
+                            <div class="search-input">
+                                <i class="bi bi-search"></i>
+                                <input type="text" placeholder="Search..." (keyup)="searchMenu($event)">
+                            </div>
+                        </div>
+                        <mat-accordion>
+                            <mat-expansion-panel *ngFor="let sbItem of sideBarData;" [expanded]="currentRoute1 === sbItem?.route">
+                                <mat-expansion-panel-header [ngStyle]="{'border-color':sbItem?.color}" (click)="goToPage(sbItem?.route)">
+                                    <mat-panel-title>
+                                        <span><i [ngClass]="[sbItem?.icon ? sbItem?.icon : '']"
+                                                [ngStyle]="{'color':sbItem?.color}"></i></span>
+                                        <span>{{sbItem?.title}}</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="expansion-body">
+                                    <ul class="expansion-body-item">
+                                        <li class="expansion-item" *ngFor="let subItem of sbItem?.subTitleArr;" [routerLink]="subItem?.routein" routerLinkActive='active'>
+                                            <a href="javascript:void(0);">{{subItem?.title}}<span
+                                                    *ngIf="subItem?.badge?.isBadge"
+                                                    [ngClass]="{'badge-warning': subItem?.badge?.badgeWar,
+                                             'badge-default' :subItem?.badge?.badgeDef, 'badge-success' :subItem?.badge?.badgeSucc}">{{subItem?.badge?.txt}}</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                </mat-tab>
+                <mat-tab class="books-tab">
+                    <ng-template mat-tab-label><i class="bi bi-book"></i></ng-template>
+                    <div class="books-tab-contant">
+                        <div class="search">
+                            <div class="search-input">
+                                <i class="bi bi-search"></i>
+                                <input type="text" placeholder="Search..." (keyup)="searchMember($event)">
+                            </div>
+                        </div>
+                        <div class="books-members">
+                            <ul class="book_chat">
+                                <li class="online" *ngFor="let bmem of bookMemberArr;">
+                                    <a href="javascript:void(0);">
+                                        <div class="media">
+                                            <img class="media-img"
+                                                [src]="bmem?.img?bmem?.img:'assets/avatar/avatar1.jpg'" alt="media-img">
+                                            <div class="media-body">
+                                                <span class="name">{{bmem?.name}}</span>
+                                                <span class="message">{{bmem?.message}}</span>
+                                                <span [ngClass]="[bmem?.status?'badge-active':'badge-inactive']"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab class="setting-tab">
+                    <ng-template mat-tab-label><i class="bi bi-gear"></i> </ng-template>
+                    <div class="color-tab">
+                        <div class="color-tab-radio">
+                            <p>Choose Skin</p>
+                            <div class="radio">
+                                <mat-radio-group>
+                                    <span *ngFor="let color of colorRadio; let i=index;" [ngClass]="color?.color">
+                                        <mat-radio-button [value]="color" (change)="getValue($event)"
+                                            [ngStyle]="{'border-color':(color?.bgcolor+20),'background':(color?.bgcolor+20)}">
+                                            <span>{{color?.name}}</span>
+                                        </mat-radio-button>
+                                    </span>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="color-tab-checkbox">
+                            <p>General Settings</p>
+                            <div class="checkbox">
+                                <span [class]="selectedColor">
+                                    <mat-checkbox *ngFor="let color of colorCheck;" [value]="color?.value"
+                                        [ngStyle]="{'border-color':(selectedBg+20),'background':(selectedBg+20)}">
+                                        <span>{{color.name}}</span>
+                                    </mat-checkbox>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab class="info-tab">
+                    <ng-template mat-tab-label><i class="bi bi-question-circle"></i></ng-template>
+                    <div class="info-tab-body">
+                        <div class="search">
+                            <div class="search-input">
+                                <i class="bi bi-search"></i>
+                                <input type="text" placeholder="Search..." (keyup)="searchInfo($event)">
+                            </div>
+                        </div>
+                        <div class="info-tab-contant">
+                            <ul class="info-list">
+                                <span *ngFor="let info of infolistArr;">
+                                    <li class="heading">{{info?.head}}</li>
+                                    <li class="listing" *ngFor="let list of info?.infoArr"><a
+                                            href="javascript:void(0);">{{list?.name}}</a></li>
+                                </span>
+                            </ul>
+                            <p class="question">
+                                <a href="javascript:void(0);">
+                                    <i class="bi bi-question-circle"></i>
+                                    <span>Need Help?</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab class="report-tab">
+                    <ng-template mat-tab-label><i class="bi bi-sliders"></i></ng-template>
+                    <div class="info-tab-body">
+                        <div class="search">
+                            <div class="search-input">
+                                <i class="bi bi-search"></i>
+                                <input type="text" placeholder="Search...">
+                            </div>
+                        </div>
+                        <div class="info-tab-contant">
+                            <ul class="info-list">
+                                <span *ngFor="let info of infolistArr;">
+                                    <li class="heading">{{info?.head}}</li>
+                                    <li class="listing" *ngFor="let list of info?.infoArr"><a
+                                            href="javascript:void(0);">{{list?.name}}</a></li>
+                                </span>
+                            </ul>
+                            <p class="question">
+                                <a href="javascript:void(0);">
+                                    <i class="bi bi-question-circle"></i>
+                                    <span>Need Help?</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>

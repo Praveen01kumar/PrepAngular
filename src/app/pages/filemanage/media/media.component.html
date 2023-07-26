@@ -1,0 +1,26 @@
+<div class="file-medias">
+    <div class="search">
+        <input type="text" placeholder="Search Medias..." (keyup)="searchMedia($event)">
+    </div>
+    <div class="file-list">
+        <div class="card box-stl" *ngFor="let media of mediaList;">
+            <a href="javascript:void(0);">
+                <div class="trash-btn">
+                    <button type="button">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+                <div class="icon">
+                    <i [ngClass]="media?.medicon?media?.medicon:''" [ngStyle]="{'color':media?.medcolor }"></i>
+                </div>
+                <div class="file-name">
+                    <p class="name">{{media?.medname}}</p>
+                    <small>
+                        <span class="size">{{media?.medsize}}</span>
+                        <span class="date">{{media?.meddate}}</span>
+                    </small>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

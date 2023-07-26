@@ -1,0 +1,44 @@
+.category {
+    .category-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .category-item {
+            border: 1px solid #00ceb3;
+            padding: 1em;
+            border-radius: 4px;
+            width: 12em;
+            height: 6em;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin: 1%;
+            background-color: #D0FFF9;
+            color: #000000;
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all ease 0.5s;
+
+            &:hover {
+                box-shadow: 0px 31px 20px 5px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+            }
+
+            span {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+        }
+    }
+    .search {
+        input {
+            padding: 8px;
+            outline: none;
+            border-radius: 4px;
+            font-size: 16px;
+            border: 1px solid #00000061;
+        }
+    }
+}

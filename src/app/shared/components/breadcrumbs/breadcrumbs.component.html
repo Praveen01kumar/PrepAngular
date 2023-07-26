@@ -1,0 +1,8 @@
+<ol>
+    <li (click)="goToPage('')">
+        <a href="javascript:void(0);"><i class="bi bi-house-door"></i></a>
+    </li>
+    <li *ngFor="let breadcrumb of breadcrumbsData;let i=index;">
+        <a (click)="goTo(i)">{{ breadcrumb|titlecase}}</a>
+    </li>
+</ol>
