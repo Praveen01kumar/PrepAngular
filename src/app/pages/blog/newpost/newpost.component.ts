@@ -36,5 +36,7 @@ export class NewpostComponent implements OnInit {
         "tabletools,templates,toolbar,undo,wsc,wysiwygarea"
     };
   }
-
+  createPost(){
+    const postData = this.mycontent;
+  }
 }
