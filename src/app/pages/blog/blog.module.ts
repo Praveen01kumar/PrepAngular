@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Form_Module } from 'src/app/shared/modale/form_module';
 import { Mat_Module } from 'src/app/shared/modale/matmodule';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 const BlogRoutes: Routes = [
@@ -33,6 +34,7 @@ const BlogRoutes: Routes = [
     Form_Module,
     Mat_Module,
     CKEditorModule,
+    SharedModule
   ],
   exports: [
     RouterModule,

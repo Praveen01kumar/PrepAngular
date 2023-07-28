@@ -46,6 +46,7 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
         UserlogComponent,
         SidebarComponent,
         BreadcrumbsComponent,
+        LoaderComponent
         
     ],
     providers: [

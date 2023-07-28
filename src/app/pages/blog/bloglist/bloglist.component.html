@@ -1,6 +1,7 @@
+<app-loader *ngIf="isLoading"></app-loader>
 <div class="bloglist">
     <div class="bloglist-item">
-        <div class="card box-stl" *ngFor="let post of blogList;">
+        <!-- <div class="card box-stl" *ngFor="let post of blogList;">
             <div class="body">
                 <div class="img-post" *ngIf="post?.img">
                     <img [src]="post?.img">
@@ -11,6 +12,25 @@
             <div class="footer">
                 <div class="actions">
                     <a href="javascript:void(0);">Continue Reading</a>
+                </div>
+                <ul class="stats">
+                    <li><a href="javascript:void(0);">General</a></li>
+                    <li><a href="javascript:void(0);"><i class="bi bi-heart"></i><span>28</span></a></li>
+                    <li><a href="javascript:void(0);"><i class="bi bi-chat"></i><span>128</span></a></li>
+                </ul>
+            </div>
+        </div> -->
+        <div class="card box-stl" *ngFor="let post of blogList;">
+            <div class="body">
+                <div class="img-post" *ngIf="post?.image">
+                    <img [src]="'assets/postimages/'+post?.image">
+                </div>
+                <h3 class="title" *ngIf="post?.title"><a href="javascript:void(0);">{{post?.title}}</a></h3>
+                <p class="discrips" *ngIf="post?.description">{{post?.description}}</p>
+            </div>
+            <div class="footer">
+                <div class="actions">
+                    <a href="javascript:void(0);" (click)="continueRead(post)">Continue Reading</a>
                 </div>
                 <ul class="stats">
                     <li><a href="javascript:void(0);">General</a></li>

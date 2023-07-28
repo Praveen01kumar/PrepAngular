@@ -67,6 +67,26 @@ export class ApiService {
     );
   }
 
+    // post list
+    getBlogPostList(data: any = ''): Observable<any> {
+      return this.http.post(`${this.BASE_URL}/post/list`, data).pipe(
+        tap(
+          data => data,
+          error => error
+        )
+      );
+    }
+
+     // post list
+     getBlogPostByid(id: any = ''): Observable<any> {
+      return this.http.get(`${this.BASE_URL}/post/detail`, id).pipe(
+        tap(
+          data => data,
+          error => error
+        )
+      );
+    }
+
 
   // getDealDetails(id): Observable<any> {
   //   return this.http.get(this.BASE_URL + '/merchantcustomerlead/' + id).pipe(
