@@ -247,7 +247,7 @@ export class CryptocurrencyComponent implements OnInit {
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      this.ColumnDisplay = Array.from(new Set([...event.container.data, ...this.ColumnDisplay]));;
+      this.ColumnDisplay = Array.from(new Set([...event.container.data, ...this.ColumnDisplay]));
     } else {
       transferArrayItem(
         event.previousContainer.data,

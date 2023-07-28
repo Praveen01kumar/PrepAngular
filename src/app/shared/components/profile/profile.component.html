@@ -3,7 +3,9 @@
 
     <div class="profile box-stl">
       <div class="profile-image">
-        <img src="assets/avatar/avatar2.jpg" alt="" />
+        <label for="uploader"><i class="bi bi-pencil-square"></i></label>
+        <input type='file' (change)="onSelectFile($event)" multiple hidden id="uploader" accept="image/jpeg, image/png">
+        <img [src]="profileUrls ? profileUrls:'assets/avatar/avatar2.jpg'" alt="profile" />
       </div>
       <div class="profile-name">
         <h4><strong>Alizee</strong> Thomas</h4>
@@ -45,12 +47,6 @@
         <hr>
         <small class="text-muted">Birth Date: </small>
         <p class="m-b-0">October 22th, 1990</p>
-        <hr>
-        <small class="text-muted">Social: </small>
-        <p><i class="bi bi-twitter"></i> twitter.com/example</p>
-        <p><i class="bi bi-facebook"></i> facebook.com/example</p>
-        <p><i class="bi bi-github"></i> github.com/example</p>
-        <p><i class="bi bi-instagram"></i> instagram.com/example</p>
       </div>
     </div>
 
@@ -122,6 +118,17 @@
           </li>
         </ul>
       </div>
+    </div>
+
+    <div class="Social_links box-stl" *ngIf="settings">
+      <div class="header">
+        <h2>Social Links</h2>
+      </div>
+      <p><i class="bi bi-twitter"></i> twitter.com/example</p>
+      <p><i class="bi bi-facebook"></i> facebook.com/example</p>
+      <p><i class="bi bi-github"></i> github.com/example</p>
+      <p><i class="bi bi-instagram"></i> instagram.com/example</p>
+      <button class="update-btn">Add</button>
     </div>
 
   </div>
@@ -230,6 +237,7 @@
         <button class="btn-update">Update</button>
         <button class="btn-cancel">Cancel</button>
       </div>
+
       <div class="account-password box-stl">
         <div class="account-form">
           <h6>Account Data</h6>
@@ -237,11 +245,18 @@
             <input type="text" class="form-control shadow-none" value="praveen kumar" disabled placeholder="Username" />
           </div>
           <div class="form-group">
-            <input type="email" class="form-control shadow-none" value="example@gmail.com" placeholder="Email" />
+            <input type="email" class="form-control shadow-none" value="example@gmail.com" disabled
+              placeholder="Email" />
           </div>
           <div class="form-group">
             <input type="text" class="form-control shadow-none" placeholder="Phone Number" />
           </div>
+        </div>
+        <button class="btn-update">Update</button>
+        <button class="btn-cancel">Cancel</button>
+      </div>
+      <div class="account-password box-stl">
+        <div class="account-form">
           <h6>Change Password</h6>
           <div class="form-group">
             <input type="password" class="form-control shadow-none" placeholder="Current Password" />
@@ -260,9 +275,6 @@
       <div class="general-information box-stl">
         <h6>General Information</h6>
         <div class="general-form">
-          <div class="form-group">
-            <input type="text" class="form-control shadow-none" placeholder="Phone Number" />
-          </div>
           <div class="form-group">
             <select class="form-control shadow-none">
               <option [value]="lang?.value" [lang]="lang?.lang" *ngFor="let lang of languageArr">
@@ -371,38 +383,39 @@
       </ul>
     </div>
     <div class="businuss box-stl">
-     <iframe loading="lazy" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFjPD2W-5U&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen" title="businuss card"></iframe>
-   </div>
+      <iframe loading="lazy" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFjPD2W-5U&#x2F;view?embed"
+        allowfullscreen="allowfullscreen" allow="fullscreen" title="businuss card"></iframe>
+    </div>
     <div class="rate">
       <div class="cards box-stl">
-          <div data_progress="10%" class="progress_val"
-              [ngStyle]="{'--progress': 10+'%', 'background':'conic-gradient(blue var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
-          </div>
-          <h2>Events</h2>
-          <p>12 of this month</p>
+        <div data_progress="10%" class="progress_val"
+          [ngStyle]="{'--progress': 10+'%', 'background':'conic-gradient(blue var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+        </div>
+        <h2>Events</h2>
+        <p>12 of this month</p>
       </div>
       <div class="cards box-stl">
-          <div data_progress="80%" class="progress_val"
-              [ngStyle]="{'--progress': 80+'%', 'background':'conic-gradient(red var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
-          </div>
-          <h2>Birthday</h2>
-          <p>4 of this month</p>
-      </div>
-      <div class="cards box-stl">
-          <div data_progress="45%" class="progress_val"
-              [ngStyle]="{'--progress': 45+'%', 'background':'conic-gradient(green var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
-          </div>
-          <h2>Conferences</h2>
-          <p>8 of this month</p>
+        <div data_progress="80%" class="progress_val"
+          [ngStyle]="{'--progress': 80+'%', 'background':'conic-gradient(red var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+        </div>
+        <h2>Birthday</h2>
+        <p>4 of this month</p>
       </div>
       <div class="cards box-stl">
         <div data_progress="45%" class="progress_val"
-            [ngStyle]="{'--progress': 45+'%', 'background':'conic-gradient(green var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+          [ngStyle]="{'--progress': 45+'%', 'background':'conic-gradient(green var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
+        </div>
+        <h2>Conferences</h2>
+        <p>8 of this month</p>
+      </div>
+      <div class="cards box-stl">
+        <div data_progress="45%" class="progress_val"
+          [ngStyle]="{'--progress': 45+'%', 'background':'conic-gradient(green var(--progress), rgba(159, 159, 159, 0.685) 0deg)'}">
         </div>
         <h2>Seminars</h2>
         <p>2 of this month</p>
+      </div>
     </div>
-  </div>
 
   </div>
 </div>

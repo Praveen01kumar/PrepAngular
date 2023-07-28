@@ -360,7 +360,7 @@ export class MailboxComponent implements OnInit {
   };
   mailTab(type: any) {
     this.detailView = false;
-    if (type === 'refresh') { this.reload('writer/mail'); };
+    if (type === 'refresh') { this.reload('app/mail'); };
     if (type === 'archive') { this.mailListArr = this.archiveListArr; };
     if (type === 'trash') { this.mailListArr = this.trashMailListArr; };
   };

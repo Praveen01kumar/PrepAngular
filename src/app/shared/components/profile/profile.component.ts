@@ -9,6 +9,7 @@ export class ProfileComponent implements OnInit {
 
   overview: boolean = true;
   settings: boolean = false;
+  profileUrls:string='';
   contryArr: any[] = [
     { value: "", name: "-- Select Country --" },
     { value: "AF", name: "Afghanistan" },
@@ -53,5 +54,20 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void { }
 
   acTab(data: string) { data === 'overview' ? (this.overview = true, this.settings = false) : data === 'settings' ? (this.overview = false, this.settings = true) : undefined; }
+
+
+  onSelectFile(event:any) {
+    if (event.target.files && event.target.files[0]) {
+        var filesAmount = event.target.files.length;
+        for (let i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+                reader.onload = (event:any) => {
+                   this.profileUrls=event?.target?.result; 
+                }
+
+                reader.readAsDataURL(event.target.files[i]);
+        }
+    }
+  }
 
 }
