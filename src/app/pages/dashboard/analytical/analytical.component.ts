@@ -3,11 +3,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
-  selector: 'app-admain',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  selector: 'app-analytical',
+  templateUrl: './analytical.component.html',
+  styleUrls: ['./analytical.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class AnalyticalComponent implements OnInit {
 
   @ViewChild('line1Chart', { static: true }) line1Chart!: ElementRef;
   lChart1!: Chart;

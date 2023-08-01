@@ -41,8 +41,8 @@ export class BloglistComponent implements OnInit {
   }
 
   continueRead(data:any){
-    this.shared_sevice.postDetail_id$.next(data?.id);
     this.router.navigate(['/blog/blogdetail']);
+    this.shared_sevice.postDetail_id$.next(data?.id);
   }
 
   ngOnDestroy(): void {

@@ -63,25 +63,25 @@ export class AisComponent implements OnInit {
     this.chipArr[index].active ? this.searchArr.push(name) : this.searchArr.splice(this.searchArr.indexOf(name), 1);
     this.cardsArr = this.cardsArr.filter((cd: any) => this.searchArr.every((st: any) => cd.hashtag.includes(st)));
   }
-  updateAllPricing() { this.allpricingComplete = this.pricing?.pricingType != null && this.pricing.pricingType?.every((t: any) => t?.completed); }
+  updateAllPricing() { this.allpricingComplete = this.pricing?.pricingType != null && this.pricing?.pricingType?.every((t: any) => t?.completed); }
   somePricing(): boolean {
-    if (this.pricing.pricingType == null) { return false; }
-    return this.pricing.pricingType.filter((t: any) => t.completed).length > 0 && !this.allpricingComplete;
+    if (this.pricing?.pricingType == null) { return false; }
+    return this.pricing?.pricingType.filter((t: any) => t.completed).length > 0 && !this.allpricingComplete;
   }
   setAllPricing(completed: boolean) {
     this.allpricingComplete = completed;
-    if (this.pricing.pricingType == null) { return; }
-    this.pricing.pricingType.forEach((t: any) => (t.completed = completed));
+    if (this.pricing?.pricingType == null) { return; }
+    this.pricing?.pricingType.forEach((t: any) => (t.completed = completed));
   }
-  updateAllFeatures() { this.allfeaturesComplete = this.features?.featuresType != null && this.features.featuresType?.every((t: any) => t?.completed); }
+  updateAllFeatures() { this.allfeaturesComplete = this.features?.featuresType != null && this.features?.featuresType?.every((t: any) => t?.completed); }
   someFeatures(): boolean {
-    if (this.features.featuresType == null) { return false; }
-    return this.features.featuresType.filter((t: any) => t.completed).length > 0 && !this.allfeaturesComplete;
+    if (this.features?.featuresType == null) { return false; }
+    return this.features?.featuresType.filter((t: any) => t.completed).length > 0 && !this.allfeaturesComplete;
   }
   setAllFeatures(completed: boolean) {
     this.allfeaturesComplete = completed;
-    if (this.features.featuresType == null) { return; }
-    this.features.featuresType.forEach((t: any) => (t.completed = completed));
+    if (this.features?.featuresType == null) { return; }
+    this.features?.featuresType.forEach((t: any) => (t.completed = completed));
   }
   clearFilter() {
     this.cardsArr = this.aiFilterByName;

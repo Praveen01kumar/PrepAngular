@@ -13,6 +13,9 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { Mat_Module } from 'src/app/shared/modale/matmodule';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AdminComponent } from './admin/admin.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 const writerRoutes: Routes = [
   { path: '', component: MailboxComponent },
@@ -22,6 +25,7 @@ const writerRoutes: Routes = [
   { path: 'contactlist', component: ContactlistComponent },
   { path: 'contactcard', component: ContactcardComponent },
   { path: 'taskboard', component: TaskboardComponent },
+  { path: 'admin', component: AdminComponent },
 
 ];
 
@@ -33,7 +37,8 @@ const writerRoutes: Routes = [
     CalenderComponent,
     ContactlistComponent,
     ContactcardComponent,
-    TaskboardComponent
+    TaskboardComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +47,9 @@ const writerRoutes: Routes = [
     Form_Module,
     Mat_Module,
     SharedModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatSortModule,
   ]
 })
 export class AppsModule { }

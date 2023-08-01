@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Form_Module } from 'src/app/shared/modale/form_module';
 import { Mat_Module } from 'src/app/shared/modale/matmodule';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AdminComponent } from './admin/admin.component';
+import { AnalyticalComponent } from './analytical/analytical.component';
 import { DemographicComponent } from './demographic/demographic.component';
 import { HospitalComponent } from './hospital/hospital.component';
 import { UniversityComponent } from './university/university.component';
@@ -16,14 +16,12 @@ import { IotComponent } from './iot/iot.component';
 import { PhoneFormatPipe } from 'src/app/shared/pipes/num-format';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 const writerRoutes: Routes = [
 
-  { path: '', component: AdminComponent },
-  { path: 'analytical', component: AdminComponent },
+  { path: '', component: AnalyticalComponent },
+  { path: 'analytical', component: AnalyticalComponent },
   { path: 'demographic', component: DemographicComponent },
   { path: 'hospital', component: HospitalComponent },
   { path: 'university', component: UniversityComponent },
@@ -38,7 +36,7 @@ const writerRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AdminComponent,
+    AnalyticalComponent,
     DemographicComponent,
     HospitalComponent,
     UniversityComponent,

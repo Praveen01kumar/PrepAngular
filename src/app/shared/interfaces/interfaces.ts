@@ -40,12 +40,16 @@ export interface aisArr {
 }
 
 export interface PeriodicElement {
+    name?:string;
+    all_data:string;
+    pic: string;
+    role: string;
     date: string;
     type: string;
-    amount: string;
-    remaining: string;
-    price: string;
-    usd: string;
-    fee: string;
-    status: { name: string, type: string };
-  }
+    amount: string | number;
+    country: string;
+    state: string;
+    city: string;
+    phone: string | number;
+    status?: { name: string, type: string } | string;
+}

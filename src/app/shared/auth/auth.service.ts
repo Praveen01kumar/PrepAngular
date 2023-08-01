@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { environment } from 'src/environments/environment';
 import { SharedService } from '../services/shared.service';
 import { Router } from '@angular/router';
 const jwtHelper = new JwtHelperService();
@@ -14,7 +13,7 @@ export class AuthService {
   constructor(
     public sharedService: SharedService,
     private router: Router,
-    ) { 
+  ) {
     this.sessionExp();
   }
 
@@ -45,14 +44,14 @@ export class AuthService {
     }
   }
 
-  sessionExp():boolean{
+  sessionExp(): boolean {
     const getToken: any = localStorage.getItem('token');
     const token = this.decrypt(getToken);
-    if(jwtHelper.isTokenExpired(token)){
+    if (jwtHelper.isTokenExpired(token)) {
       this.sharedService.snake({ message: "Your Session is Expired!" });
       this.router.navigate(['/login']);
       return true;
-    }else{
+    } else {
       return false;
     }
   }

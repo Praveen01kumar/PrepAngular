@@ -20,9 +20,9 @@ const userRoutes: Routes = [
       { path: 'post/:category/:id', component: BlgdetailComponent },
       { path: 'profile', canActivate: [AuthGuard], component: ProfileComponent },
       { path: 'dash', loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardModule) },
-      { path: 'app', loadChildren: () => import('../apps/apps.module').then(m => m.AppsModule) },
+      { path: 'app', canActivate: [AuthGuard], loadChildren: () => import('../apps/apps.module').then(m => m.AppsModule) },
       { path: 'file', canActivate: [AuthGuard, RoleGuard], loadChildren: () => import('../filemanage/filemanage.module').then(m => m.FilemanageModule) },
-      { path: 'blog', canActivate: [AuthGuard, RoleGuard], loadChildren: () => import('../blog/blog.module').then(m => m.BlogModule) },
+      { path: 'blog', loadChildren: () => import('../blog/blog.module').then(m => m.BlogModule) },
       { path: 'uielenents', canActivate: [AuthGuard, RoleGuard], loadChildren: () => import('../uielements/uielements.module').then(m => m.UielementsModule) },
       { path: 'more', loadChildren: () => import('../more/more.module').then(m => m.MoreModule) },
     ]

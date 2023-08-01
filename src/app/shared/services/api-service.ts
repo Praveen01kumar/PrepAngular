@@ -33,6 +33,18 @@ export class ApiService {
     );
   }
 
+  // all users 
+    getAllUsers(): Observable<any> {
+      return this.http.get(`${this.BASE_URL}/user/users`).pipe(
+        map((response: any) => {
+          return response;
+        }),
+        catchError((err: any) => {
+          return err;
+        })
+      );
+    }
+    
   // topics list
   getTopics(): Observable<any> {
     return this.http.get(`assets/json/topic.json`).pipe(
@@ -79,7 +91,7 @@ export class ApiService {
 
      // post list
      getBlogPostByid(id: any = ''): Observable<any> {
-      return this.http.get(`${this.BASE_URL}/post/detail`, id).pipe(
+      return this.http.post(`${this.BASE_URL}/post/detail`, id).pipe(
         tap(
           data => data,
           error => error

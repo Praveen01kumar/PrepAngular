@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
-  selector: 'app-admin',
+  selector: 'app-writer-dash',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
@@ -39,7 +39,8 @@ export class WriterDashboardComponent implements OnInit {
         { title: "Calendar", routein:"app/calender",  badge: { txt: "New", isBadge: false, badgeWar: false, badgeDef: false, badgeSucc: false } },
         { title: "Contact list",routein:"app/contactlist",  badge: { txt: "New", isBadge: false, badgeWar: false, badgeDef: false, badgeSucc: false } },
         { title: "Contact Card",routein:"app/contactcard", badge: { txt: "New", isBadge: true, badgeWar: true, badgeDef: false, badgeSucc: false } },
-        { title: "Taskboard", routein:"app/taskboard", badge: { txt: "New", isBadge: false, badgeWar: false, badgeDef: false, badgeSucc: false } }
+        { title: "Taskboard", routein:"app/taskboard", badge: { txt: "New", isBadge: false, badgeWar: false, badgeDef: false, badgeSucc: false } },
+        { title: "Admin", routein:"app/admin", badge: { txt: "New", isBadge: false, badgeWar: false, badgeDef: false, badgeSucc: false } }
       ]
     },
     {

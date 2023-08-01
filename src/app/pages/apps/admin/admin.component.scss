@@ -1,0 +1,277 @@
+.active-order {
+    padding: 15px;
+
+    .header {
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    .item-search {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+
+        .search {
+            label {
+                display: flex;
+                align-items: center;
+
+                input {
+                    width: 160px;
+                    height: 35px;
+                    font-size: 12px;
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+
+    .body {
+        .report-table {
+            section {
+
+                table {
+                    width: 100%;
+
+                    .table-head {
+                        background-color: #B6B6B6;
+                        color: #000000;
+                        font-weight: 700;
+                    }
+
+                    .profile {
+                        display: flex;
+                        align-items: center;
+
+                        .profile-pic {
+                            img {
+                                border-radius: 50%;
+                                height: 40px;
+                                width: 40px;
+                            }
+                        }
+
+                        .profile-name {
+                            p {
+                                margin: 0px 0px 0px 4px;
+                            }
+                        }
+                    }
+                }
+
+                .spinner-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 1%;
+                }
+
+                max-height: 400px;
+                overflow: auto;
+
+                tr.example-detail-row {
+                    height: 0;
+                    background: #66339921;
+                }
+
+                tr.example-element-row:not(.example-expanded-row):hover {
+                    background: whitesmoke;
+                }
+
+                tr.example-element-row:not(.example-expanded-row):active {
+                    background: #efefef;
+                }
+
+                .example-element-row td {
+                    border-bottom-width: 0;
+                }
+
+                .example-element-detail {
+                    overflow: hidden;
+                    display: flex;
+                }
+
+                .example-element-diagram {
+                    min-width: 80px;
+                    padding: 8px;
+                    font-weight: lighter;
+                    margin: 8px 0;
+                    width: 100%;
+
+                    .profile-detail {
+                        display: flex;
+                        align-items: baseline;
+                        justify-content: space-between;
+
+                        .name-pic-role {
+
+                            display: flex;
+                            align-items: center;
+
+                            .name {
+                                p {
+                                    margin: 0px 0px 0px 6px;
+                                    font-size: 16px;
+                                    font-weight: 700;
+                                    text-transform: capitalize;
+                                }
+
+                                .role {
+                                    background: #ff000094;
+                                    padding: 2px 8px;
+                                    width: fit-content;
+                                    font-size: 10px;
+                                    font-weight: 700;
+                                    border-radius: 4px;
+                                    color: #fff;
+                                    text-transform: capitalize;
+                                }
+                            }
+
+                            .pic {
+                                img {
+                                    width: 75px;
+                                    height: 75px;
+                                    border-radius: 50%;
+                                }
+                            }
+                        }
+
+                        .admin-action {}
+                    }
+
+                    .address-detail {
+                        display: flex;
+                        justify-content: space-around;
+                        .address {
+                            p {
+                                margin: 0px;
+
+                                b {
+                                    text-transform: capitalize;
+                                    font-size: 14px;
+                                    font-weight: 600;
+                                    margin-right: 4px;
+                                }
+
+                                &:nth-child(1){
+                                    b {
+                                        text-transform: capitalize;
+                                        font-size: 16px;
+                                        font-weight: 700;
+                                    }
+                                }
+                            }
+                        }
+
+                        .detail {
+                            @extend .address;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    .showing-pagination {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+}
+
+
+::ng-deep {
+    .realestate-menu {
+        width: 150px;
+        background-color: #17191c;
+        border-radius: 0.55rem;
+        padding: 10px;
+        box-shadow: 0px 2px 20px 0px rgb(0 0 0 / 50%);
+        border: 0;
+
+        .menu-items {
+            padding: 0px;
+            margin: 0px;
+
+            .menu-option {
+                display: block !important;
+                font-size: 1rem;
+                list-style: none;
+                word-wrap: break-word;
+
+                a {
+                    padding: 10px;
+                    color: #999;
+                    white-space: nowrap;
+                    font-size: 14px;
+                    text-decoration: none;
+                    background-color: transparent;
+                    transition: all ease 0.5s;
+
+                    &:hover {
+                        color: #cecece;
+                    }
+                }
+            }
+        }
+    }
+
+    .revenue-menu {
+        @extend .realestate-menu;
+    }
+
+    .visitors-info-menu {
+        @extend .realestate-menu;
+    }
+
+    .patients-info-menu {
+        @extend .realestate-menu;
+    }
+
+    .active-order-info-menu {
+        @extend .realestate-menu;
+    }
+
+}
+
+.example-box {
+    padding: 4px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+    width: 150px;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+    border: none;
+}

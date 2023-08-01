@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
 import { Mat_Module } from '../../shared/modale/matmodule';
 import { Form_Module } from '../../shared/modale/form_module';
-import { AdminComponent } from '../dashboard/admin/admin.component';
+import { AnalyticalComponent } from '../dashboard/analytical/analytical.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ProfileComponent } from '../../shared/components/profile/profile.component';
 
@@ -15,7 +15,7 @@ const writerRoutes: Routes = [
   {
     path: '', component: WriterDashboardComponent,
     children: [
-      { path: '', component: AdminComponent },
+      { path: '', component: AnalyticalComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'dash', loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardModule) },
       { path: 'app', loadChildren: () => import('../apps/apps.module').then(m => m.AppsModule) },

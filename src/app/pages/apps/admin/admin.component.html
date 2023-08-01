@@ -1,0 +1,188 @@
+<div class="active-order box-stl">
+    <div class="header dcb">
+        <div class="name">
+            <h2>User List</h2>
+        </div>
+        <div class="info">
+            <i class="bi bi-caret-down-fill" type="button" [matMenuTriggerFor]="aorderMenu"></i>
+            <mat-menu #aorderMenu="matMenu" xPosition="before" class="active-order-info-menu">
+                <ul class="menu-items">
+                    <li class="menu-option"><a href="javascript:void(0);">Action</a></li>
+                    <li class="menu-option"><a href="javascript:void(0);">Another Action</a></li>
+                    <li class="menu-option"><a href="javascript:void(0);">Something else</a></li>
+                </ul>
+            </mat-menu>
+        </div>
+    </div>
+    <div class="item-search">
+        <div class="search d-flex">
+            <label>Search: <input type="search" class="form-control shadow-none ms-1" placeholder="Search..."
+                    (keyup)="searchUserByName($event)"></label>
+            <button mat-stroked-button [matMenuTriggerFor]="Column_menu">
+                <mat-icon>view_column</mat-icon>
+            </button>
+            <mat-menu #Column_menu="matMenu">
+                <div (click)="$event.stopPropagation()" cdkDropList [cdkDropListData]="RowToDisplay"
+                    (cdkDropListDropped)="drop($event)">
+                    <p *ngFor="let cell of ColumnDisplay;let i =index;" class="mx-3 mb-2 example-box" cdkDrag>
+                        <mat-icon cdkDragHandle>drag_indicator</mat-icon>
+                        <mat-checkbox color="warn" (change)="getColumn($event, cell)" [checked]="cell">{{cell |
+                            uppercase}}</mat-checkbox>
+                    </p>
+                </div>
+            </mat-menu>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="report-table">
+            <section>
+                <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows
+                    (matSortChange)="SortChange($event)">
+                    <ng-container matColumnDef="{{column?.key}}" *ngFor="let column of columnsToDisplay;">
+                        <ng-container *ngIf="column?.sort;">
+                            <th mat-header-cell *matHeaderCellDef="let element;" mat-sort-header class="table-head">
+                                <span>{{column?.name | uppercase}}</span>
+                            </th>
+                        </ng-container>
+                        <ng-container *ngIf="!column?.sort">
+                            <ng-container *ngIf="column?.key==='select'">
+                                <th mat-header-cell *matHeaderCellDef="let element;" class="table-head">
+                                    <mat-checkbox (change)="$event ? masterToggle() : null" color="warn"
+                                        [checked]="selection.hasValue() && isAllSelected()"
+                                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+                                    </mat-checkbox>
+                                </th>
+                            </ng-container>
+                            <th mat-header-cell *matHeaderCellDef="let element;" class="table-head">
+                                <span>{{column?.name | uppercase}}</span>
+                            </th>
+                        </ng-container>
+                        <ng-container *ngIf="column?.key==='select'">
+                            <td mat-cell *matCellDef="let row;">
+                                <mat-checkbox (click)="$event.stopPropagation()" color="warn"
+                                    (change)="$event ? selection.toggle(row) : null"
+                                    [checked]="selection.isSelected(row)" (change)="getSelected($event, row)">
+                                </mat-checkbox>
+                            </td>
+                        </ng-container>
+                        <ng-container>
+                            <td mat-cell *matCellDef="let element;">
+                                <ng-container [ngSwitch]="column?.key">
+                                    <ng-container *ngSwitchCase="'pic'">
+                                        <div class="profile">
+                                            <div class="profile-pic">
+                                                <img *ngIf="element?.pic" src="assets/avatar/{{element?.pic}}"
+                                                    alt="user pics">
+                                            </div>
+                                            <div class="profile-name">
+                                                <p>{{ element?.name }}</p>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'role'">
+                                        {{ element?.role }}
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'date'">
+                                        {{ element?.date | date:'d, MMM y'}}
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'type'">
+                                        {{element?.type}}
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'amount'">
+                                        {{element?.amount | currency:'INR':'symbol'}}
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'country'">
+                                        {{element?.country}}
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'state'">
+                                        {{element?.state}}
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'city'">
+                                        {{element?.city}}
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'phone'">
+                                        {{element?.phone}}
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'status'">
+                                        <span
+                                            [ngClass]="[element[column.key]?.type?element[column.key]?.type:'badges']">{{element[column.key]?.name}}</span>
+                                    </ng-container>
+                                </ng-container>
+                            </td>
+                        </ng-container>
+                    </ng-container>
+                    <ng-container matColumnDef="expandedDetail">
+                        <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                            <div class="example-element-detail"
+                                [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                                <div class="example-element-diagram">
+                                    <div class="profile-detail">
+                                        <div class="name-pic-role">
+                                            <div class="pic">
+                                                <img *ngIf="element?.pic" src="assets/avatar/{{element?.pic}}"
+                                                    alt="user pics">
+                                            </div>
+                                            <div class="name">
+                                                <p>{{element?.name}}</p>
+                                                <p class="role">{{element?.role}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="admin-action">
+                                            <button mat-button [matMenuTriggerFor]="adminAcn">
+                                                <i class="bi bi-gear"></i>
+                                            </button>
+                                            <mat-menu #adminAcn="matMenu" xPosition="before">
+                                                <div (click)="$event.stopPropagation()">
+                                                    <button mat-menu-item>De-activate</button>
+                                                    <button mat-menu-item>Delete</button>
+                                                </div>
+                                            </mat-menu>
+                                        </div>
+                                    </div>
+                                    <div class="address-detail">
+                                        <div class="detail">
+                                            <p><b>detail</b></p>
+                                            <p><b>first name:</b><span>{{element?.all_data?.first_name}}</span></p>
+                                            <p><b>last name:</b><span>{{element?.all_data?.last_name}}</span></p>
+                                            <p><b>email:</b><span>{{element?.all_data?.email}}</span></p>
+                                            <p><b>phone:</b><span>{{element?.all_data?.phone}}</span></p>
+                                            <p><b>role:</b><span>{{element?.all_data?.role}}</span></p>
+                                            <p><b>type:</b><span>{{element?.all_data?.type}}</span></p>
+                                            <p><b>amount:</b><span>{{element?.all_data?.amount | currency:'INR':'symbol'}}</span></p>
+                                            <p><b>status:</b><span>{{element?.status?.name}}</span></p>
+                                            <p><b>created:</b><span>{{element?.all_data?.created_at | date:'EEE, MMMM d, y, h:mm a'}}</span></p>
+                                        </div>
+                                        <div class="address">
+                                            <p><b>address</b></p>
+                                            <p><b>full address:</b><span>{{element?.all_data?.address}}</span></p>
+                                            <p><b>city:</b><span>{{element?.all_data?.city}}</span></p>
+                                            <p><b>state:</b><span>{{element?.all_data?.state}}</span></p>
+                                            <p><b>zip code:</b><span>{{element?.all_data?.zip_code}}</span></p>
+                                            <p><b>country:</b><span>{{element?.all_data?.country}}</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="RowToDisplay;sticky: true"></tr>
+                    <tr mat-row *matRowDef="let element; columns: RowToDisplay;" class="example-element-row"
+                        [class.example-expanded-row]="expandedElement === element"
+                        (click)="expandedElement = expandedElement === element ? null : element">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                </table>
+                <div *ngIf="isLoading" class="spinner-container">
+                    <mat-progress-spinner [color]="strokeColor" [strokeWidth]="strokeWidth" [diameter]="strokeDiameter"
+                        mode="indeterminate"></mat-progress-spinner>
+                </div>
+            </section>
+            <mat-paginator *ngIf="usersArr?.length" #paginator (page)="handlePageEvent($event)" [length]="pageLength"
+                [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+                [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
+                [pageIndex]="pageIndex">
+            </mat-paginator>
+        </div>
+    </div>
+</div>

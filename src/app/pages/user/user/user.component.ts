@@ -41,7 +41,8 @@ export class UserComponent implements OnInit {
         { title: "Calendar", routein: "app/calender", badge: { txt: "New", isBadge: false, badgeWar: false, badgeDef: false, badgeSucc: false } },
         { title: "Contact list", routein: "app/contactlist", badge: { txt: "New", isBadge: false, badgeWar: false, badgeDef: false, badgeSucc: false } },
         { title: "Contact Card", routein: "app/contactcard", badge: { txt: "New", isBadge: true, badgeWar: true, badgeDef: false, badgeSucc: false } },
-        { title: "Taskboard", routein: "app/taskboard", badge: { txt: "New", isBadge: false, badgeWar: false, badgeDef: false, badgeSucc: false } }
+        { title: "Taskboard", routein: "app/taskboard", badge: { txt: "New", isBadge: false, badgeWar: false, badgeDef: false, badgeSucc: false } },
+        { title: "Admin", routein:"app/admin", badge: { txt: "New", isBadge: false, badgeWar: false, badgeDef: false, badgeSucc: false } }
       ]
     },
     {

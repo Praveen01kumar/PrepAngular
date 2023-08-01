@@ -29,14 +29,14 @@
               <span class="example-list-section">
                 <mat-checkbox class="example-margin" color="primary" [checked]="allpricingComplete"
                   [indeterminate]="somePricing()" (change)="setAllPricing($event.checked)">
-                  {{pricing.name}}
+                  <span *ngIf="pricing?.name">{{pricing.name}}</span>
                 </mat-checkbox>
               </span>
               <span class="example-list-section">
                 <ul>
-                  <li *ngFor="let type of pricing.pricingType">
+                  <li *ngFor="let type of pricing?.pricingType">
                     <mat-checkbox color="primary" [(ngModel)]="type.completed" (ngModelChange)="updateAllPricing()">
-                      {{type.name}}
+                      {{type?.name}}
                     </mat-checkbox>
                   </li>
                 </ul>
@@ -46,14 +46,14 @@
               <span class="example-list-section">
                 <mat-checkbox class="example-margin" color="primary" [checked]="allfeaturesComplete"
                   [indeterminate]="someFeatures()" (change)="setAllFeatures($event.checked)">
-                  {{features.name}}
+                  <span *ngIf="features?.name">{{features.name}}</span>
                 </mat-checkbox>
               </span>
               <span class="example-list-section">
                 <ul>
-                  <li *ngFor="let type of features.featuresType">
+                  <li *ngFor="let type of features?.featuresType">
                     <mat-checkbox color="primary" [(ngModel)]="type.completed" (ngModelChange)="updateAllFeatures()">
-                      {{type.name}}
+                      {{type?.name}}
                     </mat-checkbox>
                   </li>
                 </ul>
