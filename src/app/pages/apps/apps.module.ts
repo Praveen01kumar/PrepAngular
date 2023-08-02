@@ -16,6 +16,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AdminComponent } from './admin/admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { RoleGuard } from 'src/app/shared/auth/role.guard';
 
 const writerRoutes: Routes = [
   { path: '', component: MailboxComponent },
@@ -25,7 +26,7 @@ const writerRoutes: Routes = [
   { path: 'contactlist', component: ContactlistComponent },
   { path: 'contactcard', component: ContactcardComponent },
   { path: 'taskboard', component: TaskboardComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', canActivate: [RoleGuard], component: AdminComponent },
 
 ];
 

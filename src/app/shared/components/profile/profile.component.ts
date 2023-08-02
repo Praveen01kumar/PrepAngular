@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription, finalize } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
+import { ApiService } from '../../services/api-service';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +12,7 @@ export class ProfileComponent implements OnInit {
 
   overview: boolean = true;
   settings: boolean = false;
-  profileUrls:string='';
+  profileUrls: string = '';
   contryArr: any[] = [
     { value: "", name: "-- Select Country --" },
     { value: "AF", name: "Afghanistan" },
@@ -48,26 +51,62 @@ export class ProfileComponent implements OnInit {
     { label: "Europe", option: [{ value: "Europe/Amsterdam", name: "Amsterdam" }, { value: "Europe/Andorra", name: "Andorra" }] },
     { label: "Manual Offsets", option: [{ value: "UTC-12", name: "UTC-12" }, { value: "UTC-11", name: "UTC-11" }, { value: "UTC-10", name: "UTC-10" },] },
   ];
+  subscription: Subscription[] = [];
+  user_id: any = 1;
+  isLoading: boolean = false;
+  userData:any;
+  constructor(
+    public authService: AuthService,
+    public apiService: ApiService,
+    ) { }
 
-  constructor() { }
+  ngOnInit(): void {
+    this.callOninIt();
+  }
 
-  ngOnInit(): void { }
+
+  callOninIt() {
+    this.getuserDetail();
+  }
+
+  getuserDetail() {
+    const getToken: any = localStorage.getItem('token');
+    if(getToken !== null){
+      const token = this.authService.decrypt(getToken);
+      const decodedPayload = JSON.parse(atob(token.split('.')[1]));
+      this.user_id = decodedPayload?.id
+    }
+    if(this.user_id){
+    this.isLoading = true;
+      this.apiService.getUserById({id:this.user_id}).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
+        if (val?.status == 1) {
+          this.userData = val?.data[0];
+        }
+      }, (error) => {
+        this.isLoading = false;
+      });
+    }
+  }
 
   acTab(data: string) { data === 'overview' ? (this.overview = true, this.settings = false) : data === 'settings' ? (this.overview = false, this.settings = true) : undefined; }
 
 
-  onSelectFile(event:any) {
+  onSelectFile(event: any) {
     if (event.target.files && event.target.files[0]) {
-        var filesAmount = event.target.files.length;
-        for (let i = 0; i < filesAmount; i++) {
-                var reader = new FileReader();
-                reader.onload = (event:any) => {
-                   this.profileUrls=event?.target?.result; 
-                }
-
-                reader.readAsDataURL(event.target.files[i]);
+      var filesAmount = event.target.files.length;
+      for (let i = 0; i < filesAmount; i++) {
+        var reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.profileUrls = event?.target?.result;
         }
+
+        reader.readAsDataURL(event.target.files[i]);
+      }
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.forEach(s => { s.unsubscribe(); });
   }
 
 }

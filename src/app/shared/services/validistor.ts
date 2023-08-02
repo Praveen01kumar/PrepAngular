@@ -31,6 +31,20 @@ export const passStrenValidator: ValidatorFn = (control: AbstractControl): Valid
   return null;
 }
 
+export const upperValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  const value: string = control.value || '', upp: RegExp = UP;
+  if (!value) { return null; }
+  if (upp.test(value) === false) { return { upp: true }; }
+  return null;
+}
+
+export const lowerValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  const value: string = control.value || '', lowe: RegExp = LOW;
+  if (!value) { return null; }
+  if (lowe.test(value) === false) { return { lowe: true }; }
+  return null;
+}
+
 export const onlyNumAllowed: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const value: string = control.value || '', upp: RegExp = UP, lowe: RegExp = LOW, speci: RegExp = SPECHAR;
   if (!value) { return null; }

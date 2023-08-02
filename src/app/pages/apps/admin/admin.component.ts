@@ -9,7 +9,10 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PeriodicElement } from 'src/app/shared/interfaces/interfaces';
 import { ApiService } from 'src/app/shared/services/api-service';
-import { delay, finalize } from 'rxjs';
+import { Subscription, delay, finalize } from 'rxjs';
+import { AuthService } from 'src/app/shared/auth/auth.service';
+import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 
 @Component({
@@ -27,7 +30,7 @@ import { delay, finalize } from 'rxjs';
 export class AdminComponent implements OnInit {
 
   dataSource: any;
-  columnsToDisplay:any[] = [
+  columnsToDisplay: any[] = [
     { name: "id", key: "select", completed: false, sort: false },
     { name: "Profile", key: "pic", completed: false, sort: false },
     { name: "Role", key: "role", completed: false, sort: false },
@@ -47,22 +50,31 @@ export class AdminComponent implements OnInit {
   selection = new SelectionModel<any>(true, []);
   selectedRows: any[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  pageLength:number = 50;
-  pageSize:number = 10;
-  pageIndex:number= 0;
-  strokeWidth:number= 6;
-  strokeDiameter:number= 60;
-  strokeColor:string= 'accent';
-  pageSizeOptions:any[] = [5, 10, 25];
-  hidePageSize:boolean = false;
-  showPageSizeOptions:boolean = true;
-  showFirstLastButtons:boolean = true;
-  disabled:boolean = false;
+  pageLength: number = 50;
+  pageSize: number = 10;
+  pageIndex: number = 0;
+  strokeWidth: number = 6;
+  strokeDiameter: number = 60;
+  strokeColor: string = 'accent';
+  pageSizeOptions: any[] = [5, 10, 25];
+  hidePageSize: boolean = false;
+  showPageSizeOptions: boolean = true;
+  showFirstLastButtons: boolean = true;
+  disabled: boolean = false;
   pageEvent!: PageEvent;
   userFilterByName: any[] = [];
   usersArr: PeriodicElement[] = [];
-  isLoading:boolean = false;
-  constructor(private _liveAnnouncer: LiveAnnouncer, private apiService: ApiService) { }
+  isLoading: boolean = false;
+  subscription: Subscription[] = [];
+  isAdmin: boolean = false;
+  userName: string = '';
+  constructor(
+    private _liveAnnouncer: LiveAnnouncer,
+    private apiService: ApiService,
+    public authService: AuthService,
+    public router: Router,
+    public sharedService: SharedService
+  ) { }
   ngOnInit(): void { this.onInitCall(); }
 
   onInitCall() {
@@ -71,8 +83,15 @@ export class AdminComponent implements OnInit {
   }
 
   getuserData() {
+    this.isAdmin = this.authService.isAdmin();
+    const getToken: any = localStorage.getItem('token');
+    if(getToken !== null){
+      const token = this.authService.decrypt(getToken);
+      const decodedPayload = JSON.parse(atob(token.split('.')[1]));
+      this.userName = decodedPayload?.username;
+    }
     this.isLoading = true;
-    this.apiService.getAllUsers().pipe( finalize(() => { this.isLoading = false; })).subscribe((res: any) => {
+    this.apiService.getAllUsers().pipe(finalize(() => { this.isLoading = false; })).subscribe((res: any) => {
       if (res) {
         this.usersArr = [];
         res.data?.forEach((data: any, index: number) => {
@@ -88,7 +107,7 @@ export class AdminComponent implements OnInit {
             'state': data?.state,
             'city': data?.city,
             'phone': data?.phone,
-            'status': JSON.parse(data?.status),
+            'status': data?.status ? JSON.parse(data?.status) : { name: "cancel", type: "bdg-danger" },
           })
           this.dataSource = new MatTableDataSource(this.usersArr);
           this.userFilterByName = this.usersArr;
@@ -97,6 +116,8 @@ export class AdminComponent implements OnInit {
           this.isLoading = false;
         });
       }
+    }, (error) => {
+      this.isLoading = false;
     });
   }
   SortChange(sortState: Sort) {
@@ -176,6 +197,22 @@ export class AdminComponent implements OnInit {
         this.RowToDisplay.splice(index, 1);
       }
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.forEach(s => { s.unsubscribe(); });
+  }
+
+  updateUser(type: string) {
+
+    if (type === 'update') {
+      this.router.navigate([`/profile`]);
+    } else if (type === 'de_activate') {
+      this.sharedService.snake({ message: 'User De-Activated!' });
+    } else if (type === 'delete') {
+      this.sharedService.snake({ message: 'User Delete!' });
+    }
+
   }
 
 }

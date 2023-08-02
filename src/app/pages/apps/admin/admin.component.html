@@ -72,7 +72,7 @@
                                     <ng-container *ngSwitchCase="'pic'">
                                         <div class="profile">
                                             <div class="profile-pic">
-                                                <img *ngIf="element?.pic" src="assets/avatar/{{element?.pic}}"
+                                                <img *ngIf="element?.pic" src="assets/avatar/{{element?.pic?element?.pic:'user.png'}}"
                                                     alt="user pics">
                                             </div>
                                             <div class="profile-name">
@@ -120,7 +120,7 @@
                                     <div class="profile-detail">
                                         <div class="name-pic-role">
                                             <div class="pic">
-                                                <img *ngIf="element?.pic" src="assets/avatar/{{element?.pic}}"
+                                                <img *ngIf="element?.pic" src="assets/avatar/{{element?.pic?element?.pic:'user.png'}}"
                                                     alt="user pics">
                                             </div>
                                             <div class="name">
@@ -134,8 +134,9 @@
                                             </button>
                                             <mat-menu #adminAcn="matMenu" xPosition="before">
                                                 <div (click)="$event.stopPropagation()">
-                                                    <button mat-menu-item>De-activate</button>
-                                                    <button mat-menu-item>Delete</button>
+                                                    <button mat-menu-item *ngIf="userName===element?.all_data?.username" (click)="updateUser('update')"><i class="bi bi-pencil me-2"></i>Update</button>
+                                                    <button mat-menu-item *ngIf="userName!==element?.all_data?.username"  (click)="updateUser('de_activate')"><i class="bi bi-power me-2"></i>De-activate</button>
+                                                    <button mat-menu-item *ngIf="userName!==element?.all_data?.username"  (click)="updateUser('delete')"><i class="bi bi-trash me-2"></i>Delete</button>
                                                 </div>
                                             </mat-menu>
                                         </div>

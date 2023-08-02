@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { mustMatch } from '../../services/mustmatch';
-import { passStrenValidator, emailValidator, spaceNotAllowed, numNotAllowed, speCharNotAllowed, onlyNumAllowed } from '../../services/validistor';
+import { passStrenValidator, emailValidator, spaceNotAllowed, numNotAllowed, speCharNotAllowed, onlyNumAllowed, upperValidator, lowerValidator } from '../../services/validistor';
 import { msg } from '../../services/error-messages';
 import { ApiService } from '../../services/api-service';
 import { finalize, takeUntil } from 'rxjs/operators';
@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
       first_name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(16), speCharNotAllowed, spaceNotAllowed, numNotAllowed]],
       last_name: ['', [Validators.required, Validators.maxLength(16), speCharNotAllowed, numNotAllowed, spaceNotAllowed]],
       email: ['', [Validators.required, Validators.email, emailValidator]],
+      username: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(14), upperValidator, lowerValidator, spaceNotAllowed]],
       phone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(14), onlyNumAllowed]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16), spaceNotAllowed, passStrenValidator]],
       confirm_password: ['', [Validators.required]],
@@ -66,7 +67,7 @@ export class LoginComponent implements OnInit {
 
   userLoginForm() {
     this.loginForm = this.fb.group({
-      user_name: ['', [Validators.required, spaceNotAllowed]],
+      username: ['', [Validators.required, spaceNotAllowed]],
       password: ['', [Validators.required]],
       remember_me: ['']
     });
@@ -81,7 +82,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     const fval = this.RegisterForm?.value;
-    const payload = { first_name: fval?.first_name, last_name: fval?.last_name, email: fval?.email, phone: fval?.phone, password: fval?.password, address: fval?.address, city: fval?.city, state: fval?.state, zip_code: fval?.zip_code, country: fval?.country }
+    const payload = { first_name: fval?.first_name, last_name: fval?.last_name, email: fval?.email, username:fval.username, phone: fval?.phone, password: fval?.password, address: fval?.address, city: fval?.city, state: fval?.state, zip_code: fval?.zip_code, country: fval?.country }
     this.isLoading  = true;
     this.apiService.registorUser(payload).pipe(takeUntil(this._unsubscribeAll), finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
       if (val?.status == 1) {
@@ -92,7 +93,7 @@ export class LoginComponent implements OnInit {
       }
     }, (error) => {
       this.isLoading  = false;
-      this.sharedService.snake({ message: error?.error?.message });
+      this.sharedService.snake({ message: error?.error?.errors?.message });
     });
   }
 
@@ -102,7 +103,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     const payload = {
-      user_name: this.loginForm?.value?.user_name,
+      username: this.loginForm?.value?.username,
       password: this.loginForm?.value?.password
     }
     this.isLoading  = true;
@@ -116,7 +117,7 @@ export class LoginComponent implements OnInit {
       }
     }, (error) => {
       this.isLoading = false; 
-      this.sharedService.snake({ message: error?.error?.message });
+      this.sharedService.snake({ message: error?.error?.errors?.message });
     });
   }
 

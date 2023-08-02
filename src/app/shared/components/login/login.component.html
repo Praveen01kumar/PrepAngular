@@ -15,13 +15,13 @@
             <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
                 <div class="username">
                     <label for="username">Username or Email<span class="text-danger" >*</span></label>
-                    <input formControlName="user_name" [ngClass]="{ 'input-valid': (sub1 || f1?.user_name?.touched) && f1?.user_name?.valid, 
-                    'input-invalid': (sub1 || f1?.user_name?.touched || f1?.user_name?.dirty) && f1?.user_name?.errors }" autocomplete="off" type="text" id="username">
-                    <span *ngIf="(sub1 && f1?.user_name?.errors) || ((f1?.user_name?.touched || f1?.user_name?.dirty) && f1?.user_name?.errors)" class="text-danger">
-                            <p class="mp-zero" *ngIf="f1?.user_name?.errors?.space">{{ermsg?.spacenota}}</p>
-                            <p class="mp-zero" *ngIf="f1?.user_name?.errors?.required">{{ermsg?.unir}}</p>
+                    <input formControlName="username" [ngClass]="{ 'input-valid': (sub1 || f1?.username?.touched) && f1?.username?.valid, 
+                    'input-invalid': (sub1 || f1?.username?.touched || f1?.username?.dirty) && f1?.username?.errors }" autocomplete="off" type="text" id="username">
+                    <span *ngIf="(sub1 && f1?.username?.errors) || ((f1?.username?.touched || f1?.username?.dirty) && f1?.username?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f1?.username?.errors?.space">{{ermsg?.spacenota}}</p>
+                            <p class="mp-zero" *ngIf="f1?.username?.errors?.required">{{ermsg?.unir}}</p>
                     </span>
-                    <span *ngIf="(sub1 && f1?.user_name?.errors===null) || ((f1?.user_name?.touched || f1?.user_name?.dirty) && f1?.user_name?.errors===null)" class="text-success">
+                    <span *ngIf="(sub1 && f1?.username?.errors===null) || ((f1?.username?.touched || f1?.username?.dirty) && f1?.username?.errors===null)" class="text-success">
                         <p class="mp-zero">{{ermsg?.gtgo}}</p>
                     </span>
                 </div>
@@ -106,16 +106,18 @@
                         </span>
                     </div>
                 </div>
-                <div class="phone-password">
-                    <div class="phone">
-                        <label for="phone">Phone Number<span class="text-danger" >*</span></label>
-                        <input formControlName="phone" [ngClass]="{ 'input-valid': (sub || f?.phone?.touched) && f?.phone?.valid, 
-                        'input-invalid': (sub || f?.phone?.touched || f?.phone?.dirty) && f?.phone?.errors }" autocomplete="off" type="text" id="phone">
-                        <span *ngIf="(sub && f?.phone?.errors) || ((f?.phone?.touched || f?.phone?.dirty) && f?.phone?.errors)" class="text-danger">
-                            <p class="mp-zero" *ngIf="f?.phone?.errors?.required">{{ermsg?.phoneir}}</p>
-                            <p class="mp-zero" *ngIf="f?.phone?.errors?.minlength">{{ermsg?.min8dsr}}</p>
-                            <p class="mp-zero" *ngIf="f?.phone?.errors?.maxlength">{{ermsg?.max14dsa}}</p>
-                            <p class="mp-zero" *ngIf="f?.phone?.errors?.notNum">{{ermsg?.inphonen}}</p>
+                <div class="username-password">
+                    <div class="username">
+                        <label for="username">User Name<span class="text-danger" >*</span></label>
+                        <input formControlName="username" [ngClass]="{ 'input-valid': (sub || f?.username?.touched) && f?.username?.valid, 
+                        'input-invalid': (sub || f?.username?.touched || f?.username?.dirty) && f?.username?.errors }" autocomplete="off" type="text" id="username">
+                        <span *ngIf="(sub && f?.username?.errors) || ((f?.username?.touched || f?.username?.dirty) && f?.username?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.username?.errors?.required">{{ermsg?.usernameir}}</p>
+                            <p class="mp-zero" *ngIf="f?.username?.errors?.minlength">{{ermsg?.min8dsr}}</p>
+                            <p class="mp-zero" *ngIf="f?.username?.errors?.maxlength">{{ermsg?.max14dsa}}</p>
+                            <p class="mp-zero" *ngIf="f?.username?.errors?.upp">{{ermsg?.atloupcir}}</p>
+                            <p class="mp-zero" *ngIf="f?.username?.errors?.lowe">{{ermsg?.atlolowcir}}</p>
+                            <p class="mp-zero" *ngIf="f?.username?.errors?.space">{{ermsg?.spacenota}}</p>
                         </span>
                         <span *ngIf="(sub && f?.phone?.errors===null) || ((f?.phone?.touched || f?.phone?.dirty) && f?.phone?.errors===null)" class="text-success">
                             <p class="mp-zero">{{ermsg?.gtgo}}</p>
@@ -152,8 +154,9 @@
                         </span>
                     </div>
                 </div>
-                <div class="address">
-                    <label for="address">Enter Full Address<span class="text-danger" >*</span></label>
+                <div class="address-phone">
+                    <div class="address">
+                        <label for="address">Enter Full Address<span class="text-danger" >*</span></label>
                     <input formControlName="address" [ngClass]="{ 'input-valid': (sub || f?.address?.touched) && f?.address?.valid, 
                     'input-invalid': (sub || f?.address?.touched || f?.address?.dirty) && f?.address?.errors }" type="text" id="address">
                     <span *ngIf="(sub && f?.address?.errors) || ((f?.address?.touched || f?.address?.dirty) && f?.address?.errors)" class="text-danger">
@@ -163,6 +166,21 @@
                     <span *ngIf="(sub && f?.address?.errors===null) || ((f?.address?.touched || f?.address?.dirty) && f?.address?.errors===null)" class="text-success">
                         <p class="mp-zero">{{ermsg?.gtgo}}</p>
                     </span>
+                    </div>
+                    <div class="phone">
+                        <label for="phone">Phone Number<span class="text-danger" >*</span></label>
+                        <input formControlName="phone" [ngClass]="{ 'input-valid': (sub || f?.phone?.touched) && f?.phone?.valid, 
+                        'input-invalid': (sub || f?.phone?.touched || f?.phone?.dirty) && f?.phone?.errors }" autocomplete="off" type="text" id="phone">
+                        <span *ngIf="(sub && f?.phone?.errors) || ((f?.phone?.touched || f?.phone?.dirty) && f?.phone?.errors)" class="text-danger">
+                            <p class="mp-zero" *ngIf="f?.phone?.errors?.required">{{ermsg?.phoneir}}</p>
+                            <p class="mp-zero" *ngIf="f?.phone?.errors?.minlength">{{ermsg?.min8dsr}}</p>
+                            <p class="mp-zero" *ngIf="f?.phone?.errors?.maxlength">{{ermsg?.max14dsa}}</p>
+                            <p class="mp-zero" *ngIf="f?.phone?.errors?.notNum">{{ermsg?.inphonen}}</p>
+                        </span>
+                        <span *ngIf="(sub && f?.phone?.errors===null) || ((f?.phone?.touched || f?.phone?.dirty) && f?.phone?.errors===null)" class="text-success">
+                            <p class="mp-zero">{{ermsg?.gtgo}}</p>
+                        </span>
+                    </div>
                 </div>
                 <div class="city-state">
                     <div class="city">

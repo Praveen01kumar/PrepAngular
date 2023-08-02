@@ -3,13 +3,13 @@ import * as CryptoJS from 'crypto-js';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { SharedService } from '../services/shared.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Subject } from 'rxjs';
 const jwtHelper = new JwtHelperService();
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   constructor(
     public sharedService: SharedService,
     private router: Router,
@@ -30,6 +30,24 @@ export class AuthService {
       return false;
     }
   }
+
+  isAdmin(): boolean {
+    const getToken: any = localStorage.getItem('token');
+    if(getToken !== null){
+      const token = this.decrypt(getToken);
+      const decodedPayload = JSON.parse(atob(token.split('.')[1]));
+      if (!jwtHelper.isTokenExpired(token) && decodedPayload?.role === 'admin') {
+        return true;
+      } else {
+        this.sharedService.snake({ message: 'You Are Not An Admin!' });
+        return false;
+      }
+    }else{
+      this.sharedService.snake({ message: 'You Need To Login!' });
+      return false;
+    }
+  }
+
 
   enCrypt(token: string): string {
     return CryptoJS.AES.encrypt(token, 'preAngular').toString();

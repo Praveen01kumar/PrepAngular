@@ -32,5 +32,6 @@ export const msg = {
     max6dir:"Maximum 6 Digits is Allowed!",
     inzipcn:"Invalid Zip code Number!",
     countryir:"Country is Required!",
+    usernameir:"User Name is Required!"
 } 
 

@@ -1,15 +1,15 @@
-<div class="user-profile">
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="user-profile" *ngIf="userData">
   <div class="profile-info">
-
     <div class="profile box-stl">
       <div class="profile-image">
         <label for="uploader"><i class="bi bi-pencil-square"></i></label>
         <input type='file' (change)="onSelectFile($event)" multiple hidden id="uploader" accept="image/jpeg, image/png">
-        <img [src]="profileUrls ? profileUrls:'assets/avatar/avatar2.jpg'" alt="profile" />
+        <img [src]="profileUrls ? profileUrls:'assets/avatar/'+userData?.profile" alt="profile" />
       </div>
       <div class="profile-name">
-        <h4><strong>Alizee</strong> Thomas</h4>
-        <span>Washington, d.c.</span>
+        <h4><strong>{{userData?.first_name}}</strong>{{userData?.last_name}}</h4>
+        <span>{{userData?.type}}</span>
       </div>
       <div class="profile-btn">
         <button class="btn-follow">Follow</button>
@@ -32,7 +32,7 @@
       </div>
       <div class="body">
         <small class="text-muted">Address: </small>
-        <p>795 Folsom Ave, Suite 600 San Francisco, 94107</p>
+        <p>{{userData?.address}}, {{userData?.city}}, {{userData?.state}}, {{userData?.country}}</p>
         <div>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30773564.17938236!2d61.01663758588814!3d19.689680859759182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1684319894686!5m2!1sen!2sin"
@@ -40,16 +40,15 @@
         </div>
         <hr>
         <small class="text-muted">Email address: </small>
-        <p>michael@gmail.com</p>
+        <p>{{userData?.email}}</p>
         <hr>
         <small class="text-muted">Mobile: </small>
-        <p>+ 202-555-2828</p>
+        <p>{{userData?.phone}}</p>
         <hr>
         <small class="text-muted">Birth Date: </small>
-        <p class="m-b-0">October 22th, 1990</p>
+        <p class="m-b-0">{{userData?.created_at | date:'EEE, MMMM d, y, h:mm a'}}</p>
       </div>
     </div>
-
     <div class="follow box-stl">
       <div class="header">
         <h2>Who to follow</h2>
@@ -119,7 +118,6 @@
         </ul>
       </div>
     </div>
-
     <div class="Social_links box-stl" *ngIf="settings">
       <div class="header">
         <h2>Social Links</h2>
@@ -130,7 +128,6 @@
       <p><i class="bi bi-instagram"></i> instagram.com/example</p>
       <button class="update-btn">Add</button>
     </div>
-
   </div>
   <div class="profile-overview">
     <div class="overview-btn box-stl">

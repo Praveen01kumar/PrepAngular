@@ -45,6 +45,18 @@ export class ApiService {
       );
     }
     
+      // user by id in body
+      getUserById(id:any=''): Observable<any> {
+        return this.http.post(`${this.BASE_URL}/user/detail`,id).pipe(
+          map((response: any) => {
+            return response;
+          }),
+          catchError((err: any) => {
+            return err;
+          })
+        );
+      }
+
   // topics list
   getTopics(): Observable<any> {
     return this.http.get(`assets/json/topic.json`).pipe(

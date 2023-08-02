@@ -1,12 +1,12 @@
 <div class="sidebar-container">
     <div class="user-info" *ngIf="logedIn">
         <div class="dc">
-            <img src="assets/avatar/avatar2.jpg" class="user-profile-img" alt="User Profile Picture">
+            <img src="assets/avatar/{{userData?.profile?userData?.profile:'avatar2.jpg'}}" class="user-profile-img" alt="User Profile Picture">
             <div class="info-menu-dropdown">
                 <span>Welcome,</span>
                 <div class="info-menu">
                     <a href="javascript:void(0);" class="profile-name" [matMenuTriggerFor]="userInfoMenu">
-                        <strong>Praveen Kumar</strong>
+                        <strong>{{userData?.first_name}} {{userData?.last_name}}</strong>
                         <i class="bi bi-caret-down-fill ms-1" type="button"></i>
                     </a>
                     <mat-menu #userInfoMenu="matMenu" xPosition="before" class="menu-settings">
