@@ -34,28 +34,28 @@ export class ApiService {
   }
 
   // all users 
-    getAllUsers(): Observable<any> {
-      return this.http.get(`${this.BASE_URL}/user/users`).pipe(
-        map((response: any) => {
-          return response;
-        }),
-        catchError((err: any) => {
-          return err;
-        })
-      );
-    }
-    
-      // user by id in body
-      getUserById(id:any=''): Observable<any> {
-        return this.http.post(`${this.BASE_URL}/user/detail`,id).pipe(
-          map((response: any) => {
-            return response;
-          }),
-          catchError((err: any) => {
-            return err;
-          })
-        );
-      }
+  getAllUsers(): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/user/users`).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
+
+  // user by id in body
+  getUserById(id: any = ''): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/user/detail`, id).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
 
   // topics list
   getTopics(): Observable<any> {
@@ -68,6 +68,55 @@ export class ApiService {
       })
     );
   }
+
+  // Country list
+  getCountry(): Observable<any> {
+    return this.http.get(`assets/json/country.json`).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
+
+  // Time zone list
+  getTimeZone(): Observable<any> {
+    return this.http.get(`assets/json/timezone.json`).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
+
+  // todo list
+  getTodos(): Observable<any> {
+    return this.http.get(`assets/json/todos.json`).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
+
+    // todo list
+    getSideBar(): Observable<any> {
+      return this.http.get(`assets/json/sidebar.json`).pipe(
+        map((response: any) => {
+          return response;
+        }),
+        catchError((err: any) => {
+          return err;
+        })
+      );
+    }
+
 
   getAis(): Observable<any> {
     return this.http.get(`assets/json/ais.json`).pipe(
@@ -91,25 +140,25 @@ export class ApiService {
     );
   }
 
-    // post list
-    getBlogPostList(data: any = ''): Observable<any> {
-      return this.http.post(`${this.BASE_URL}/post/list`, data).pipe(
-        tap(
-          data => data,
-          error => error
-        )
-      );
-    }
+  // post list
+  getBlogPostList(data: any = ''): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/post/list`, data).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
 
-     // post list
-     getBlogPostByid(id: any = ''): Observable<any> {
-      return this.http.post(`${this.BASE_URL}/post/detail`, id).pipe(
-        tap(
-          data => data,
-          error => error
-        )
-      );
-    }
+  // post list
+  getBlogPostByid(id: any = ''): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/post/detail`, id).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
 
 
   // getDealDetails(id): Observable<any> {

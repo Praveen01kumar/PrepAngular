@@ -3,9 +3,9 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable } from 'rxjs';
 import { SharedService } from '../services/shared.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
 import * as CryptoJS from 'crypto-js';
 const jwtHelper = new JwtHelperService();
-
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +42,7 @@ export class RoleGuard implements CanActivate {
 
   decrypt(encToekn: string): string {
     try {
-      const decryptedBytes = CryptoJS.AES.decrypt(encToekn, 'preAngular');
+      const decryptedBytes = CryptoJS.AES.decrypt(encToekn, environment?.CECRET_KEY);
       return decryptedBytes.toString(CryptoJS.enc.Utf8);
     } catch (error) {
       return '';

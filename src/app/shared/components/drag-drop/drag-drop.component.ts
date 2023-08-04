@@ -1,6 +1,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
+import { ApiService } from '../../services/api-service';
 
 @Component({
   selector: 'drag-drop',
@@ -9,9 +10,9 @@ import { SharedService } from '../../services/shared.service';
 })
 export class DragDropComponent implements OnInit {
 
-  constructor(public dataService: SharedService) { }
+  constructor(public dataService: SharedService,public apiService:ApiService) { }
   outerArr: any[] = [];
-  btmdrArr: any[] = [];
+  btmdrArr: any[] = ['Lost', 'Abendent', 'Won'];
 
   ngOnInit(): void { this.getYourData() }
 
@@ -44,14 +45,12 @@ export class DragDropComponent implements OnInit {
       console.log('somthing Went Rong');
     }
   }
-
-  getYourData() {
-    this.dataService?.dragArrData$?.subscribe(data => {
-      if (data) {
-        this.outerArr = data?.listArr;
-        this.btmdrArr = data?.btmArr;
-      }
+   getYourData() {
+    this.apiService.getTodos().subscribe((res: any) => {
+      this.outerArr = res?.dataArr;
     }, (error) => { });
   }
+
+
 
 }

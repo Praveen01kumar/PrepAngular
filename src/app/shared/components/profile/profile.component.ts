@@ -10,55 +10,26 @@ import { ApiService } from '../../services/api-service';
 })
 export class ProfileComponent implements OnInit {
 
-  overview: boolean = true;
-  settings: boolean = false;
+  overview: boolean = false;
+  settings: boolean = true;
   profileUrls: string = '';
-  contryArr: any[] = [
-    { value: "", name: "-- Select Country --" },
-    { value: "AF", name: "Afghanistan" },
-    { value: "AX", name: "Åland Islands" },
-    { value: "AL", name: "Albania" },
-    { value: "DZ", name: "Algeria" },
-    { value: "AS", name: "American Samoa" },
-    { value: "AD", name: "Andorra" },
-    { value: "AO", name: "Angola" },
-    { value: "AI", name: "Anguilla" },
-    { value: "AQ", name: "Antarctica" },
-    { value: "AG", name: "Antigua and Barbuda" },
-    { value: "AR", name: "Argentina" },
-    { value: "AM", name: "Armenia" },
-    { value: "AW", name: "Aruba" },
-    { value: "AU", name: "Australia" },
-    { value: "AT", name: "Austria" },
-    { value: "AZ", name: "Azerbaijan" },
-  ];
+  contryArr: any[] = [];
   languageArr: any[] = [
-    { value: "", lang: "", name: "--Select Language--" },
     { value: "en_US", lang: "en", name: "English" },
     { value: "cs_CZ", lang: "bs", name: "Bosanski" },
     { value: "hi_IN", lang: "hi", name: "हिन्दी" },
     { value: "nl_NL", lang: "nl", name: "Nederlands" },
     { value: "oci", lang: "oc", name: "Occitan" }
   ];
-  utcArr: any[] = [
-    { label: "Africa", option: [{ value: "Africa/Abidjan", name: "Abidjan" }, { value: "Africa/Accra", name: "Accra" }] },
-    { label: "America", option: [{ value: "America/Adak", name: "Adak" }, { value: "America/Anchorage", name: "Anchorage" }] },
-    { label: "Antarctica", option: [{ value: "Antarctica/Casey", name: "Casey" }, { value: "Antarctica/Davis", name: "Davis" }] },
-    { label: "Arctic", option: [{ value: "Arctic/Longyearbyen", name: "Longyearbyen" }] },
-    { label: "Asia", option: [{ value: "Asia/Aden", name: "Aden" }, { value: "Asia/Almaty", name: "Almaty" }] },
-    { label: "Atlantic", option: [{ value: "Atlantic/Azores", name: "Azores" }, { value: "Atlantic/Bermuda", name: "Bermuda" }] },
-    { label: "Australia", option: [{ value: "Australia/Adelaide", name: "Adelaide" }, { value: "Australia/Brisbane", name: "Brisbane" }] },
-    { label: "Europe", option: [{ value: "Europe/Amsterdam", name: "Amsterdam" }, { value: "Europe/Andorra", name: "Andorra" }] },
-    { label: "Manual Offsets", option: [{ value: "UTC-12", name: "UTC-12" }, { value: "UTC-11", name: "UTC-11" }, { value: "UTC-10", name: "UTC-10" },] },
-  ];
+  timezoneArr: any[] = [];
   subscription: Subscription[] = [];
   user_id: any = 1;
   isLoading: boolean = false;
-  userData:any;
+  userData: any;
   constructor(
     public authService: AuthService,
     public apiService: ApiService,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.callOninIt();
@@ -71,16 +42,18 @@ export class ProfileComponent implements OnInit {
 
   getuserDetail() {
     const getToken: any = localStorage.getItem('token');
-    if(getToken !== null){
+    if (getToken !== null) {
       const token = this.authService.decrypt(getToken);
       const decodedPayload = JSON.parse(atob(token.split('.')[1]));
       this.user_id = decodedPayload?.id
     }
-    if(this.user_id){
-    this.isLoading = true;
-      this.apiService.getUserById({id:this.user_id}).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
+    if (this.user_id) {
+      this.isLoading = true;
+      this.apiService.getUserById({ id: this.user_id }).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
         if (val?.status == 1) {
           this.userData = val?.data[0];
+          this.getCountry();
+          this.getTimeZone();
         }
       }, (error) => {
         this.isLoading = false;
@@ -103,6 +76,33 @@ export class ProfileComponent implements OnInit {
         reader.readAsDataURL(event.target.files[i]);
       }
     }
+  }
+
+  getCountry() {
+    this.isLoading = true;
+    this.apiService.getCountry().pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
+      this.contryArr = val.counsrtyList;
+    }, (error) => {
+      this.isLoading = false;
+    });
+  }
+
+  getTimeZone() {
+    this.isLoading = true;
+    this.apiService.getTimeZone().pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
+      this.timezoneArr = val?.timezoneList;
+    }, (error) => {
+      this.isLoading = false;
+    });
+  }
+
+  dateFormat(date: any) {
+    const dateObject = new Date(date);
+    const year = dateObject.getFullYear();
+    const month = String(dateObject.getMonth() + 1).padStart(2, "0");
+    const day = String(dateObject.getDate()).padStart(2, "0");
+    const formattedDate = `${year}-${month}-${day}`;
+    return formattedDate;
   }
 
   ngOnDestroy(): void {

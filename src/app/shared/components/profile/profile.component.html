@@ -188,43 +188,65 @@
         <h6>Basic Information</h6>
         <div class="information-form">
           <div class="form-group">
-            <input type="text" class="form-control shadow-none" placeholder="First Name" />
+            <label for="first_name" style="font-size: 12px;">First Name:</label>
+            <input type="text" value="{{userData?.first_name}}" class="form-control shadow-none"
+              placeholder="First Name" id="first_name" />
           </div>
           <div class="form-group">
-            <input type="text" class="form-control shadow-none" placeholder="Last Name" />
+            <label for="last_name" style="font-size: 12px;">Last Name:</label>
+            <input type="text" value="{{userData?.last_name}}" class="form-control shadow-none" placeholder="Last Name"
+              id="last_name" />
           </div>
           <div class="form-group">
-            <div class="gender">
-              <label>
-                <input name="gender" value="male" type="radio" checked />
-                <span>Male</span>
-              </label>
-              <label>
-                <input name="gender" value="female" type="radio" />
-                <span>Female</span>
-              </label>
+            <label for="gender" style="font-size: 12px;">Gender:</label>
+            <div class="gender" id="gender">
+              <span class="d-flex me-2">
+                <label style="cursor: pointer;">
+                  <input name="gender" value="{{userData?.gender}}" type="radio" [checked]="userData?.gender=='male'" />
+                  <span>Male</span>
+                </label>
+              </span>
+              <span class="d-flex">
+                <label style="cursor: pointer;">
+                  <input name="gender" value="{{userData?.gender}}" type="radio"
+                    [checked]="userData?.gender=='female'" />
+                  <span>Female</span>
+                </label>
+              </span>
             </div>
           </div>
           <div class="form-group">
-            <input type="date" class="form-control shadow-none" placeholder="Birthdate" />
+            <label for="birth_date" style="font-size: 12px;">Birth Date:</label>
+            <input type="date" value="{{dateFormat(userData?.created_at)}}" class="form-control shadow-none"
+              id="birth_date" placeholder="Birthdate" />
           </div>
           <div class="form-group">
-            <input type="text" class="form-control shadow-none" placeholder="http://" />
+            <label for="site_url" style="font-size: 12px;">Site Url:</label>
+            <input type="text" value="{{userData?.site_url}}" class="form-control shadow-none" id="site_url"
+              placeholder="http://" />
           </div>
           <div class="form-group">
-            <input type="text" class="form-control shadow-none" placeholder="Address Line 1" />
+            <label for="address" style="font-size: 12px;">Address:</label>
+            <input type="text" value="{{userData?.address}}" class="form-control shadow-none" id="address"
+              placeholder="Address" />
           </div>
           <div class="form-group">
-            <input type="text" class="form-control shadow-none" placeholder="Address Line 2" />
+            <label for="city" style="font-size: 12px;">City:</label>
+            <input type="text" value="{{userData?.city}}" class="form-control shadow-none" id="city"
+              placeholder="City" />
           </div>
           <div class="form-group">
-            <input type="text" class="form-control shadow-none" placeholder="City" />
+            <label for="state" style="font-size: 12px;">State:</label>
+            <input type="text" value="{{userData?.state}}" class="form-control shadow-none" id="state"
+              placeholder="State" />
           </div>
           <div class="form-group">
-            <input type="text" class="form-control shadow-none" placeholder="State/Province" />
-          </div>
-          <div class="form-group">
-            <select class="form-control shadow-none">
+            <label for="contry" style="font-size: 12px;">Contry:</label>
+            <select class="form-control shadow-none" id="contry">
+              <option value="{{userData?.country}}" disabled selected>
+                <span *ngIf="userData?.country">{{userData?.country}}</span>
+                <span *ngIf="!userData?.country">Select a country</span>
+              </option>
               <option [value]="contry?.value" *ngFor="let contry of contryArr">
                 {{ contry?.name }}
               </option>
@@ -239,14 +261,19 @@
         <div class="account-form">
           <h6>Account Data</h6>
           <div class="form-group">
-            <input type="text" class="form-control shadow-none" value="praveen kumar" disabled placeholder="Username" />
+            <label for="username" style="font-size: 12px;">Username:</label>
+            <input type="text" value="{{userData?.username}}" class="form-control shadow-none" id="username" disabled
+              placeholder="Username" />
           </div>
           <div class="form-group">
-            <input type="email" class="form-control shadow-none" value="example@gmail.com" disabled
+            <label for="email" style="font-size: 12px;">Email:</label>
+            <input type="email" value="{{userData?.email}}" class="form-control shadow-none" id="email" disabled
               placeholder="Email" />
           </div>
           <div class="form-group">
-            <input type="text" class="form-control shadow-none" placeholder="Phone Number" />
+            <label for="phone_number" style="font-size: 12px;">Phone Number:</label>
+            <input type="text" value="{{userData?.phone}}" class="form-control shadow-none" id="phone_number"
+              placeholder="Phone Number" />
           </div>
         </div>
         <button class="btn-update">Update</button>
@@ -256,13 +283,18 @@
         <div class="account-form">
           <h6>Change Password</h6>
           <div class="form-group">
-            <input type="password" class="form-control shadow-none" placeholder="Current Password" />
+            <label for="current_password" style="font-size: 12px;">Current Password:</label>
+            <input type="password" disabled value="{{userData?.password}}" class="form-control shadow-none"
+              id="current_password" placeholder="Current Password" />
           </div>
           <div class="form-group">
-            <input type="password" class="form-control shadow-none" placeholder="New Password" />
+            <label for="new_password" style="font-size: 12px;">New Password:</label>
+            <input type="password" class="form-control shadow-none" id="new_password" placeholder="New Password" />
           </div>
           <div class="form-group">
-            <input type="password" class="form-control shadow-none" placeholder="Confirm New Password" />
+            <label for="confirm_new_password" style="font-size: 12px;">Confirm New Password:</label>
+            <input type="password" class="form-control shadow-none" id="confirm_new_password"
+              placeholder="Confirm New Password" />
           </div>
         </div>
         <button class="btn-update">Update</button>
@@ -273,20 +305,21 @@
         <h6>General Information</h6>
         <div class="general-form">
           <div class="form-group">
-            <select class="form-control shadow-none">
+            <label for="language" style="font-size: 12px;">Language:</label>
+            <select class="form-control shadow-none" id="language">
+              <option value="" disabled selected>Select a language</option>
               <option [value]="lang?.value" [lang]="lang?.lang" *ngFor="let lang of languageArr">
                 {{ lang?.name }}
               </option>
             </select>
           </div>
           <div class="form-group">
-            <select class="form-control shadow-none">
-              <option>--TimeZone--</option>
-              <optgroup label="Africa" *ngFor="let utc of utcArr">
-                <option [value]="ut?.value" *ngFor="let ut of utc?.option">
-                  {{ ut?.name }}
-                </option>
-              </optgroup>
+            <label for="utc" style="font-size: 12px;">utc:</label>
+            <select class="form-control shadow-none" id="utc">
+              <option value="" disabled selected>Select a time zone</option>
+              <option [value]="zone?.value" *ngFor="let zone of timezoneArr">
+                {{ zone?.value }} : {{ zone?.name }}
+              </option>
             </select>
           </div>
           <div class="form-group">

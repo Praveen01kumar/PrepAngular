@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import * as CryptoJS from 'crypto-js';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { SharedService } from '../services/shared.service';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
+import * as CryptoJS from 'crypto-js';
 const jwtHelper = new JwtHelperService();
 
 @Injectable({
@@ -50,12 +50,12 @@ export class AuthService {
 
 
   enCrypt(token: string): string {
-    return CryptoJS.AES.encrypt(token, 'preAngular').toString();
+    return CryptoJS.AES.encrypt(token, environment?.CECRET_KEY).toString();
   }
 
   decrypt(encToekn: string): string {
     try {
-      const decryptedBytes = CryptoJS.AES.decrypt(encToekn, 'preAngular');
+      const decryptedBytes = CryptoJS.AES.decrypt(encToekn, environment?.CECRET_KEY);
       return decryptedBytes.toString(CryptoJS.enc.Utf8);
     } catch (error) {
       return '';

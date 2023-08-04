@@ -1,0 +1,166 @@
+{
+   "dataArr":[
+        {
+          "id": "Backlog",
+          "title": "Backlog",
+          "innerArr": [
+            {
+              "id": 1,
+              "priority": "Medium",
+              "title": "Set up Akita state management 1",
+              "type": "Story"
+            },
+            {
+              "id": 2,
+              "priority": "Medium",
+              "title": "Set up Akita state management 2",
+              "type": "Story"
+            },
+            {
+              "id": 3,
+              "priority": "Medium",
+              "title": "Set up Akita state management 3",
+              "type": "Story"
+            },
+            {
+              "id": 4,
+              "priority": "Medium",
+              "title": "Set up Akita state management 4",
+              "type": "Story"
+            },
+            {
+              "id": 5,
+              "priority": "Medium",
+              "title": "Set up Akita state management 5",
+              "type": "Story"
+            }
+          ]
+        },
+        {
+          "id": "Selected",
+          "title": "Selected",
+          "innerArr": [
+            {
+              "id": 1,
+              "priority": "Medium",
+              "title": "Set up Akita state management 6",
+              "type": "Story"
+            },
+            {
+              "id": 2,
+              "priority": "Medium",
+              "title": "Set up Akita state management 7",
+              "type": "Story"
+            },
+            {
+              "id": 3,
+              "priority": "Medium",
+              "title": "Set up Akita state management 8",
+              "type": "Story"
+            },
+            {
+              "id": 4,
+              "priority": "Medium",
+              "title": "Set up Akita state management 9",
+              "type": "Story"
+            }
+          ]
+        },
+        {
+          "id": "InProgress",
+          "title": "In Progress",
+          "innerArr": [
+            {
+              "id": 1,
+              "priority": "Medium",
+              "title": "Set up Akita state management 10",
+              "type": "Story"
+            },
+            {
+              "id": 2,
+              "priority": "Medium",
+              "title": "Set up Akita state management 11",
+              "type": "Story"
+            },
+            {
+              "id": 3,
+              "priority": "Medium",
+              "title": "Set up Akita state management 12",
+              "type": "Story"
+            }
+          ]
+        },
+        {
+          "id": "Done",
+          "title": "Done",
+          "innerArr": [
+            {
+              "id": 1,
+              "priority": "Medium",
+              "title": "Set up Akita state management 13",
+              "type": "Story"
+            },
+            {
+              "id": 2,
+              "priority": "Medium",
+              "title": "Set up Akita state management 14",
+              "type": "Story"
+            },
+            {
+              "id": 3,
+              "priority": "Medium",
+              "title": "Set up Akita state management 15",
+              "type": "Story"
+            },
+            {
+              "id": 4,
+              "priority": "Medium",
+              "title": "Set up Akita state management 16",
+              "type": "Story"
+            }
+          ]
+        },
+        {
+          "id": "Preview",
+          "title": "Preview",
+          "innerArr": [
+            {
+              "id": 1,
+              "priority": "Medium",
+              "title": "Set up Akita state management 17",
+              "type": "Story"
+            },
+            {
+              "id": 2,
+              "priority": "Medium",
+              "title": "Set up Akita state management 18",
+              "type": "Story"
+            }
+          ]
+        },
+        {
+          "id": "Review",
+          "title": "Review",
+          "innerArr": [
+            {
+              "id": 1,
+              "priority": "Medium",
+              "title": "Set up Akita state management 19",
+              "type": "Story"
+            },
+            {
+              "id": 2,
+              "priority": "Medium",
+              "title": "Set up Akita state management 20",
+              "type": "Story"
+            },
+            {
+              "id": 3,
+              "priority": "Medium",
+              "title": "Set up Akita state management 21",
+              "type": "Story"
+            }
+          ]
+        }
+      ]
+}
