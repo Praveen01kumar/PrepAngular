@@ -187,73 +187,69 @@
       <div class="basic-information box-stl">
         <h6>Basic Information</h6>
         <div class="information-form">
-          <div class="form-group">
-            <label for="first_name" style="font-size: 12px;">First Name:</label>
-            <input type="text" value="{{userData?.first_name}}" class="form-control shadow-none"
-              placeholder="First Name" id="first_name" />
-          </div>
-          <div class="form-group">
-            <label for="last_name" style="font-size: 12px;">Last Name:</label>
-            <input type="text" value="{{userData?.last_name}}" class="form-control shadow-none" placeholder="Last Name"
-              id="last_name" />
-          </div>
-          <div class="form-group">
-            <label for="gender" style="font-size: 12px;">Gender:</label>
-            <div class="gender" id="gender">
-              <span class="d-flex me-2">
-                <label style="cursor: pointer;">
-                  <input name="gender" value="{{userData?.gender}}" type="radio" [checked]="userData?.gender=='male'" />
-                  <span>Male</span>
-                </label>
-              </span>
-              <span class="d-flex">
-                <label style="cursor: pointer;">
-                  <input name="gender" value="{{userData?.gender}}" type="radio"
-                    [checked]="userData?.gender=='female'" />
-                  <span>Female</span>
-                </label>
-              </span>
+          <form [formGroup]="basicInfoForm">
+            <div class="form-group">
+              <label for="first_name" style="font-size: 12px;">First Name:</label>
+              <input type="text" formControlName="first_name" class="form-control shadow-none" placeholder="First Name"
+                id="first_name" />
             </div>
-          </div>
-          <div class="form-group">
-            <label for="birth_date" style="font-size: 12px;">Birth Date:</label>
-            <input type="date" value="{{dateFormat(userData?.created_at)}}" class="form-control shadow-none"
-              id="birth_date" placeholder="Birthdate" />
-          </div>
-          <div class="form-group">
-            <label for="site_url" style="font-size: 12px;">Site Url:</label>
-            <input type="text" value="{{userData?.site_url}}" class="form-control shadow-none" id="site_url"
-              placeholder="http://" />
-          </div>
-          <div class="form-group">
-            <label for="address" style="font-size: 12px;">Address:</label>
-            <input type="text" value="{{userData?.address}}" class="form-control shadow-none" id="address"
-              placeholder="Address" />
-          </div>
-          <div class="form-group">
-            <label for="city" style="font-size: 12px;">City:</label>
-            <input type="text" value="{{userData?.city}}" class="form-control shadow-none" id="city"
-              placeholder="City" />
-          </div>
-          <div class="form-group">
-            <label for="state" style="font-size: 12px;">State:</label>
-            <input type="text" value="{{userData?.state}}" class="form-control shadow-none" id="state"
-              placeholder="State" />
-          </div>
-          <div class="form-group">
-            <label for="contry" style="font-size: 12px;">Contry:</label>
-            <select class="form-control shadow-none" id="contry">
-              <option value="{{userData?.country}}" disabled selected>
-                <span *ngIf="userData?.country">{{userData?.country}}</span>
-                <span *ngIf="!userData?.country">Select a country</span>
-              </option>
-              <option [value]="contry?.value" *ngFor="let contry of contryArr">
-                {{ contry?.name }}
-              </option>
-            </select>
-          </div>
+            <div class="form-group">
+              <label for="last_name" style="font-size: 12px;">Last Name:</label>
+              <input type="text" formControlName="last_name" class="form-control shadow-none" placeholder="Last Name"
+                id="last_name" />
+            </div>
+            <div class="form-group">
+              <label for="gender" style="font-size: 12px;">Gender:</label>
+              <div class="gender" id="gender">
+                <span class="d-flex me-2">
+                  <label style="cursor: pointer;">
+                    <input name="gender" value="male" formControlName="gender" type="radio" />
+                    <span>Male</span>
+                  </label>
+                </span>
+                <span class="d-flex">
+                  <label style="cursor: pointer;">
+                    <input name="gender" value="female" formControlName="gender" type="radio" />
+                    <span>Female</span>
+                  </label>
+                </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="birth_date" style="font-size: 12px;">Birth Date:</label>
+              <input type="date" formControlName="birth_date" class="form-control shadow-none" id="birth_date"
+                placeholder="Birthdate" />
+            </div>
+            <div class="form-group">
+              <label for="site_url" style="font-size: 12px;">Site Url:</label>
+              <input type="text" formControlName="site_url" class="form-control shadow-none" id="site_url"
+                placeholder="http://" />
+            </div>
+            <div class="form-group">
+              <label for="address" style="font-size: 12px;">Address:</label>
+              <input type="text" formControlName="address" class="form-control shadow-none" id="address"
+                placeholder="Address" />
+            </div>
+            <div class="form-group">
+              <label for="city" style="font-size: 12px;">City:</label>
+              <input type="text" formControlName="city" class="form-control shadow-none" id="city" placeholder="City" />
+            </div>
+            <div class="form-group">
+              <label for="state" style="font-size: 12px;">State:</label>
+              <input type="text" formControlName="state" class="form-control shadow-none" id="state"
+                placeholder="State" />
+            </div>
+            <div class="form-group">
+              <label for="country" style="font-size: 12px;">Country:</label>
+              <select class="form-control shadow-none" id="country" formControlName="country">
+                <option [value]="country?.name" *ngFor="let country of contryArr">
+                  {{ country?.name }}
+                </option>
+              </select>
+            </div>
+          </form>
         </div>
-        <button class="btn-update">Update</button>
+        <button class="btn-update" (click)="submitForm()">Update</button>
         <button class="btn-cancel">Cancel</button>
       </div>
 

@@ -13,6 +13,26 @@ export class ApiService {
     this.BASE_URL = environment.API_URL;
   }
 
+  // post list
+  getBlogPostList(data: any = ''): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/post/list`, data).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
+
+  // post list
+  getBlogPostByid(id: any = ''): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/post/detail`, id).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
+
   // registor new user
   registorUser(data: any = ''): Observable<any> {
     return this.http.post(`${this.BASE_URL}/user/register`, data).pipe(
@@ -56,6 +76,53 @@ export class ApiService {
       })
     );
   }
+
+  updateProfile(data: any = ''): Observable<any> {
+    return this.http.put(`${this.BASE_URL}/user/edit_profile`, data).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
+
+  // getDealDetails(id): Observable<any> {
+  //   return this.http.get(this.BASE_URL + '/merchantcustomerlead/' + id).pipe(
+  //     tap(
+  //       data => data,
+  //       error => error
+  //     )
+  //   );
+  // }
+  // updateReason(data: any = ''): Observable<any> {
+  //   return this.http.put(`${this.BASE_URL}/merchantleadreason`, data).pipe(
+  //     tap(
+  //       data => data,
+  //       error => error
+  //     )
+  //   );
+  // }
+  // deleteReason(id): Observable<any> {
+  //   return this.http.delete(`${this.BASE_URL}/merchantleadreason/` + id).pipe(
+  //     tap(
+  //       data => data,
+  //       error => error
+  //     )
+  //   );
+  // }
+  // updateLeadTags(data: any = ''): Observable<any> {
+  //   return this.http.patch(`${this.BASE_URL}/update/tag/` + data?.id, data?.payLoadData).pipe(
+  //     tap(
+  //       data => data,
+  //       error => error
+  //     )
+  //   );
+  // }
+  // //Download lead csv catalog 
+  // getDownloadcvsCatalog(): Observable<any> {
+  //   return this.http.get(`${this.BASE_URL}/convert/lead/csv`, {responseType: 'text'})
+  // }
+
 
   // topics list
   getTopics(): Observable<any> {
@@ -105,19 +172,19 @@ export class ApiService {
     );
   }
 
-    // todo list
-    getSideBar(): Observable<any> {
-      return this.http.get(`assets/json/sidebar.json`).pipe(
-        map((response: any) => {
-          return response;
-        }),
-        catchError((err: any) => {
-          return err;
-        })
-      );
-    }
+  // todo list
+  getSideBar(): Observable<any> {
+    return this.http.get(`assets/json/sidebar.json`).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
 
-
+  // ais list
   getAis(): Observable<any> {
     return this.http.get(`assets/json/ais.json`).pipe(
       map((response: any) => {
@@ -129,6 +196,7 @@ export class ApiService {
     );
   }
 
+  // user list
   getUsers(): Observable<any> {
     return this.http.get(`assets/json/user.json`).pipe(
       map((response: any) => {
@@ -140,62 +208,6 @@ export class ApiService {
     );
   }
 
-  // post list
-  getBlogPostList(data: any = ''): Observable<any> {
-    return this.http.post(`${this.BASE_URL}/post/list`, data).pipe(
-      tap(
-        data => data,
-        error => error
-      )
-    );
-  }
 
-  // post list
-  getBlogPostByid(id: any = ''): Observable<any> {
-    return this.http.post(`${this.BASE_URL}/post/detail`, id).pipe(
-      tap(
-        data => data,
-        error => error
-      )
-    );
-  }
-
-
-  // getDealDetails(id): Observable<any> {
-  //   return this.http.get(this.BASE_URL + '/merchantcustomerlead/' + id).pipe(
-  //     tap(
-  //       data => data,
-  //       error => error
-  //     )
-  //   );
-  // }
-  // updateReason(data: any = ''): Observable<any> {
-  //   return this.http.put(`${this.BASE_URL}/merchantleadreason`, data).pipe(
-  //     tap(
-  //       data => data,
-  //       error => error
-  //     )
-  //   );
-  // }
-  // deleteReason(id): Observable<any> {
-  //   return this.http.delete(`${this.BASE_URL}/merchantleadreason/` + id).pipe(
-  //     tap(
-  //       data => data,
-  //       error => error
-  //     )
-  //   );
-  // }
-  // updateLeadTags(data: any = ''): Observable<any> {
-  //   return this.http.patch(`${this.BASE_URL}/update/tag/` + data?.id, data?.payLoadData).pipe(
-  //     tap(
-  //       data => data,
-  //       error => error
-  //     )
-  //   );
-  // }
-  // //Download lead csv catalog 
-  // getDownloadcvsCatalog(): Observable<any> {
-  //   return this.http.get(`${this.BASE_URL}/convert/lead/csv`, {responseType: 'text'})
-  // }
 
 }

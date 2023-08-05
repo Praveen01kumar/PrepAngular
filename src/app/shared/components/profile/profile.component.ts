@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription, finalize } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
 import { ApiService } from '../../services/api-service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -25,10 +26,13 @@ export class ProfileComponent implements OnInit {
   subscription: Subscription[] = [];
   user_id: any = 1;
   isLoading: boolean = false;
+  basicInfoForm!: FormGroup;
   userData: any;
+  sub: boolean = false;
   constructor(
     public authService: AuthService,
     public apiService: ApiService,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -37,21 +41,18 @@ export class ProfileComponent implements OnInit {
 
 
   callOninIt() {
+    this.basicForm();
+    this.getUserToken();
     this.getuserDetail();
   }
 
   getuserDetail() {
-    const getToken: any = localStorage.getItem('token');
-    if (getToken !== null) {
-      const token = this.authService.decrypt(getToken);
-      const decodedPayload = JSON.parse(atob(token.split('.')[1]));
-      this.user_id = decodedPayload?.id
-    }
     if (this.user_id) {
       this.isLoading = true;
       this.apiService.getUserById({ id: this.user_id }).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
         if (val?.status == 1) {
           this.userData = val?.data[0];
+          this.patchInfoForm(this.userData);
           this.getCountry();
           this.getTimeZone();
         }
@@ -63,16 +64,25 @@ export class ProfileComponent implements OnInit {
 
   acTab(data: string) { data === 'overview' ? (this.overview = true, this.settings = false) : data === 'settings' ? (this.overview = false, this.settings = true) : undefined; }
 
+  getUserToken() {
+    const getToken: any = localStorage.getItem('token');
+    if (getToken !== null) {
+      const token = this.authService.decrypt(getToken);
+      const decodedPayload = JSON.parse(atob(token.split('.')[1]));
+      this.user_id = decodedPayload?.id
+    }
+  }
 
   onSelectFile(event: any) {
-    if (event.target.files && event.target.files[0]) {
-      var filesAmount = event.target.files.length;
+    const file = event?.target?.files;
+    if (file && file[0]) {
+      const filesAmount = file?.length;
       for (let i = 0; i < filesAmount; i++) {
-        var reader = new FileReader();
+        this.updateProfile(file);
+        const reader = new FileReader();
         reader.onload = (event: any) => {
           this.profileUrls = event?.target?.result;
         }
-
         reader.readAsDataURL(event.target.files[i]);
       }
     }
@@ -107,6 +117,60 @@ export class ProfileComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.subscription.forEach(s => { s.unsubscribe(); });
+  }
+
+  updateProfile(data: any) {
+    this.isLoading = true;
+    const formData = new FormData();
+    formData.append('profile', data[0]);
+    formData.append('id', this.user_id);
+    this.apiService.updateProfile(formData).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
+      if (val?.status == 1) {
+      }
+    }, (error) => {
+      this.isLoading = false;
+    });
+  }
+
+  basicForm() {
+    this.basicInfoForm = this.fb.group(
+      {
+        first_name: [''],
+        last_name: [''],
+        gender: [''],
+        birth_date: [''],
+        site_url: [''],
+        address: [''],
+        city: [''],
+        state: [''],
+        country: [''],
+      });
+  }
+
+  get bif() { return this.basicInfoForm.controls; }
+
+  submitForm() {
+    this.sub = true;
+    if (this.basicInfoForm.invalid) {
+      return;
+    }
+
+    console.log('this.basicInfoForm.value:', this.basicInfoForm.value);
+
+  }
+
+  patchInfoForm(value: any) {
+    this.basicInfoForm.patchValue({
+      first_name: value?.first_name,
+      last_name: value?.last_name,
+      gender: value?.gender,
+      birth_date: this.dateFormat(value?.created_at),
+      site_url: value?.site_url,
+      address: value?.address,
+      city: value?.city,
+      state: value?.state,
+      country: value?.country,
+    });
   }
 
 }
