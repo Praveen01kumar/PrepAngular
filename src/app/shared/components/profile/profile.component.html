@@ -126,7 +126,7 @@
       <p><i class="bi bi-facebook"></i> facebook.com/example</p>
       <p><i class="bi bi-github"></i> github.com/example</p>
       <p><i class="bi bi-instagram"></i> instagram.com/example</p>
-      <button class="update-btn">Add</button>
+      <button class="update-btn" (click)="addSotialLink()">Add</button>
     </div>
   </div>
   <div class="profile-overview">
@@ -182,7 +182,6 @@
         </div>
       </div>
     </div>
-
     <div class="settings" *ngIf="settings">
       <div class="basic-information box-stl">
         <h6>Basic Information</h6>
@@ -252,7 +251,6 @@
         <button class="btn-update" (click)="submitForm()">Update</button>
         <button class="btn-cancel">Cancel</button>
       </div>
-
       <div class="account-password box-stl">
         <div class="account-form">
           <h6>Account Data</h6>
@@ -276,7 +274,7 @@
         <button class="btn-cancel">Cancel</button>
       </div>
       <div class="account-password box-stl">
-        <div class="account-form">
+        <div class="account-form" [formGroup]="cha_passw_Form">
           <h6>Change Password</h6>
           <div class="form-group">
             <label for="current_password" style="font-size: 12px;">Current Password:</label>
@@ -285,18 +283,50 @@
           </div>
           <div class="form-group">
             <label for="new_password" style="font-size: 12px;">New Password:</label>
-            <input type="password" class="form-control shadow-none" id="new_password" placeholder="New Password" />
+            <input type="password" formControlName="new_password" class="form-control shadow-none" id="new_password"
+              placeholder="New Password"
+              [ngClass]="{ 'input-valid': (sub || f['new_password'].touched) && f['new_password'].valid, 
+            'input-invalid': (sub || f['new_password'].touched || f['new_password'].dirty) && f['new_password'].errors }" />
+            <span
+              *ngIf="(sub && f?.['new_password']?.errors) || ((f?.['new_password']?.touched || f?.['new_password']?.dirty) && f?.['new_password']?.errors)"
+              class="text-danger">
+              <p class="mp-zero" *ngIf="f?.['new_password']?.errors?.['required']">{{ermsg?.passir}}</p>
+              <p class="mp-zero" *ngIf="f?.['new_password']?.errors?.['minlength']">{{ermsg?.minl8ir}}</p>
+              <p class="mp-zero" *ngIf="f?.['new_password']?.errors?.['maxlength']">{{ermsg?.maxl16ir}}</p>
+              <p class="mp-zero" *ngIf="f?.['new_password']?.errors?.['upp']">{{ermsg?.atloupcir}}</p>
+              <p class="mp-zero" *ngIf="f?.['new_password']?.errors?.['lowe']">{{ermsg?.atlolowcir}}</p>
+              <p class="mp-zero" *ngIf="f?.['new_password']?.errors?.['numb']">{{ermsg?.atlonumcir}}</p>
+              <p class="mp-zero" *ngIf="f?.['new_password']?.errors?.['speci']">{{ermsg?.atlospecir}}</p>
+              <p class="mp-zero" *ngIf="f?.['new_password']?.errors?.['space']">{{ermsg?.spacenota}}</p>
+            </span>
+            <span
+              *ngIf="(sub && f?.['new_password']?.errors===null) || ((f?.['new_password']?.touched || f?.['new_password']?.dirty) && f?.['new_password']?.errors===null)"
+              class="text-success">
+              <p class="mp-zero">{{ermsg?.gtgo}}</p>
+            </span>
           </div>
           <div class="form-group">
             <label for="confirm_new_password" style="font-size: 12px;">Confirm New Password:</label>
             <input type="password" class="form-control shadow-none" id="confirm_new_password"
-              placeholder="Confirm New Password" />
+              placeholder="Confirm New Password" formControlName="cf_password"
+              [ngClass]="{ 'input-valid': (sub || f['cf_password'].touched) && f['cf_password'].valid, 
+              'input-invalid': (sub || f['cf_password'].touched || f['cf_password'].dirty) && f['cf_password'].errors }" />
+            <span
+              *ngIf="(sub && f?.['cf_password']?.errors) || ((f?.['cf_password']?.touched || f?.['cf_password']?.dirty) && f?.['cf_password']?.errors)"
+              class="text-danger">
+              <p class="mp-zero" *ngIf="f?.['cf_password']?.errors?.['required']">{{ermsg?.cpassir}}</p>
+              <p class="mp-zero" *ngIf="f?.['cf_password']?.errors?.['mustMatch']">{{ermsg?.cpassanpins}}</p>
+            </span>
+            <span
+              *ngIf="(sub && f?.['cf_password']?.errors===null) || ((f?.['cf_password']?.touched || f?.['cf_password']?.dirty) && f?.['cf_password']?.errors===null)"
+              class="text-success">
+              <p class="mp-zero">{{ermsg?.gtgo}}</p>
+            </span>
           </div>
         </div>
-        <button class="btn-update">Update</button>
+        <button class="btn-update" (click)="changesPass()">Update</button>
         <button class="btn-cancel">Cancel</button>
       </div>
-
       <div class="general-information box-stl">
         <h6>General Information</h6>
         <div class="general-form">
@@ -442,6 +472,5 @@
         <p>2 of this month</p>
       </div>
     </div>
-
   </div>
 </div>

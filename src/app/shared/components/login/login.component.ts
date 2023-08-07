@@ -117,7 +117,7 @@ export class LoginComponent implements OnInit {
       }
     }, (error) => {
       this.isLoading = false; 
-      this.sharedService.snake({ message: error?.error?.errors?.message });
+      this.sharedService.snake({ message: error?.error?.message });
     });
   }
 

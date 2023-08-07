@@ -3,6 +3,12 @@ import { Subscription, finalize } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
 import { ApiService } from '../../services/api-service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedService } from '../../services/shared.service';
+import { mustMatch } from '../../services/mustmatch';
+import { passStrenValidator, spaceNotAllowed } from '../../services/validistor';
+import { msg } from '../../services/error-messages';
+import { MatDialog } from '@angular/material/dialog';
+import { SotialLinkComponent } from '../sotial-link/sotial-link.component';
 
 @Component({
   selector: 'app-profile',
@@ -27,21 +33,27 @@ export class ProfileComponent implements OnInit {
   user_id: any = 1;
   isLoading: boolean = false;
   basicInfoForm!: FormGroup;
+  cha_passw_Form!: FormGroup;
   userData: any;
   sub: boolean = false;
+  ermsg: any = msg;
   constructor(
     public authService: AuthService,
     public apiService: ApiService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public sharedService: SharedService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
     this.callOninIt();
   }
 
-
   callOninIt() {
+    this.getCountry();
+    this.getTimeZone();
     this.basicForm();
+    this.changePassw();
     this.getUserToken();
     this.getuserDetail();
   }
@@ -53,8 +65,6 @@ export class ProfileComponent implements OnInit {
         if (val?.status == 1) {
           this.userData = val?.data[0];
           this.patchInfoForm(this.userData);
-          this.getCountry();
-          this.getTimeZone();
         }
       }, (error) => {
         this.isLoading = false;
@@ -148,14 +158,26 @@ export class ProfileComponent implements OnInit {
   }
 
   get bif() { return this.basicInfoForm.controls; }
+  get f() { return this.cha_passw_Form.controls; }
 
   submitForm() {
     this.sub = true;
     if (this.basicInfoForm.invalid) {
       return;
     }
-
-    console.log('this.basicInfoForm.value:', this.basicInfoForm.value);
+    const payload = {
+      id: this.user_id,
+      first_name: this.basicInfoForm?.value?.first_name,
+      last_name: this.basicInfoForm?.value?.last_name,
+      gender: this.basicInfoForm?.value?.gender,
+      birth_date: this.basicInfoForm?.value?.birth_date,
+      site_url: this.basicInfoForm?.value?.site_url,
+      address: this.basicInfoForm?.value?.address,
+      city: this.basicInfoForm?.value?.city,
+      state: this.basicInfoForm?.value?.state,
+      country: this.basicInfoForm?.value?.country
+    }
+    this.updateBasic(payload);
 
   }
 
@@ -164,7 +186,7 @@ export class ProfileComponent implements OnInit {
       first_name: value?.first_name,
       last_name: value?.last_name,
       gender: value?.gender,
-      birth_date: this.dateFormat(value?.created_at),
+      birth_date: this.dateFormat(value?.birth_date),
       site_url: value?.site_url,
       address: value?.address,
       city: value?.city,
@@ -173,4 +195,64 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  updateBasic(data: any) {
+    this.isLoading = true;
+    this.apiService.updateBasicInfo(data).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
+      if (val?.status == 1) {
+        this.sharedService.snake({ message: 'Your Basic Information Updated!' });
+        this.getuserDetail();
+      }
+    }, (error) => {
+      this.isLoading = false;
+    });
+  }
+
+  changePassw() {
+    this.cha_passw_Form = this.fb.group(
+      {
+        new_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16), spaceNotAllowed, passStrenValidator]],
+        cf_password: ['', [Validators.required]],
+      },
+      { validator: mustMatch('new_password', 'cf_password') });
+  }
+
+  updatePass(data: any) {
+    this.isLoading = true;
+    this.apiService.updatePassswoard(data).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
+      if (val?.status == 1) {
+        this.getuserDetail();
+        this.sharedService.snake({ message: val?.message });
+      }
+    }, (error) => {
+      this.sharedService.snake({ message: error?.error?.message });
+      this.isLoading = false;
+    });
+  }
+
+  changesPass() {
+    this.sub = true;
+    if (this.cha_passw_Form.invalid) {
+      return;
+    }
+    const payload = {
+      id: this.user_id,
+      new_password: this.cha_passw_Form?.value?.new_password
+    }
+    this.updatePass(payload);
+    this.cha_passw_Form?.reset();
+    this.sub = false;
+  }
+
+  addSotialLink(){
+    
+    const dialogData:{}={}
+    const dialogRef = this.dialog.open(SotialLinkComponent, { width: '36vw', data:dialogData, });
+    dialogRef.disableClose = true;
+    dialogRef.afterClosed().subscribe(result => { 
+      console.log(result);
+      
+    });
+  }
+
+  
 }

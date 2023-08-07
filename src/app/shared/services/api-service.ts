@@ -86,6 +86,25 @@ export class ApiService {
     );
   }
 
+  updateBasicInfo(data: any = ''): Observable<any> {
+    return this.http.put(`${this.BASE_URL}/user/edit_basic`, data).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
+
+  updatePassswoard(data: any = ''): Observable<any> {
+    return this.http.put(`${this.BASE_URL}/user/change_pass`, data).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
+
+
   // getDealDetails(id): Observable<any> {
   //   return this.http.get(this.BASE_URL + '/merchantcustomerlead/' + id).pipe(
   //     tap(

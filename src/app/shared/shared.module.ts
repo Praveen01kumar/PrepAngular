@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { SotialLinkComponent } from './components/sotial-link/sotial-link.component';
+import { ModalLayoutComponent } from './components/modal-layout/modal-layout.component';
 
 @NgModule({
 
@@ -30,6 +32,8 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
         ProfileComponent,
         LoaderComponent,
         BreadcrumbsComponent,
+        SotialLinkComponent,
+        ModalLayoutComponent,
     ],
     imports: [
         CommonModule,
