@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { ApiService } from 'src/app/shared/services/api-service';
-
+import { SharedService } from 'src/app/shared/services/shared.service';
 @Component({
   selector: 'app-writer-dash',
   templateUrl: './dashboard.component.html',
@@ -15,7 +15,7 @@ export class WriterDashboardComponent implements OnInit {
   @ViewChild('visitsChart', { static: true }) visitsChart!: ElementRef;
   visitChart!: Chart;
 
-  constructor(public apiService:ApiService) { }
+  constructor(public apiService:ApiService, public SharedService: SharedService) { }
   sideBarArr: any[] = [];
   ngOnInit(): void {
     this.getYourData();
@@ -69,6 +69,7 @@ export class WriterDashboardComponent implements OnInit {
   getYourData() {
     this.apiService.getSideBar().subscribe((res: any) => {
       this.sideBarArr = res?.writerSideBar;
+      this.SharedService.sideBar$.next(this.sideBarArr);
     }, (error) => { });
   }
 

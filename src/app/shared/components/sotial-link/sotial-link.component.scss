@@ -2,4 +2,65 @@
     .cdk-global-scrollblock {
         position: inherit;
     }
+
+    .mat-form-field-infix {
+        padding: 4px 0px 8px 0px !important;
+    }
+
+    .mat-form-field-wrapper {
+        padding: 0px;
+    }
+}
+
+.link-fields {
+    margin-top: 10px;
+    max-height: 150px;
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    .item {
+        width: 250px;
+        margin-top: 4px;
+
+        .labels {
+            margin-bottom: 4px;
+
+            img {
+                width: 28px;
+                height: 28px;
+            }
+
+            p {
+                margin-bottom: 4px;
+            }
+        }
+
+        .fields {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            input {
+                height: 38px;
+                margin-right: 40px;
+            }
+
+            button {
+                position: absolute;
+                right: 8px;
+            }
+        }
+    }
+}
+
+.option-icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 0px;
+
+    .select-icon-img {
+        width: 80%;
+        height: 80%;
+    }
 }

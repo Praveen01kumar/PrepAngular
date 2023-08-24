@@ -73,6 +73,7 @@ export class UserComponent implements OnInit {
   getYourData() {
     this.apiService.getSideBar().subscribe((res: any) => {
       this.sideBarArr = res?.userSideBar;
+      this.SharedService.sideBar$.next(this.sideBarArr);
     }, (error) => { });
   }
 

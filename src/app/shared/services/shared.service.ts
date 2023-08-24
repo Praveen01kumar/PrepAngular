@@ -11,6 +11,7 @@ export class SharedService {
   public colorSetting$: Subject<any> = new Subject();
   public currentUrl$: Subject<string> = new Subject();
   public postDetail_id$: BehaviorSubject<any> = new BehaviorSubject(null);
+  public sideBar$: BehaviorSubject<any> = new BehaviorSubject(null);
   constructor(private _snackBar: MatSnackBar) { }
 
   // priority: any[] = ['Medium'];

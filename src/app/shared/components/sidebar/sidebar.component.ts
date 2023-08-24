@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit {
   memberFilter: any;
   infolistFilter: any;
   user_id: any = 1;
-  userData:any;
+  userData: any;
   @Input() sideBarData: any;
 
   bookMemberArr: any[] = [
@@ -60,13 +60,14 @@ export class SidebarComponent implements OnInit {
   currentRoute: string = '';
   currentRoute1: any;
   constructor(
-    public shared_sevice: SharedService, 
-    private router: Router, 
+    public shared_sevice: SharedService,
+    private router: Router,
     private authService: AuthService,
     public apiService: ApiService,
-    ) { }
+  ) { }
   logedIn: any = this.authService.isLogined();
   ngOnInit(): void {
+    this.shared_sevice.sideBar$.subscribe((res) => { this.menuFilter = res; }, (err) => { console.log(err); });
     this.menuFilter = this.sideBarData;
     this.memberFilter = this.bookMemberArr;
     this.infolistFilter = this.infolistArr;
@@ -76,13 +77,13 @@ export class SidebarComponent implements OnInit {
 
   getuserDetail() {
     const getToken: any = localStorage.getItem('token');
-    if(getToken !== null){
+    if (getToken !== null) {
       const token = this.authService.decrypt(getToken);
       const decodedPayload = JSON.parse(atob(token.split('.')[1]));
       this.user_id = decodedPayload?.id
     }
-    if(this.user_id){
-      this.apiService.getUserById({id:this.user_id}).subscribe((val: any) => {
+    if (this.user_id) {
+      this.apiService.getUserById({ id: this.user_id }).subscribe((val: any) => {
         if (val?.status == 1) {
           this.userData = val?.data[0];
         }
