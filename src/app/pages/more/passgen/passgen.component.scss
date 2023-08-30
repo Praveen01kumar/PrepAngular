@@ -1,0 +1,51 @@
+::ng-deep .mat-slider-thumb {
+    bottom: -15px !important;
+    width: 30px !important;
+    height: 30px !important;
+
+}
+
+.section {
+    height: 74vh;
+
+    .pass-in-section {
+        box-shadow: -3px 4px 52px -19px rgba(0, 0, 0, 0.76);
+        text-align: center;
+        width: 500px;
+        padding: 2rem;
+        margin: 1rem auto 0px auto;
+        border-radius: 2%;
+
+        .check-boxs {
+            width: 60%;
+            margin: auto;
+
+            p {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        mat-slider {
+            width: 60%;
+        }
+
+        .in-out-boxs {
+            mat-form-field {
+                width: 80%;
+            }
+
+            .bi-gear {
+                font-size: 16px;
+            }
+
+            .bi-clipboard {
+                @extend .bi-gear;
+            }
+
+            .bi-clipboard-check {
+                @extend .bi-gear;
+            }
+        }
+    }
+}

@@ -227,6 +227,18 @@ export class ApiService {
     );
   }
 
+   // user list
+   getQuestions(): Observable<any> {
+    return this.http.get(`assets/json/questions.json`).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
+
 
 
 }

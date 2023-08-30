@@ -1,0 +1,33 @@
+<div class="searchinput">
+    <div>
+        <button type="button" mat-raised-button color="accent" class="ms-4" (click)="openDialog($event)">+Add</button>
+    </div>
+    <div>
+        <input type="text" class="mb-md-0 link-dark searchbtn" placeholder="Search in Collection..."
+            [(ngModel)]="searchText">
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="itembox" *ngFor="let collection of collectionsArr | searchCollection:searchText;let i=index">
+        <div class="d-flex align-items-center justify-content-end">
+            <div class="info-btn">
+                <button mat-button [matMenuTriggerFor]="menu"><i class="bi bi-three-dots-vertical"></i></button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                    <button mat-menu-item (click)="delete(i)"><i class="bi bi-trash"></i>Delete</button>
+                    <button mat-menu-item (click)="edit(i)"><i class="bi bi-pencil-square"></i>Edit</button>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="contant">
+            <p class="text-capitalize" [matTooltip]="collection.title" matTooltipPosition="above"
+                matTooltipClass="custom-tooltip" [matTooltipDisabled]="collection.title.length < 70">
+                {{collection.title}}</p>
+            <div class="divider"></div>
+        </div>
+
+        <a href="https://{{collection.route}}" target="_blank" class="text-capitalize">{{collection.name}}</a>
+        <!-- <a href="https://{{collection.route.replace('http://','').replace('https://','')}}" target="_blank">{{collection.name}}</a> -->
+    </div>
+</div>

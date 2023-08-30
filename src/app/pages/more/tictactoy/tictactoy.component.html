@@ -1,0 +1,16 @@
+<div class="bg-light my-5 mx-4 tictac-board">
+    <div class="row d-flex align-items-center justify-content-center header-info">
+        <div class="col-8 p-0 mt-3">
+            <nav class="navbar navbar-dark p-0">
+                <h3 class="m-0">Current Player: <span>{{player}}</span></h3>
+                <h5 class="alert alert-info m-0" *ngIf="winner"> Player <span>{{winner}}</span> won the game!</h5>
+            </nav>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center p-0 board-info">
+        <main>
+            <button class="squar" *ngFor="let val of squares; let i= index" (click)="makeMove(i)">{{val}}</button>
+        </main>
+    </div>
+    <div class="reset-btn"><button (click)="newGame()">Try Again</button></div>
+</div>

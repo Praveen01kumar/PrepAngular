@@ -1,0 +1,55 @@
+.container-welcome {
+    margin-top: 1rem;
+    padding: 1.25rem 4rem;
+    border-radius: 1.5rem;
+}
+
+.container-quiz {
+    .card {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+
+        .options {
+            ol {
+                padding: 0;
+
+                li {
+                    list-style-type: none;
+                    cursor: pointer;
+                    margin: 10px 0;
+
+                    .card {
+                        transition: all ease 0.3s;
+                        border: 1px solid rgba(0, 0, 0, 0.175);
+                        border-radius: 8px;
+
+                        &:hover {
+                            border-color: green;
+                        }
+                    }
+
+                    .card-success {
+                        background-color: green;
+                        color: #fff;
+                    }
+
+                    .card-fail {
+                        background-color: red;
+                        color: #fff;
+                    }
+
+                }
+            }
+        }
+
+
+    }
+}
+
+::ng-deep {
+    mat-progress-bar {
+        height: 14px !important;
+        border-radius: 7px !important;
+    }
+}

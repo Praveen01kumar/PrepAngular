@@ -1,0 +1,78 @@
+.todo-list ::ng-deep {
+    @import '../../../../assets/ex-css/tooltip.scss';
+
+    .mat-tab-header {
+        background-color: aqua;
+        border-radius: 5px;
+    }
+
+}
+
+.todo-list {
+
+    .all-item-list {
+        list-style: none;
+        padding: 10px;
+        font-size: 22px;
+        border-bottom: 1px solid rgb(255, 213, 213);
+        background: aliceblue;
+        margin-top: 2px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover {
+            background: rgb(203, 211, 218);
+            cursor: pointer;
+
+            .display-action {
+                display: block;
+            }
+        }
+    }
+
+    .todo-item-list {
+        @extend .all-item-list;
+    }
+
+    .done-item-list {
+        @extend .all-item-list;
+    }
+
+    .delete-btn {
+        color: rgb(255, 83, 83);
+        padding: 2px;
+        margin: 6px;
+        transition: all 0.5s;
+        border-radius: 2px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(252, 192, 192);
+        }
+    }
+
+    .edit-btn {
+        @extend .delete-btn;
+        color: green;
+
+        &:hover {
+            background-color: rgb(231, 250, 231);
+        }
+    }
+
+    .todo-btn {
+        @extend .delete-btn;
+        @extend .edit-btn;
+    }
+
+    .done-btn {
+        @extend .delete-btn;
+        @extend .edit-btn;
+    }
+
+    .display-action {
+        display: none;
+    }
+}

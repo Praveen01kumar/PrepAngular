@@ -1,0 +1,72 @@
+<div class="d-flex align-items-center justify-content-center mt-3">
+    <p style="font-size: 26px;"> To Do App </p>
+</div>
+
+<div class="row todo-list" style="width: 100%;">
+    <div class="col-2 p-0"></div>
+    <div class="col-8 p-0">
+        <div>
+            <div>
+                <form [formGroup]="toDoListForm">
+                    <textarea formControlName="newtask" class="form-control is-valid shadow-none" placeholder="Enter Task..."
+                        style="height: 100px"
+                        [ngClass]="{'is-invalid': submitted && f.newtask.errors, 'is-valid': f.newtask.valid}"></textarea>
+                    <div class="valid-feedback">
+                        <div *ngIf="f?.newtask?.valid">Good to go!</div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="f?.newtask?.errors?.required">Task is required</div>
+                        <div *ngIf="f?.newtask?.errors?.minlength">Task must be at least 6 characters</div>
+                        <div *ngIf="f?.newtask?.errors?.maxlength">Task must be at least 45 characters</div>
+                    </div>
+                </form>
+            </div>
+            <div class="mb-3 mt-1 d-flex justify-content-end">
+                <button mat-raised-button color="accent" (click)="addTask()">+ Add</button>
+            </div>
+        </div>
+        <div>
+            <mat-tab-group color="accent">
+                <mat-tab label="All">
+                    <ul class="p-0">
+                        <li class="all-item-list" *ngFor="let task of toDoAllList; let i = index">
+                            <span style="word-break: break-all"><strong style="color: green">{{i+1}}.
+                                </strong>{{task.newtask}}</span>
+                            <span class="display-action">
+                                <i class="bi bi-check todo-btn" (click)="move_In_Todo_List(i)" matTooltip="Move In To Do List" matTooltipPosition="above" matTooltipHideDelay="10" matTooltipClass="above"></i>
+                                <i class="bi bi-check-all done-btn" (click)="move_To_Done_List(i, 'from_all')" matTooltip="Move In Done List" matTooltipPosition="above" matTooltipHideDelay="10" matTooltipClass="above"></i>
+                                <i (click)="deleteTask(i, 'from_all')" class="bi bi-trash delete-btn" matTooltip="Delete" matTooltipPosition="above" matTooltipHideDelay="10" matTooltipClass="above"></i>
+                                <i (click)="editTask(i, 'edit_from_all')" class="bi bi-pencil-square edit-btn" matTooltip="Edit" matTooltipPosition="above" matTooltipHideDelay="10" matTooltipClass="above"></i>
+                            </span>
+                        </li>
+                    </ul>
+                </mat-tab>
+                <mat-tab label="To Do">
+                    <ul class="p-0">
+                        <li class="todo-item-list" *ngFor="let task of toDoList; let i = index">
+                            <span style="word-break: break-all"><strong style="color: green">{{i+1}}.
+                                </strong>{{task.newtask}}</span>
+                            <span class="display-action">
+                                <i class="bi bi-check-all done-btn" (click)="move_To_Done_List(i , 'from_todo')" matTooltip="Move In Done List" matTooltipPosition="above" matTooltipHideDelay="10" matTooltipClass="above"></i>
+                                <i (click)="deleteTask(i, 'from_todo')" class="bi bi-trash delete-btn" matTooltip="Delete" matTooltipPosition="above" matTooltipHideDelay="10" matTooltipClass="above"></i>
+                                <i (click)="editTask(i, 'edit_from_todo')" class="bi bi-pencil-square edit-btn" matTooltip="Edit" matTooltipPosition="above" matTooltipHideDelay="10" matTooltipClass="above"></i>
+                            </span>
+                        </li>
+                    </ul>
+                </mat-tab>
+                <mat-tab label="Done">
+                    <ul class="p-0">
+                        <li class="done-item-list" *ngFor="let task of doneList; let i = index">
+                            <span style="word-break: break-all"><strong style="color: green">{{i+1}}.
+                                </strong>{{task.newtask}}</span>
+                            <span class="display-action">
+                                <i (click)="deleteTask(i, 'from_done')" class="bi bi-trash delete-btn" matTooltip="Delete" matTooltipPosition="above" matTooltipHideDelay="10" matTooltipClass="above"></i>
+                            </span>
+                        </li>
+                    </ul>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-2 p-0"></div>
+</div>

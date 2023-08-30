@@ -1,0 +1,68 @@
+.tictac-board {
+    border-radius: 24px;
+
+    .header-info {
+        nav {
+            margin-bottom: 10px;
+            background-color: aqua;
+            border-radius: 10px;
+
+            h3 {
+                padding: 10px 20px;
+                color: green;
+
+                span {
+                    color: red;
+                }
+            }
+
+            .alert {
+                padding: 10px 20px;
+                margin-bottom: 8px;
+                margin-right: 8px !important;
+                border: 1px solid transparent;
+                border-radius: 0.25rem;
+                background: antiquewhite;
+
+                span {
+                    color: red;
+                }
+            }
+        }
+    }
+
+    .board-info {
+        main {
+            display: grid;
+            grid-template-columns: 120px 120px 120px;
+            grid-gap: 0px;
+
+            .squar {
+                border: 1px gray solid;
+                height: 100px;
+                font-size: 3rem;
+                font-weight: 600;
+                color: green;
+            }
+        }
+    }
+
+    .reset-btn {
+        display: flex;
+        justify-content: center;
+
+        button {
+            margin: 1rem;
+            padding: 10px;
+            color: green;
+            border: none;
+            border-radius: 10px;
+            display: flex;
+            justify-content: end;
+
+            &:hover {
+                background-color: aquamarine;
+            }
+        }
+    }
+}

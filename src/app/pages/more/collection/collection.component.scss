@@ -1,0 +1,134 @@
+.container {
+    margin: auto;
+    padding: 1px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.itembox {
+    width: 210px;
+    height: 245px;
+    background-color: #fff;
+    margin: 10px;
+    border-radius: 2px;
+    text-align: center;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    transition: all 0.5s;
+   
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(242, 242, 242);
+
+        .info-btn {
+            visibility: visible;
+        }
+    }
+
+    .contant {
+        margin: 44px 10px;
+
+        .divider {
+            width: 40%;
+            height: 7px;
+            margin: 15px auto;
+            background: #ff4081;
+        }
+
+        p {
+            word-break: break-all;
+            font-size: 16px;
+            color: #000000de;
+            font-weight: 500;
+            font-family: Roboto, Helvetica Neue, sans-serif;
+            height: 60px;
+            overflow: hidden;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        background-color: rgb(42, 145, 255);
+        color: white;
+        padding: 8px 30px;
+        border-radius: 5px;
+        font-size: 15px;
+        font-family: sans-serif;
+        transition: all 0.5s;
+
+        &:hover {
+            background-color: rgb(0, 50, 103);
+        }
+    }
+}
+
+.searchinput {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+    padding: 10px 10px 0px 0px;
+
+    .searchbtn {
+        outline: none;
+        border: 1px solid #c3c3ba;
+        padding: 6px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.mat-button {
+    min-width: 5px;
+    padding: 2px 8px;
+}
+
+.bi-three-dots-vertical {
+    font-size: 20px;
+}
+
+.mat-menu-item {
+    height: 38px;
+    padding: 0 11px;
+}
+
+::ng-deep {
+    .mat-menu-panel {
+        .bi-trash {
+            color: red;
+            margin-right: 5px;
+            border: 1px solid red;
+            padding: 3px;
+    
+            &:hover {
+                background-color: rgba(255, 212, 212, 0.884);
+            }
+        }
+    
+        .bi-pencil-square {
+            color: green;
+            border: 1px solid green;
+            margin-right: 5px;
+            padding: 3px;
+    
+            &:hover {
+                background-color: rgba(202, 255, 202, 0.808);
+            }
+        }
+    }
+    .custom-tooltip {
+        background-color:rgba(248, 248, 248, 0.842);
+        font-weight: 500;
+        border-radius: 5px;
+        font-size: 1rem;
+        padding: 0.5rem;
+        text-align: center;
+        width: 210px;
+        color: #ff4081 !important;
+        box-shadow: 0 1px 3px 0 rgb(28 28 28 / 35%);
+      }
+}
+.info-btn {
+    visibility: hidden;
+}

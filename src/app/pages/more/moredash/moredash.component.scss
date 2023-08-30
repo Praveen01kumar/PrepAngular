@@ -1,4 +1,6 @@
 .category {
+    height: 100vh;
+
     .category-list {
         display: flex;
         flex-wrap: wrap;
@@ -32,6 +34,7 @@
 
         }
     }
+
     .search {
         input {
             padding: 8px;

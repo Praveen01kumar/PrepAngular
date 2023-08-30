@@ -1,0 +1,63 @@
+<div>
+    <div class="header">
+        <p> <button (click)="cancel()"><i class="bi bi-x-circle"></i></button></p>
+        <h1 mat-dialog-title>Add Collection Details</h1>
+    </div>
+
+    <div mat-dialog-content>
+        <form [formGroup]="collectionForm">
+            <div>
+                <div class="mb-3">
+                    <label for="coll_dis">Discription</label>
+                        <textarea formControlName="title" class="form-control is-valid" id="coll_dis" (keydown)="wordCounter()" #text
+                        placeholder="Enter Discription" style="height: 100px" [maxlength]="maxlen" [minlength]="minlen"
+                        [ngClass]="{'is-invalid': submitted && f.title.errors, 'is-valid': f.title.valid}"></textarea>
+                        <div>Words:<span>{{ words? words :null }}</span></div>
+                    <div class="valid-feedback">
+                        <div *ngIf="f?.title?.valid">Good to go!</div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="f?.title?.errors?.required">Discription is required</div>
+                        <div *ngIf="f?.title?.errors?.minlength">Discription must be at least 5 Words!</div>
+                        <div *ngIf="f?.title?.errors?.maxlength">Discription must be 10 Words Only!</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="coll_title">Name</label>
+                    <input type="text" formControlName="name" class="form-control" id="coll_title"
+                        placeholder="Enter Name"
+                        [ngClass]="{'is-invalid': submitted && f.name.errors, 'is-valid': f.name.valid}">
+                    <div class="valid-feedback">
+                        <div *ngIf="f?.name?.valid">Good to go!</div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="f?.name?.errors?.required">Title is required</div>
+                        <div *ngIf="f?.name?.errors?.minlength">Title must be at least 3 characters</div>
+                        <div *ngIf="f?.name?.errors?.maxlength">Title must be at least 16 characters</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="route_s">URL</label>
+                    <input type="text" formControlName="route" class="form-control" id="route_s" placeholder="Enter Url"
+                        [ngClass]="{'is-invalid': submitted && f.route.errors, 'is-valid': f.route.valid}">
+                    <div class="valid-feedback">
+                        <div *ngIf="f?.route?.valid">Good to go!</div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="f?.route?.errors?.required">Url is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mb-2">
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                <button class="btn btn-primary ms-3" type="button" *ngIf="collId.mode == 'create'"
+                    (click)="onSubmit()">Create</button>
+                <button class="btn btn-primary ms-3" type="button" *ngIf="collId.mode == 'edit'"
+                    (click)="onSubmit()">Update</button>
+            </div>
+        </form>
+    </div>
+</div>

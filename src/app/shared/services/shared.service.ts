@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject, debounceTime, fromEvent, map } from 'rxjs';
+import { Observable, Subject, debounceTime, fromEvent, map, take } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snakData } from '../interfaces/interfaces';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CreatecollComponent } from '../dialog/createcoll/createcoll.component';
 
 
 @Injectable()
@@ -12,206 +14,20 @@ export class SharedService {
   public currentUrl$: Subject<string> = new Subject();
   public postDetail_id$: BehaviorSubject<any> = new BehaviorSubject(null);
   public sideBar$: BehaviorSubject<any> = new BehaviorSubject(null);
-  constructor(private _snackBar: MatSnackBar) { }
+  private coll_Id = new BehaviorSubject<any>({});
+  cast_Coll_Id = this.coll_Id.asObservable();
+  constructor(private _snackBar: MatSnackBar, private dialog: MatDialog) { }
+  dialogRef: MatDialogRef<CreatecollComponent> | any;
+  public open(data: any) {
+    this.dialogRef = this.dialog.open(CreatecollComponent, {
+      width: '25%',
+      disableClose: true
+    })
+  }
+  public confirmed(): Observable<any> { return this.dialogRef.afterClosed().pipe(take(1), map(res => { return res })) }
 
-  // priority: any[] = ['Medium'];
-  // status: any[] = ['Backlog', 'Selected', 'InProgress', 'Done', 'Preview', 'Review'];
-  // title: any[] = [
-  //   'Behind the 900 stars - Update 08/2020',
-  //   'Set up Akita state management',
-  //   'Preparing backend API with GraphQL',
-  //   'Prewing your Done items',
-  //   'Reviewing your Preview items',
-  //   'your Selected Previews',
-  //   'Reviewing your Backlogs',
-  // ];
-  // type: any[] = ['Story'];
-  // dataArr: any[] = [
-  //   {
-  //     id: 'Backlog',
-  //     title: "Backlog",
-  //     innerArr: [
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     id: 'Selected',
-  //     title: "Selected",
-  //     innerArr: [
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     id: 'InProgress',
-  //     title: "In Progress",
-  //     innerArr: [
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     id: 'Done',
-  //     title: "Done",
-  //     innerArr: [
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     id: 'Preview',
-  //     title: "Preview",
-  //     innerArr: [
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     id: 'Review',
-  //     title: "Review",
-  //     innerArr: [
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       },
-  //       {
-  //         id: Math.floor(Math.random() * 10000 + 1000),
-  //         priority: this.priority[Math.floor(Math.random() * this.priority?.length)],
-  //         status: this.status[Math.floor(Math.random() * this.status?.length)],
-  //         title: this.title[Math.floor(Math.random() * this.title?.length)],
-  //         type: this.type[Math.floor(Math.random() * this.type?.length)],
-  //       }
-  //     ]
-  //   }
-  // ];
-
+  editCollection(data: any) { this.coll_Id.next(data); }
+  commanFunction() { console.log('hello'); }
   snake(data: snakData) {
     this._snackBar.open(data?.message, data?.action ? data?.action : 'OK', {
       horizontalPosition: data?.hrposition ? data?.hrposition : 'end',

@@ -18,6 +18,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { SotialLinkComponent } from './components/sotial-link/sotial-link.component';
 import { ModalLayoutComponent } from './components/modal-layout/modal-layout.component';
+import { CreatecollComponent } from './dialog/createcoll/createcoll.component';
 
 @NgModule({
 
@@ -34,6 +35,7 @@ import { ModalLayoutComponent } from './components/modal-layout/modal-layout.com
         BreadcrumbsComponent,
         SotialLinkComponent,
         ModalLayoutComponent,
+        CreatecollComponent,
     ],
     imports: [
         CommonModule,

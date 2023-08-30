@@ -1,0 +1,49 @@
+<div class="section">
+    <div class="pass-in-section">
+        <div class="check-boxs">
+            <p><span>{{task.name}}</span>
+                <span>
+                    <mat-checkbox [checked]="allComplete" [color]="task.color" [indeterminate]="someComplete()"
+                        (change)="setAll($event.checked)"></mat-checkbox>
+                </span>
+            </p>
+            <p *ngFor="let subtask of task.subtasks">
+                <span>{{subtask.name}}</span>
+                <span>
+                    <mat-checkbox [(ngModel)]="subtask.completed" [color]="subtask.color"
+                        (ngModelChange)="updateAllComplete()"></mat-checkbox>
+                </span>
+            </p>
+        </div>
+        <div>
+            <span class="me-2">{{labelVal.Length_}}</span>
+            <span class="border-start border-end border-danger">
+                <mat-slider thumbLabel [min]="minPasslen" [max]="maxPasslen" (input)="onInputChange($event)"></mat-slider>
+            </span>
+            <span class="border border-danger ms-2 p-1" style="border-radius: 15%">{{passLenth | number:'2.0'}}</span>
+        </div>
+        <div class="in-out-boxs">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{labelVal.Your_Password}}</mat-label>
+                    <input matInput [value]="password">
+                </mat-form-field>
+            </div>
+            <div class="mb-3 d-flex justify-content-around">
+                <button mat-raised-button (click)="generatePassword()">
+                    <span class="me-1">{{labelVal.Generate_Password}}</span>
+                    <i class="bi bi-gear"></i>
+                </button>
+                <button mat-raised-button (click)="copyMessage(password)">
+                    <span class="me-1">{{labelVal.Copy_Password}}</span>
+                    <i [ngClass]="labelVal.Copy_Password === 'Copy' ? 'bi bi-clipboard' : 'bi bi-clipboard-check'"></i>
+                </button>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{labelVal.Paste_Here}}</mat-label><input matInput>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>

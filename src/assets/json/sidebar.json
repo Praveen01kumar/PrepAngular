@@ -1549,6 +1549,72 @@
                         "badgeDef": false,
                         "badgeSucc": false
                     }
+                },
+                {
+                    "title": "PassGen",
+                    "routein": "more/pass",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "Stop Watch",
+                    "routein": "more/stopwatch",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "Quiz",
+                    "routein": "more/quiz",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "To Do",
+                    "routein": "more/todo",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "collections",
+                    "routein": "more/collections",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "tic tac toy",
+                    "routein": "more/tictactoy",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
                 }
             ]
         }
@@ -3096,6 +3162,72 @@
                 {
                     "title": "AI'S",
                     "routein": "more/ais",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "PassGen",
+                    "routein": "more/pass",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "Stop Watch",
+                    "routein": "more/stopwatch",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "Quiz",
+                    "routein": "more/quiz",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "To Do",
+                    "routein": "more/todo",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "collections",
+                    "routein": "more/collections",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "tic tac toy",
+                    "routein": "more/tictactoy",
                     "badge": {
                         "txt": "New",
                         "isBadge": false,
