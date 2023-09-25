@@ -14,6 +14,7 @@ export class SharedService {
   public currentUrl$: Subject<string> = new Subject();
   public postDetail_id$: BehaviorSubject<any> = new BehaviorSubject(null);
   public sideBar$: BehaviorSubject<any> = new BehaviorSubject(null);
+  public postData$: BehaviorSubject<any> = new BehaviorSubject(null);
   private coll_Id = new BehaviorSubject<any>({});
   cast_Coll_Id = this.coll_Id.asObservable();
   constructor(private _snackBar: MatSnackBar, private dialog: MatDialog) { }

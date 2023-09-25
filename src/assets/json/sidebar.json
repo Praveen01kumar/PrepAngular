@@ -1595,7 +1595,7 @@
                     }
                 },
                 {
-                    "title": "collections",
+                    "title": "Collections",
                     "routein": "more/collections",
                     "badge": {
                         "txt": "New",
@@ -1606,7 +1606,7 @@
                     }
                 },
                 {
-                    "title": "tic tac toy",
+                    "title": "Tic Tac Toy",
                     "routein": "more/tictactoy",
                     "badge": {
                         "txt": "New",
@@ -3215,7 +3215,7 @@
                     }
                 },
                 {
-                    "title": "collections",
+                    "title": "Collections",
                     "routein": "more/collections",
                     "badge": {
                         "txt": "New",
@@ -3226,7 +3226,7 @@
                     }
                 },
                 {
-                    "title": "tic tac toy",
+                    "title": "Tic Tac Toy",
                     "routein": "more/tictactoy",
                     "badge": {
                         "txt": "New",

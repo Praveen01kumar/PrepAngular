@@ -56,8 +56,8 @@ export class SotialLinkComponent implements OnInit {
   }
 
   updateIconSelect(event: any) {
-    this.socialUpdateIcon = this.socialArr.find(val => val.id == event.value).icon;
-    this.socialUpdateName = this.socialArr.find(val => val.id == event.value).name;
+    this.socialUpdateIcon = this.socialArr.find(val => val?.id == event?.value)?.icon;
+    this.socialUpdateName = this.socialArr.find(val => val?.id == event?.value)?.name;
   }
 
   changesocialurl(event: any, i: number) {

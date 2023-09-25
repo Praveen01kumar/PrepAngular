@@ -38,5 +38,7 @@ export class NewpostComponent implements OnInit {
   }
   createPost(){
     const postData = this.mycontent;
+    console.log(JSON.stringify(this.mycontent));
+    
   }
 }
