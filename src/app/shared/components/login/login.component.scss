@@ -3,15 +3,14 @@
     background-color: rgba(255, 255, 255, 0.959);
 
     .login-container {
-        width: 100%;
+        width: 86%;
         display: flex;
         align-items: center;
-        margin-top: 6%;
-        margin-bottom: 30px;
+        margin: 6% auto 30px;
+        column-gap: 6%;
 
         .loginpage {
             width: 50%;
-            margin: 0 2% 0 8%;
 
             img {
                 width: 100%;
@@ -23,7 +22,6 @@
 
         .login-form-filed {
             width: 50%;
-            margin: 0 8% 0 2%;
 
             .header {
                 h3 {
@@ -37,7 +35,7 @@
             }
 
             .login-form {
-                width: 80%;
+                width: 90%;
 
                 .username {
                     display: flex;
@@ -97,27 +95,38 @@
                     justify-content: space-between;
                     margin-top: 10px;
 
-                    .icon {
-                        .facebook {
-                            border: 1px solid gray;
-                            padding: 6px 8px;
-                            margin-left: 6px;
-                            text-decoration: none;
-                            color: inherit;
-                            margin-right: 6px;
-                            border-radius: 4px;
+                    .orsign {
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
 
-                            i {
-                                border: none;
-                                border-radius: 50%;
-                                font-size: 20px;
-                                color: #38d39f;
-                                margin-right: 8px;
+                        .icon {
+                            display: flex;
+
+                            .facebook {
+                                border: 1px solid gray;
+                                padding: 0px 8px;
+                                margin-left: 6px;
+                                text-decoration: none;
+                                color: inherit;
+                                margin-right: 6px;
+                                border-radius: 4px;
+                                flex-wrap: nowrap;
+                                display: flex;
+                                align-items: center;
+
+                                i {
+                                    border: none;
+                                    border-radius: 50%;
+                                    font-size: 20px;
+                                    color: #38d39f;
+                                    margin-right: 8px;
+                                }
                             }
-                        }
 
-                        .google {
-                            @extend .facebook;
+                            .google {
+                                @extend .facebook;
+                            }
                         }
                     }
 
@@ -134,7 +143,6 @@
 
         .register-form-filed {
             width: 50%;
-            margin: 0 8% 0 2%;
 
             .header {
                 h3 {
@@ -148,7 +156,7 @@
             }
 
             .register-form {
-                width: 80%;
+                width: 90%;
 
                 .name-email {
                     width: 31%;
@@ -161,18 +169,49 @@
                 }
 
                 .address-phone {
+                    width: 100%;
+
+                    .address {
+                        width: 50%;
+                    }
+
+                    .phone {
+                        width: 50%;
+                    }
+
                     @extend .input-fields;
                 }
 
                 .city-state {
+                    width: 100%;
+
+                    .city {
+                        width: 50%;
+                    }
+
+                    .state {
+                        width: 50%;
+                    }
+
                     @extend .input-fields;
                 }
 
                 .country-zipcode {
+                    width: 100%;
+
+                    .country {
+                        width: 50%;
+                    }
+
+                    .zipcode {
+                        width: 50%;
+                    }
+
                     @extend .input-fields;
                 }
 
                 .password-cfpassword {
+                    width: 50%;
                     @extend .input-fields;
                 }
 
@@ -194,27 +233,38 @@
                     justify-content: space-between;
                     margin-top: 10px;
 
-                    .icon {
-                        .facebook {
-                            border: 1px solid gray;
-                            padding: 6px 8px;
-                            margin-left: 6px;
-                            text-decoration: none;
-                            color: inherit;
-                            margin-right: 6px;
-                            border-radius: 4px;
+                    .orsign {
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
 
-                            i {
-                                border: none;
-                                border-radius: 50%;
-                                font-size: 20px;
-                                color: #38d39f;
-                                margin-right: 8px;
+                        .icon {
+                            display: flex;
+
+                            .facebook {
+                                border: 1px solid gray;
+                                padding: 0px 8px;
+                                margin-left: 6px;
+                                text-decoration: none;
+                                color: inherit;
+                                margin-right: 6px;
+                                border-radius: 4px;
+                                flex-wrap: nowrap;
+                                display: flex;
+                                align-items: center;
+
+                                i {
+                                    border: none;
+                                    border-radius: 50%;
+                                    font-size: 20px;
+                                    color: #38d39f;
+                                    margin-right: 8px;
+                                }
                             }
-                        }
 
-                        .google {
-                            @extend .facebook;
+                            .google {
+                                @extend .facebook;
+                            }
                         }
                     }
 
@@ -260,14 +310,51 @@
         }
     }
 }
-.input-invalid{
+
+.input-invalid {
     border-bottom: 2px solid #fc0101d1 !important;
 }
-.input-valid{
+
+.input-valid {
     border-bottom: 2px solid #00831fd1 !important;
 }
-.mp-zero{
+
+.mp-zero {
     margin: 0px;
     padding: 0px;
     font-size: 10px;
+}
+
+@media (max-width: 1250px) {
+    .social-login {
+        flex-direction: column;
+
+        .orsign {
+            flex-direction: column;
+
+            .icon {
+                margin-top: 12px;
+            }
+        }
+
+    }
+
+    .dhaccount {
+        margin-top: 12px;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 750px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-form-filed {
+        width: 100% !important;
+    }
+
+    .login-form {
+        width: 100% !important;
+    }
 }

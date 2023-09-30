@@ -1,26 +1,26 @@
 
 <nav class="navbar dcb" [ngStyle]="{'background-color':sColor, 'border-bottom':'2px solid {{sColor}}'}">
     <div class="nav-container-left">
-        <a (click)="goToPage('')" type="button" class="logo"><img src="assets/logo/logo.svg" alt=""style="width: 100%; height: 60px; margin-top: -10px;"></a>
+        <a (click)="goToPage('')" type="button" class="logo"><img src="assets/logo/logo.svg" alt=""style="height: 60px;"></a>
     </div>
 
     <div class="nav-container-right">
-        <div class="global-search">
-            <div class="search-btn">
-                <input class="search-input" [formControl]="gsearchCtr" placeholder="Search here..." type="text">
-                <button type="button" class="btn btn-default">
-                    <mat-icon>search</mat-icon>
-                </button>
-            </div>
-        </div>
         <div class="actions">
+            <div class="global-search">
+                <div class="search-btn">
+                    <input class="search-input" [formControl]="gsearchCtr" placeholder="Search here..." type="text">
+                    <button type="button" class="btn btn-default">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
             <button type="button" class="btn-action" (click)="goToPage('')">
                 <mat-icon>home</mat-icon>
             </button>
-            <button type="button" class="btn-action" (click)="goToPage('file')">
+            <button type="button" class="btn-action max-show-btn" (click)="goToPage('file')">
                 <mat-icon>folder_open</mat-icon>
             </button>
-            <button type="button" class="btn-action" (click)="goToPage('app/calender')">
+            <button type="button" class="btn-action max-show-btn" (click)="goToPage('app/calender')">
                 <mat-icon>calendar_today</mat-icon>
             </button>
             <button type="button" class="btn-action" (click)="goToPage('app/chat')">
