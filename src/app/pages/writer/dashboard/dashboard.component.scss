@@ -14,8 +14,10 @@
 
 .main-content {
     transition: all 0.3s ease-in-out;
+
     .main-content-header {
         background-color: #f4f7f6;
+
         .header-item {
             .heading {
                 font-size: 22px;
@@ -51,7 +53,13 @@
         }
     }
 
-    .main-content-area{
+    .main-content-area {
         padding: 6px;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 550px) {
+    .admin-container {
+        width: 260% !important;
     }
 }
