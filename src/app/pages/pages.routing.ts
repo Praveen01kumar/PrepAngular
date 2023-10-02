@@ -12,4 +12,4 @@ export const PagesRoutes: Routes = [
   imports: [RouterModule.forChild(PagesRoutes)],
   exports: [RouterModule]
 })
-export class PagesRoutingModule { }
+export class RootPagesRoutingModule { }

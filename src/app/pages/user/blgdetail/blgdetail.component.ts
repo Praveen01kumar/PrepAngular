@@ -16,7 +16,7 @@ export class BlgdetailComponent implements OnInit {
   private highlighted: boolean = false;
   // &lt;div&gt;hello&lt;/div&gt;
   htmlContent1: any = "<pre><code class=\"language-markup\">&lt;p i18n&gt;Hello, World!&lt;/p&gt;\n</code></pre>";
-  htmlContent2: any = "<pre><code class=\"language-typescript\">// Using decorators \n@Component({ \n   selector: 'app-example',\n   templateUrl: './example.component.html',\n   styleUrls: ['./example.component.css'] \n  }) \nexport class ExampleComponent { }\n</code></pre>";
+  htmlContent2: any = '<pre><code class=\"language-typescript\">function Product(name, price) {  // Product constructor    \n    this.name = name;\n    this.price = price;\n}\n\nvar product1 = new Product("Shoes", 49.99); // Product instance\nvar product2 = new Product("Phone", 599.99); // Another product\n\nfunction Person(firstName, lastName) { // Person constructor\n    this.firstName = firstName;\n    this.lastName = lastName;\n}\n\nvar person1 = new Person("John", "Doe"); // Person instance\nvar person2 = new Person("Alice", "Smith"); // Another person\n\nfunction Animal(type, legs) {       // Animal constructor\n    this.type = type;\n    this.legs = legs;\n}\n\nvar cat = new Animal("Cat", 4);      // Cat instance\nvar dog = new Animal("Dog", 4);      // Dog instance\n\nfunction Company(name, employees) {  // Company constructor\n    this.name = name;\n    this.employees = employees;\n}\n\nvar company1 = new Company("ABC Inc.", ["Alice", "Bob"]); // Company instance\nvar company2 = new Company("XYZ Corp.", ["Charlie", "David"]); // Another company\n</pre></code>';
   constructor(
     private highlightService: HighlightService,
     private apiService: ApiService,
@@ -53,7 +53,7 @@ export class BlgdetailComponent implements OnInit {
         const titleElement = document.createElement('h2');
         titleElement.textContent = this.postDetail?.name;
         const descriptionElement = document.createElement('div');
-        descriptionElement.innerHTML = this.postDetail?.discription;
+        descriptionElement.innerHTML = this.postDetail?.discription!==undefined?this.postDetail?.discription:'Comming Soon...';
         postContainer.appendChild(titleElement);
         postContainer.appendChild(descriptionElement);
       }

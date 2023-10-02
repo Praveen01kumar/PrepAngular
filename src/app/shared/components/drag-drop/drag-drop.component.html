@@ -1,5 +1,5 @@
 <div class="mx-5 my-3">
-	<div cdkDropListGroup class="d-flex justify-content-between">
+	<div cdkDropListGroup class="d-flex justify-content-between  to-do-list">
 		<div class="example-container" *ngFor="let outer of outerArr">
 			<div class="text-center">{{ outer?.title }}</div>
 			<div cdkDropList class="example-list" [cdkDropListData]="outer?.innerArr"

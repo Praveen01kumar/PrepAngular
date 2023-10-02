@@ -19,6 +19,7 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
 import { SotialLinkComponent } from './components/sotial-link/sotial-link.component';
 import { ModalLayoutComponent } from './components/modal-layout/modal-layout.component';
 import { CreatecollComponent } from './dialog/createcoll/createcoll.component';
+import { CommingsoonComponent } from './components/commingsoon/commingsoon.component';
 
 @NgModule({
 
@@ -36,6 +37,7 @@ import { CreatecollComponent } from './dialog/createcoll/createcoll.component';
         SotialLinkComponent,
         ModalLayoutComponent,
         CreatecollComponent,
+        CommingsoonComponent,
     ],
     imports: [
         CommonModule,
@@ -52,7 +54,8 @@ import { CreatecollComponent } from './dialog/createcoll/createcoll.component';
         UserlogComponent,
         SidebarComponent,
         BreadcrumbsComponent,
-        LoaderComponent
+        LoaderComponent,
+        CommingsoonComponent
         
     ],
     providers: [

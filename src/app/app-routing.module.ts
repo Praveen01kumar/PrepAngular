@@ -5,7 +5,7 @@ import { LoginComponent } from './shared/components/login/login.component';
 import { NotauthGuard } from './shared/auth/notauth.guard';
 
 const appRoutes: Routes = [
-  { path: '', loadChildren: () => import('../app/pages/pages.module').then(m => m.PagesModule) },
+  { path: '', loadChildren: () => import('../app/pages/pages.module').then(m => m.RootPagesModule) },
   { path: 'login', canActivate: [NotauthGuard], component: LoginComponent },
   { path: 'register', canActivate: [NotauthGuard], component: LoginComponent },
   { path: '**', component: NotfoundComponent },
