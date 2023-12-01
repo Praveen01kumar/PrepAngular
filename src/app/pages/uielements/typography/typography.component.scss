@@ -1,0 +1,61 @@
+.typography {
+    .header {
+        color: #444;
+        padding: 20px 0px;
+        margin-bottom: 0px;
+
+        h2 {
+            font-size: 16px;
+        }
+    }
+
+    .blocak-area {
+        background: #fff;
+        margin: 0px 10px 0px;
+        border-radius: 0.55rem;
+        padding: 16px;
+        margin-bottom: 30px;
+
+        .body {
+            .blockquote {
+                border-left: none;
+                padding: 20px;
+                font-size: 1.2em;
+                line-height: 1.8;
+
+                small {
+                    font-size: .93em;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                }
+            }
+
+            .blockquote-primary {
+                @extend .blockquote;
+                border: 1px solid #49c5b6;
+
+                small {
+                    color: #49c5b6;
+                }
+            }
+
+            .blockquote-info {
+                border: 1px solid #3C89DA;
+                @extend .blockquote;
+
+                small {
+                    color: #3C89DA;
+                }
+            }
+
+            .blockquote-danger {
+                border: 1px solid #de4848;
+                @extend .blockquote;
+
+                small {
+                    color: #de4848;
+                }
+            }
+        }
+    }
+}
