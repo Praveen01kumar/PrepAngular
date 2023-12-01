@@ -5,9 +5,11 @@ import { DataComponent } from './data/data.component';
 import { ChartComponent } from './chart/chart.component';
 import { WeatherComponent } from './weather/weather.component';
 import { SocialComponent } from './social/social.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const widgetsRoutes: Routes = [
-    { path: 'dashboard', component: StatisticsComponent },
+    { path: '', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent },
     { path: 'statistics', component: StatisticsComponent },
     { path: 'data', component: DataComponent },
     { path: 'chart', component: ChartComponent },

@@ -8,9 +8,11 @@ import { Page404Component } from './page404/page404.component';
 import { Page403Component } from './page403/page403.component';
 import { Page500Component } from './page500/page500.component';
 import { Page503Component } from './page503/page503.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const AuthenRoutes: Routes = [
-    { path: 'dashboard', component: LockscreenComponent },
+    { path: '', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent },
     { path: 'lockscreen', component: LockscreenComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },

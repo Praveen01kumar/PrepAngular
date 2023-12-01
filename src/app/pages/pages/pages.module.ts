@@ -16,6 +16,7 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { FAQComponent } from './faq/faq.component';
 import { PagesRoutingModule } from './pages.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -34,7 +35,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ProjectsListComponent,
     MaintenanceComponent,
     TestimonialsComponent,
-    FAQComponent
+    FAQComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

@@ -308,8 +308,19 @@
             "route": "uielenents/dashboard",
             "subTitleArr": [
                 {
-                    "title": "Typography",
+                    "title": "Dashboard",
                     "routein": "uielenents/dashboard",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "Typography",
+                    "routein": "uielenents/typogrf",
                     "badge": {
                         "txt": "New",
                         "isBadge": false,
@@ -1686,8 +1697,19 @@
             "route": "writer/uielenents/dashboard",
             "subTitleArr": [
                 {
-                    "title": "Typography",
+                    "title": "Dashboard",
                     "routein": "uielenents/dashboard",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "Typography",
+                    "routein": "uielenents/typogrf",
                     "badge": {
                         "txt": "New",
                         "isBadge": false,

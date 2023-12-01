@@ -1,0 +1,15 @@
+<div class="category">
+    <div class="search">
+        <input type="text" placeholder="Search Category..." (keyup)="searchCatg($event)">
+    </div>
+    <div class="category-list">
+        <ng-container *ngFor="let ct of catagArr;">
+            <div class="category-item" (click)="gotoPost(ct?.url)">
+                <span [matTooltip]="ct?.name?.length>25?ct?.name:null" matTooltipPosition="above"
+                    matTooltipClass="above">
+                    <span>{{ (ct?.name?.length > 25) ? (ct?.name?.slice(0, 22) + '...') : ct?.name }}</span>
+                </span>
+            </div>
+        </ng-container>
+    </div>
+</div>

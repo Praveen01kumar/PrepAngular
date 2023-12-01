@@ -4,9 +4,11 @@ import { ChartJSComponent } from './chart-js/chart-js.component';
 import { M2chartComponent } from './m2chart/m2chart.component';
 import { HeightchartComponent } from './heightchart/heightchart.component';
 import { GooglechartComponent } from './googlechart/googlechart.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const chartRoutes: Routes = [
-    { path: 'dashboard', component: ChartJSComponent },
+    { path: '', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent },
     { path: 'chartjs', component: ChartJSComponent },
     { path: 'm2chart', component: M2chartComponent },
     { path: 'heightchart', component: HeightchartComponent },

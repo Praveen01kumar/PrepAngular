@@ -20,6 +20,8 @@ import { SotialLinkComponent } from './components/sotial-link/sotial-link.compon
 import { ModalLayoutComponent } from './components/modal-layout/modal-layout.component';
 import { CreatecollComponent } from './dialog/createcoll/createcoll.component';
 import { CommingsoonComponent } from './components/commingsoon/commingsoon.component';
+import { DashelementComponent } from './components/dashelement/dashelement.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
 
@@ -38,13 +40,15 @@ import { CommingsoonComponent } from './components/commingsoon/commingsoon.compo
         ModalLayoutComponent,
         CreatecollComponent,
         CommingsoonComponent,
+        DashelementComponent,
     ],
     imports: [
         CommonModule,
         Mat_Module,
         Form_Module,
         RouterModule,
-        HttpClientModule
+        HttpClientModule,
+        MatTooltipModule
     ],
     exports: [
         CommonModule,
@@ -55,7 +59,8 @@ import { CommingsoonComponent } from './components/commingsoon/commingsoon.compo
         SidebarComponent,
         BreadcrumbsComponent,
         LoaderComponent,
-        CommingsoonComponent
+        CommingsoonComponent,
+        DashelementComponent
         
     ],
     providers: [

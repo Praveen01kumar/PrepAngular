@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-moredash',
@@ -8,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class MoredashComponent implements OnInit {
 
-  catagArr: { name: string | any, url: string | any }[] = [
+  catagArr: any[] = [
     { name: 'About us', url: 'about' },
     { name: 'AIS Tools', url: 'ais' },
     { name: 'Password Generator', url: 'pass' },
@@ -18,15 +17,8 @@ export class MoredashComponent implements OnInit {
     { name: 'Collections', url: 'collections' },
     { name: 'Tic Tac Toy', url: 'tictactoy' }
   ];
-  catagFilter: any[] = [];
-  constructor(public router: Router) { }
-  ngOnInit(): void { this.catagFilter = this.catagArr; }
-  gotoPost(url: string) { this.router.navigate([`more/${url}`]); }
 
-  searchCatg(event: any) {
-    this.catagArr = this.catagFilter;
-    this.catagArr = this.catagArr?.filter(i => (i?.name)?.toLowerCase()?.indexOf((event?.target as HTMLInputElement)?.value?.toLocaleLowerCase()) !== -1);
-  }
-
+  constructor() { }
+  ngOnInit(): void { }
 
 }

@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthenticationRoutingModule } from './authentcation.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -22,7 +23,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     Page500Component,
     Page503Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

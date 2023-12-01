@@ -14,9 +14,11 @@ import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { FAQComponent } from './faq/faq.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const pagesRoutes: Routes = [
-    { path: 'dashboard', component: BlankPageComponent },
+    { path: '', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent },
     { path: 'bpage', component: BlankPageComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'images', component: ImageGalleryComponent },

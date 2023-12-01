@@ -17,12 +17,15 @@ import { RangeslidersComponent } from './rangesliders/rangesliders.component';
 import { TreeviewComponent } from './treeview/treeview.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const UiRoutes: Routes = [
   {
     path: '',
     children: [
-      { path: 'dashboard', component: TypographyComponent },
+      { path: '', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'typogrf', component: TypographyComponent },
       { path: 'tabs', component: TabsComponent },
       { path: 'buttons', component: ButtonsComponent },
       { path: 'bootstrapui', component: BootstrapuiComponent },
@@ -58,7 +61,8 @@ const UiRoutes: Routes = [
     NestableComponent,
     ProgressbarsComponent,
     RangeslidersComponent,
-    TreeviewComponent
+    TreeviewComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

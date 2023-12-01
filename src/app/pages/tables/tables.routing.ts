@@ -7,9 +7,11 @@ import { NormalTablesComponent } from './normal-tables/normal-tables.component';
 import { TablesColorComponent } from './tables-color/tables-color.component';
 import { TableFilterComponent } from './table-filter/table-filter.component';
 import { TabledraggerComponent } from './tabledragger/tabledragger.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const tableRoutes: Routes = [
-    { path: 'dashboard', component: TablesExampleComponent },
+    { path: '', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent },
     { path: 'texample', component: TablesExampleComponent },
     { path: 'ntables', component: NormalTablesComponent },
     { path: 'jdatatables', component: JqueryDatatablesComponent },

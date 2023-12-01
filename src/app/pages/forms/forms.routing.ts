@@ -9,9 +9,11 @@ import { ImageCroppingComponent } from './image-cropping/image-cropping.componen
 import { SummernoteComponent } from './summernote/summernote.component';
 import { MarkdownComponent } from './markdown/markdown.component';
 import { CKEditorComponent } from './ckeditor/ckeditor.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const formsRoutes: Routes = [
-    { path: 'dashboard', component: FormValidationComponent },
+    { path: '', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent },
     { path: 'fvalidation', component: FormValidationComponent },
     { path: 'aelements', component: AdvancedElementsComponent },
     { path: 'belements', component: BasicElementsComponent },

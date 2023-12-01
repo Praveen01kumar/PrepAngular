@@ -15,6 +15,7 @@ import { CollectionComponent } from './collection/collection.component';
 import { TodoComponent } from './todo/todo.component';
 import { TictactoyComponent } from './tictactoy/tictactoy.component';
 import { SearchCollectionPipe } from 'src/app/shared/pipes/search-collection.pipe';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 const MoreRoutes: Routes = [
@@ -52,6 +53,7 @@ const MoreRoutes: Routes = [
     Form_Module,
     Mat_Module,
     CKEditorModule,
+    SharedModule
   ],
   exports: [
     RouterModule,

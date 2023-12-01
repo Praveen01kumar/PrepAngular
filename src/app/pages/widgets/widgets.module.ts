@@ -7,6 +7,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { SocialComponent } from './social/social.component';
 import { WidgetsRoutingModule } from './widgets.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -16,7 +17,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     DataComponent,
     ChartComponent,
     WeatherComponent,
-    SocialComponent
+    SocialComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,7 @@ import { TableFilterComponent } from './table-filter/table-filter.component';
 import { TabledraggerComponent } from './tabledragger/tabledragger.component';
 import { TablesRoutingModule } from './tables.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -20,7 +21,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     EditableTablesComponent,
     TablesColorComponent,
     TableFilterComponent,
-    TabledraggerComponent
+    TabledraggerComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

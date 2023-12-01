@@ -11,6 +11,7 @@ import { CKEditorComponent } from './ckeditor/ckeditor.component';
 import { MarkdownComponent } from './markdown/markdown.component';
 import { FormsRoutingModule } from './forms.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -24,7 +25,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ImageCroppingComponent,
     SummernoteComponent,
     CKEditorComponent,
-    MarkdownComponent
+    MarkdownComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { HeightchartComponent } from './heightchart/heightchart.component';
 import { GooglechartComponent } from './googlechart/googlechart.component';
 import { ChartsRoutingModule } from './chart.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -14,7 +15,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ChartJSComponent,
     M2chartComponent,
     HeightchartComponent,
-    GooglechartComponent
+    GooglechartComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
