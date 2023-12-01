@@ -241,6 +241,96 @@
             "hashtag": [
                 "video generator"
             ]
+        },
+        {
+            "url": "https://neumorphism.io/#d6c7c7",
+            "img": "assets/images/aipic/neumorphism.png",
+            "name": "Neumorphism",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 80,
+            "descrip": "CSS code generator that will help with colors, gradients and shadows to adapt this new design trend or discover its posibilities.",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "CSS code generator"
+            ]
+        },
+        {
+            "url": "https://box-shadow.dev",
+            "img": "assets/images/aipic/box_shadow.png",
+            "name": "Box Shadows",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 180,
+            "descrip": "Customize Shadows. Add a shadow. Shadow 1. Active Inset Remove. Horizontal offset. px. 0. Vertical offset. px. 0. Blur radius. px. 50. Spread radius.",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "box shadow generator"
+            ]
+        },
+        {
+            "url": "https://www.trash-mail.com/new-address",
+            "img": "assets/images/aipic/trash_mail.png",
+            "name": "Fake-Email by TRASH-MAIL",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 180,
+            "descrip": "Email service for sending and receiving disposable Fake-Emails. Unlimited and free anonymous Email-Addresses. Write anonymous Mails with attachments.",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "trash mail"
+            ]
+        },
+        {
+            "url": "https://getwaves.io",
+            "img": "assets/images/aipic/getwaves.png",
+            "name": "getwaves",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 180,
+            "descrip": "A free SVG wave generator to make unique SVG waves for your next web design. Choose a curve, adjust complexity, randomize!",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "getwaves"
+            ]
+        },
+        {
+            "url": "https://getwaves.io",
+            "img": "assets/images/aipic/tinypng.png",
+            "name": "tinypng",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 180,
+            "descrip": "What does TinyPNG do? TinyPNG uses smart lossy compression techniques to reduce the file size of your WEBP, JPEG and PNG files.",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "tinypng"
+            ]
+        },
+        {
+            "url": "https://www.futurepedia.io",
+            "img": "assets/images/aipic/futurepedia.png",
+            "name": "Futurepedia",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 180,
+            "descrip": "Futurepedia is the largest AI tools directory. Browse 5000+ AI tools in 50+ categories like copywriting, image generation and video editing.",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "futurepedia"
+            ]
         }
     ],
     "chipArr": [
@@ -335,7 +425,32 @@
         {
             "name": "gift ideas",
             "active": false
+        },
+        {
+            "name": "CSS code generator",
+            "active": false
+        },
+        {
+            "name": "box shadow generator",
+            "active": false
+        },
+        {
+            "name": "trash mail",
+            "active": false
+        },
+        {
+            "name": "getwaves",
+            "active": false
+        },
+        {
+            "name": "tinypng",
+            "active": false
+        },
+        {
+            "name": "futurepedia",
+            "active": false
         }
+        
     ],
     "pricing": {
         "name": "Pricing",
