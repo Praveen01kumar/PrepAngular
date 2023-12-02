@@ -2,7 +2,7 @@
     "aisArr": [
         {
             "url": "https://app.pictory.ai",
-            "img": "assets/images/aipic/pictory.png",
+            "img": "assets/images/aipic/pictory.webp",
             "name": "Pictory",
             "plan_badge": "$ 19/mo",
             "vnpai": "verified",
@@ -22,7 +22,7 @@
         },
         {
             "url": "https://beecut.com/online-video-editor",
-            "img": "assets/images/aipic/Beecut.png",
+            "img": "assets/images/aipic/Beecut.webp",
             "name": "Beecut",
             "vnpai": "verified",
             "verified": true,
@@ -38,7 +38,7 @@
         },
         {
             "url": "https://temp-mail.org/en",
-            "img": "assets/images/aipic/TempMail.png",
+            "img": "assets/images/aipic/TempMail.webp",
             "name": "Temp Mail",
             "vnpai": " ",
             "verified": false,
@@ -55,7 +55,7 @@
         },
         {
             "url": "https://coolors.co/contrast-checker/112a46-acc8e5",
-            "img": "assets/images/aipic/Coolors.png",
+            "img": "assets/images/aipic/Coolors.webp",
             "name": "Coolors.co",
             "vnpai": "verified",
             "verified": true,
@@ -72,7 +72,7 @@
         },
         {
             "url": "https://accessibleweb.com/color-contrast-checker",
-            "img": "assets/images/aipic/Accessibleweb.png",
+            "img": "assets/images/aipic/Accessibleweb.webp",
             "name": "Accessibleweb",
             "vnpai": "verified",
             "verified": true,
@@ -88,7 +88,7 @@
         },
         {
             "url": "https://chat.openai.com",
-            "img": "assets/images/aipic/ChatGPT.png",
+            "img": "assets/images/aipic/ChatGPT.webp",
             "name": "ChatGPT",
             "vnpai": "new",
             "verified": false,
@@ -106,7 +106,7 @@
         },
         {
             "url": "https://www.convertsimple.com",
-            "img": "assets/images/aipic/convertsimple.png",
+            "img": "assets/images/aipic/convertsimple.webp",
             "name": "Convert simple",
             "vnpai": "new",
             "verified": true,
@@ -244,7 +244,7 @@
         },
         {
             "url": "https://neumorphism.io/#d6c7c7",
-            "img": "assets/images/aipic/neumorphism.png",
+            "img": "assets/images/aipic/neumorphism.webp",
             "name": "Neumorphism",
             "vnpai": "popular",
             "verified": true,
@@ -259,7 +259,7 @@
         },
         {
             "url": "https://box-shadow.dev",
-            "img": "assets/images/aipic/box_shadow.png",
+            "img": "assets/images/aipic/box_shadow.webp",
             "name": "Box Shadows",
             "vnpai": "popular",
             "verified": true,
@@ -274,7 +274,7 @@
         },
         {
             "url": "https://www.trash-mail.com/new-address",
-            "img": "assets/images/aipic/trash_mail.png",
+            "img": "assets/images/aipic/trash_mail.webp",
             "name": "Fake-Email by TRASH-MAIL",
             "vnpai": "popular",
             "verified": true,
@@ -289,7 +289,7 @@
         },
         {
             "url": "https://getwaves.io",
-            "img": "assets/images/aipic/getwaves.png",
+            "img": "assets/images/aipic/getwaves.webp",
             "name": "getwaves",
             "vnpai": "popular",
             "verified": true,
@@ -303,8 +303,8 @@
             ]
         },
         {
-            "url": "https://getwaves.io",
-            "img": "assets/images/aipic/tinypng.png",
+            "url": "https://tinypng.com",
+            "img": "assets/images/aipic/tinypng.webp",
             "name": "tinypng",
             "vnpai": "popular",
             "verified": true,
@@ -319,7 +319,7 @@
         },
         {
             "url": "https://www.futurepedia.io",
-            "img": "assets/images/aipic/futurepedia.png",
+            "img": "assets/images/aipic/futurepedia.webp",
             "name": "Futurepedia",
             "vnpai": "popular",
             "verified": true,
@@ -330,6 +330,21 @@
             },
             "hashtag": [
                 "futurepedia"
+            ]
+        },
+        {
+            "url": "https://pixelied.com/convert",
+            "img": "assets/images/aipic/pixelied.webp",
+            "name": "Pixelied",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 180,
+            "descrip": "A free online graphic design tool for easy, beautiful designs · Everything you need to create epic designs using our online photo editor",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "pixelied"
             ]
         }
     ],
@@ -448,6 +463,10 @@
         },
         {
             "name": "futurepedia",
+            "active": false
+        },
+        {
+            "name": "pixelied",
             "active": false
         }
         

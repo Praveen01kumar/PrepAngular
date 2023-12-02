@@ -1,0 +1,14 @@
+<div class="pagination-btn">
+    <button class="previous-btn" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <ng-container *ngIf="currentPage>4">
+      <button (click)="fistPage(1)">1</button>
+      <button>...</button>
+    </ng-container>
+    <ng-container *ngFor="let page of visiblePages"><button (click)="goToPage(page)"
+        [class.active]="page === currentPage">{{ page }}</button></ng-container>
+    <ng-container *ngIf="totalPages>3 && (totalPages !== currentPage)">
+      <button>...</button>
+      <button (click)="lastPage(totalPages)" [class.active]="totalPages === currentPage">{{totalPages}}</button>
+    </ng-container>
+    <button class="next-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>

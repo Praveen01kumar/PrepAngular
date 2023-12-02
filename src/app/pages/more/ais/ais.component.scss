@@ -393,29 +393,3 @@
     background-color: #0ea5e9;
     color: #fff;
 }
-
-.pagination-btn {
-    button {
-        border: 1px solid #0080007a;
-        padding: 6px 16px;
-        border-right: 0px;
-    }
-
-    .previous-btn {
-        padding: 6px 8px;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-    }
-
-    .next-btn {
-        border: 1px solid #0080007a;
-        padding: 6px 8px;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-    }
-
-    .active {
-        background-color: #008000bd;
-        color: #fff;
-    }
-}

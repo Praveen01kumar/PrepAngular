@@ -22,6 +22,7 @@ import { CreatecollComponent } from './dialog/createcoll/createcoll.component';
 import { CommingsoonComponent } from './components/commingsoon/commingsoon.component';
 import { DashelementComponent } from './components/dashelement/dashelement.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
 
@@ -41,6 +42,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         CreatecollComponent,
         CommingsoonComponent,
         DashelementComponent,
+        PaginationComponent,
     ],
     imports: [
         CommonModule,
@@ -60,7 +62,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         BreadcrumbsComponent,
         LoaderComponent,
         CommingsoonComponent,
-        DashelementComponent
+        DashelementComponent,
+        PaginationComponent
         
     ],
     providers: [

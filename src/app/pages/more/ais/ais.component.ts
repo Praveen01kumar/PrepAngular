@@ -22,8 +22,7 @@ export class AisComponent implements OnInit {
   allpricingComplete: boolean = false;
   allfeaturesComplete: boolean = false;
   @ViewChild(MatMenuTrigger) filterTrigger!: MatMenuTrigger;
-  currentPage:number = 1;
-  totalPages:number = 20;
+  
   constructor(public SharedService: SharedService, private apiService: ApiService) { }
 
   ngOnInit(): void { this.onInitCall(); }
@@ -98,25 +97,4 @@ export class AisComponent implements OnInit {
     });
     this.filterTrigger.closeMenu();
   }
-
-  get visiblePages(): number[] {
-    const range = 1;
-    let start = Math.max(1, this.currentPage - range);
-    let end = Math.min(this.totalPages, this.currentPage + range);
-    if (end - start < (range * 2)) {
-      if (start === 1) {
-        end = Math.min(end + (range * 2) - (end - start), this.totalPages);
-      } else if (end === this.totalPages) { start = Math.max(start - (range * 2) + (end - start), 1); }
-    }
-    return Array.from({ length: end - start + 1 }, (_, i) => i + start);
-  }
-
-  previousPage() { if (this.currentPage > 1) { this.currentPage--; } }
-  nextPage() { if (this.currentPage < this.totalPages) { this.currentPage++; } }
-  goToPage(page: number) { this.currentPage = page; }
-  fistPage(page: number) { this.currentPage = page; }
-  lastPage(page: number) { this.currentPage = page; }
-
-
-
 }
