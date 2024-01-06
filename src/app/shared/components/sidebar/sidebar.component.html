@@ -1,7 +1,7 @@
 <div class="sidebar-container">
     <div class="user-info" *ngIf="logedIn">
         <div class="dc">
-            <img src="assets/avatar/{{userData?.profile?userData?.profile:'avatar2.jpg'}}" class="user-profile-img" alt="User Profile Picture">
+            <img src="{{userData?.profile_img?userData?.profile_img:'assets/avatar/avatar2.jpg'}}" class="user-profile-img" alt="User Profile Picture">
             <div class="info-menu-dropdown">
                 <span>Welcome,</span>
                 <div class="info-menu">

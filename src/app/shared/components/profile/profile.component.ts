@@ -17,8 +17,8 @@ import { SotialLinkComponent } from '../sotial-link/sotial-link.component';
 })
 export class ProfileComponent implements OnInit {
 
-  overview: boolean = false;
-  settings: boolean = true;
+  overview: boolean = true;
+  settings: boolean = false;
   profileUrls: string = '';
   contryArr: any[] = [];
   languageArr: any[] = [
@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
   ];
   timezoneArr: any[] = [];
   subscription: Subscription[] = [];
-  user_id: any = 1;
+  user_id: any;
   isLoading: boolean = false;
   basicInfoForm!: FormGroup;
   cha_passw_Form!: FormGroup;
@@ -59,17 +59,19 @@ export class ProfileComponent implements OnInit {
   }
 
   getuserDetail() {
-    if (this.user_id) {
-      this.isLoading = true;
-      this.apiService.getUserById({ id: this.user_id }).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
-        if (val?.status == 1) {
-          this.userData = val?.data[0];
-          this.patchInfoForm(this.userData);
-        }
-      }, (error) => {
-        this.isLoading = false;
-      });
-    }
+    // if (this.user_id) {
+    //   this.isLoading = true;
+    //   this.apiService.getUserById({ id: this.user_id }).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
+    //     if (val?.status == 1) {
+    //       this.userData = val?.data[0];
+    //       this.patchInfoForm(this.userData);
+    //     }
+    //   }, (error) => {
+    //     this.isLoading = false;
+    //   });
+    // }
+    const getUser: any = localStorage.getItem('user');
+    if (getUser !== null) { this.userData = JSON.parse(this.authService.decrypt(getUser)); this.patchInfoForm(this.userData); }
   }
 
   acTab(data: string) { data === 'overview' ? (this.overview = true, this.settings = false) : data === 'settings' ? (this.overview = false, this.settings = true) : undefined; }
@@ -132,12 +134,16 @@ export class ProfileComponent implements OnInit {
   updateProfile(data: any) {
     this.isLoading = true;
     const formData = new FormData();
-    formData.append('profile', data[0]);
-    formData.append('id', this.user_id);
+    formData.append('profile_img', data[0]);
     this.apiService.updateProfile(formData).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
-      if (val?.status == 1) {
+      if (val?.status) {
+        this.sharedService.snake({ message: val?.message });
+        localStorage.setItem('user', this.authService.enCrypt(JSON.stringify(val?.user)));
+        this.sharedService.userDetail$.next(val?.user);
+        this.getuserDetail();
       }
     }, (error) => {
+      this.sharedService.snake({ message: error?.error?.message });
       this.isLoading = false;
     });
   }
@@ -165,17 +171,20 @@ export class ProfileComponent implements OnInit {
     if (this.basicInfoForm.invalid) {
       return;
     }
+
     const payload = {
-      id: this.user_id,
-      first_name: this.basicInfoForm?.value?.first_name,
-      last_name: this.basicInfoForm?.value?.last_name,
-      gender: this.basicInfoForm?.value?.gender,
-      birth_date: this.basicInfoForm?.value?.birth_date,
-      site_url: this.basicInfoForm?.value?.site_url,
-      address: this.basicInfoForm?.value?.address,
-      city: this.basicInfoForm?.value?.city,
-      state: this.basicInfoForm?.value?.state,
-      country: this.basicInfoForm?.value?.country
+      data: {
+        first_name: this.basicInfoForm?.value?.first_name,
+        last_name: this.basicInfoForm?.value?.last_name,
+        gender: this.basicInfoForm?.value?.gender,
+        birth_date: this.basicInfoForm?.value?.birth_date,
+        site_url: this.basicInfoForm?.value?.site_url,
+        address: this.basicInfoForm?.value?.address,
+        city: this.basicInfoForm?.value?.city,
+        state: this.basicInfoForm?.value?.state,
+        country: this.basicInfoForm?.value?.country
+      },
+      id: this.user_id
     }
     this.updateBasic(payload);
 
@@ -198,9 +207,11 @@ export class ProfileComponent implements OnInit {
   updateBasic(data: any) {
     this.isLoading = true;
     this.apiService.updateBasicInfo(data).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
-      if (val?.status == 1) {
-        this.sharedService.snake({ message: 'Your Basic Information Updated!' });
+      if (val?.status) {
+        this.sharedService.snake({ message: val?.message });
+        localStorage.setItem('user', this.authService.enCrypt(JSON.stringify(val?.user)));
         this.getuserDetail();
+        this.sharedService.userDetail$.next(val?.user);
       }
     }, (error) => {
       this.isLoading = false;
@@ -219,8 +230,7 @@ export class ProfileComponent implements OnInit {
   updatePass(data: any) {
     this.isLoading = true;
     this.apiService.updatePassswoard(data).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
-      if (val?.status == 1) {
-        this.getuserDetail();
+      if (val?.status) {
         this.sharedService.snake({ message: val?.message });
       }
     }, (error) => {
@@ -236,23 +246,37 @@ export class ProfileComponent implements OnInit {
     }
     const payload = {
       id: this.user_id,
-      new_password: this.cha_passw_Form?.value?.new_password
+      data: {
+        password: this.cha_passw_Form?.value?.new_password
+      },
     }
     this.updatePass(payload);
     this.cha_passw_Form?.reset();
     this.sub = false;
   }
 
-  addSotialLink(){
-    
-    const dialogData:{}={}
-    const dialogRef = this.dialog.open(SotialLinkComponent, { width: '36vw', data:dialogData, });
+  addSotialLink() {
+    const dialogData: {} = {}
+    const dialogRef = this.dialog.open(SotialLinkComponent, { width: '36vw', data: dialogData, });
     dialogRef.disableClose = true;
-    dialogRef.afterClosed().subscribe(result => { 
+    dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      
     });
   }
 
-  
+  verifyAcc() {
+    this.isLoading = true;
+    const payload = {
+      email: this.userData?.email
+    }
+    this.apiService.verifyMe(payload).pipe(finalize(() => { this.isLoading = false; })).subscribe((val: any) => {
+      if (val?.status) {
+        this.sharedService.snake({ message: val?.message });
+      }
+    }, (error) => {
+      this.sharedService.snake({ message: error?.error?.message });
+      this.isLoading = false;
+    });
+  }
+
 }

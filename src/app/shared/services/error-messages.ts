@@ -2,8 +2,10 @@
 export const msg = {
     gtgo: "Good to Go!",
     spacenota:"Spece Not Allowed!",
-    unir:"Username or Email is Required!",
+    unir:"Email is Required!",
+    unoremir:"Username or Email is Required!",
     passir:"Password is Required!",
+    otpir:"OTP is Required!",
     cpassir:"Confirm Password is Required!",
     cpassanpins:"Confirm Password and Password is not same!",
     fnameir:"First Name is Required!",

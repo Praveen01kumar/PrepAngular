@@ -15,9 +15,13 @@ export class SharedService {
   public postDetail_id$: BehaviorSubject<any> = new BehaviorSubject(null);
   public sideBar$: BehaviorSubject<any> = new BehaviorSubject(null);
   public postData$: BehaviorSubject<any> = new BehaviorSubject(null);
+  public userDetail$: BehaviorSubject<any> = new BehaviorSubject(null);
   private coll_Id = new BehaviorSubject<any>({});
   cast_Coll_Id = this.coll_Id.asObservable();
-  constructor(private _snackBar: MatSnackBar, private dialog: MatDialog) { }
+  constructor(
+    private _snackBar: MatSnackBar, 
+    private dialog: MatDialog
+    ) { }
   dialogRef: MatDialogRef<CreatecollComponent> | any;
   public open(data: any) {
     this.dialogRef = this.dialog.open(CreatecollComponent, {
@@ -51,6 +55,5 @@ export class SharedService {
     const format = url?.replace('https://www.', '')?.replace('http://www.', '')?.replace('https://', '')?.replace('http://', '')?.replace('https:', '')?.replace('http:', '')?.replace('https', '')?.replace('http', '')?.replace('www.', '')?.replace('www', '');
     return `https://${format}`;
   }
-
 
 }

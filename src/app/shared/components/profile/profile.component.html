@@ -1,15 +1,15 @@
 <app-loader *ngIf="isLoading"></app-loader>
-<div class="user-profile" *ngIf="userData">
+<div class="user-profile">
   <div class="profile-info">
     <div class="profile box-stl">
       <div class="profile-image">
         <label for="uploader"><i class="bi bi-pencil-square"></i></label>
-        <input type='file' (change)="onSelectFile($event)" multiple hidden id="uploader" accept="image/jpeg, image/png">
-        <img [src]="profileUrls ? profileUrls:'assets/avatar/'+userData?.profile" alt="profile" />
+        <input type='file' (change)="onSelectFile($event)" multiple hidden id="uploader" accept="image/jpeg, image/png, image/jpg">
+        <img [src]="profileUrls ? profileUrls:userData?.profile_img" alt="profile" />
       </div>
       <div class="profile-name">
         <h4><strong>{{userData?.first_name}}</strong>{{userData?.last_name}}</h4>
-        <span>{{userData?.type}}</span>
+        <span>{{userData?.role}}</span><span (click)="verifyAcc()" *ngIf="!userData?.record?.isverified" class="accountnotverified">Not verified</span>
       </div>
       <div class="profile-btn">
         <button class="btn-follow">Follow</button>
@@ -35,8 +35,8 @@
         <p>{{userData?.address}}, {{userData?.city}}, {{userData?.state}}, {{userData?.country}}</p>
         <div>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30773564.17938236!2d61.01663758588814!3d19.689680859759182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1684319894686!5m2!1sen!2sin"
-            width="100%" height="150" title="user location map" style="border:0" allowfullscreen=""></iframe>
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30773564.17938236!2d61.01663758588814!3d19.689680859759182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1684319894686!5m2!1sen!2sin"
+          width="100%" height="150" title="user location map" style="border:0" allowfullscreen=""></iframe>
         </div>
         <hr>
         <small class="text-muted">Email address: </small>
@@ -46,7 +46,7 @@
         <p>{{userData?.phone}}</p>
         <hr>
         <small class="text-muted">Birth Date: </small>
-        <p class="m-b-0">{{userData?.created_at | date:'EEE, MMMM d, y, h:mm a'}}</p>
+        <p class="m-b-0">{{userData?.birth_date | date:'EEE, MMMM d, y, h:mm a'}}</p>
       </div>
     </div>
     <div class="follow box-stl">
@@ -276,11 +276,6 @@
       <div class="account-password box-stl">
         <div class="account-form" [formGroup]="cha_passw_Form">
           <h6>Change Password</h6>
-          <div class="form-group">
-            <label for="current_password" style="font-size: 12px;">Current Password:</label>
-            <input type="password" disabled value="{{userData?.password}}" class="form-control shadow-none"
-              id="current_password" placeholder="Current Password" />
-          </div>
           <div class="form-group">
             <label for="new_password" style="font-size: 12px;">New Password:</label>
             <input type="password" formControlName="new_password" class="form-control shadow-none" id="new_password"

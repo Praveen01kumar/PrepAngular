@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   BASE_URL: string;
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private authservice: AuthService
+  ) {
     this.BASE_URL = environment.API_URL;
   }
 
@@ -35,7 +39,7 @@ export class ApiService {
 
   // registor new user
   registorUser(data: any = ''): Observable<any> {
-    return this.http.post(`${this.BASE_URL}/user/register`, data).pipe(
+    return this.http.post(`${this.BASE_URL}/auth/signup`, data).pipe(
       tap(
         data => data,
         error => error
@@ -45,13 +49,59 @@ export class ApiService {
 
   // login user
   loginUser(data: any = ''): Observable<any> {
-    return this.http.post(`${this.BASE_URL}/user/login`, data).pipe(
+    return this.http.post(`${this.BASE_URL}/auth/login`, data).pipe(
       tap(
         data => data,
         error => error
       )
     );
   }
+
+  // login user otp
+  loginOTP(data: any = ''): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/auth/mail-login-otp`, data).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
+
+  // log out user 
+  logout(data: any = ''): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/auth/logout`, data).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
+
+  // rend reset password link on mail 
+  resetMail(data: any = ''): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/auth/mailtoresetpass`, data).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
+
+  // verify me  
+  verifyMe(data: any = ''): Observable<any> {
+    const getToken: any = localStorage.getItem('token');
+    const token = this.authservice.decrypt(getToken);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(`${this.BASE_URL}/auth/verify-account-mail`, data, { headers }).pipe(
+      tap(
+        data => data,
+        error => error
+      )
+    );
+  }
+
 
   // all users 
   getAllUsers(): Observable<any> {
@@ -65,29 +115,38 @@ export class ApiService {
     );
   }
 
-  // user by id in body
-  getUserById(id: any = ''): Observable<any> {
-    return this.http.post(`${this.BASE_URL}/user/detail`, id).pipe(
-      map((response: any) => {
-        return response;
-      }),
-      catchError((err: any) => {
-        return err;
-      })
-    );
-  }
+  // // user by id in body
+  // getUserById(id: any = ''): Observable<any> {
+  //   return this.http.post(`${this.BASE_URL}/user/detail`, id).pipe(
+  //     map((response: any) => {
+  //       return response;
+  //     }),
+  //     catchError((err: any) => {
+  //       return err;
+  //     })
+  //   );
+  // }
 
   updateProfile(data: any = ''): Observable<any> {
-    return this.http.put(`${this.BASE_URL}/user/edit_profile`, data).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+    const getToken: any = localStorage.getItem('token');
+    const token = this.authservice.decrypt(getToken);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.patch(`${this.BASE_URL}/auth/update_pf_img`, data, { headers }).pipe(tap(
+      data => data,
+      error => error
+    )
     );
   }
 
   updateBasicInfo(data: any = ''): Observable<any> {
-    return this.http.put(`${this.BASE_URL}/user/edit_basic`, data).pipe(
+    const getToken: any = localStorage.getItem('token');
+    const token = this.authservice.decrypt(getToken);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.patch(`${this.BASE_URL}/auth/update_self`, data, { headers }).pipe(
       tap(
         data => data,
         error => error
@@ -96,7 +155,12 @@ export class ApiService {
   }
 
   updatePassswoard(data: any = ''): Observable<any> {
-    return this.http.put(`${this.BASE_URL}/user/change_pass`, data).pipe(
+    const getToken: any = localStorage.getItem('token');
+    const token = this.authservice.decrypt(getToken);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.patch(`${this.BASE_URL}/auth/change_pass_self`, data, { headers }).pipe(
       tap(
         data => data,
         error => error
@@ -227,8 +291,8 @@ export class ApiService {
     );
   }
 
-   // user list
-   getQuestions(): Observable<any> {
+  // user list
+  getQuestions(): Observable<any> {
     return this.http.get(`assets/json/questions.json`).pipe(
       map((response: any) => {
         return response;

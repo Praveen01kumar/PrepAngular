@@ -3,6 +3,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { SharedService } from '../../services/shared.service';
 import { AuthService } from '../../auth/auth.service';
 import { ApiService } from '../../services/api-service';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'sidebar',
@@ -18,7 +20,7 @@ export class SidebarComponent implements OnInit {
   user_id: any = 1;
   userData: any;
   @Input() sideBarData: any;
-
+  private _unsubscribeAll: Subject<any> = new Subject<any>();
   bookMemberArr: any[] = [
     { img: "assets/avatar/avatar1.jpg", name: "Chris Fox", message: "Designer, Blogger", status: false },
     { img: "assets/avatar/avatar2.jpg", name: "Joge Lucky", message: "Java Developer", status: true },
@@ -68,6 +70,7 @@ export class SidebarComponent implements OnInit {
   logedIn: any = this.authService.isLogined();
   ngOnInit(): void {
     this.shared_sevice.sideBar$.subscribe((res) => { this.menuFilter = res; }, (err) => { console.log(err); });
+    this.shared_sevice.userDetail$.subscribe((res) => { if(res)this.getuserDetail(); }, (err) => { console.log(err); });
     this.menuFilter = this.sideBarData;
     this.memberFilter = this.bookMemberArr;
     this.infolistFilter = this.infolistArr;
@@ -76,21 +79,24 @@ export class SidebarComponent implements OnInit {
   }
 
   getuserDetail() {
-    const getToken: any = localStorage.getItem('token');
-    if (getToken !== null) {
-      const token = this.authService.decrypt(getToken);
-      const decodedPayload = JSON.parse(atob(token.split('.')[1]));
-      this.user_id = decodedPayload?.id
-    }
-    if (this.user_id) {
-      this.apiService.getUserById({ id: this.user_id }).subscribe((val: any) => {
-        if (val?.status == 1) {
-          this.userData = val?.data[0];
-        }
-      }, (error) => {
-        console.log(error);
-      });
-    }
+    // const getToken: any = localStorage.getItem('token');
+    // if (getToken !== null) {
+    //   const token = this.authService.decrypt(getToken);
+    //   const decodedPayload = JSON.parse(atob(token.split('.')[1]));
+    //   this.user_id = decodedPayload?.id
+    // }
+    // if (this.user_id) {
+    //   this.apiService.getUserById({ id: this.user_id }).subscribe((val: any) => {
+    //     if (val?.status == 1) {
+    //       this.userData = val?.data[0];
+    //     }
+    //   }, (error) => {
+    //     console.log(error);
+    //   });
+    // }
+
+    const getUser: any = localStorage.getItem('user');
+    if (getUser !== null) { this.userData = JSON.parse(this.authService.decrypt(getUser)); }
   }
 
 
@@ -121,10 +127,22 @@ export class SidebarComponent implements OnInit {
   }
 
   logOutUser() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/']);
-    this.logedIn = false;
+    const payload = {
+      email: this.userData?.email,
+    }
+    this.apiService.logout(payload).pipe(takeUntil(this._unsubscribeAll)).subscribe((val: any) => {
+      if (val?.status) {
+        this.shared_sevice.snake({ message: val?.message });
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.router.navigate(['/']);
+        this.logedIn = false;
+      }
+    }, (error) => {
+      this.shared_sevice.snake({ message: error?.error?.message });
+    });
   }
+
   openedPanel() {
     this.shared_sevice.currentUrl$.next(this.router?.url?.replace(/^\/|\/$/g, ""));
     this.currentRoute1 = this.currentRoute1 ? this.currentRoute1 : this.router?.url?.replace(/^\/|\/$/g, "");
@@ -136,4 +154,10 @@ export class SidebarComponent implements OnInit {
       }
     });
   }
+
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next(null);
+    this._unsubscribeAll.complete();
+  }
+
 }
