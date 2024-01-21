@@ -132,31 +132,10 @@
 
             .body {
                 .comment-form {
-                    .name-email {
-                        display: flex;
-                        align-items: center;
-                        width: 100%;
-                        margin-bottom: 10px;
-                        .name {
-                            width: 50%;
-                            margin: 0px 12px;
-                            input {
-                                width: 100%;
-                                padding: 8px;
-                                border: 1px solid #0000004a;
-                                border-radius: 4px;
-                                font-size: 13px;
-                            }
-                        }
-
-                        .email {
-                            margin-left: 0px;
-                            @extend .name;
-                        }
-                    }
 
                     .textarea {
                         margin: 0 12px;
+
                         textarea {
                             width: 100%;
                             padding: 4px;
@@ -174,7 +153,8 @@
                         border-radius: 4px;
                         color: #00000094;
                         transition: all ease 0.5s;
-                        &:hover{
+
+                        &:hover {
                             background: rgba(0, 128, 0, 0.808);
                             border: 1px solid rgba(0, 128, 0, 0.808);
                             color: #fff;

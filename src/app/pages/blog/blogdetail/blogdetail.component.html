@@ -4,28 +4,28 @@
         <div class="card box-stl">
             <div class="body">
                 <div class="img-post">
-                    <img [src]="'assets/postimages/'+blogData?.image">
+                    <img [src]="blogData?.image">
                 </div>
                 <h3 class="title"><a href="javascript:void(0);">{{blogData?.title}}</a></h3>
-                <p class="discrips">{{blogData?.description}}</p>
+                <div class="discrips" *ngIf="blogData?.description" [innerHTML]="blogData?.description"></div>
             </div>
         </div>
 
         <div class="comments box-stl">
             <div class="header">
-                <h2>Comments 3</h2>
+                <h2>Comments <span *ngIf="commentsList?.length">{{commentsList.length}}</span></h2>
             </div>
             <div class="body">
                 <ul class="comment-reply">
                     <li *ngFor="let comment of commentsList;">
-                        <div class="img-icon" *ngIf="comment?.img">
-                            <img [src]="comment?.img">
+                        <div class="img-icon" *ngIf="comment?.profile_pic">
+                            <img [src]="comment?.profile_pic">
                         </div>
                         <div class="details">
                             <h5 class="name">{{comment?.name}}</h5>
-                            <p class="msg">{{comment?.msg}}</p>
+                            <p class="msg">{{comment?.content}}</p>
                             <ul class="action">
-                                <li><a href="javascript:void(0);" class="time">{{comment?.time}}</a></li>
+                                <li><a href="javascript:void(0);" class="time">{{comment?.createdAt | date}}</a></li>
                                 <li><a href="javascript:void(0);" class="reply-btn">Reply</a></li>
                             </ul>
                         </div>
@@ -41,18 +41,10 @@
             </div>
             <div class="body">
                 <form class="comment-form">
-                    <div class="name-email">
-                        <div class="name">
-                            <input type="text" placeholder="Your Name...">
-                        </div>
-                        <div class="email">
-                            <input type="email" placeholder="Email Address...">
-                        </div>
-                    </div>
                     <div class="textarea">
-                        <textarea rows="4" placeholder="Please type what you want..."></textarea>
+                        <textarea [formControl]="commnetCtr" rows="4" placeholder="Please type what you want..."></textarea>
                     </div>
-                    <button type="button">SUBMIT</button>
+                    <button type="button" (click)="leaveComment()" style="position: relative;"><span [ngStyle]="{'margin-right':coloading?'12px;':''}">SUBMIT</span><mat-spinner *ngIf="coloading" style="position: absolute; top: 16%; right: 3%;" [color]="'warn'" [diameter]="20"></mat-spinner></button>
                 </form>
             </div>
         </div>

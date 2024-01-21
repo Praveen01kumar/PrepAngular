@@ -19,6 +19,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSliderModule} from '@angular/material/slider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const modules = [
   DragDropModule,
@@ -39,7 +40,8 @@ const modules = [
   MatPaginatorModule,
   MatSelectModule,
   MatSnackBarModule,
-  MatSliderModule
+  MatSliderModule,
+  MatProgressSpinnerModule
 ];
 
 @NgModule({

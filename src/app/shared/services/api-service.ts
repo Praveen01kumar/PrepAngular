@@ -17,73 +17,96 @@ export class ApiService {
     this.BASE_URL = environment.API_URL;
   }
 
+  get getheader() {
+    const getToken: any = localStorage.getItem('token');
+    const token = this.authservice.decrypt(getToken);
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    return { headers }
+  }
+
+
+
   // post list
-  getBlogPostList(data: any = ''): Observable<any> {
-    return this.http.post(`${this.BASE_URL}/post/list`, data).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+  getBlogPostList(): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/posts`).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
     );
   }
 
-  // post list
-  getBlogPostByid(id: any = ''): Observable<any> {
-    return this.http.post(`${this.BASE_URL}/post/detail`, id).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+  // post by id
+  getBlogPostByid(id: string): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/posts/${id}`).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
     );
   }
 
   // registor new user
   registorUser(data: any = ''): Observable<any> {
     return this.http.post(`${this.BASE_URL}/auth/signup`, data).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
     );
   }
 
   // login user
   loginUser(data: any = ''): Observable<any> {
     return this.http.post(`${this.BASE_URL}/auth/login`, data).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
     );
   }
 
   // login user otp
   loginOTP(data: any = ''): Observable<any> {
     return this.http.post(`${this.BASE_URL}/auth/mail-login-otp`, data).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
     );
   }
 
   // log out user 
   logout(data: any = ''): Observable<any> {
     return this.http.post(`${this.BASE_URL}/auth/logout`, data).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
     );
   }
 
   // rend reset password link on mail 
   resetMail(data: any = ''): Observable<any> {
     return this.http.post(`${this.BASE_URL}/auth/mailtoresetpass`, data).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
     );
   }
 
@@ -95,10 +118,12 @@ export class ApiService {
       'Authorization': `Bearer ${token}`
     });
     return this.http.post(`${this.BASE_URL}/auth/verify-account-mail`, data, { headers }).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
     );
   }
 
@@ -147,10 +172,12 @@ export class ApiService {
       'Authorization': `Bearer ${token}`
     });
     return this.http.patch(`${this.BASE_URL}/auth/update_self`, data, { headers }).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
     );
   }
 
@@ -161,10 +188,12 @@ export class ApiService {
       'Authorization': `Bearer ${token}`
     });
     return this.http.patch(`${this.BASE_URL}/auth/change_pass_self`, data, { headers }).pipe(
-      tap(
-        data => data,
-        error => error
-      )
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
     );
   }
 
@@ -294,6 +323,81 @@ export class ApiService {
   // user list
   getQuestions(): Observable<any> {
     return this.http.get(`assets/json/questions.json`).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
+
+
+  // all post Categories 
+  getAllCategory(): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/postctg`).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
+
+  // create new post
+  createNewPost(data: any): Observable<any> {
+    const getToken: any = localStorage.getItem('token');
+    const token = this.authservice.decrypt(getToken);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(`${this.BASE_URL}/posts/create`, data, { headers }).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
+
+  // post comments
+  leavePostComment(data: any = ''): Observable<any> {
+    const getToken: any = localStorage.getItem('token');
+    const token = this.authservice.decrypt(getToken);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(`${this.BASE_URL}/comment/create`, data, { headers }).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
+
+  // post comments list
+  getCommnetsList(data: any = ''): Observable<any> {
+    const getToken: any = localStorage.getItem('token');
+    const token = this.authservice.decrypt(getToken);
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    return this.http.post(`${this.BASE_URL}/comment/comment_list`, data, { headers }).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError((err: any) => {
+        return err;
+      })
+    );
+  }
+
+
+  // connect-mail 
+  connectmail(data: any = ''): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/auth/connect-mail`, data, this.getheader).pipe(
       map((response: any) => {
         return response;
       }),

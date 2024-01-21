@@ -4,10 +4,10 @@
         <div class="card box-stl" *ngFor="let post of blogList;">
             <div class="body">
                 <div class="img-post" *ngIf="post?.image">
-                    <img [src]="'assets/postimages/'+post?.image">
+                    <img [src]="post?.image">
                 </div>
                 <h3 class="title" *ngIf="post?.title"><a href="javascript:void(0);">{{post?.title}}</a></h3>
-                <p class="discrips" *ngIf="post?.description">{{post?.description}}</p>
+                <div class="discrips" *ngIf="post?.description" [innerHTML]="post?.description"></div>
             </div>
             <div class="footer">
                 <div class="actions">

@@ -70,7 +70,7 @@ export class SidebarComponent implements OnInit {
   logedIn: any = this.authService.isLogined();
   ngOnInit(): void {
     this.shared_sevice.sideBar$.subscribe((res) => { this.menuFilter = res; }, (err) => { console.log(err); });
-    this.shared_sevice.userDetail$.subscribe((res) => { if(res)this.getuserDetail(); }, (err) => { console.log(err); });
+    this.shared_sevice.userDetail$.subscribe((res) => { if (res) this.getuserDetail(); }, (err) => { console.log(err); });
     this.menuFilter = this.sideBarData;
     this.memberFilter = this.bookMemberArr;
     this.infolistFilter = this.infolistArr;
@@ -130,16 +130,26 @@ export class SidebarComponent implements OnInit {
     const payload = {
       email: this.userData?.email,
     }
-    this.apiService.logout(payload).pipe(takeUntil(this._unsubscribeAll)).subscribe((val: any) => {
-      if (val?.status) {
-        this.shared_sevice.snake({ message: val?.message });
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        this.router.navigate(['/']);
-        this.logedIn = false;
+    this.apiService.logout(payload).pipe(takeUntil(this._unsubscribeAll)).subscribe({
+      next: (val: any) => {
+        
+        if (val?.status) {
+          this.shared_sevice.snake({ message: val?.message });
+          // localStorage.removeItem('token');
+          // localStorage.removeItem('user');
+          this.router.navigate(['/']);
+          this.logedIn = false;
+        }
+      },
+      error: (error) => {
+        // console.log(error);  
+        if (error && error.error && error.error.message) {
+          this.shared_sevice.snake({ message: error.error.message});
+        } else {
+          console.error('Unexpected error:', error);
+          // Handle other error scenarios as needed
+        }
       }
-    }, (error) => {
-      this.shared_sevice.snake({ message: error?.error?.message });
     });
   }
 

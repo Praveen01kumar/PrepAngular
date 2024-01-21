@@ -286,17 +286,6 @@
                         "badgeDef": false,
                         "badgeSucc": false
                     }
-                },
-                {
-                    "title": "Blog Detail",
-                    "routein": "blog/blogdetail",
-                    "badge": {
-                        "txt": "New",
-                        "isBadge": false,
-                        "badgeWar": false,
-                        "badgeDef": false,
-                        "badgeSucc": false
-                    }
                 }
             ]
         },
@@ -1668,17 +1657,6 @@
                 {
                     "title": "Blog List",
                     "routein": "blog/bloglist",
-                    "badge": {
-                        "txt": "New",
-                        "isBadge": false,
-                        "badgeWar": false,
-                        "badgeDef": false,
-                        "badgeSucc": false
-                    }
-                },
-                {
-                    "title": "Blog Detail",
-                    "routein": "blog/blogdetail",
                     "badge": {
                         "txt": "New",
                         "isBadge": false,

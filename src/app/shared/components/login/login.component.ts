@@ -153,10 +153,12 @@ export class LoginComponent implements OnInit {
       if (val?.status) {
         this.resend = true;
         this.sharedService.snake({ message: val?.message });
+      } else {
+        this.sharedService.snake({ message: val?.message });
       }
     }, (error) => {
       this.isLoading = false;
-      this.sharedService.snake({ message: error?.error?.message });
+      this.sharedService.snake({ message: error?.message });
     });
   }
 
