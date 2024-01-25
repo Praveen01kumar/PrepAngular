@@ -64,7 +64,7 @@
           font-size: 16px;
           line-height: 30px;
           opacity: 0.9;
-          margin-bottom: 5rem;
+          margin-bottom: 0.5rem;
         }
       }
 
@@ -838,4 +838,52 @@
   color: #3c3e41;
   margin-top: 15px;
   margin-bottom: 0;
+}
+
+@media (min-width: 1171px) and (max-width: 3000px) {
+  .home {
+    display: flex;
+    width: 100%;
+
+    .content {
+      width: 70%;
+    }
+
+    .profile-img {
+      width: 30%;
+    }
+  }
+
+}
+
+@media (min-width: 1049px) and (max-width: 1170px) {
+  .home {
+    display: flex;
+    width: 100%;
+
+    .content {
+      width: 50%;
+    }
+
+    .profile-img {
+      width: 50%;
+    }
+  }
+
+}
+
+@media (max-width: 1048px) {
+  .home {
+    display: flex;
+    width: 100%;
+
+    .content {
+      width: 100%;
+    }
+
+    .profile-img {
+      display: none;
+    }
+  }
+
 }
