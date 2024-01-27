@@ -259,7 +259,7 @@ export class ProfileComponent implements OnInit {
     const dialogData: {} = {}
     const dialogRef = this.dialog.open(SotialLinkComponent, { width: '36vw', data: dialogData, });
     dialogRef.disableClose = true;
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result:any) => {
       console.log(result);
     });
   }

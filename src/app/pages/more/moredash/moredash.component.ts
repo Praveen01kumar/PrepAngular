@@ -15,7 +15,8 @@ export class MoredashComponent implements OnInit {
     { name: 'Quiz', url: 'quiz' },
     { name: 'To Do', url: 'todo' },
     { name: 'Collections', url: 'collections' },
-    { name: 'Tic Tac Toy', url: 'tictactoy' }
+    { name: 'Tic Tac Toy', url: 'tictactoy' },
+    { name: 'Books', url: 'pdfbooks' }
   ];
 
   constructor() { }

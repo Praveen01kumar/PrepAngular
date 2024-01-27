@@ -1373,6 +1373,17 @@
                         "badgeDef": false,
                         "badgeSucc": false
                     }
+                },
+                {
+                    "title": "Books",
+                    "routein": "more/pdfbooks",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
                 }
             ]
         }
@@ -2744,6 +2755,17 @@
                 {
                     "title": "Tic Tac Toy",
                     "routein": "more/tictactoy",
+                    "badge": {
+                        "txt": "New",
+                        "isBadge": false,
+                        "badgeWar": false,
+                        "badgeDef": false,
+                        "badgeSucc": false
+                    }
+                },
+                {
+                    "title": "Books",
+                    "routein": "more/pdfbooks",
                     "badge": {
                         "txt": "New",
                         "isBadge": false,

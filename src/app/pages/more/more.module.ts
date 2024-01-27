@@ -16,6 +16,8 @@ import { TodoComponent } from './todo/todo.component';
 import { TictactoyComponent } from './tictactoy/tictactoy.component';
 import { SearchCollectionPipe } from 'src/app/shared/pipes/search-collection.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { PdfbooksComponent } from './pdfbooks/pdfbooks.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 const MoreRoutes: Routes = [
@@ -28,7 +30,8 @@ const MoreRoutes: Routes = [
   { path: 'stopwatch', component: StopwatchComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'todo', component: TodoComponent },
-  { path: 'tictactoy', component: TictactoyComponent }
+  { path: 'tictactoy', component: TictactoyComponent },
+  { path: 'pdfbooks', component: PdfbooksComponent }
 
 ]
 
@@ -44,7 +47,8 @@ const MoreRoutes: Routes = [
     CollectionComponent,
     TodoComponent,
     TictactoyComponent,
-    SearchCollectionPipe
+    SearchCollectionPipe,
+    PdfbooksComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +57,8 @@ const MoreRoutes: Routes = [
     Form_Module,
     Mat_Module,
     CKEditorModule,
-    SharedModule
+    SharedModule,
+    PdfViewerModule
   ],
   exports: [
     RouterModule,

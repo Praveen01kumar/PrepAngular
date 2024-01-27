@@ -1,0 +1,34 @@
+<div class="pdf-container">
+    <div class="actions-btn">
+        <button class="choose_file"><label for="input_pdf_file">Choose File</label></button>
+        <input (change)="onFileSelected($event)" type="file" id="input_pdf_file" accept=".pdf" class="d-none" />
+        <button class="previous_page" (click)="previousPage()"><i class="bi bi-arrow-left-square"></i></button>
+        <button class="next_page" (click)="nextPage()"><i class="bi bi-arrow-right-square"></i></button>
+        <button class="next_page" (click)="zoomPage('-')"><i class="bi bi-dash-circle"></i></button>
+        <button class="next_page" (click)="zoomPage('+')"><i class="bi bi-plus-circle"></i></button>
+        <button class="next_page" (click)="zoomScale('page-width')"><i class="bi bi-arrows-angle-expand"></i></button>
+        <button class="next_page" (click)="zoomScale('page-fit')"><i class="bi bi-arrows-fullscreen"></i></button>
+        <button class="next_page" (click)="zoomScale('page-height')"><i class="bi bi-arrows-expand"></i></button>
+        <button class="next_page" (click)="originalSize()"><i class="bi bi-arrows-angle-contract"></i></button>
+        <button class="next_page" (click)="showAll()"><i class="bi bi-check2-circle"></i></button>
+        <button class="next_page" (click)="renderText()"><i class="bi bi-clipboard"></i></button>
+    </div>
+
+    <div class="viewer-container">
+        <pdf-viewer 
+        *ngIf="pdfSrc" 
+        [src]="pdfSrc" 
+        [show-all]="pageAll" 
+        [original-size]="pageOrgSize"
+        [render-text]="pageText"
+        [(page)]="pageNumber" 
+        (after-load-complete)="afterLoadComplete($event)" 
+        (page-rendered)="pageRendered($event)"
+        (text-layer-rendered)="textLayerRendered($event)"
+        [zoom]="pageZoom"
+        [zoom-scale]="pageScale"
+        ></pdf-viewer>
+    </div>
+</div>
+
+
