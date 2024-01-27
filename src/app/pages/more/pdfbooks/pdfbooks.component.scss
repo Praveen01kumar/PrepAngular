@@ -1,23 +1,56 @@
 .pdf-container {
+  margin: 4px 1%;
+
   .actions-btn {
-    .choose_file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    .action_btn {
+      border: none;
+      background-color: rgb(0, 255, 200);
+      padding: 3px 8px;
+      color: #000;
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0px 2px;
+      border-radius: 4px;
     }
 
-    .previous_page {
+    .input_search {
+      border: 1px solid rgb(0, 255, 200);
+      margin: 0px 2px;
+      padding: 5px 6px;
+      border-radius: 4px;
+      outline: none;
+      color: #000000;
+      font-size: 14px;
+      font-weight: 600;
 
+      &::placeholder {
+        color: #000000;
+      }
     }
 
-    .next_page {
+    .input_pages {
+      @extend .input_search;
 
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
   }
 
   .viewer-container {
+    display: block;
+    border: 1px solid rgb(0, 255, 200);
+    border-radius: 4px;
+    height: 70vh;
+    margin: 4px 1%;
+
     pdf-viewer {
-      display: block;
-      border: 1px solid rgb(0, 255, 200);
-      border-radius: 4px;
       height: 70vh;
     }
   }
