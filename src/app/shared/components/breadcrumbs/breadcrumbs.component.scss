@@ -1,59 +1,111 @@
+// ol {
+//     display: inline-block;
+//     padding-left: 0px;
+
+//     li {
+//         text-decoration: none;
+//         outline: none;
+//         display: block;
+//         float: left;
+//         font-size: 16px;
+//         line-height: 36px;
+//         font-weight: 600;
+//         color: #5A5A5A;
+//         padding: 0px 30px;
+//         background: linear-gradient(#e8e8e8, #8f8f8f);
+//         position: relative;
+//         cursor: pointer;
+
+//         &:first-child {
+//             border-radius: 5px 0 0 5px;
+//             font-size: 20px;
+//         }
+
+//         &:last-child {
+//             border-radius: 0 5px 5px 0;
+//             cursor:auto;
+
+//             &:after {
+//                 content: '';
+//                 position: absolute;
+//                 top: 0;
+//                 right: -16px;
+//                 width: 36px;
+//                 height: 36px;
+//                 transform: scale(0.707) rotate(45deg);
+//                 z-index: 1;
+//                 background: linear-gradient(135deg, #e8e8e8, #8f8f8f);
+//                 box-shadow: none;
+//                 border-radius: 3px 5px 3px 50px;
+//             }
+//         }
+
+//         &:after {
+//             content: '';
+//             position: absolute;
+//             top: 0;
+//             right: -18px;
+//             width: 36px;
+//             height: 36px;
+//             transform: scale(0.707) rotate(45deg);
+//             z-index: 1;
+//             background: linear-gradient(135deg, #e8e8e8, #8f8f8f);
+//             box-shadow:
+//                 2px -2px 0 2px rgba(0, 0, 0, 0.4),
+//                 3px -3px 0 2px rgba(255, 255, 255, 0.1);
+//             border-radius: 2px 5px 2px 50px;
+//         }
+//     }
+// }
+
+
 ol {
-    display: inline-block;
-    padding-left: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    margin: 0px;
 
     li {
-        text-decoration: none;
-        outline: none;
-        display: block;
-        float: left;
-        font-size: 16px;
-        line-height: 36px;
-        font-weight: 600;
-        color: #5A5A5A;
-        padding: 0px 30px;
-        background: linear-gradient(#e8e8e8, #8f8f8f);
-        position: relative;
-        cursor: pointer;
+        list-style-type: none;
 
-        &:first-child {
-            border-radius: 5px 0 0 5px;
-            font-size: 20px;
-        }
+        a {
+            padding: 4px 0px;
+            position: relative;
 
-        &:last-child {
-            border-radius: 0 5px 5px 0;
-            cursor:auto;
-
-            &:after {
-                content: '';
+            &::after {
+                background: none repeat scroll 0 0 transparent;
+                bottom: 0;
+                content: "";
+                display: block;
+                height: 2px;
+                left: 50%;
                 position: absolute;
-                top: 0;
-                right: -16px;
-                width: 36px;
-                height: 36px;
-                transform: scale(0.707) rotate(45deg);
-                z-index: 1;
-                background: linear-gradient(135deg, #e8e8e8, #8f8f8f);
-                box-shadow: none;
-                border-radius: 3px 5px 3px 50px;
+                background: #5A5A5A;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                width: 0;
+                border-radius: 50%;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                &::after {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+
+            i {
+                &::before {
+                    line-height: 1.4;
+                }
             }
         }
 
-        &:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -18px;
-            width: 36px;
-            height: 36px;
-            transform: scale(0.707) rotate(45deg);
-            z-index: 1;
-            background: linear-gradient(135deg, #e8e8e8, #8f8f8f);
-            box-shadow:
-                2px -2px 0 2px rgba(0, 0, 0, 0.4),
-                3px -3px 0 2px rgba(255, 255, 255, 0.1);
-            border-radius: 2px 5px 2px 50px;
+        span {
+            padding: 0px 4px;
+            font-size: 16px;
+            font-weight: 600;
         }
     }
 }

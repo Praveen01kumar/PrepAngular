@@ -12,8 +12,8 @@
         <button class="action_btn" matTooltip="Original Size" matTooltipPosition="above" matTooltipClass="above" (click)="originalSize()"><i class="bi bi-arrows-angle-contract"></i></button>
         <button class="action_btn" matTooltip="Show All Page" matTooltipPosition="above" matTooltipClass="above" (click)="showAll()"><i class="bi bi-check2-circle"></i></button>
         <button class="action_btn" matTooltip="Make Text Copyable" matTooltipPosition="above" matTooltipClass="above" (click)="renderText()"><i class="bi bi-clipboard"></i></button>
-        <input type="text" class="input_search" [(ngModel)]="searchQuery" (ngModelChange)="searchInPdf()" placeholder="Search in Book" />
-        <input type="number" class="input_pages" (input)="goToPage($event)" placeholder="Enter Page Number" />
+        <input type="text" class="input_search" [(ngModel)]="searchQuery" (ngModelChange)="searchInPdf()" placeholder="Search in Book..." />
+        <input type="number" class="input_pages" (input)="goToPage($event)" placeholder="Enter Page Number..." />
     </div>
 
     <div class="viewer-container">

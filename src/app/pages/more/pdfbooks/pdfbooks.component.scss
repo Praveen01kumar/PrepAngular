@@ -8,23 +8,23 @@
 
     .action_btn {
       border: none;
-      background-color: rgb(0, 255, 200);
+      background-color: rgb(0 255 200 / 32%);
       padding: 3px 8px;
-      color: #000;
-      font-size: 18px;
-      font-weight: 800;
+      color: #5A5A5A;
+      font-size: 16px;
+      font-weight: 600;
       margin: 0px 2px;
       border-radius: 4px;
     }
 
     .input_search {
-      border: 1px solid rgb(0, 255, 200);
+      border: 1px solid rgb(0 255 200 / 32%);
       margin: 0px 2px;
       padding: 5px 6px;
       border-radius: 4px;
       outline: none;
-      color: #000000;
-      font-size: 14px;
+      color: #5A5A5A;
+      font-size: 12px;
       font-weight: 600;
 
       &::placeholder {
@@ -45,7 +45,7 @@
 
   .viewer-container {
     display: block;
-    border: 1px solid rgb(0, 255, 200);
+    border: 1px solid rgb(0 255 200 / 32%);
     border-radius: 4px;
     height: 70vh;
     margin: 4px 1%;

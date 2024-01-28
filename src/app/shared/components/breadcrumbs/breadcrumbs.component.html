@@ -1,8 +1,10 @@
 <ol>
     <li (click)="goToPage('')">
         <a href="javascript:void(0);"><i class="bi bi-house-door"></i></a>
+        <span *ngIf="breadcrumbsData.length>0">/</span>
     </li>
-    <li *ngFor="let breadcrumb of breadcrumbsData;let i=index;">
-        <a (click)="goTo(i)">{{ breadcrumb|titlecase}}</a>
+    <li *ngFor="let breadcrumb of breadcrumbsData;let i=index;let isLast = last;">
+        <a (click)="isLast ? $event.preventDefault() : goTo(i)">{{ breadcrumb|titlecase}}</a>
+        <span *ngIf="!isLast">/</span>
     </li>
 </ol>
