@@ -1,10 +1,3 @@
-<!-- <div class="referral-credit-outer-circle">
-    <span class="referral-credit-inner-icon" data-icon="H"></span>
-    <div class="mask-referral-credit-inner-circle" style="height: 100%">
-        <div class="referral-credit-inner-circle"></div>
-    </div>
-</div> -->
-
 <div class="about-container">
   <div class="home">
     <div class="content">
@@ -344,22 +337,22 @@
           <div class="headings">
             <div>
               <span class="subtitle">Features</span>
-              <h4 class="maintitle">Design Skills</h4>
+              <h4 class="maintitle">Design & Development Skills</h4>
             </div>
-            <div>
+            <!-- <div>
               <span class="subtitle">Features</span>
               <h4 class="maintitle">Development Skills</h4>
-            </div>
+            </div> -->
           </div>
           <div class="experience-list">
             <div class="progress" *ngFor="let skill of skillList">
               <div class="icons">
-                <!-- <img src="../../../../assets/avatar/avatar1.jpg" alt=""> -->
-                <span>{{skill?.icon}}</span>
+                <img [src]="skill?.logo" [alt]="skill?.icon">
+                <!-- <span>{{skill?.icon}}</span> -->
               </div>
               <div class="name">
                 <span>{{skill?.name}}</span>
-                <mat-progress-bar mode="determinate" color="warn" [value]="skill?.value"></mat-progress-bar>
+                <mat-progress-bar mode="determinate" color="primary" [value]="skill?.value"></mat-progress-bar>
               </div>
             </div>
           </div>
