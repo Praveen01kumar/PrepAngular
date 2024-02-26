@@ -376,6 +376,51 @@
             "hashtag": [
                 "icons"
             ]
+        },
+        {
+            "url": "https://writehuman.ai/",
+            "img": "assets/images/aipic/writehuman.webp",
+            "name": "writehuman",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 280,
+            "descrip": "The premier AI detector and AI humanizer, WriteHuman empowers you to take control of your AI privacy. By removing AI detection from popular platforms.",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "writehuman"
+            ]
+        },
+        {
+            "url": "https://writer.com/ai-content-detector",
+            "img": "assets/images/aipic/writer.webp",
+            "name": "writer",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 180,
+            "descrip": "Transform work with full-stack generative AI · The integrated platform designed for accuracy and security ·",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "writer"
+            ]
+        },
+        {
+            "url": "https://quillbot.com",
+            "img": "assets/images/aipic/quillbot.webp",
+            "name": "quillbot",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 180,
+            "descrip": "Want to level up your online communication? Experience the power of QuillBot for Chrome. Do you want to eliminate embarrassing writing mistakes? Try QuillBot for Chrome today.",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "quillbot"
+            ]
         }
     ],
     "chipArr": [
