@@ -19,33 +19,35 @@ export class AuthService {
 
   isLogined(): boolean {
     const getToken: any = localStorage.getItem('token');
-    if (getToken) {
-      const token = this.decrypt(getToken);
-      try {
-        return !jwtHelper.isTokenExpired(token);
-      } catch (error) {
-        return false;
-      }
-    } else {
-      return false;
-    }
+    // if (getToken) {
+    //   const token = this.decrypt(getToken);
+    //   try {
+    //     return !jwtHelper.isTokenExpired(token);
+    //   } catch (error) {
+    //     return false;
+    //   }
+    // } else {
+    //   return false;
+    // }
+    return true;
   }
 
   isAdmin(): boolean {
     const getToken: any = localStorage.getItem('token');
-    if(getToken !== null){
-      const token = this.decrypt(getToken);
-      const decodedPayload = JSON.parse(atob(token.split('.')[1]));
-      if (!jwtHelper.isTokenExpired(token) && decodedPayload?.role === 'admin') {
-        return true;
-      } else {
-        this.sharedService.snake({ message: 'You Are Not An Admin!' });
-        return false;
-      }
-    }else{
-      this.sharedService.snake({ message: 'You Need To Login!' });
-      return false;
-    }
+    // if (getToken !== null) {
+    //   const token = this.decrypt(getToken);
+    //   const decodedPayload = JSON.parse(atob(token.split('.')[1]));
+    //   if (!jwtHelper.isTokenExpired(token) && decodedPayload?.role === 'admin') {
+    //     return true;
+    //   } else {
+    //     this.sharedService.snake({ message: 'You Are Not An Admin!' });
+    //     return false;
+    //   }
+    // } else {
+    //   this.sharedService.snake({ message: 'You Need To Login!' });
+    //   return false;
+    // }
+    return true;
   }
 
 
@@ -65,13 +67,14 @@ export class AuthService {
   sessionExp(): boolean {
     const getToken: any = localStorage.getItem('token');
     const token = this.decrypt(getToken);
-    if (jwtHelper.isTokenExpired(token)) {
-      this.sharedService.snake({ message: "Your Session is Expired!" });
-      this.router.navigate(['/login']);
-      return true;
-    } else {
-      return false;
-    }
+    // if (jwtHelper.isTokenExpired(token)) {
+    //   this.sharedService.snake({ message: "Your Session is Expired!" });
+    //   this.router.navigate(['/login']);
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+    return true;
   }
 
 }

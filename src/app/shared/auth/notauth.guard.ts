@@ -16,14 +16,14 @@ export class NotauthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.authService.isLogined()) {
-      this.router.navigate(['/']);
-      this.sharedService.snake({ message: 'You Are Alreay Logedin!' });
-      return false;
-    } else {
-      return true;
-    }
-
+    // if (this.authService.isLogined()) {
+    //   this.router.navigate(['/']);
+    //   this.sharedService.snake({ message: 'You Are Alreay Logedin!' });
+    //   return false;
+    // } else {
+    //   return true;
+    // }
+    return true;
   }
 
 }

@@ -346,6 +346,36 @@
             "hashtag": [
                 "pixelied"
             ]
+        },
+        {
+            "url": "https://www.svgrepo.com",
+            "img": "assets/images/aipic/svgrepo.webp",
+            "name": "Svgrepo",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 180,
+            "descrip": "Free Vectors and Icons in SVG format. ✓ Download free mono or multi color vectors for commercial use. Search in 500.000+ Free SVG Vectors and Icons.",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "icons"
+            ]
+        },
+        {
+            "url": "https://icons8.com",
+            "img": "assets/images/aipic/icons8.webp",
+            "name": "icons8",
+            "vnpai": "popular",
+            "verified": true,
+            "likes": 180,
+            "descrip": "Get free icons for graphic design, UI, social media, and mobile. Search for static and animated icons with consistent quality. PNG, SVG, GIF, AE formats.",
+            "feetype": {
+                "free": "Free"
+            },
+            "hashtag": [
+                "icons"
+            ]
         }
     ],
     "chipArr": [
@@ -467,6 +497,10 @@
         },
         {
             "name": "pixelied",
+            "active": false
+        },
+        {
+            "name": "icons",
             "active": false
         }
         

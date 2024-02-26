@@ -22,21 +22,22 @@ export class RoleGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const getToken: any = localStorage.getItem('token');
-    if(getToken !== null){
-      const token = this.decrypt(getToken);
-      const decodedPayload = JSON.parse(atob(token.split('.')[1]));
-      if (!jwtHelper.isTokenExpired(token) && decodedPayload?.role === 'admin') {
-        return true;
-      } else {
-        this.sharedService.snake({ message: 'You Are Not An Admin!' });
-        this.router.navigate(['/']);
-        return false;
-      }
-    }else{
-      this.sharedService.snake({ message: 'You Need To Login!' });
-      this.router.navigate(['/login']);
-      return false;
-    }
+    // if(getToken !== null){
+    //   const token = this.decrypt(getToken);
+    //   const decodedPayload = JSON.parse(atob(token.split('.')[1]));
+    //   if (!jwtHelper.isTokenExpired(token) && decodedPayload?.role === 'admin') {
+    //     return true;
+    //   } else {
+    //     this.sharedService.snake({ message: 'You Are Not An Admin!' });
+    //     this.router.navigate(['/']);
+    //     return false;
+    //   }
+    // }else{
+    //   this.sharedService.snake({ message: 'You Need To Login!' });
+    //   this.router.navigate(['/login']);
+    //   return false;
+    // }
+    return true;
 
   }
 

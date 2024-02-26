@@ -9,22 +9,23 @@ import { SharedService } from '../services/shared.service';
 })
 export class AuthGuard implements CanActivate {
   constructor(
-    private router: Router, 
+    private router: Router,
     private authService: AuthService,
     public sharedService: SharedService
-    ) { }
+  ) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.authService.isLogined()){
-        return true;
-      }else{
-        this.sharedService.snake({ message: 'You Need To Login!' });
-        this.router.navigate(['/login']);
-        return false;
-      }
+    // if(this.authService.isLogined()){
+    // return true;
+    // }else{
+    //   this.sharedService.snake({ message: 'You Need To Login!' });
+    //   this.router.navigate(['/login']);
+    //   return false;
+    // }
+    return true;
   }
-  
+
 
 }
